@@ -157,6 +157,7 @@
 <!--Main body script-->
 <script>
     const baseUrl = "http://localhost:3000";
+    //function to get all the checked boxes
     function getCheckedBoxes(chkboxName) {
         var checkboxes = document.getElementsByName(chkboxName);
         var checkboxesChecked = [];
@@ -169,7 +170,7 @@
             }
         }
         if (checkboxesChecked == []){
-            return error
+            return err
         }else{
             return checkboxesChecked
         }
@@ -185,9 +186,11 @@
             email: email
         };
         console.log(requestBody)
-        /* axios.post(`${baseUrl}/users/`, requestBody)
+
+        axios.post(`${baseUrl}/request/user`, requestBody)
             .then((response) => {
-                window.location.href = "/login";
+                // reset form value.
+                $("#email").val("")
             })
             .catch((error) => {
                 console.log(error);
@@ -196,7 +199,7 @@
                 } else {
                     alert("Something unexpected went wrong.");
                 }
-            }); */
+            });
     });
 
 </script>
