@@ -10,12 +10,11 @@ app.use(cors());
 
 
 // var kodoDB=require('../model/model.js');
-// var verifyToken = require('../auth/verifyToken.js');
-// var verifyAdmin = require('../auth/verifyAdmin.js');
 const JWT_SECRET = require("../auth/config.js"); 
 const jwt = require('jsonwebtoken')
 const { v4: uuidv4 } = require('uuid');
 const verifyToken = require('../auth/verifyToken.js');
+var formidable = require('formidable');
 
 app.post('/request/parameters', function(req,res){
     var email = req.body.email
@@ -35,5 +34,4 @@ app.get('/request/zipFile',verifyToken, function(req,res){
     res.json({"email": email, "queriesToUse": queriesToUse})
     res.send().status(200)
 })
-
 module.exports=app;
