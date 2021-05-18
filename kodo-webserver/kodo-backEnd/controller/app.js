@@ -15,7 +15,6 @@ app.use(cors());
 // const JWT_SECRET = require("../config.js"); 
 // jwt = require('jsonwebtoken')
 
-app.get('/test', function(req,res){
 app.get('/kodo/request/paramenter', function(req,res){
     res.sendStatus(200)
 })
