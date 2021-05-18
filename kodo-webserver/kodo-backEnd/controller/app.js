@@ -16,6 +16,7 @@ app.use(cors());
 // jwt = require('jsonwebtoken')
 
 app.get('/test', function(req,res){
+app.get('/kodo/request/paramenter', function(req,res){
     res.sendStatus(200)
 })
 
