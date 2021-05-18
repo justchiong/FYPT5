@@ -18,6 +18,7 @@ const jwt = require('jsonwebtoken')
 app.post('/request/parameters', function(req,res){
     var email = req.body.email
     var queriesToUse = req.body.queriesToUse
+    console.log("test")
     var token = "Request "
     token += jwt.sign({ userid: result[0].userid, role: result[0].role }, JWT_SECRET.key, {
         expiresIn: 86400 //expires in 24 hrs
