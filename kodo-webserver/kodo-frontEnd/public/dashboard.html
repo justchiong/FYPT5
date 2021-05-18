@@ -51,13 +51,21 @@
     <form class="container">
         <!-- FILE UPLOAD (.zip)-->
         <div class="row mt-5 pt-2">
-            <label class="text-white col-2 text-left pr-0 mr-0" for="zipfile">Upload:</label>
+            <label class="text-white col-2 text-left pr-0 mr-0 my-0" for="zipfile">Upload:</label>
             <div class="custom-file col-4">
                 <input type="file" accept=".zip" enctype = "multipart/form-data" class="custom-file-input " id="customFile" name="zipfile" required>
-                <label class="custom-file-label" for="customFile">Choose file</label>
+                <label class="custom-file-label " for="customFile">Choose file</label>
+            </div>
+        </div>
+        <!--Email input-->
+        <div class="row mt-2">
+            <label for="email" class="text-white col-2 text-left pr-0 mr-0 my-0">Email:</label>
+            <div class="col-4 px-0">
+                <input type="email" class="form-control" id="email" placeholder="example@gmail.com" required>
             </div>
         </div>
         <!--Choose vulnerability to scan-->
+        <!--column 1-->
         <div class="row d-flex h-100 mt-4 pt-3 pl-0">
             <div class="col-4">
                 <div class="form-check pl-0">
@@ -82,6 +90,7 @@
                     </label>
                 </div>
             </div>
+            <!--column 2-->
             <div class="col-4">
                 <div class="form-check pl-0">
                 
@@ -105,6 +114,7 @@
                     </label>
                 </div>
             </div>
+            <!--column 3-->
             <div class="col-4">
                 <div class="form-check pl-0">
                 
@@ -128,8 +138,8 @@
                     </label>
                 </div>
             </div>
-            
         </div>
+        
         <div class="row mt-5 pt-5 mr-0">
             <div class="col-12 text-right">
                 <button type="submit" class="btn btn-warning btn-block font-weight-bold text-dark">Send Query Request</button>
@@ -140,7 +150,6 @@
 </body>
 <!--Main body script-->
 <script>
-    console.log("william is not here")
 
 
 </script>
