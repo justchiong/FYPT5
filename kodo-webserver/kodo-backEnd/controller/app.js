@@ -12,14 +12,15 @@ app.use(cors());
 // var kodoDB=require('../model/model.js');
 // var verifyToken = require('../auth/verifyToken.js');
 // var verifyAdmin = require('../auth/verifyAdmin.js');
-// const JWT_SECRET = require("../config.js"); 
-// jwt = require('jsonwebtoken')
+const JWT_SECRET = require("../auth/config.js"); 
+const jwt = require('jsonwebtoken')
 
 app.post('/request/parameters', function(req,res){
     var email = req.body.email
     var queriesToUse = req.body.queriesToUse
     console.log(queriesToUse)
     console.log(email)
+    var token
     res.sendStatus(200)
 })
 
