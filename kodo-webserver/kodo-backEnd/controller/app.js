@@ -15,7 +15,11 @@ app.use(cors());
 // const JWT_SECRET = require("../config.js"); 
 // jwt = require('jsonwebtoken')
 
-app.get('/kodo/request/paramenter', function(req,res){
+app.post('/request/parameters', function(req,res){
+    var email = req.body.email
+    var queriesToUse = req.body.queriesToUse
+    console.log(queriesToUse)
+    console.log(email)
     res.sendStatus(200)
 })
 
