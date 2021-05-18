@@ -182,15 +182,17 @@
         const email = $("#email").val();
         const queries = getCheckedBoxes("groupcheck")
         const requestBody = {
-            queries: queries,
-            email: email
+            "queriesToUse": queries,
+            "email": email
         };
-        console.log(requestBody)
+        // console.log(requestBody)
 
-        axios.post(`${baseUrl}/request/user`, requestBody)
+        axios.post(`${baseUrl}/request/parameters`, requestBody)
             .then((response) => {
                 // reset form value.
                 $("#email").val("")
+                var reqToken = response.data.requestToken
+                console.log(reqToken)
             })
             .catch((error) => {
                 console.log(error);
