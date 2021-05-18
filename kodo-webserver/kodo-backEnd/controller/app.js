@@ -14,16 +14,26 @@ app.use(cors());
 // var verifyAdmin = require('../auth/verifyAdmin.js');
 const JWT_SECRET = require("../auth/config.js"); 
 const jwt = require('jsonwebtoken')
+const { v4: uuidv4 } = require('uuid');
+const verifyToken = require('../auth/verifyToken.js');
 
 app.post('/request/parameters', function(req,res){
     var email = req.body.email
     var queriesToUse = req.body.queriesToUse
+    request_uuid = uuidv4()
     console.log("test")
-    var token = "Request "
-    token += jwt.sign({ userid: result[0].userid, role: result[0].role }, JWT_SECRET.key, {
+    var token = jwt.sign({ requestId: request_uuid, userEmail: email, queries: queriesToUse}, JWT_SECRET.key, {
         expiresIn: 86400 //expires in 24 hrs
     });
-    res.sendStatus(200)
+    res.json({"requestToken": "Bearer "+ token})
+    res.send().status(200)
+})
+
+app.get('/request/zipFile',verifyToken, function(req,res){
+    var email = req.email
+    var queriesToUse = req.queriesToUse
+    res.json({"email": email, "queriesToUse": queriesToUse})
+    res.send().status(200)
 })
 
 module.exports=app;
