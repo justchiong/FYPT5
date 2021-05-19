@@ -32,13 +32,17 @@ app.post('/request/parameters', function(req,res){
 app.post('/request/zipFile',verifyToken, function(req,res){
     var email = req.email
     var queriesToUse = req.queriesToUse
+    console.log("hi")
     new formidable.IncomingForm().parse(req, function(err, fields, files){
+        console.log("yo")
         if(err){
+            console.log("iui")
             console.error('Error receiving file')
             res.send("Error Receiving File").status(500)
         }else{
             console.log('Fields', fields)
-            console.log(files.zipFile)
+            zipFile = files.zipFile
+            console.log(zipFile.type)
         }
     })
     res.json({"email": email, "queriesToUse": queriesToUse})
