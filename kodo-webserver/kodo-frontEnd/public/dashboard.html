@@ -198,6 +198,23 @@
                 $("#email").val("")
                 var reqToken = response.data.requestToken
                 console.log(reqToken)
+                //new form to submit zip file
+                var formData = new FormData()
+                var zipFileValues = $("#customFile")[0]
+                formData.append("zipFile", zipFileValues.files[0])
+
+                axios.post(`${baseUrl}/request/zipFile`, formData, {headers: { "Authorization": "Bearer " + reqToken}})
+                    .then((response) => {
+                        
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        if (error.response.status === 400) {
+                            alert("Validation failed");
+                        } else {
+                            alert("Something unexpected went wrong.");
+                        }
+                    });
             })
             .catch((error) => {
                 console.log(error);
