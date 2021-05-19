@@ -14,7 +14,24 @@ const JWT_SECRET = require("../auth/config.js");
 const jwt = require('jsonwebtoken')
 const { v4: uuidv4 } = require('uuid');
 const verifyToken = require('../auth/verifyToken.js');
-var formidable = require('formidable');
+var multer = require('multer');
+
+function validateFile(req, file){
+    console.log(file.mimetype)
+    return file
+}
+var storages = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, '../zipFiles/');
+     },
+    filename: function(req, file, callback) {
+        callback(null, req.uuid +".zip");
+    },
+    fileFilter: function(req, file, callback){
+        callback(null, validateFile())
+    }
+});
+var upload = multer({storage: storages});
 
 app.post('/request/parameters', function(req,res){
     var email = req.body.email
@@ -29,22 +46,10 @@ app.post('/request/parameters', function(req,res){
     res.send().status(200)
 })
 
-app.post('/request/zipFile',verifyToken, function(req,res){
+app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,res){
     var email = req.email
     var queriesToUse = req.queriesToUse
-    console.log("hi")
-    new formidable.IncomingForm().parse(req, function(err, fields, files){
-        console.log("yo")
-        if(err){
-            console.log("iui")
-            console.error('Error receiving file')
-            res.send("Error Receiving File").status(500)
-        }else{
-            console.log('Fields', fields)
-            zipFile = files.zipFile
-            console.log(zipFile.type)
-        }
-    })
+    console.log(req.file)
     res.json({"email": email, "queriesToUse": queriesToUse})
     res.send().status(200)
 })

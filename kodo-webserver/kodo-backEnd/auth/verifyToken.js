@@ -16,6 +16,7 @@ function verifyToken(req, res, next){
         }else{
             req.email = decoded.userEmail //decode the email and store in req for use
             req.queriesToUse = decoded.queries//decode the queries to use and store in req for use
+            req.uuid = decoded.request_uuid
             next();
         }
        });
