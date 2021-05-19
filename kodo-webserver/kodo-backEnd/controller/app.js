@@ -25,13 +25,22 @@ app.post('/request/parameters', function(req,res){
     });
     console.log("Token Created")
     console.log(token)
-    res.json({"requestToken": "Bearer "+ token})
+    res.json({"requestToken": token})
     res.send().status(200)
 })
 
-app.get('/request/zipFile',verifyToken, function(req,res){
+app.post('/request/zipFile',verifyToken, function(req,res){
     var email = req.email
     var queriesToUse = req.queriesToUse
+    new formidable.IncomingForm().parse(req, function(err, fields, files){
+        if(err){
+            console.error('Error receiving file')
+            res.send("Error Receiving File").status(500)
+        }else{
+            console.log('Fields', fields)
+            console.log(files.zipFile)
+        }
+    })
     res.json({"email": email, "queriesToUse": queriesToUse})
     res.send().status(200)
 })
