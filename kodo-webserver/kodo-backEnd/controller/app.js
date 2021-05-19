@@ -16,22 +16,24 @@ const { v4: uuidv4 } = require('uuid');
 const verifyToken = require('../auth/verifyToken.js');
 var multer = require('multer');
 
-function validateFile(req, file){
-    console.log(file.mimetype)
-    return file
-}
+
 var storages = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, '../zipFiles/');
+        callback(null, './zipFiles/');
      },
     filename: function(req, file, callback) {
         callback(null, req.uuid +".zip");
-    },
-    fileFilter: function(req, file, callback){
-        callback(null, validateFile())
     }
 });
-var upload = multer({storage: storages});
+var upload = multer({storage: storages,
+        fileFilter: function(req, file, callback){
+            if(file.mimetype == "application/x-zip-compressed"){
+                callback(null, true)
+            }else{
+                return callback(new Error('Wrong File Type'))
+            }
+        }
+    });
 
 app.post('/request/parameters', function(req,res){
     var email = req.body.email
@@ -41,7 +43,6 @@ app.post('/request/parameters', function(req,res){
         expiresIn: 86400 //expires in 24 hrs
     });
     console.log("Token Created")
-    console.log(token)
     res.json({"requestToken": token})
     res.send().status(200)
 })
