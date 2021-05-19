@@ -187,9 +187,11 @@
         const email = $("#email").val();
         const queries = getCheckedBoxes("groupcheck")
         if (queries == "error"){
-            //code to tell user to select a query (atleast 1)
-        }
-        const requestBody = {
+            //code to tell user to select a query (atleast 1) then refresh the page
+            alert("Please choose at least 1 vulnerability to scan for.")
+            location.reload();
+        }else{
+            const requestBody = {
             "queriesToUse": queries,
             "email": email
         };
@@ -227,6 +229,8 @@
                     alert("Something unexpected went wrong.");
                 }
             });
+        }
+        
     });
 
 </script>
