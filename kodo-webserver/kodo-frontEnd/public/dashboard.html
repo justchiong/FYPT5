@@ -169,8 +169,10 @@
                 checkboxesChecked.push(currentid);
             }
         }
-        if (checkboxesChecked == []){
-            return err
+        if (checkboxesChecked.length == 0 || checkboxesChecked == null){
+            console.log(checkboxesChecked)
+            var error = "error"
+            return error
         }else{
             return checkboxesChecked
         }
@@ -181,6 +183,9 @@
 
         const email = $("#email").val();
         const queries = getCheckedBoxes("groupcheck")
+        if (queries == "error"){
+            //code to tell user to select a query (atleast 1)
+        }
         const requestBody = {
             queries: queries,
             email: email
