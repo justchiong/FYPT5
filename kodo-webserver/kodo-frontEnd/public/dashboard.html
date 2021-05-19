@@ -54,7 +54,7 @@
             <label class="text-white col-2 text-left pr-0 mr-0 my-0" for="zipfile">Upload:</label>
             <div class="custom-file col-4">
                 <input type="file" accept=".zip" enctype = "multipart/form-data" class="custom-file-input " id="customFile" name="zipfile" required>
-                <label class="custom-file-label " for="customFile">Choose file</label>
+                <label class="custom-file-label " for="customFile" id="customFileName">Choose file</label>
             </div>
         </div>
         <!--Email input-->
@@ -156,6 +156,9 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!--Main body script-->
 <script>
+    $("#customFile").change(function(){
+        $("#customFileName").text(this.files[0].name);
+    });
     const baseUrl = "http://localhost:3000";
     //function to get all the checked boxes
     function getCheckedBoxes(chkboxName) {
