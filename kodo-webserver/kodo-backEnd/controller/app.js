@@ -1,21 +1,16 @@
 var express=require('express');
 var app=express();
-// var fs = require('fs');
 
 var bodyParser=require('body-parser');
-var urlencodedParser=bodyParser.urlencoded({extended:false});
 const cors = require("cors");
 app.use(bodyParser.json())
 app.use(cors());
 
-
-// var kodoDB=require('../model/model.js');
 const JWT_SECRET = require("../auth/config.js"); 
 const jwt = require('jsonwebtoken')
 const { v4: uuidv4 } = require('uuid');
 const verifyToken = require('../auth/verifyToken.js');
 var multer = require('multer');
-
 
 var storages = multer.diskStorage({
     destination: function(req, file, callback) {
@@ -25,6 +20,7 @@ var storages = multer.diskStorage({
         callback(null, req.uuid +".zip");
     }
 });
+
 var upload = multer({storage: storages,
         fileFilter: function(req, file, callback){
             req.valid = file.mimetype == "application/x-zip-compressed"
