@@ -50,7 +50,7 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
         res.status(422).send("Wrong file type, only zip files are accepted.")
         return
     }
-    console.log(`Zip file of UUID ${req.uuid} created.`)
+    console.log(`Zip file of UUID ${req.uuid} received and saved.`)
     res.sendStatus(200)
 })
 module.exports=app;
