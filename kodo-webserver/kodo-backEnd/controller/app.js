@@ -27,16 +27,13 @@ var storages = multer.diskStorage({
 });
 var upload = multer({storage: storages,
         fileFilter: function(req, file, callback){
-            if(file.mimetype == "application/x-zip-compressed"){
-                callback(null, true)
-            }else{
-                return callback(new Error('Wrong File Type'))
-            }
+            req.valid = file.mimetype == "application/x-zip-compressed"
+            return callback(null, file.mimetype == "application/x-zip-compressed")
         }
     });
 
 app.post('/request/parameters', function(req,res){
-    var email = req.body.email
+    var email = req.body.email  
     var queriesToUse = req.body.queriesToUse
     request_uuid = uuidv4()
     var token = jwt.sign({ requestId: request_uuid, userEmail: email, queries: queriesToUse}, JWT_SECRET.key, {
@@ -48,6 +45,11 @@ app.post('/request/parameters', function(req,res){
 })
 
 app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,res){
+    if(!req.valid){
+        console.log(req.valid)
+        res.status(422).send("Wrong file type, only zip files are accepted.")
+        return
+    }
     var email = req.email
     var queriesToUse = req.queriesToUse
     console.log(req.file)
