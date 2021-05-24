@@ -39,7 +39,7 @@ app.post('/request/parameters', function(req,res){
     var token = jwt.sign({ requestId: request_uuid, userEmail: email, queries: queriesToUse}, JWT_SECRET.key, {
         expiresIn: 86400 //expires in 24 hrs
     });
-    console.log("Token Created")
+    console.log(`Token created with request UUID of ${request_uuid}`)
     res.json({"requestToken": token})
     res.send().status(200)
 })
@@ -50,10 +50,7 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
         res.status(422).send("Wrong file type, only zip files are accepted.")
         return
     }
-    var email = req.email
-    var queriesToUse = req.queriesToUse
-    console.log(req.file)
-    res.json({"email": email, "queriesToUse": queriesToUse})
-    res.send().status(200)
+    console.log(`Zip file of UUID ${req.uuid} created.`)
+    res.sendStatus(200)
 })
 module.exports=app;
