@@ -42,7 +42,7 @@ app.post('/request/parameters', function(req,res){
 
 app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,res){
     if(!req.valid){
-        console.log(req.valid)
+        console.log(`File with request UUID ${req.uuid} is invalid.`)
         res.status(422).send("Wrong file type, only zip files are accepted.")
         return
     }
