@@ -11,15 +11,20 @@ import glob, os
 queriesToRun = ['CWE-079', 'CWE-078', 'CWE-089']
 
 # get .ql filenames in the folder and put in a list
-queryFiles = []
-os.chdir("./standard-queries")
-for file in glob.glob("*.ql"):
-    queryFiles.append(file)
-print(queryFiles)
+count = 0
+for query in queriesToRun:
+    count = count+1
+    queryFiles = []
+    if count >1:
+        os.chdir(f"../{query}")
+    else:
+        os.chdir(f"./standard-queries/{query}")
+    for file in glob.glob("*.ql"):
+        queryFiles.append(file)
+    print(queryFiles)
 
 # match the queriesToRun with which command to execute
 def runQueries():
     print("test")
 
-for query in queriesToRun:
-    print(query)
+
