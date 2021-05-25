@@ -1,0 +1,82 @@
+[2021-05-25 15:52:09] This is codeql execute queries -J-Xmx4000M --off-heap-ram=4000 --verbosity=progress --logdir=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\dvna_DB\log --threads=3 --ml-model-path= --native-library-path= --warnings=show --output=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\dvna_DB\results -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\dvna_DB\db-javascript ./standard-queries/CWE-079
+[2021-05-25 15:52:10] Calling plumbing command: codeql resolve queries --format=json -- ./standard-queries/CWE-079
+[2021-05-25 15:52:10] [SPAMMY] resolve queries> Scanning for QL files at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079.
+[2021-05-25 15:52:10] [SPAMMY] resolve queries> Found 6 QL files in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079.
+[2021-05-25 15:52:10] Plumbing command codeql resolve queries completed:
+                      [
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\standard-queries\\CWE-079\\ExceptionXss.ql",
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\standard-queries\\CWE-079\\ReflectedXss.ql",
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\standard-queries\\CWE-079\\StoredXss.ql",
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\standard-queries\\CWE-079\\UnsafeJQueryPlugin.ql",
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\standard-queries\\CWE-079\\Xss.ql",
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\standard-queries\\CWE-079\\XssThroughDom.ql"
+                      ]
+[2021-05-25 15:52:10] Creating executor with 3 threads.
+[2021-05-25 15:52:10] [DETAILS] execute queries> Compiling in 2 threads due to RAM limits.
+[2021-05-25 15:52:10] Calling plumbing command: codeql resolve library-path --query=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql --format=json
+[2021-05-25 15:52:10] [DETAILS] resolve library-path> Resolving query at normalized path C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql.
+[2021-05-25 15:52:11] [DETAILS] resolve library-path> Found enclosing pack 'legacy-upgrades' at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079.
+[2021-05-25 15:52:11] [DETAILS] resolve library-path> Adding compilation cache at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\.cache.
+[2021-05-25 15:52:11] [DETAILS] resolve library-path> Resolving library dependencies from C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\qlpack.yml.
+[2021-05-25 15:52:11] [DETAILS] resolve library-path> QL pack dependencies for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079 resolved OK.
+[2021-05-25 15:52:11] [DETAILS] resolve library-path> Found no dbscheme through dependencies.
+[2021-05-25 15:52:11] Plumbing command codeql resolve library-path completed:
+                      {
+                        "qlPack" : {
+                          "library" : false,
+                          "name" : "legacy-upgrades",
+                          "version" : {
+                            "major" : 0,
+                            "minor" : 0,
+                            "patch" : 0,
+                            "prerelease" : false
+                          },
+                          "upgrades" : "upgrades"
+                        },
+                        "libraryPath" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\standard-queries\\CWE-079"
+                        ],
+                        "compilationCache" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\standard-queries\\CWE-079\\.cache"
+                        ],
+                        "qlPackName" : "legacy-upgrades",
+                        "relativeName" : "legacy-upgrades\\ExceptionXss.ql",
+                        "possibleAdvice" : "You probably need to specify a libraryPathDependencies list in C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\standard-queries\\CWE-079\\qlpack.yml."
+                      }
+[2021-05-25 15:52:11] [PROGRESS] execute queries> Compiling query plan for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql.
+[2021-05-25 15:52:11] [DETAILS] execute queries> Resolving imports for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql.
+[2021-05-25 15:52:11] Resolved file set for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql hashes to 48e547a2c19e56c5ab3926784b41c0d51c7f9a44.
+[2021-05-25 15:52:11] [DETAILS] execute queries> Checking QL for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql.
+[2021-05-25 15:52:12] ExternalModuleBindingPass ...
+[2021-05-25 15:52:12] ExternalModuleBindingPass time: 00:00.013
+[2021-05-25 15:52:12] QLPredicateSynthesiser ...
+[2021-05-25 15:52:12] QLPredicateSynthesiser time: 00:00.003
+[2021-05-25 15:52:12] DeclarationBindingPass ...
+[2021-05-25 15:52:12] DeclarationBindingPass time: 00:00.008
+[2021-05-25 15:52:12] Fixed point time ...
+[2021-05-25 15:52:12] Fixed point time time: 00:00.012
+[2021-05-25 15:52:12] ReferenceBindingPass ...
+[2021-05-25 15:52:12] ReferenceBindingPass time: 00:00.000
+[2021-05-25 15:52:12] EntityTypeUpdateBindingPass ...
+[2021-05-25 15:52:12] EntityTypeUpdateBindingPass time: 00:00.000
+[2021-05-25 15:52:12] ReferenceBindingCheck ...
+[2021-05-25 15:52:12] ReferenceBindingCheck time: 00:00.000
+[2021-05-25 15:52:12] PredicateBodyBindingPass ...
+[2021-05-25 15:52:12] PredicateBodyBindingPass time: 00:00.002
+[2021-05-25 15:52:12] LanguagePragmaPropagationPass ...
+[2021-05-25 15:52:12] LanguagePragmaPropagationPass time: 00:00.001
+[2021-05-25 15:52:12] Ambiguity checks ...
+[2021-05-25 15:52:12] Ambiguity checks time: 00:00.006
+[2021-05-25 15:52:12] Ql checks ...
+[2021-05-25 15:52:12] Ql checks time: 00:00.106
+[2021-05-25 15:52:12] [ERROR] execute queries> ERROR: Could not resolve module semmle.javascript.security.dataflow.ExceptionXss. You probably need to specify a libraryPathDependencies list in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\qlpack.yml. (C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql:15,8-56)
+[2021-05-25 15:52:12] [ERROR] execute queries> ERROR: Could not resolve module javascript. You probably need to specify a libraryPathDependencies list in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\qlpack.yml. (C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql:14,8-18)
+[2021-05-25 15:52:12] [ERROR] execute queries> ERROR: Could not resolve module DataFlow. You probably need to specify a libraryPathDependencies list in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\qlpack.yml. (C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql:16,8-16)
+[2021-05-25 15:52:12] [ERROR] execute queries> ERROR: Could not resolve type Configuration (C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql:18,6-19)
+[2021-05-25 15:52:12] [ERROR] execute queries> ERROR: Could not resolve module DataFlow. You probably need to specify a libraryPathDependencies list in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\qlpack.yml. (C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql:18,25-33)
+[2021-05-25 15:52:12] [ERROR] execute queries> ERROR: Could not resolve module DataFlow. You probably need to specify a libraryPathDependencies list in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\qlpack.yml. (C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\standard-queries\CWE-079\ExceptionXss.ql:18,52-60)
+[2021-05-25 15:52:12] Sequence stamp origin is -6587753420535450806
+[2021-05-25 15:52:12] Stopped the world to close the cache at sequence stamp o+0
+[2021-05-25 15:52:12] The disk cache is freshly trimmed; leave it be.
+[2021-05-25 15:52:12] Starting the world again
+[2021-05-25 15:52:12] Exiting with code 2

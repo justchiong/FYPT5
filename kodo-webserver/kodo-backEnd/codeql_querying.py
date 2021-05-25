@@ -9,6 +9,8 @@ import glob, os
 
 # get queries to run from backend server and put into this variable
 queriesToRun = ['CWE-079'] #, 'CWE-078', 'CWE-089']
+# get database name
+databaseName = "dvna_DB"
 
 # get .ql filenames in the folder and put in a list
 count = 0
@@ -22,15 +24,12 @@ for query in queriesToRun:
     for file in glob.glob("*.ql"):
         queryFiles.append(file) """
     print(os.getcwd())
-    cmd = f"codeql database run-queries --threads=3 --ram=8000 ./kodo-webserver/kodo-backEnd/databases/dvna_DB ./standard-queries/{query}"
+    cmd = f"codeql database run-queries --threads=3 --ram=8000 ./kodo-webserver/kodo-backEnd/databases/{databaseName} ./standard-queries/{query}"
     process1= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
     print(process1.returncode)
     print(process1.stderr)
     print(process1.stdout)
 
 
-# match the queriesToRun with which command to execute
-def runQueries():
-    print("test")
 
 
