@@ -1,0 +1,436 @@
+[2021-03-18 16:39:15] This is codeql database create SQLi --language=javascript
+[2021-03-18 16:39:15] Log file was started late.
+[2021-03-18 16:39:15] Using autobuild script C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\autobuild.cmd.
+[2021-03-18 16:39:15] [DETAILS] database create> Detected autobuild command: C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\autobuild.cmd.
+[2021-03-18 16:39:15] [PROGRESS] database create> Running command [C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\autobuild.cmd] in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples.
+[2021-03-18 16:39:15] Running plumbing command: codeql database trace-command --working-dir=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\autobuild.cmd
+[2021-03-18 16:39:15] [PROGRESS] database trace-command> C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi: Running in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples: [C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\autobuild.cmd]
+[2021-03-18 16:39:17] [build] Single-threaded extraction.
+[2021-03-18 16:39:17] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SqlInjection.js
+[2021-03-18 16:39:17] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SqlInjection.js (554 ms)
+[2021-03-18 16:39:17] [build-err] No externs trap cache found
+[2021-03-18 16:39:17] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es2016.js
+[2021-03-18 16:39:17] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es2016.js (99 ms)
+[2021-03-18 16:39:17] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es2017.js
+[2021-03-18 16:39:17] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es2017.js (53 ms)
+[2021-03-18 16:39:17] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es3.js
+[2021-03-18 16:39:18] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es3.js (975 ms)
+[2021-03-18 16:39:18] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es5.js
+[2021-03-18 16:39:19] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es5.js (73 ms)
+[2021-03-18 16:39:19] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es6.js
+[2021-03-18 16:39:19] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es6.js (364 ms)
+[2021-03-18 16:39:19] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es6_collections.js
+[2021-03-18 16:39:19] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\es6_collections.js (46 ms)
+[2021-03-18 16:39:19] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\intl.js
+[2021-03-18 16:39:19] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\intl.js (47 ms)
+[2021-03-18 16:39:19] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\proxy.js
+[2021-03-18 16:39:19] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\es\proxy.js (12 ms)
+[2021-03-18 16:39:19] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\lib\bdd.js
+[2021-03-18 16:39:19] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\lib\bdd.js (31 ms)
+[2021-03-18 16:39:19] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\lib\jquery-3.2.js
+[2021-03-18 16:39:19] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\lib\jquery-3.2.js (461 ms)
+[2021-03-18 16:39:19] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\lib\should.js
+[2021-03-18 16:39:20] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\lib\should.js (64 ms)
+[2021-03-18 16:39:20] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\lib\vows.js
+[2021-03-18 16:39:20] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\lib\vows.js (63 ms)
+[2021-03-18 16:39:20] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\assert.js
+[2021-03-18 16:39:20] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\assert.js (147 ms)
+[2021-03-18 16:39:20] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\assert_legacy.js
+[2021-03-18 16:39:20] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\assert_legacy.js (16 ms)
+[2021-03-18 16:39:20] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\buffer.js
+[2021-03-18 16:39:20] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\buffer.js (70 ms)
+[2021-03-18 16:39:20] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\child_process.js
+[2021-03-18 16:39:20] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\child_process.js (215 ms)
+[2021-03-18 16:39:20] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\cluster.js
+[2021-03-18 16:39:20] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\cluster.js (230 ms)
+[2021-03-18 16:39:20] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\console.js
+[2021-03-18 16:39:20] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\console.js (13 ms)
+[2021-03-18 16:39:20] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\constants.js
+[2021-03-18 16:39:21] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\constants.js (367 ms)
+[2021-03-18 16:39:21] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\crypto.js
+[2021-03-18 16:39:21] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\crypto.js (233 ms)
+[2021-03-18 16:39:21] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\dgram.js
+[2021-03-18 16:39:21] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\dgram.js (65 ms)
+[2021-03-18 16:39:21] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\dns.js
+[2021-03-18 16:39:21] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\dns.js (75 ms)
+[2021-03-18 16:39:21] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\domain.js
+[2021-03-18 16:39:21] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\domain.js (30 ms)
+[2021-03-18 16:39:21] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\events.js
+[2021-03-18 16:39:21] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\events.js (32 ms)
+[2021-03-18 16:39:21] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\fs.js
+[2021-03-18 16:39:21] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\fs.js (336 ms)
+[2021-03-18 16:39:21] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\globals.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\globals.js (337 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\http.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\http.js (127 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\https.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\https.js (43 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\module.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\module.js (19 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\net.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\net.js (102 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\os.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\os.js (45 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\path.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\path.js (66 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\process.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\process.js (8 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\punycode.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\punycode.js (23 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\querystring.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\querystring.js (26 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\readline.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\readline.js (52 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\repl.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\repl.js (26 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\stream.js
+[2021-03-18 16:39:22] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\stream.js (149 ms)
+[2021-03-18 16:39:22] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\string_decoder.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\string_decoder.js (23 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\sys.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\sys.js (11 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\timers.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\timers.js (30 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\tls.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\tls.js (92 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\tty.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\tty.js (20 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\url.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\url.js (21 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\util.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\util.js (48 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\v8.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\v8.js (16 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\vm.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\vm.js (36 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\zlib.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\nodejs\zlib.js (168 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\vm\jsshell.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\vm\jsshell.js (115 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\vm\rhino.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\vm\rhino.js (18 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\vm\spidermonkey.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\vm\spidermonkey.js (8 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\vm\v8.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\vm\v8.js (27 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\chrome.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\chrome.js (114 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\fetchapi.js
+[2021-03-18 16:39:23] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\fetchapi.js (102 ms)
+[2021-03-18 16:39:23] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\fileapi.js
+[2021-03-18 16:39:24] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\fileapi.js (155 ms)
+[2021-03-18 16:39:24] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\flash.js
+[2021-03-18 16:39:24] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\flash.js (52 ms)
+[2021-03-18 16:39:24] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_css.js
+[2021-03-18 16:39:24] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_css.js (53 ms)
+[2021-03-18 16:39:24] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_dom.js
+[2021-03-18 16:39:24] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_dom.js (306 ms)
+[2021-03-18 16:39:24] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_event.js
+[2021-03-18 16:39:24] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_event.js (32 ms)
+[2021-03-18 16:39:24] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_ext.js
+[2021-03-18 16:39:24] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_ext.js (12 ms)
+[2021-03-18 16:39:24] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_xml.js
+[2021-03-18 16:39:24] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\gecko_xml.js (11 ms)
+[2021-03-18 16:39:24] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\html5.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\html5.js (723 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\ie_css.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\ie_css.js (49 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\ie_dom.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\ie_dom.js (187 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\ie_event.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\ie_event.js (47 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\ie_vml.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\ie_vml.js (17 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\intl.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\intl.js (39 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\iphone.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\iphone.js (51 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\mediasource.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\mediasource.js (46 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\page_visibility.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\page_visibility.js (8 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\streamsapi.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\streamsapi.js (101 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\url.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\url.js (25 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_anim_timing.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_anim_timing.js (22 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_batterystatus.js
+[2021-03-18 16:39:25] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_batterystatus.js (19 ms)
+[2021-03-18 16:39:25] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_css.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_css.js (305 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_css3d.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_css3d.js (30 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_device_sensor_event.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_device_sensor_event.js (18 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_dom1.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_dom1.js (143 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_dom2.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_dom2.js (275 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_dom3.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_dom3.js (119 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_dom4.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_dom4.js (17 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_elementtraversal.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_elementtraversal.js (18 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_encoding.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_encoding.js (12 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_event.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_event.js (81 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_event3.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_event3.js (14 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_gamepad.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_gamepad.js (13 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_geolocation.js
+[2021-03-18 16:39:26] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_geolocation.js (30 ms)
+[2021-03-18 16:39:26] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_indexeddb.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_indexeddb.js (91 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_midi.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_midi.js (39 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_navigation_timing.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_navigation_timing.js (39 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_permissions.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_permissions.js (23 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_pointer_events.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_pointer_events.js (21 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_range.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_range.js (36 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_requestidlecallback.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_requestidlecallback.js (12 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_rtc.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_rtc.js (297 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_screen_orientation.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_screen_orientation.js (11 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_selectors.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_selectors.js (20 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_serviceworker.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_serviceworker.js (84 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_touch_event.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_touch_event.js (33 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_webcrypto.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_webcrypto.js (57 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_xml.js
+[2021-03-18 16:39:27] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\w3c_xml.js (50 ms)
+[2021-03-18 16:39:27] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webgl.js
+[2021-03-18 16:39:28] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webgl.js (347 ms)
+[2021-03-18 16:39:28] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_css.js
+[2021-03-18 16:39:28] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_css.js (145 ms)
+[2021-03-18 16:39:28] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_dom.js
+[2021-03-18 16:39:28] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_dom.js (44 ms)
+[2021-03-18 16:39:28] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_event.js
+[2021-03-18 16:39:28] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_event.js (7 ms)
+[2021-03-18 16:39:28] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_notifications.js
+[2021-03-18 16:39:28] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_notifications.js (34 ms)
+[2021-03-18 16:39:28] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_usercontent.js
+[2021-03-18 16:39:28] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webkit_usercontent.js (11 ms)
+[2021-03-18 16:39:28] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webstorage.js
+[2021-03-18 16:39:28] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\webstorage.js (25 ms)
+[2021-03-18 16:39:28] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\whatwg_encoding.js
+[2021-03-18 16:39:28] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\whatwg_encoding.js (12 ms)
+[2021-03-18 16:39:28] [build] Extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\window.js
+[2021-03-18 16:39:28] [build] Done extracting C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\tools\data\externs\web\window.js (19 ms)
+[2021-03-18 16:39:28] Plumbing command codeql database trace-command completed.
+[2021-03-18 16:39:28] [PROGRESS] database create> Finalizing database at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi.
+[2021-03-18 16:39:28] Running plumbing command: codeql database finalize --mode=normal -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi
+[2021-03-18 16:39:28] [PROGRESS] database finalize> Running TRAP import for CodeQL database at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi...
+[2021-03-18 16:39:28] Running plumbing command: codeql dataset import --dbscheme=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\javascript\semmlecode.javascript.dbscheme -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi\db-javascript C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi\trap\javascript
+[2021-03-18 16:39:28] Clearing disk cache since the version file C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi\db-javascript\default\cache\version does not exist
+[2021-03-18 16:39:29] Tuple pool not found. Clearing relations with cached strings
+[2021-03-18 16:39:29] Trimming disk cache at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi\db-javascript\default\cache in mode brutal.
+[2021-03-18 16:39:29] Sequence stamp origin is -6612975022584942893
+[2021-03-18 16:39:29] Stopped the world to hard-clear memory at sequence stamp o+0
+[2021-03-18 16:39:29] Starting the world again
+[2021-03-18 16:39:29] Stopped the world to quickly trim disk at sequence stamp o+1
+[2021-03-18 16:39:29] Starting the world again
+[2021-03-18 16:39:29] Stopped the world to zealously trim disk at sequence stamp o+2
+[2021-03-18 16:39:29] Starting the world again
+[2021-03-18 16:39:29] Trimming completed (28ms): Purged everything.
+[2021-03-18 16:39:30] Scanning for files in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi\trap\javascript
+[2021-03-18 16:39:30] Importing es2016.js.trap.gz (1 of 112)
+[2021-03-18 16:39:30] Importing es2017.js.trap.gz (2 of 112)
+[2021-03-18 16:39:30] Importing es3.js.trap.gz (3 of 112)
+[2021-03-18 16:39:31] Importing es5.js.trap.gz (4 of 112)
+[2021-03-18 16:39:31] Importing es6.js.trap.gz (5 of 112)
+[2021-03-18 16:39:31] Importing es6_collections.js.trap.gz (6 of 112)
+[2021-03-18 16:39:31] Importing intl.js.trap.gz (7 of 112)
+[2021-03-18 16:39:31] Importing proxy.js.trap.gz (8 of 112)
+[2021-03-18 16:39:31] Importing bdd.js.trap.gz (9 of 112)
+[2021-03-18 16:39:31] Importing jquery-3.2.js.trap.gz (10 of 112)
+[2021-03-18 16:39:32] Importing should.js.trap.gz (11 of 112)
+[2021-03-18 16:39:32] Importing vows.js.trap.gz (12 of 112)
+[2021-03-18 16:39:32] Importing assert.js.trap.gz (13 of 112)
+[2021-03-18 16:39:32] Importing assert_legacy.js.trap.gz (14 of 112)
+[2021-03-18 16:39:32] Importing buffer.js.trap.gz (15 of 112)
+[2021-03-18 16:39:32] Importing child_process.js.trap.gz (16 of 112)
+[2021-03-18 16:39:32] Importing cluster.js.trap.gz (17 of 112)
+[2021-03-18 16:39:32] Importing console.js.trap.gz (18 of 112)
+[2021-03-18 16:39:32] Importing constants.js.trap.gz (19 of 112)
+[2021-03-18 16:39:32] Importing crypto.js.trap.gz (20 of 112)
+[2021-03-18 16:39:33] Importing dgram.js.trap.gz (21 of 112)
+[2021-03-18 16:39:33] Importing dns.js.trap.gz (22 of 112)
+[2021-03-18 16:39:33] Importing domain.js.trap.gz (23 of 112)
+[2021-03-18 16:39:33] Importing events.js.trap.gz (24 of 112)
+[2021-03-18 16:39:33] Importing fs.js.trap.gz (25 of 112)
+[2021-03-18 16:39:33] Importing globals.js.trap.gz (26 of 112)
+[2021-03-18 16:39:33] Importing http.js.trap.gz (27 of 112)
+[2021-03-18 16:39:33] Importing https.js.trap.gz (28 of 112)
+[2021-03-18 16:39:33] Importing module.js.trap.gz (29 of 112)
+[2021-03-18 16:39:33] Importing net.js.trap.gz (30 of 112)
+[2021-03-18 16:39:33] Importing os.js.trap.gz (31 of 112)
+[2021-03-18 16:39:33] Importing path.js.trap.gz (32 of 112)
+[2021-03-18 16:39:33] Importing process.js.trap.gz (33 of 112)
+[2021-03-18 16:39:33] Importing punycode.js.trap.gz (34 of 112)
+[2021-03-18 16:39:33] Importing querystring.js.trap.gz (35 of 112)
+[2021-03-18 16:39:33] Importing readline.js.trap.gz (36 of 112)
+[2021-03-18 16:39:33] Importing repl.js.trap.gz (37 of 112)
+[2021-03-18 16:39:33] Importing stream.js.trap.gz (38 of 112)
+[2021-03-18 16:39:33] Importing string_decoder.js.trap.gz (39 of 112)
+[2021-03-18 16:39:33] Importing sys.js.trap.gz (40 of 112)
+[2021-03-18 16:39:33] Importing timers.js.trap.gz (41 of 112)
+[2021-03-18 16:39:34] Importing tls.js.trap.gz (42 of 112)
+[2021-03-18 16:39:34] Importing tty.js.trap.gz (43 of 112)
+[2021-03-18 16:39:34] Importing url.js.trap.gz (44 of 112)
+[2021-03-18 16:39:34] Importing util.js.trap.gz (45 of 112)
+[2021-03-18 16:39:34] Importing v8.js.trap.gz (46 of 112)
+[2021-03-18 16:39:34] Importing vm.js.trap.gz (47 of 112)
+[2021-03-18 16:39:34] Importing zlib.js.trap.gz (48 of 112)
+[2021-03-18 16:39:34] Importing jsshell.js.trap.gz (49 of 112)
+[2021-03-18 16:39:34] Importing rhino.js.trap.gz (50 of 112)
+[2021-03-18 16:39:34] Importing spidermonkey.js.trap.gz (51 of 112)
+[2021-03-18 16:39:34] Importing v8.js.trap.gz (52 of 112)
+[2021-03-18 16:39:34] Importing chrome.js.trap.gz (53 of 112)
+[2021-03-18 16:39:34] Importing fetchapi.js.trap.gz (54 of 112)
+[2021-03-18 16:39:34] Importing fileapi.js.trap.gz (55 of 112)
+[2021-03-18 16:39:34] Importing flash.js.trap.gz (56 of 112)
+[2021-03-18 16:39:34] Importing gecko_css.js.trap.gz (57 of 112)
+[2021-03-18 16:39:34] Importing gecko_dom.js.trap.gz (58 of 112)
+[2021-03-18 16:39:34] Importing gecko_event.js.trap.gz (59 of 112)
+[2021-03-18 16:39:34] Importing gecko_ext.js.trap.gz (60 of 112)
+[2021-03-18 16:39:34] Importing gecko_xml.js.trap.gz (61 of 112)
+[2021-03-18 16:39:34] Importing html5.js.trap.gz (62 of 112)
+[2021-03-18 16:39:34] Importing ie_css.js.trap.gz (63 of 112)
+[2021-03-18 16:39:34] Importing ie_dom.js.trap.gz (64 of 112)
+[2021-03-18 16:39:34] Importing ie_event.js.trap.gz (65 of 112)
+[2021-03-18 16:39:34] Importing ie_vml.js.trap.gz (66 of 112)
+[2021-03-18 16:39:34] Importing intl.js.trap.gz (67 of 112)
+[2021-03-18 16:39:34] Importing iphone.js.trap.gz (68 of 112)
+[2021-03-18 16:39:34] Importing mediasource.js.trap.gz (69 of 112)
+[2021-03-18 16:39:34] Importing page_visibility.js.trap.gz (70 of 112)
+[2021-03-18 16:39:34] Importing streamsapi.js.trap.gz (71 of 112)
+[2021-03-18 16:39:34] Importing url.js.trap.gz (72 of 112)
+[2021-03-18 16:39:34] Importing w3c_anim_timing.js.trap.gz (73 of 112)
+[2021-03-18 16:39:34] Importing w3c_batterystatus.js.trap.gz (74 of 112)
+[2021-03-18 16:39:34] Importing w3c_css.js.trap.gz (75 of 112)
+[2021-03-18 16:39:35] Importing w3c_css3d.js.trap.gz (76 of 112)
+[2021-03-18 16:39:35] Importing w3c_device_sensor_event.js.trap.gz (77 of 112)
+[2021-03-18 16:39:35] Importing w3c_dom1.js.trap.gz (78 of 112)
+[2021-03-18 16:39:35] Importing w3c_dom2.js.trap.gz (79 of 112)
+[2021-03-18 16:39:35] Importing w3c_dom3.js.trap.gz (80 of 112)
+[2021-03-18 16:39:35] Importing w3c_dom4.js.trap.gz (81 of 112)
+[2021-03-18 16:39:35] Importing w3c_elementtraversal.js.trap.gz (82 of 112)
+[2021-03-18 16:39:35] Importing w3c_encoding.js.trap.gz (83 of 112)
+[2021-03-18 16:39:35] Importing w3c_event.js.trap.gz (84 of 112)
+[2021-03-18 16:39:35] Importing w3c_event3.js.trap.gz (85 of 112)
+[2021-03-18 16:39:35] Importing w3c_gamepad.js.trap.gz (86 of 112)
+[2021-03-18 16:39:35] Importing w3c_geolocation.js.trap.gz (87 of 112)
+[2021-03-18 16:39:35] Importing w3c_indexeddb.js.trap.gz (88 of 112)
+[2021-03-18 16:39:35] Importing w3c_midi.js.trap.gz (89 of 112)
+[2021-03-18 16:39:35] Importing w3c_navigation_timing.js.trap.gz (90 of 112)
+[2021-03-18 16:39:35] Importing w3c_permissions.js.trap.gz (91 of 112)
+[2021-03-18 16:39:35] Importing w3c_pointer_events.js.trap.gz (92 of 112)
+[2021-03-18 16:39:35] Importing w3c_range.js.trap.gz (93 of 112)
+[2021-03-18 16:39:35] Importing w3c_requestidlecallback.js.trap.gz (94 of 112)
+[2021-03-18 16:39:35] Importing w3c_rtc.js.trap.gz (95 of 112)
+[2021-03-18 16:39:35] Importing w3c_screen_orientation.js.trap.gz (96 of 112)
+[2021-03-18 16:39:35] Importing w3c_selectors.js.trap.gz (97 of 112)
+[2021-03-18 16:39:35] Importing w3c_serviceworker.js.trap.gz (98 of 112)
+[2021-03-18 16:39:35] Importing w3c_touch_event.js.trap.gz (99 of 112)
+[2021-03-18 16:39:35] Importing w3c_webcrypto.js.trap.gz (100 of 112)
+[2021-03-18 16:39:35] Importing w3c_xml.js.trap.gz (101 of 112)
+[2021-03-18 16:39:35] Importing webgl.js.trap.gz (102 of 112)
+[2021-03-18 16:39:35] Importing webkit_css.js.trap.gz (103 of 112)
+[2021-03-18 16:39:35] Importing webkit_dom.js.trap.gz (104 of 112)
+[2021-03-18 16:39:35] Importing webkit_event.js.trap.gz (105 of 112)
+[2021-03-18 16:39:35] Importing webkit_notifications.js.trap.gz (106 of 112)
+[2021-03-18 16:39:35] Importing webkit_usercontent.js.trap.gz (107 of 112)
+[2021-03-18 16:39:35] Importing webstorage.js.trap.gz (108 of 112)
+[2021-03-18 16:39:35] Importing whatwg_encoding.js.trap.gz (109 of 112)
+[2021-03-18 16:39:35] Importing window.js.trap.gz (110 of 112)
+[2021-03-18 16:39:35] Importing SqlInjection.js.trap.gz (111 of 112)
+[2021-03-18 16:39:35] Importing sourceLocationPrefix.trap.gz (112 of 112)
+[2021-03-18 16:39:36] Merging 1 fragment for files.
+[2021-03-18 16:39:36] Merging 1 fragment for folders.
+[2021-03-18 16:39:36] Merging 1 fragment for containerparent.
+[2021-03-18 16:39:36] Merging 2 fragments for locations_default.
+[2021-03-18 16:39:36] Merging 3 fragments for hasLocation.
+[2021-03-18 16:39:36] Merging 1 fragment for extraction_data.
+[2021-03-18 16:39:36] Merging 1 fragment for scopes.
+[2021-03-18 16:39:36] Merging 1 fragment for comments.
+[2021-03-18 16:39:36] Merging 1 fragment for indentation.
+[2021-03-18 16:39:36] Merging 1 fragment for numlines.
+[2021-03-18 16:39:36] Merging 1 fragment for tokeninfo.
+[2021-03-18 16:39:36] Merging 1 fragment for next_token.
+[2021-03-18 16:39:36] Merging 1 fragment for jsdoc.
+[2021-03-18 16:39:36] Merging 1 fragment for jsdoc_tags.
+[2021-03-18 16:39:36] Merging 1 fragment for jsdoc_tag_descriptions.
+[2021-03-18 16:39:36] Merging 1 fragment for jsdoc_tag_names.
+[2021-03-18 16:39:36] Merging 1 fragment for jsdoc_type_exprs.
+[2021-03-18 16:39:36] Merging 1 fragment for toplevels.
+[2021-03-18 16:39:36] Merging 1 fragment for stmts.
+[2021-03-18 16:39:36] Merging 1 fragment for stmt_containers.
+[2021-03-18 16:39:36] Merging 1 fragment for exprs.
+[2021-03-18 16:39:36] Merging 1 fragment for enclosing_stmt.
+[2021-03-18 16:39:36] Merging 1 fragment for expr_containers.
+[2021-03-18 16:39:36] Merging 1 fragment for literals.
+[2021-03-18 16:39:36] Merging 1 fragment for variables.
+[2021-03-18 16:39:36] Merging 1 fragment for bind.
+[2021-03-18 16:39:36] Merging 1 fragment for scopenodes.
+[2021-03-18 16:39:36] Merging 1 fragment for scopenesting.
+[2021-03-18 16:39:36] Merging 1 fragment for decl.
+[2021-03-18 16:39:36] Merging 1 fragment for is_arguments_object.
+[2021-03-18 16:39:36] Merging 1 fragment for entry_cfg_node.
+[2021-03-18 16:39:36] Merging 1 fragment for exit_cfg_node.
+[2021-03-18 16:39:36] Merging 1 fragment for successor.
+[2021-03-18 16:39:36] Merging 1 fragment for is_externs.
+[2021-03-18 16:39:36] Merging 1 fragment for filetype.
+[2021-03-18 16:39:36] Merging 1 fragment for extraction_time.
+[2021-03-18 16:39:36] Merging 1 fragment for jsdoc_prefix_qualifier.
+[2021-03-18 16:39:36] Merging 1 fragment for jsdoc_errors.
+[2021-03-18 16:39:36] Merging 1 fragment for jsdoc_record_field_name.
+[2021-03-18 16:39:36] Merging 1 fragment for jsdoc_has_new_parameter.
+[2021-03-18 16:39:36] Merging 1 fragment for properties.
+[2021-03-18 16:39:36] Merging 1 fragment for regexpterm.
+[2021-03-18 16:39:36] Merging 1 fragment for regexp_const_value.
+[2021-03-18 16:39:36] Merging 1 fragment for guard_node.
+[2021-03-18 16:39:36] Merging 1 fragment for is_module.
+[2021-03-18 16:39:36] Merging 1 fragment for is_nodejs.
+[2021-03-18 16:39:36] Merging 1 fragment for array_size.
+[2021-03-18 16:39:36] Merging 1 fragment for sourceLocationPrefix.
+[2021-03-18 16:39:36] Saving string and id pools to disk.
+[2021-03-18 16:39:37] Finished importing trap files.
+[2021-03-18 16:39:37] Stopped the world to close the cache at sequence stamp o+3
+[2021-03-18 16:39:37] The disk cache is freshly trimmed; leave it be.
+[2021-03-18 16:39:37] Starting the world again
+[2021-03-18 16:39:37] Plumbing command codeql dataset import completed.
+[2021-03-18 16:39:37] [PROGRESS] database finalize> TRAP import complete (8.7s).
+[2021-03-18 16:39:37] Running plumbing command: codeql database cleanup --mode=normal -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi
+[2021-03-18 16:39:37] [PROGRESS] database cleanup> Cleaning up existing TRAP files after import...
+[2021-03-18 16:39:37] [PROGRESS] database cleanup> TRAP files cleaned up (93ms).
+[2021-03-18 16:39:37] [PROGRESS] database cleanup> Cleaning up scratch directory...
+[2021-03-18 16:39:37] [PROGRESS] database cleanup> Scratch directory cleaned up (1ms).
+[2021-03-18 16:39:37] Running plumbing command: codeql dataset cleanup --mode=normal -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi\db-javascript
+[2021-03-18 16:39:37] [PROGRESS] dataset cleanup> Cleaning up dataset in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi\db-javascript.
+[2021-03-18 16:39:37] Trimming disk cache at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi\db-javascript\default\cache in mode normal.
+[2021-03-18 16:39:37] Sequence stamp origin is -6612974984780268380
+[2021-03-18 16:39:37] Stopped the world to zealously trim disk at sequence stamp o+0
+[2021-03-18 16:39:37] Starting the world again
+[2021-03-18 16:39:37] Trimming completed (4ms): Trimmed disposable data from cache.
+[2021-03-18 16:39:37] Stopped the world to close the cache at sequence stamp o+1
+[2021-03-18 16:39:37] The disk cache is freshly trimmed; leave it be.
+[2021-03-18 16:39:37] Starting the world again
+[2021-03-18 16:39:37] [PROGRESS] dataset cleanup> Trimmed disposable data from cache.
+[2021-03-18 16:39:37] Plumbing command codeql dataset cleanup completed.
+[2021-03-18 16:39:37] Plumbing command codeql database cleanup completed with status 0.
+[2021-03-18 16:39:37] Plumbing command codeql database finalize completed with status 0.
+[2021-03-18 16:39:37] [PROGRESS] database create> Successfully created database at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\examples\SQLi.
+[2021-03-18 16:39:37] Terminating normally.

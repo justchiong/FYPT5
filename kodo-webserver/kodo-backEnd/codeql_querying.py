@@ -1,4 +1,5 @@
 import subprocess
+import glob, os
 
 # .stout for output
 # .stderr for printing err in python terminal
@@ -7,11 +8,18 @@ import subprocess
 # cwd argument to change working directory
 
 # get queries to run from backend server and put into this variable
-queriesToRun = ['sqli', 'cmdi', 'xss']
+queriesToRun = ['cwe079', 'cwe078', 'cwe089']
 
-# get .ql file's querys from folder(custom-queries)
-
+# get .ql filenames in the folder and put in a list
+queryFiles = []
+os.chdir("./standard-queries")
+for file in glob.glob("*.ql"):
+    queryFiles.append(file)
+print(queryFiles)
 
 # match the queriesToRun with which command to execute
-for query in queriesToRun:
+def runQueries():
     print("test")
+
+for query in queriesToRun:
+    print(query)
