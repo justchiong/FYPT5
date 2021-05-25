@@ -1,0 +1,1267 @@
+[2021-04-27 14:04:19] This is codeql execute queries -J-Xmx4000M --off-heap-ram=4000 --verbosity=progress --logdir=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB\log --threads=4 --ml-model-path=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP --native-library-path=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP --warnings=show --no-rerun --output=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB\results -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB\db-javascript C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security/./CWE-020/IncompleteHostnameRegExp.ql
+[2021-04-27 14:04:19] Calling plumbing command: codeql resolve queries --format=json -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security/./CWE-020/IncompleteHostnameRegExp.ql
+[2021-04-27 14:04:20] Plumbing command codeql resolve queries completed:
+                      [
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\Security\\CWE-020\\IncompleteHostnameRegExp.ql"
+                      ]
+[2021-04-27 14:04:20] Creating executor with 4 threads.
+[2021-04-27 14:04:20] Calling plumbing command: codeql resolve library-path --query=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql --format=json
+[2021-04-27 14:04:20] [DETAILS] resolve library-path> Resolving query at normalized path C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 14:04:20] [DETAILS] resolve library-path> Found enclosing pack 'codeql-javascript' at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src.
+[2021-04-27 14:04:20] [DETAILS] resolve library-path> Adding compilation cache at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\.cache.
+[2021-04-27 14:04:20] [DETAILS] resolve library-path> Resolving library dependencies from C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\qlpack.yml.
+[2021-04-27 14:04:20] [DETAILS] resolve library-path> QL pack dependencies for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src resolved OK.
+[2021-04-27 14:04:20] [DETAILS] resolve library-path> Found dbscheme through QL packs: C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\semmlecode.javascript.dbscheme.
+[2021-04-27 14:04:20] Plumbing command codeql resolve library-path completed:
+                      {
+                        "qlPack" : {
+                          "library" : false,
+                          "name" : "github/codeql-javascript",
+                          "version" : {
+                            "major" : 0,
+                            "minor" : 0,
+                            "patch" : 0,
+                            "prerelease" : false
+                          },
+                          "dbscheme" : "semmlecode.javascript.dbscheme",
+                          "suites" : "codeql-suites",
+                          "extractor" : "javascript"
+                        },
+                        "libraryPath" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src"
+                        ],
+                        "dbscheme" : "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\semmlecode.javascript.dbscheme",
+                        "compilationCache" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\.cache"
+                        ],
+                        "qlPackName" : "codeql-javascript",
+                        "relativeName" : "codeql-javascript\\Security\\CWE-020\\IncompleteHostnameRegExp.ql"
+                      }
+[2021-04-27 14:04:20] [PROGRESS] execute queries> Compiling query plan for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 14:04:20] [DETAILS] execute queries> Resolving imports for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 14:04:23] Resolved file set for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql hashes to 38904aa6a75f7ddefd9c993d0ee014a188c49bee.
+[2021-04-27 14:04:23] [DETAILS] execute queries> Checking QL for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 14:04:24] ExternalModuleBindingPass ...
+[2021-04-27 14:04:26] ExternalModuleBindingPass time: 00:02.334
+[2021-04-27 14:04:26] QLPredicateSynthesiser ...
+[2021-04-27 14:04:26] QLPredicateSynthesiser time: 00:00.067
+[2021-04-27 14:04:26] DeclarationBindingPass ...
+[2021-04-27 14:04:26] DeclarationBindingPass time: 00:00.106
+[2021-04-27 14:04:26] Fixed point time ...
+[2021-04-27 14:04:27] Fixed point time time: 00:00.829
+[2021-04-27 14:04:27] ReferenceBindingPass ...
+[2021-04-27 14:04:27] ReferenceBindingPass time: 00:00.096
+[2021-04-27 14:04:27] EntityTypeUpdateBindingPass ...
+[2021-04-27 14:04:27] EntityTypeUpdateBindingPass time: 00:00.087
+[2021-04-27 14:04:27] ReferenceBindingCheck ...
+[2021-04-27 14:04:27] ReferenceBindingCheck time: 00:00.071
+[2021-04-27 14:04:27] PredicateBodyBindingPass ...
+[2021-04-27 14:04:28] PredicateBodyBindingPass time: 00:01.154
+[2021-04-27 14:04:28] LanguagePragmaPropagationPass ...
+[2021-04-27 14:04:28] LanguagePragmaPropagationPass time: 00:00.029
+[2021-04-27 14:04:28] Ambiguity checks ...
+[2021-04-27 14:04:29] Ambiguity checks time: 00:00.202
+[2021-04-27 14:04:29] Ql checks ...
+[2021-04-27 14:04:29] Ql checks time: 00:00.801
+[2021-04-27 14:04:38] Compilation pipeline
+[2021-04-27 14:04:38] Type Inference ...
+[2021-04-27 14:04:39] CSV_TYPE_HIERARCHY: Best number of iterations,Maximum number of runs,Number of BDD variables,Size of BDD for typefacts
+[2021-04-27 14:04:39] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2021-04-27 14:04:39] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2021-04-27 14:04:39] CSV_TYPE_HIERARCHY: 0,0,83,90
+[2021-04-27 14:04:39] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2021-04-27 14:04:39] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,777,4386
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,17,17
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,740,10317
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,9,9
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,26,26
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,12,12
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,12,15
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,6,7
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,7,7
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,10,13
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,17,19
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,6,6
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,7,10
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,6,6
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,6,7
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2021-04-27 14:04:40] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 14:04:42] Type Inference time: 00:04.084
+[2021-04-27 14:04:43] Binding Checks ...
+[2021-04-27 14:04:43] Binding Checks time: 00:00.775
+[2021-04-27 14:04:45] [DETAILS] execute queries> Optimizing C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 14:04:45] Processing compilation pipeline
+[2021-04-27 14:04:45] Started compiling a query
+[2021-04-27 14:04:45] Initialising compiler...
+[2021-04-27 14:04:45] 	 ... compiler initialised
+[2021-04-27 14:04:45] About to start query optimisation
+[2021-04-27 14:04:46] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:46] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:46] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:46] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:47] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:47] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:47] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:47] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:48] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:48] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:48] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:48] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:48] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:49] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:49] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:49] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:50] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:50] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:50] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:50] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:51] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:52] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:52] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:52] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:52] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:53] Compilation cache hit - skipping compilation.
+[2021-04-27 14:04:53] Compilation cache miss for a9203310ee774d57ca3d53824380df570a375a29.
+[2021-04-27 14:06:16] Stored compiled program for a9203310ee774d57ca3d53824380df570a375a29.
+[2021-04-27 14:06:17] Compilation cache miss for c5ac9cd8e97c70b21154c415450a03ce641926c5.
+[2021-04-27 14:06:25] Stored compiled program for c5ac9cd8e97c70b21154c415450a03ce641926c5.
+[2021-04-27 14:06:25] CSV_COMPILATION: NONE,MISC,RA_TRANSLATION,OPTIMISATIONS
+[2021-04-27 14:06:25] CSV_COMPILATION: 6858,3727,34635,54311
+[2021-04-27 14:06:25] [PROGRESS] execute queries> [1/1 comp 2m5s] Compiled C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 14:06:25] Of 6319 predicates, 0 are used in more than one query.
+[2021-04-27 14:06:25] [PROGRESS] execute queries> Starting evaluation of codeql-javascript\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 14:06:25] Starting evaluation of C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql
+[2021-04-27 14:06:25] (0s) Start query execution
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Query type,Query predicate,Query name,Stage,Success,Time,Number of results,Cumulative time in query
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,AST::ASTNode::getParent_dispred#ff,IncompleteHostnameRegExp.ql,1,NotRun,0.046,0,173
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: Operation,Overall time,NONE,LOAD_EXTENSIONAL,PAGE_RELATION,SORT_RELATION,NODUPS_RELATION,GLOBAL_DISK_SYNC,GLOBAL_TRIM_DISK,GLOBAL_TRIM_STRINGS,GLOBAL_EVICTOR,SCAN_DISK,IO_TRIMMING,IO_WRITING
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-AST::ASTNode::getParent_dispred#ff (IncompleteHostnameRegExp.ql),0.046,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,JSDoc::Documentable::getDocumentation_dispred#ff,IncompleteHostnameRegExp.ql,2,NotRun,0,0,173
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-JSDoc::Documentable::getDocumentation_dispred#ff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,StmtContainers::getStmtContainer#ff,IncompleteHostnameRegExp.ql,3,NotRun,0.015,0,188
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-StmtContainers::getStmtContainer#ff (IncompleteHostnameRegExp.ql),0.015,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,AST::StmtContainer::getEnclosingContainer_dispred#ff,IncompleteHostnameRegExp.ql,4,NotRun,0,0,188
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-AST::StmtContainer::getEnclosingContainer_dispred#ff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,AST::ASTNode::getTopLevel_dispred#ff,IncompleteHostnameRegExp.ql,5,NotRun,0,0,188
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-AST::ASTNode::getTopLevel_dispred#ff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,AST::isAmbientTopLevel#f,IncompleteHostnameRegExp.ql,6,NotRun,0,0,188
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-AST::isAmbientTopLevel#f (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,AST::ASTNode::isAmbientInternal_dispred#f,IncompleteHostnameRegExp.ql,7,NotRun,0,0,188
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-AST::ASTNode::isAmbientInternal_dispred#f (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,BasicBlocks::Internal::bbLength#ff BasicBlocks::Internal::useAt#ffff BasicBlocks::Internal::defAt#ffff BasicBlocks::Internal::reachableBB#f BasicBlocks::Internal::bbIndex#fff,IncompleteHostnameRegExp.ql,8,NotRun,0,0,204
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-BasicBlocks::Internal::bbLength#ff BasicBlocks::Internal::useAt#ffff BasicBlocks::Internal::defAt#ffff BasicBlocks::Internal::reachableBB#f BasicBlocks::Internal::bbIndex#fff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,Expr::Expr::getStringValue_dispred#ff,IncompleteHostnameRegExp.ql,9,NotRun,0,0,220
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-Expr::Expr::getStringValue_dispred#ff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,BasicBlocks::bbIDominates#ff,IncompleteHostnameRegExp.ql,10,NotRun,0,0,220
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-BasicBlocks::bbIDominates#ff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,SSA::Internal::getDefReachingEndOf#fff SSA::Internal::getDefinition#ffff SSA::Internal::TCapture#ffff SSA::Internal::TImplicitInit#fff SSA::Internal::TExplicitDef#fffff SSA::Internal::TPhi#fff SSA::Internal::TRefinement#fffff SSA::Internal::RefKind#f SSA::Internal::Read#f SSA::Internal::Write#f SSA::Internal::TSsaDefinition#f,IncompleteHostnameRegExp.ql,11,NotRun,0.031,0,251
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-SSA::Internal::getDefReachingEndOf#fff SSA::Internal::getDefinition#ffff SSA::Internal::TCapture#ffff SSA::Internal::TImplicitInit#fff SSA::Internal::TExplicitDef#fffff SSA::Internal::TPhi#fff SSA::Internal::TRefinement#fffff SSA::Internal::RefKind#f SSA::Internal::Read#f SSA::Internal::Write#f SSA::Internal::TSsaDefinition#f (IncompleteHostnameRegExp.ql),0.031,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,DataFlowNode::TValueNode#ff DataFlowNode::TSsaDefNode#ff DataFlowNode::TCapturedVariableNode#ff DataFlowNode::TPropNode#ff DataFlowNode::TRestPatternNode#fff DataFlowNode::TElementPatternNode#fff DataFlowNode::TElementNode#fff DataFlowNode::TReflectiveCallNode#fff DataFlowNode::TThisNode#ff DataFlowNode::TDestructuredModuleImportNode#ff DataFlowNode::THtmlAttributeNode#ff DataFlowNode::TFunctionReturnNode#ff DataFlowNode::TExceptionalFunctionReturnNode#ff DataFlowNode::TExceptionalInvocationReturnNode#ff DataFlowNode::TGlobalAccessPathRoot#f DataFlowNode::TNode#f,IncompleteHostnameRegExp.ql,12,NotRun,0.015,0,267
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-DataFlowNode::TValueNode#ff DataFlowNode::TSsaDefNode#ff DataFlowNode::TCapturedVariableNode#ff DataFlowNode::TPropNode#ff DataFlowNode::TRestPatternNode#fff DataFlowNode::TElementPatternNode#fff DataFlowNode::TElementNode#fff DataFlowNode::TReflectiveCallNode#fff DataFlowNode::TThisNode#ff DataFlowNode::TDestructuredModuleImportNode#ff DataFlowNode::THtmlAttributeNode#ff DataFlowNode::TFunctionReturnNode#ff DataFlowNode::TExceptionalFunctionReturnNode#ff DataFlowNode::TExceptionalInvocationReturnNode#ff DataFlowNode::TGlobalAccessPathRoot#f DataFlowNode::TNode#f (IncompleteHostnameRegExp.ql),0.015,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,AMD::AmdModule#f,IncompleteHostnameRegExp.ql,13,NotRun,0.015,0,282
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-AMD::AmdModule#f (IncompleteHostnameRegExp.ql),0.015,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,DataFlow::DataFlow::localFlowStep#ff,IncompleteHostnameRegExp.ql,14,NotRun,0,0,282
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-DataFlow::DataFlow::localFlowStep#ff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,Sources::Cached::dynamicPropRef#ff Sources::Cached::hasLocalSource#ff Sources::Cached::invocation#ff Sources::Cached::isSyntacticMethodCall#f Sources::Cached::namedPropRef#fff NodeJS::isRequire#f Sources::SourceNode::Range#class#f,IncompleteHostnameRegExp.ql,15,NotRun,0.015,0,298
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-Sources::Cached::dynamicPropRef#ff Sources::Cached::hasLocalSource#ff Sources::Cached::invocation#ff Sources::Cached::isSyntacticMethodCall#f Sources::Cached::namedPropRef#fff NodeJS::isRequire#f Sources::SourceNode::Range#class#f (IncompleteHostnameRegExp.ql),0.015,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,Modules::Import::getImportedModule_dispred#ff,IncompleteHostnameRegExp.ql,16,NotRun,0,0,298
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-Modules::Import::getImportedModule_dispred#ff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,Nodes::moduleImport#ff,IncompleteHostnameRegExp.ql,17,NotRun,0.015,0,313
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-Nodes::moduleImport#ff (IncompleteHostnameRegExp.ql),0.015,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,AbstractValuesImpl::TAbstractNull#f AbstractValuesImpl::TAbstractUndefined#f AbstractValuesImpl::TAbstractBoolean#ff AbstractValuesImpl::TAbstractZero#f AbstractValuesImpl::TAbstractNonZero#f AbstractValuesImpl::TAbstractEmpty#f AbstractValuesImpl::TAbstractNumString#f AbstractValuesImpl::TAbstractOtherString#f AbstractValuesImpl::TAbstractRegExp#f AbstractValuesImpl::TAbstractDate#f AbstractValuesImpl::TAbstractArguments#ff AbstractValuesImpl::TAbstractGlobalObject#f AbstractValuesImpl::TAbstractModuleObject#ff AbstractValuesImpl::TAbstractExportsObject#ff AbstractValuesImpl::TAbstractObjectLiteral#ff AbstractValuesImpl::TAbstractFunction#ff AbstractValuesImpl::TAbstractClass#ff AbstractValuesImpl::TAbstractInstance#ff AbstractValuesImpl::TAbstractOtherObject#f AbstractValuesImpl::TIndefiniteFunctionOrClass#ff AbstractValuesImpl::TIndefiniteObject#ff AbstractValuesImpl::TIndefiniteAbstractValue#ff AbstractValuesImpl::TCustomAbstractValue#ff AbstractValuesImpl::TCustomAbstractValueFromDefinition#ff AbstractValuesImpl::TAbstractValue#f,IncompleteHostnameRegExp.ql,18,NotRun,0.015,0,329
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-AbstractValuesImpl::TAbstractNull#f AbstractValuesImpl::TAbstractUndefined#f AbstractValuesImpl::TAbstractBoolean#ff AbstractValuesImpl::TAbstractZero#f AbstractValuesImpl::TAbstractNonZero#f AbstractValuesImpl::TAbstractEmpty#f AbstractValuesImpl::TAbstractNumString#f AbstractValuesImpl::TAbstractOtherString#f AbstractValuesImpl::TAbstractRegExp#f AbstractValuesImpl::TAbstractDate#f AbstractValuesImpl::TAbstractArguments#ff AbstractValuesImpl::TAbstractGlobalObject#f AbstractValuesImpl::TAbstractModuleObject#ff AbstractValuesImpl::TAbstractExportsObject#ff AbstractValuesImpl::TAbstractObjectLiteral#ff AbstractValuesImpl::TAbstractFunction#ff AbstractValuesImpl::TAbstractClass#ff AbstractValuesImpl::TAbstractInstance#ff AbstractValuesImpl::TAbstractOtherObject#f AbstractValuesImpl::TIndefiniteFunctionOrClass#ff AbstractValuesImpl::TIndefiniteObject#ff AbstractValuesImpl::TIndefiniteAbstractValue#ff AbstractValuesImpl::TCustomAbstractValue#ff AbstractValuesImpl::TCustomAbstractValueFromDefinition#ff AbstractValuesImpl::TAbstractValue#f (IncompleteHostnameRegExp.ql),0.015,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,Expr::getCatchParameterFromStmt#ff,IncompleteHostnameRegExp.ql,19,NotRun,0.015,0,345
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-Expr::getCatchParameterFromStmt#ff (IncompleteHostnameRegExp.ql),0.015,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,PreCallGraphStep::PreCallGraphStep::loadStep#fff,IncompleteHostnameRegExp.ql,20,NotRun,0,0,345
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-PreCallGraphStep::PreCallGraphStep::loadStep#fff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,FlowSteps::CachedSteps::captures#fff FlowSteps::CachedSteps::exploratoryBoundInvokeStep#ff CallGraphs::CallGraph::getAFunctionReference#fff Nodes::ClassNode::getAClassReference_dispred#2#ff JSDoc::JSDocNamedTypeExpr::resolvedName_dispred#ff TypeTracking::TypeTracker::append_dispred#fff PreCallGraphStep::PreCallGraphStep::loadStoreStep#fff PreCallGraphStep::PreCallGraphStep::storeStep#fff FlowSteps::CachedSteps::basicLoadStep#fff FlowSteps::CachedSteps::basicStoreStep#fff FlowSteps::CachedSteps::callsBound#fff FlowSteps::CachedSteps::returnStep#ff FlowSteps::CachedSteps::globalFlowStep#ff StepSummary::StepSummary::step#fff FlowSteps::CachedSteps::propertyFlowStep#ff PreCallGraphStep::PreCallGraphStep::step#ff CallGraphs::CallGraph::isIndefiniteGlobal#f DataFlow::DataFlow::Node::getImmediatePredecessor_dispred#ff VariableTypeInference::clobberedProp#ff TypeInference::AnalyzedNode::getALocalValue_dispred#ff TypeInference::AnalyzedNode::getAValue_dispred#ff CallGraphs::CallGraph::getAFunctionValue#ff CallGraphs::CallGraph::getABoundFunctionReference#ffff CallGraphs::CallGraph::locallyReturnedFunction#ff CallGraphs::CallGraph::getACallee#fff FlowSteps::CachedSteps::calls#ff FlowSteps::CachedSteps::argumentPassing#ffff FlowSteps::CachedSteps::callStep#ff FlowSteps::CachedSteps::callback#ff FlowSteps::CachedSteps::returnedPropWrite#ffff FlowSteps::CachedSteps::receiverPropWrite#fff FlowSteps::CachedSteps::identityFunctionStep#ff GlobalAccessPaths::AccessPath::fromReference#fff GlobalAccessPaths::AccessPath::fromRhs#fff,IncompleteHostnameRegExp.ql,21,NotRun,0.062,0,407
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-FlowSteps::CachedSteps::captures#fff FlowSteps::CachedSteps::exploratoryBoundInvokeStep#ff CallGraphs::CallGraph::getAFunctionReference#fff Nodes::ClassNode::getAClassReference_dispred#2#ff JSDoc::JSDocNamedTypeExpr::resolvedName_dispred#ff TypeTracking::TypeTracker::append_dispred#fff PreCallGraphStep::PreCallGraphStep::loadStoreStep#fff PreCallGraphStep::PreCallGraphStep::storeStep#fff FlowSteps::CachedSteps::basicLoadStep#fff FlowSteps::CachedSteps::basicStoreStep#fff FlowSteps::CachedSteps::callsBound#fff FlowSteps::CachedSteps::returnStep#ff FlowSteps::CachedSteps::globalFlowStep#ff StepSummary::StepSummary::step#fff FlowSteps::CachedSteps::propertyFlowStep#ff PreCallGraphStep::PreCallGraphStep::step#ff CallGraphs::CallGraph::isIndefiniteGlobal#f DataFlow::DataFlow::Node::getImmediatePredecessor_dispred#ff VariableTypeInference::clobberedProp#ff TypeInference::AnalyzedNode::getALocalValue_dispred#ff TypeInference::AnalyzedNode::getAValue_dispred#ff CallGraphs::CallGraph::getAFunctionValue#ff CallGraphs::CallGraph::getABoundFunctionReference#ffff CallGraphs::CallGraph::locallyReturnedFunction#ff CallGraphs::CallGraph::getACallee#fff FlowSteps::CachedSteps::calls#ff FlowSteps::CachedSteps::argumentPassing#ffff FlowSteps::CachedSteps::callStep#ff FlowSteps::CachedSteps::callback#ff FlowSteps::CachedSteps::returnedPropWrite#ffff FlowSteps::CachedSteps::receiverPropWrite#fff FlowSteps::CachedSteps::identityFunctionStep#ff GlobalAccessPaths::AccessPath::fromReference#fff GlobalAccessPaths::AccessPath::fromRhs#fff (IncompleteHostnameRegExp.ql),0.062,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,ApiGraphs::API::Impl::edge#2#fff ApiGraphs::API::Impl::distanceFromRoot#ff ApiGraphs::API::Impl::MkModuleUse#ff ApiGraphs::API::Impl::TApiNode#f ApiGraphs::API::Impl::MkAsyncFuncResult#ff ApiGraphs::API::Impl::rhs#2#fff ApiGraphs::API::Impl::MkDef#ff ApiGraphs::API::Impl::rhs#ff#origOrder ApiGraphs::API::Impl::trackDefNode#ff ApiGraphs::API::Impl::MkClassInstance#ff ApiGraphs::API::Impl::MkModuleImport#ff ApiGraphs::API::Impl::trackUseNode#3#ff ApiGraphs::API::Impl::MkModuleDef#ff ApiGraphs::API::Impl::use#ff ApiGraphs::API::Impl::MkRoot#f ApiGraphs::API::Impl::use#2#fff ApiGraphs::API::Impl::MkUse#ff ApiGraphs::API::Impl::MkCanonicalNameDef#ff ApiGraphs::API::Impl::MkCanonicalNameUse#ff ApiGraphs::API::Impl::MkSyntheticCallbackArg#ffff#origOrder ApiGraphs::API::Impl::MkModuleExport#ff,IncompleteHostnameRegExp.ql,22,NotRun,0.031,0,438
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-ApiGraphs::API::Impl::edge#2#fff ApiGraphs::API::Impl::distanceFromRoot#ff ApiGraphs::API::Impl::MkModuleUse#ff ApiGraphs::API::Impl::TApiNode#f ApiGraphs::API::Impl::MkAsyncFuncResult#ff ApiGraphs::API::Impl::rhs#2#fff ApiGraphs::API::Impl::MkDef#ff ApiGraphs::API::Impl::rhs#ff#origOrder ApiGraphs::API::Impl::trackDefNode#ff ApiGraphs::API::Impl::MkClassInstance#ff ApiGraphs::API::Impl::MkModuleImport#ff ApiGraphs::API::Impl::trackUseNode#3#ff ApiGraphs::API::Impl::MkModuleDef#ff ApiGraphs::API::Impl::use#ff ApiGraphs::API::Impl::MkRoot#f ApiGraphs::API::Impl::use#2#fff ApiGraphs::API::Impl::MkUse#ff ApiGraphs::API::Impl::MkCanonicalNameDef#ff ApiGraphs::API::Impl::MkCanonicalNameUse#ff ApiGraphs::API::Impl::MkSyntheticCallbackArg#ffff#origOrder ApiGraphs::API::Impl::MkModuleExport#ff (IncompleteHostnameRegExp.ql),0.031,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,GlobalAccessPaths::AccessPath::DominatingPaths::AccessPathKind#f GlobalAccessPaths::AccessPath::DominatingPaths::AccessPathWrite#f GlobalAccessPaths::AccessPath::DominatingPaths::AccessPathRead#f,IncompleteHostnameRegExp.ql,23,NotRun,0,0,438
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-GlobalAccessPaths::AccessPath::DominatingPaths::AccessPathKind#f GlobalAccessPaths::AccessPath::DominatingPaths::AccessPathWrite#f GlobalAccessPaths::AccessPath::DominatingPaths::AccessPathRead#f (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,BasicBlocks::ReachableBasicBlock::strictlyDominates_dispred#ff,IncompleteHostnameRegExp.ql,24,NotRun,0,0,438
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-BasicBlocks::ReachableBasicBlock::strictlyDominates_dispred#ff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,GlobalAccessPaths::AccessPath::DominatingPaths::hasDominatingWrite#f,IncompleteHostnameRegExp.ql,25,NotRun,0.015,0,454
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-GlobalAccessPaths::AccessPath::DominatingPaths::hasDominatingWrite#f (IncompleteHostnameRegExp.ql),0.015,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,TypeInference::AnalyzedNode::getAType_dispred#ff,IncompleteHostnameRegExp.ql,26,NotRun,0,0,454
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-TypeInference::AnalyzedNode::getAType_dispred#ff (IncompleteHostnameRegExp.ql),0,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] CSV_IMB_QUERIES: Stage,TaintTracking::TaintTracking::AdditionalTaintStep#class#f TaintTracking::TaintTracking::AdditionalTaintStep::step_dispred#fff,IncompleteHostnameRegExp.ql,27,NotRun,0.031,0,485
+[2021-04-27 14:06:25] CSV_CACHE_DIFF: NotRun-TaintTracking::TaintTracking::AdditionalTaintStep#class#f TaintTracking::TaintTracking::AdditionalTaintStep::step_dispred#fff (IncompleteHostnameRegExp.ql),0.031,0,0,0,0,0,0,0,0,0,0,0,0
+[2021-04-27 14:06:25] (0s) Beginning execution of IncompleteHostnameRegExp.ql
+[2021-04-27 14:06:26] (0s)  >>> Created relation regexpterm/5@2b0027 with 326 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation files/5@8ffda8 with 124 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate regexpterm_20#join_rhs/2@5b4574
+[2021-04-27 14:06:26] (0s)  >>> Created relation regexpterm_20#join_rhs/2@5b4574 with 326 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate dom#AbstractValuesImpl::TAbstractBoolean#f/1@0bd38c
+[2021-04-27 14:06:26] (0s)  >>> Created relation dom#AbstractValuesImpl::TAbstractBoolean#f/1@0bd38c with 2 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation stmts/5@4ccd9d with 14479 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate DataFlowNode::TValueNode#ff_10#join_rhs/2@2e0e29
+[2021-04-27 14:06:26] (0s)  >>> Created relation exprs/5@dec1cc with 63353 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate exprs_10#join_rhs/2@6eabd1
+[2021-04-27 14:06:26] (0s)  >>> Created relation locations_default/6@d0a81f with 195132 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate locations_default_102345#join_rhs/6@15edd6
+[2021-04-27 14:06:26] (0s)  >>> Created relation hasLocation/2@19ed98 with 241224 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate regexpterm_0#antijoin_rhs/1@7d21db
+[2021-04-27 14:06:26] (0s)  >>> Created relation regexpterm_0#antijoin_rhs/1@7d21db with 326 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate Regexp::RegExpTerm::getLocation_dispred#ff/2@3289d2
+[2021-04-27 14:06:26] (0s)  >>> Created relation Regexp::RegExpTerm::getLocation_dispred#ff/2@3289d2 with 326 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate Nodes::ExprNode#ff/2@21542c
+[2021-04-27 14:06:26] (0s)  >>> Created relation DataFlowNode::TValueNode#ff_10#join_rhs/2@2e0e29 with 64382 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation properties/5@57b1e1 with 240 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate properties_30#join_rhs/2@9fd4e0
+[2021-04-27 14:06:26] (0s)  >>> Created relation properties_30#join_rhs/2@9fd4e0 with 240 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate properties_10#join_rhs/2@827956
+[2021-04-27 14:06:26] (0s)  >>> Created relation properties_10#join_rhs/2@827956 with 240 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation guard_node/3@f024db with 112 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation toplevels/2@b2b4a0 with 122 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate stmts_10#join_rhs/2@79ce07
+[2021-04-27 14:06:26] (0s)  >>> Created relation stmts_10#join_rhs/2@79ce07 with 14479 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation typeexprs/5@b847cd with 0 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate AST::ASTNode#class#f/1@2a73c7
+[2021-04-27 14:06:26] (0s)  >>> Created relation Nodes::ExprNode#ff/2@21542c with 63353 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate DataFlow::DataFlow::Node::asExpr_dispred#ff_10#join_rhs/2@3558e5
+[2021-04-27 14:06:26] (0s)  >>> Created relation exprs_10#join_rhs/2@6eabd1 with 63353 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate Expr::Literal#class#b#antijoin_rhs/1@0f0c85
+[2021-04-27 14:06:26] (0s)  >>> Created relation Expr::Literal#class#b#antijoin_rhs/1@0f0c85 with 0 rows.
+[2021-04-27 14:06:26] (0s) Inferred that non-rec relation Regexp::RegExpLiteralPatternSource#class#ff/2 is empty
+[2021-04-27 14:06:26] (0s)  >>> Created relation Regexp::RegExpLiteralPatternSource#class#ff/2@d5eea9 with 0 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate Classes::ClassDefinition#class#f/1@778ca8
+[2021-04-27 14:06:26] (0s)  >>> Created relation Classes::ClassDefinition#class#f/1@778ca8 with 0 rows.
+[2021-04-27 14:06:26] (0s) Inferred that non-rec relation typeexprs_10#join_rhs/2 is empty
+[2021-04-27 14:06:26] (0s)  >>> Created relation typeexprs_10#join_rhs/2@5ec33b with 0 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate @interface_definition#f/1@0529e9
+[2021-04-27 14:06:26] (0s)  >>> Created relation @interface_definition#f/1@0529e9 with 0 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate Classes::ClassOrInterface#class#f/1@4ddb09
+[2021-04-27 14:06:26] (0s)  >>> Created relation DataFlow::DataFlow::Node::asExpr_dispred#ff_10#join_rhs/2@3558e5 with 63353 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation Classes::ClassOrInterface#class#f/1@4ddb09 with 0 rows.
+[2021-04-27 14:06:26] (0s) Inferred that non-rec relation Classes::MemberDeclaration#f/1 is empty
+[2021-04-27 14:06:26] (0s)  >>> Created relation Classes::MemberDeclaration#f/1@6f31cc with 0 rows.
+[2021-04-27 14:06:26] (0s) Inferred that non-rec relation Classes::ParameterField#class#f/1 is empty
+[2021-04-27 14:06:26] (0s)  >>> Created relation Classes::ParameterField#class#f/1@76a6e2 with 0 rows.
+[2021-04-27 14:06:26] (0s) Inferred that non-rec relation DataFlow::DataFlow::ParameterFieldAsPropWrite#class#ff/2 is empty
+[2021-04-27 14:06:26] (0s)  >>> Created relation DataFlow::DataFlow::ParameterFieldAsPropWrite#class#ff/2@1ca2ae with 0 rows.
+[2021-04-27 14:06:26] (0s) Inferred that non-rec relation DataFlow::DataFlow::ParameterFieldAsPropWrite#class#ff_10#join_rhs/2 is empty
+[2021-04-27 14:06:26] (0s) Inferred that non-rec relation Classes::ParameterField::getParameter_dispred#ff/2 is empty
+[2021-04-27 14:06:26] (0s)  >>> Created relation DataFlow::DataFlow::ParameterFieldAsPropWrite#class#ff_10#join_rhs/2@b71e44 with 0 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation Classes::ParameterField::getParameter_dispred#ff/2@1d87a0 with 0 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate properties_304#join_rhs/3@81c457
+[2021-04-27 14:06:26] (0s)  >>> Created relation properties_304#join_rhs/3@81c457 with 240 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate SSA::Internal::TRefinement#fffff_24#join_rhs/2@19a5f5
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate Variables::PropertyPattern#class#f/1@af08eb
+[2021-04-27 14:06:26] (0s)  >>> Created relation Variables::PropertyPattern#class#f/1@af08eb with 0 rows.
+[2021-04-27 14:06:26] (0s) Inferred that non-rec relation DataFlow::DataFlow::PropPatternAsPropRead#class#ff/2 is empty
+[2021-04-27 14:06:26] (0s)  >>> Created relation SSA::Internal::TRefinement#fffff_24#join_rhs/2@19a5f5 with 6 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation DataFlow::DataFlow::PropPatternAsPropRead#class#ff/2@93c643 with 0 rows.
+[2021-04-27 14:06:26] (0s) Inferred that non-rec relation DataFlow::DataFlow::PropPatternAsPropRead#class#ff_10#join_rhs/2 is empty
+[2021-04-27 14:06:26] (0s)  >>> Created relation DataFlow::DataFlow::PropPatternAsPropRead#class#ff_10#join_rhs/2@a51894 with 0 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation bind/2@0b2b73 with 10551 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate @varaccess#f/1@b456c5
+[2021-04-27 14:06:26] (0s)  >>> Created relation @varaccess#f/1@b456c5 with 10551 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate Variables::VarAccess::getVariable_dispred#ff/2@51f96b
+[2021-04-27 14:06:26] (0s)  >>> Created relation exit_cfg_node/2@026ab5 with 4077 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate Expr::ExprOrType_not_AssignExpr_ParExpr_SeqExpr_TypeAssertion#f#antijoin_rhs/1@8a97ce
+[2021-04-27 14:06:26] (0s)  >>> Created relation Expr::ExprOrType_not_AssignExpr_ParExpr_SeqExpr_TypeAssertion#f#antijoin_rhs/1@8a97ce with 3 rows.
+[2021-04-27 14:06:26] (0s)  >>> Created relation locations_default_102345#join_rhs/6@15edd6 with 195132 rows.
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate Locations::Location::hasLocationInfo_dispred#ffffff/6@f32abd
+[2021-04-27 14:06:26] (0s) Starting to evaluate predicate exprs_230#join_rhs/3@00787f
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::VarAccess::getVariable_dispred#ff/2@51f96b with 10551 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation scopes/2@4fc215 with 4004 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate scopes_10#join_rhs/2@8a10b6
+[2021-04-27 14:06:26] (1s)  >>> Created relation scopes_10#join_rhs/2@8a10b6 with 4004 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation variables/3@00de33 with 10286 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation AST::ASTNode#class#f/1@2a73c7 with 78194 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate AST::ASTNode::getLocation_dispred#ff/2@c631ed
+[2021-04-27 14:06:26] (1s)  >>> Created relation is_arguments_object/1@ed969b with 3941 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Variables::Variable::getScope_dispred#ff/2@0f6d5c
+[2021-04-27 14:06:26] (1s)  >>> Created relation exprs_230#join_rhs/3@00787f with 63353 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Classes::MemberDeclaration::getNameExpr_dispred#ff/2@1d67a8
+[2021-04-27 14:06:26] (1s)  >>> Created relation Classes::MemberDeclaration::getNameExpr_dispred#ff/2@1d67a8 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Classes::MemberDeclaration::getName_dispred#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Classes::MemberDeclaration::getName_dispred#ff/2@16c65d with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::ParExpr::getExpression_dispred#ff/2@30e321
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::ParExpr::getExpression_dispred#ff/2@30e321 with 3 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::ParExpr::getExpression_dispred#ff_10#join_rhs/2@fd0607
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::ParExpr::getExpression_dispred#ff_10#join_rhs/2@fd0607 with 3 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation entry_cfg_node/2@fced1e with 4077 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate CFG::SyntheticControlFlowNode#class#f/1@d3968d
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::Variable::getScope_dispred#ff/2@0f6d5c with 10286 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Variables::Variable::getScope_dispred#ff_10#join_rhs/2@b87fa9
+[2021-04-27 14:06:26] (1s)  >>> Created relation CFG::SyntheticControlFlowNode#class#f/1@d3968d with 8266 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate CFG::SyntheticControlFlowNode::getLocation_dispred#ff/2@ba7c87
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::Variable::getScope_dispred#ff_10#join_rhs/2@b87fa9 with 10286 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Variables::Variable::isGlobal_dispred#f/1@a2c550
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::Variable::isGlobal_dispred#f/1@a2c550 with 880 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Variables::GlobalVarAccess#class#f/1@383cf9
+[2021-04-27 14:06:26] (1s)  >>> Created relation CFG::SyntheticControlFlowNode::getLocation_dispred#ff/2@ba7c87 with 8266 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation xmlAttrs/6@c21dc5 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation HTML::HTML::Attribute::toString_dispred#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation HTML::HTML::Attribute::toString_dispred#ff/2@c2f4d5 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Variables::PropertyPattern::getNameExpr_dispred#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::PropertyPattern::getNameExpr_dispred#ff/2@232d59 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::InvokeExpr#class#f/1@8b940f
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::InvokeExpr#class#f/1@8b940f with 311 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DataFlow::DataFlow::Impl::ExplicitInvokeNode#class#ff/2@bf9823
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::Impl::ExplicitInvokeNode#class#ff/2@bf9823 with 311 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation DataFlow::DataFlow::Impl::ReflectiveCallNodeDef#class#fff/3 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::Impl::ReflectiveCallNodeDef#class#fff/3@e8b123 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::InvokeExpr::getCallee_dispred#ff/2@0a417b
+[2021-04-27 14:06:26] (1s)  >>> Created relation Locations::Location::hasLocationInfo_dispred#ffffff/6@f32abd with 195132 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate SSA::SsaDefinition::hasLocationInfo_dispred#ffffff#shared/6@e11de4
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::InvokeExpr::getCallee_dispred#ff/2@0a417b with 311 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::MethodCallExpr#class#f#join_rhs/2@b5e886
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::GlobalVarAccess#class#f/1@383cf9 with 6358 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::MethodCallExpr#class#f#join_rhs/2@b5e886 with 304 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Property#class#f/1@d8499c
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Property#class#f/1@d8499c with 240 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Locations::Locatable::toString_dispred#ff/2@263b88
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DataFlow::DataFlow::PropInitAsPropWrite#class#ff/2@a3b2c9
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::PropInitAsPropWrite#class#ff/2@a3b2c9 with 240 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate @propaccess#f#join_rhs/1@9d83f2
+[2021-04-27 14:06:26] (1s)  >>> Created relation SSA::SsaDefinition::hasLocationInfo_dispred#ffffff#shared/6@e11de4 with 8266 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate @field#f/1@0bc843
+[2021-04-27 14:06:26] (1s)  >>> Created relation @field#f/1@0bc843 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Classes::FieldDefinition#class#f/1 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation @propaccess#f#join_rhs/1@9d83f2 with 18968 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation Classes::FieldDefinition#class#f/1@9dfda5 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation DataFlow::DataFlow::InstanceFieldAsPropWrite#class#ff#shared/1 is empty
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate @propaccess#f/1@a100dc
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::InstanceFieldAsPropWrite#class#ff#shared/1@d76bee with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation DataFlow::DataFlow::InstanceFieldAsPropWrite#class#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::InstanceFieldAsPropWrite#class#ff/2@6156c7 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation DataFlow::DataFlow::InstanceFieldAsPropWrite#class#ff_10#join_rhs/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::InstanceFieldAsPropWrite#class#ff_10#join_rhs/2@df8fb8 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate @varref#f/1@3e8575
+[2021-04-27 14:06:26] (1s)  >>> Created relation AST::ASTNode::getLocation_dispred#ff/2@c631ed with 78194 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate AST::ASTNode::getFile_dispred#ff/2@d67a96
+[2021-04-27 14:06:26] (1s)  >>> Created relation @varref#f/1@3e8575 with 16661 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Locations::Locatable::getLocation_dispred#ff/2@b09cbf
+[2021-04-27 14:06:26] (1s)  >>> Created relation @propaccess#f/1@a100dc with 18984 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DataFlow::DataFlow::Node::mayHaveStringValue#ff/2@i1#fd263w (iteration 1)
+[2021-04-27 14:06:26] (1s) 			 - DataFlow::DataFlow::Node::mayHaveStringValue#ff_delta has 268 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DataFlow::DataFlow::Node::mayHaveStringValue#ff/2@i2#fd263w (iteration 2)
+[2021-04-27 14:06:26] (1s) 			 - DataFlow::DataFlow::Node::mayHaveStringValue#ff_delta has 4 rows (order for disjuncts: delta=100).
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DataFlow::DataFlow::Node::mayHaveStringValue#ff/2@i3#fd263w (iteration 3)
+[2021-04-27 14:06:26] (1s) Empty delta for DataFlow::DataFlow::Node::mayHaveStringValue#ff_delta (order for disjuncts: delta=100).
+[2021-04-27 14:06:26] (1s) Accumulating deltas
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::Node::mayHaveStringValue#ff/2@fd263w with 272 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DataFlow::DataFlow::Node::mayHaveStringValue#ff_0#antijoin_rhs/1@66898b
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::Node::mayHaveStringValue#ff_0#antijoin_rhs/1@66898b with 272 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation AST::ASTNode::getFile_dispred#ff/2@d67a96 with 78194 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::fromRhs#fff_021#join_rhs/3@1bf772
+[2021-04-27 14:06:26] (1s)  >>> Created relation Locations::Locatable::toString_dispred#ff/2@263b88 with 78072 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Variables::PropertyPattern::getName_dispred#bf#shared/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::PropertyPattern::getName_dispred#bf#shared/2@534d8e with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Property::getNameExpr_dispred#ff/2@26794b
+[2021-04-27 14:06:26] (1s)  >>> Created relation Locations::Locatable::getLocation_dispred#ff/2@b09cbf with 86460 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate SSA::SsaPhiNode::hasLocationInfo#ffffff/6@d8f14f
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Property::getNameExpr_dispred#ff/2@26794b with 240 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate SSA::SsaImplicitDefinition::hasLocationInfo#ffffff/6@f28dff
+[2021-04-27 14:06:26] (1s)  >>> Created relation GlobalAccessPaths::AccessPath::fromRhs#fff_021#join_rhs/3@1bf772 with 5229 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::isSelfAssignment#b/1@ada9eb
+[2021-04-27 14:06:26] (1s)  >>> Created relation literals/3@b1afe1 with 36332 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Identifier#class#f/1@30346d
+[2021-04-27 14:06:26] (1s)  >>> Created relation SSA::SsaImplicitDefinition::hasLocationInfo#ffffff/6@f28dff with 123 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Literal#class#b/1@f24113
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Literal#class#b/1@f24113 with 485 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Literal::getValue_dispred#ff/2@80a9f8
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Identifier#class#f/1@30346d with 35847 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Identifier::getName#ff/2@5e6970
+[2021-04-27 14:06:26] (1s)  >>> Created relation GlobalAccessPaths::AccessPath::isSelfAssignment#b/1@ada9eb with 1 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::isAssignedInFile#ff/2@dd17ed
+[2021-04-27 14:06:26] (1s)  >>> Created relation GlobalAccessPaths::AccessPath::isAssignedInFile#ff/2@dd17ed with 2961 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::isAssignedInUniqueFile#f#join_rhs/2@e47cbb
+[2021-04-27 14:06:26] (1s)  >>> Created relation GlobalAccessPaths::AccessPath::isAssignedInUniqueFile#f#join_rhs/2@e47cbb with 2893 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::isAssignedInUniqueFile#f/1@d2220f
+[2021-04-27 14:06:26] (1s)  >>> Created relation GlobalAccessPaths::AccessPath::isAssignedInUniqueFile#f/1@d2220f with 2825 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Literal::getValue_dispred#ff/2@80a9f8 with 485 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::InvokeExpr::getCallee_dispred#ff_10#join_rhs/2@4f3531
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::InvokeExpr::getCallee_dispred#ff_10#join_rhs/2@4f3531 with 311 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Variables::PropertyPattern::getName_dispred#bf#antijoin_rhs/2 is empty
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Classes::MemberDeclaration::isStatic_dispred#f/1 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Classes::MemberDeclaration::isStatic_dispred#f/1@d578b7 with 0 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::PropertyPattern::getName_dispred#bf#antijoin_rhs/2@e53218 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation DataFlow::DataFlow::StaticClassMemberAsPropWrite#class#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::StaticClassMemberAsPropWrite#class#ff/2@255c47 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate SSA::Internal::TExplicitDef#fffff_24#join_rhs/2@e5a515
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Nodes::ThisNode#f/1@f28434
+[2021-04-27 14:06:26] (1s)  >>> Created relation SSA::Internal::TExplicitDef#fffff_24#join_rhs/2@e5a515 with 225 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation is_computed/1@145e00 with 1 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Property::getName_dispred#ff#antijoin_rhs/2@cc5eaf
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Property::getName_dispred#ff#antijoin_rhs/2@cc5eaf with 1 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation Nodes::ThisNode#f/1@f28434 with 4063 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Functions::Function#class#f/1@a4a2d9
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Assignment#class#f#antijoin_rhs/1@a2180f
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Assignment#class#f#antijoin_rhs/1@a2180f with 4084 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Assignment#class#f/1@542dbe
+[2021-04-27 14:06:26] (1s)  >>> Created relation Functions::Function#class#f/1@a4a2d9 with 3955 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Assignment#class#f/1@542dbe with 4084 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Assignment::getLhs_dispred#ff/2@c97984
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DefUse::RefExpr#f/1@9e2a63
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Assignment::getLhs_dispred#ff/2@c97984 with 4084 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate BasicBlocks::Internal::bbIndex#fff_021#join_rhs/3@1f0658
+[2021-04-27 14:06:26] (1s)  >>> Created relation SSA::SsaPhiNode::hasLocationInfo#ffffff/6@d8f14f with 3 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate exprs_20134#join_rhs/5@fe88a2
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Identifier::getName#ff/2@5e6970 with 35847 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Variables::VarRef::getName_dispred#ff/2@3d7daf
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::VarRef::getName_dispred#ff/2@3d7daf with 16661 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Nodes::globalVariable#ff/2@e29c81
+[2021-04-27 14:06:26] (1s)  >>> Created relation DefUse::RefExpr#f/1@9e2a63 with 35645 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Identifier::getName_dispred#ff/2@c7602d
+[2021-04-27 14:06:26] (1s)  >>> Created relation Nodes::globalVariable#ff/2@e29c81 with 6358 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation exprs_20134#join_rhs/5@fe88a2 with 63353 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Variables::ArrayPattern::getAnElement_dispred#ff#shared/5@0fea9c
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::ArrayPattern::getAnElement_dispred#ff#shared/5@0fea9c with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Variables::ArrayPattern::getAnElement_dispred#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::ArrayPattern::getAnElement_dispred#ff/2@688f00 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation DefUse::lvalAux#ff#join_rhs/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation DefUse::lvalAux#ff#join_rhs/2@9de540 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate @pattern#f/1@e7854c
+[2021-04-27 14:06:26] (1s)  >>> Created relation @pattern#f/1@e7854c with 16661 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Variables::Parameterized#class#f/1@eb8566
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::Parameterized#class#f/1@eb8566 with 3955 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Variables::Parameter#class#f/1@a67931
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Classes::MethodDeclaration#f/1 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Classes::MethodDeclaration#f/1@377785 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Classes::MethodDefinition#class#f/1 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Classes::MethodDefinition#class#f/1@48f948 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation DataFlow::DataFlow::InstanceMethodAsPropWrite#class#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::InstanceMethodAsPropWrite#class#ff/2@2dad72 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::CompoundAssignExpr#class#f/1@682260
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::CompoundAssignExpr#class#f/1@682260 with 0 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Identifier::getName_dispred#ff/2@c7602d with 35847 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Variables::PropertyPattern::getName_dispred#bf/2@0a3ae6
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Property::getName_dispred#ff/2@50057d
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::PropertyPattern::getName_dispred#bf/2@0a3ae6 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::DotExpr::getPropertyName_dispred#ff/2@217158
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Property::getName_dispred#ff/2@50057d with 239 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate TypeScript::EnumMember::getIdentifier_dispred#ff/2@964d33
+[2021-04-27 14:06:26] (1s)  >>> Created relation TypeScript::EnumMember::getIdentifier_dispred#ff/2@964d33 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate ES2015Modules::ImportSpecifier#class#f#antijoin_rhs/1@e13e77
+[2021-04-27 14:06:26] (1s)  >>> Created relation ES2015Modules::ImportSpecifier#class#f#antijoin_rhs/1@e13e77 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate ES2015Modules::ImportSpecifier#class#f/1@a7d498
+[2021-04-27 14:06:26] (1s)  >>> Created relation ES2015Modules::ImportSpecifier#class#f/1@a7d498 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation ES2015Modules::ImportSpecifier::getLocal_dispred#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation ES2015Modules::ImportSpecifier::getLocal_dispred#ff/2@563eb1 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate exprs_12304#join_rhs/5@35deb7
+[2021-04-27 14:06:26] (1s)  >>> Created relation BasicBlocks::Internal::bbIndex#fff_021#join_rhs/3@1f0658 with 86338 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate SSA::SsaDefinition::hasLocationInfo_dispred#ffffff/6@b3b755
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::Parameter#class#f/1@a67931 with 5036 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation DataFlowNode::TElementNode#fff_12#join_rhs/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlowNode::TElementNode#fff_12#join_rhs/2@48dacd with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Stmt::EnhancedForLoop#class#f/1@e73e8d
+[2021-04-27 14:06:26] (1s)  >>> Created relation Stmt::EnhancedForLoop#class#f/1@e73e8d with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Stmt::EnhancedForLoop::getIterator_dispred#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Stmt::EnhancedForLoop::getIterator_dispred#ff/2@63bf4e with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Stmt::EnhancedForLoop::getLValue_dispred#bf/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Stmt::EnhancedForLoop::getLValue_dispred#bf/2@878d4f with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation DataFlow::DataFlow::ForOfLvalueAsPropRead#class#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::ForOfLvalueAsPropRead#class#ff/2@5918e6 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation project#DataFlow::DataFlow::ForOfLvalueAsPropRead#class#ff/1 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation project#DataFlow::DataFlow::ForOfLvalueAsPropRead#class#ff/1@2f12a6 with 0 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Stmt::EnhancedForLoop::getIteratorExpr_dispred#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Stmt::EnhancedForLoop::getIteratorExpr_dispred#ff/2@578816 with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Expr::stripParens_dispred#bf/2@i1#93de9w (iteration 1)
+[2021-04-27 14:06:26] (1s) Empty delta for Expr::Expr::stripParens_dispred#bf_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::MethodCallExpr#class#f/1@i1#93de9x (iteration 1)
+[2021-04-27 14:06:26] (1s) Empty delta for Expr::MethodCallExpr#class#f_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::DotExpr::getPropertyName_dispred#ff/2@217158 with 18968 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate m#Expr::Expr::stripParens_dispred#bf/1@i1#93de9y (iteration 1)
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::PropAccess::getPropertyName_dispred#ff/2@7a5f01
+[2021-04-27 14:06:26] (1s) 			 - m#Expr::Expr::stripParens_dispred#bf_delta has 4388 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Expr::stripParens_dispred#bf/2@i2#93de9w (iteration 2)
+[2021-04-27 14:06:26] (1s) 			 - Expr::Expr::stripParens_dispred#bf_delta has 4388 rows (order for disjuncts: delta=1000).
+[2021-04-27 14:06:26] (1s) Empty delta for Expr::MethodCallExpr#class#f_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate m#Expr::Expr::stripParens_dispred#bf/1@i2#93de9y (iteration 2)
+[2021-04-27 14:06:26] (1s) Empty delta for m#Expr::Expr::stripParens_dispred#bf_delta (order for disjuncts: delta=1000).
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Expr::stripParens_dispred#bf/2@i3#93de9w (iteration 3)
+[2021-04-27 14:06:26] (1s) Empty delta for Expr::Expr::stripParens_dispred#bf_delta (order for disjuncts: delta=1000).
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::MethodCallExpr#class#f/1@i3#93de9x (iteration 3)
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::PropAccess::getPropertyName_dispred#ff/2@7a5f01 with 18974 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate TypeScript::EnumMember::getInitializer_dispred#ff/2@f8b9b9
+[2021-04-27 14:06:26] (1s)  >>> Created relation TypeScript::EnumMember::getInitializer_dispred#ff/2@f8b9b9 with 0 rows.
+[2021-04-27 14:06:26] (1s) 			 - Expr::MethodCallExpr#class#f_delta has 224 rows (order for disjuncts: delta=1000).
+[2021-04-27 14:06:26] (1s) Empty delta for m#Expr::Expr::stripParens_dispred#bf_delta (order for disjuncts: delta=1000).
+[2021-04-27 14:06:26] (1s) Empty delta for Expr::Expr::stripParens_dispred#bf_delta (order for disjuncts: delta=1000).
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::MethodCallExpr#class#f/1@i4#93de9x (iteration 4)
+[2021-04-27 14:06:26] (1s) Empty delta for Expr::MethodCallExpr#class#f_delta (order for disjuncts: delta=100).
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate m#Expr::Expr::stripParens_dispred#bf/1@i4#93de9y (iteration 4)
+[2021-04-27 14:06:26] (1s) Empty delta for m#Expr::Expr::stripParens_dispred#bf_delta (order for disjuncts: delta=100).
+[2021-04-27 14:06:26] (1s) Accumulating deltas
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Expr::stripParens_dispred#bf/2@93de9w with 4388 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::MethodCallExpr#class#f/1@93de9x with 224 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation m#Expr::Expr::stripParens_dispred#bf/1@93de9y with 4388 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DataFlow::DataFlow::Impl::ExplicitMethodCallNode#class#ff/2@425508
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::Impl::ExplicitMethodCallNode#class#ff/2@425508 with 224 rows.
+[2021-04-27 14:06:26] (1s) Inferred that non-rec relation Variables::ObjectPattern::getAPropertyPattern_dispred#ff/2 is empty
+[2021-04-27 14:06:26] (1s)  >>> Created relation Variables::ObjectPattern::getAPropertyPattern_dispred#ff/2@f0ca9b with 0 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DataFlow::DataFlow::Impl::CallNodeDef#class#f/1@4e36b1
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DefUse::lvalAux#ff#join_rhs#1/2@8609d2
+[2021-04-27 14:06:26] (1s)  >>> Created relation DefUse::lvalAux#ff#join_rhs#1/2@8609d2 with 0 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::Impl::CallNodeDef#class#f/1@4e36b1 with 304 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::Assignment::getTarget_dispred#ff/2@ec5d42
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate DataFlow::DataFlow::Impl::InvokeNodeDef#class#f/1@9473c0
+[2021-04-27 14:06:26] (1s)  >>> Created relation DataFlow::DataFlow::Impl::InvokeNodeDef#class#f/1@9473c0 with 311 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Nodes::InvokeNode#ff/2@fb59d1
+[2021-04-27 14:06:26] (1s)  >>> Created relation Nodes::InvokeNode#ff/2@fb59d1 with 311 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Nodes::MethodCallNode#class#ff/2@1329f9
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::Assignment::getTarget_dispred#ff/2@ec5d42 with 4084 rows.
+[2021-04-27 14:06:26] (1s)  >>> Created relation Nodes::MethodCallNode#class#ff/2@1329f9 with 224 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::MethodCallExpr::getMethodRef_dispred#ff/2@ed59dc
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::InvokeExpr::getArgument_dispred#fff/3@ac6c25
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::MethodCallExpr::getMethodRef_dispred#ff/2@ed59dc with 224 rows.
+[2021-04-27 14:06:26] (1s) Starting to evaluate predicate Expr::MethodCallExpr::getMethodName_dispred#ff/2@3c0703
+[2021-04-27 14:06:26] (1s)  >>> Created relation Expr::InvokeExpr::getArgument_dispred#fff/3@ac6c25 with 430 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::Impl::ExplicitInvokeNode::isIndexAfterSpread#ff#loop_invariant_prefix/2@d90b83
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Impl::ExplicitInvokeNode::isIndexAfterSpread#ff#loop_invariant_prefix/2@d90b83 with 430 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation DataFlow::DataFlow::Impl::ReflectiveCallNodeDef#class#fff_201#join_rhs/3 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Impl::ReflectiveCallNodeDef#class#fff_201#join_rhs/3@03a53d with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation DataFlow::DataFlow::Impl::InvokeNodeDef::getArgument_dispred#fff#join_rhs/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Impl::InvokeNodeDef::getArgument_dispred#fff#join_rhs/2@5f164f with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::InvokeExpr::getArgument_dispred#fff_201#join_rhs/3@608a7f
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::InvokeExpr::getArgument_dispred#fff_201#join_rhs/3@608a7f with 430 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::Expr::stripParens_dispred#fb/2@i1#c99baw (iteration 1)
+[2021-04-27 14:06:27] (1s) Empty delta for Expr::Expr::stripParens_dispred#fb_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::Expr::stripParens_dispred#fb/2@c99baw with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Expr::InvokeExpr::isSpreadArgument_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::InvokeExpr::isSpreadArgument_dispred#ff/2@17b12d with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::Impl::ExplicitInvokeNode::isIndexAfterSpread_dispred#ff/2@i1#06b76w (iteration 1)
+[2021-04-27 14:06:27] (1s) Empty delta for DataFlow::DataFlow::Impl::ExplicitInvokeNode::isIndexAfterSpread_dispred#ff_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::Impl::ExplicitInvokeNode::isIndexAfterSpread#ff/2@i1#06b76x (iteration 1)
+[2021-04-27 14:06:27] (1s) Empty delta for DataFlow::DataFlow::Impl::ExplicitInvokeNode::isIndexAfterSpread#ff_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Impl::ExplicitInvokeNode::isIndexAfterSpread_dispred#ff/2@06b76w with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Impl::ExplicitInvokeNode::isIndexAfterSpread#ff/2@06b76x with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::MethodCallExpr::getMethodName_dispred#ff/2@3c0703 with 224 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation DataFlow::DataFlow::Impl::ReflectiveCallNodeDef#class#fff_120#join_rhs/3 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Impl::ReflectiveCallNodeDef#class#fff_120#join_rhs/3@5124e8 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Nodes::MethodCallNode::getMethodName_dispred#ff/2@0e506d
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::Impl::InvokeNodeDef::getArgument_dispred#fff/3@i1#4fbc9w (iteration 1)
+[2021-04-27 14:06:27] (1s) 			 - DataFlow::DataFlow::Impl::InvokeNodeDef::getArgument_dispred#fff_delta has 430 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::Impl::InvokeNodeDef::getArgument_dispred#fff/3@i2#4fbc9w (iteration 2)
+[2021-04-27 14:06:27] (1s)  >>> Created relation Nodes::MethodCallNode::getMethodName_dispred#ff/2@0e506d with 224 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Nodes::MethodCallNode::getMethodName_dispred#ff_1#join_rhs/1@c66c16
+[2021-04-27 14:06:27] (1s) Empty delta for DataFlow::DataFlow::Impl::InvokeNodeDef::getArgument_dispred#fff_delta (order for disjuncts: delta=100).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s)  >>> Created relation Nodes::MethodCallNode::getMethodName_dispred#ff_1#join_rhs/1@c66c16 with 53 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Impl::InvokeNodeDef::getArgument_dispred#fff/3@4fbc9w with 430 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Nodes::MethodCallNode::getMethodName_dispred#ff_10#join_rhs/2@d4911b
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Nodes::InvokeNode::getArgument_dispred#fff/3@b1b657
+[2021-04-27 14:06:27] (1s)  >>> Created relation Nodes::InvokeNode::getArgument_dispred#fff/3@b1b657 with 430 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate ES2015Modules::ImportSpecifier::getImportedName_dispred#ff/2@6d218f
+[2021-04-27 14:06:27] (1s)  >>> Created relation ES2015Modules::ImportSpecifier::getImportedName_dispred#ff/2@6d218f with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation DataFlow::DataFlow::ImportSpecifierAsPropRead#class#fff/3 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Nodes::MethodCallNode::getMethodName_dispred#ff_10#join_rhs/2@d4911b with 224 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::ImportSpecifierAsPropRead#class#fff/3@014531 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::VariableDeclarator::getBindingPattern_dispred#ff/2@fc1ba2
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::VariableDeclarator::getBindingPattern_dispred#ff/2@fc1ba2 with 283 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation DataFlow::DataFlow::ElementPatternAsPropRead#class#fff/3 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::ElementPatternAsPropRead#class#fff/3@f45d1f with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation TypeScript::EnumMember::getInitializer_dispred#ff_0#antijoin_rhs/1 is empty
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::LocalVariable#f/1@6bd189
+[2021-04-27 14:06:27] (1s)  >>> Created relation TypeScript::EnumMember::getInitializer_dispred#ff_0#antijoin_rhs/1@a1ad5d with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::VariableDeclarator::getInit#ff/2@c04c28
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::VariableDeclarator::getInit#ff/2@c04c28 with 158 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::Assignment::getTarget_dispred#ff_10#join_rhs/2@bdafcd
+[2021-04-27 14:06:27] (1s)  >>> Created relation exprs_12304#join_rhs/5@35deb7 with 63353 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::Assignment::getTarget_dispred#ff_10#join_rhs/2@bdafcd with 4084 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate exprs_01243#join_rhs/5@e6d754
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate @property_accessor#f/1@9e55d3
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::LocalVariable#f/1@6bd189 with 9406 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation @property_accessor#f/1@9e55d3 with 14 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::PropertyAccessor#class#f/1@1c9708
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::PropertyAccessor#class#f/1@1c9708 with 14 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::Property::getInit#ff/2@b9707f
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::Property::getInit#ff/2@b9707f with 240 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::PropertyAccessor::getInit_dispred#ff/2@a87271
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::PropertyAccessor::getInit_dispred#ff/2@a87271 with 14 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::Property::getInit_dispred#ff/2@c32f3b
+[2021-04-27 14:06:27] (1s)  >>> Created relation decl/2@950524 with 6110 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::LocalVariable::getLocation_dispred#ff#shared/2@827fec
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::Property::getInit_dispred#ff/2@c32f3b with 240 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Classes::ClassDefinition::getIdentifier_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Classes::ClassDefinition::getIdentifier_dispred#ff/2@25c42e with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Variables::ArrayPattern::getElement_dispred#fff/3 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::ArrayPattern::getElement_dispred#fff/3@328a3a with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Variables::ArrayPattern::getElement_dispred#fff_021#join_rhs/3 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::ArrayPattern::getElement_dispred#fff_021#join_rhs/3@6b3c21 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation DefUse::defn#ff#antijoin_rhs/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation DefUse::defn#ff#antijoin_rhs/2@58f242 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Externs::ExternalGlobalVarDecl#class#f#shared/1@f7bde7
+[2021-04-27 14:06:27] (1s)  >>> Created relation Externs::ExternalGlobalVarDecl#class#f#shared/1@f7bde7 with 283 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation is_externs/1@5550e4 with 110 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::LocalVariable::getLocation_dispred#ff#shared/2@827fec with 5188 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::LocalVariable::getLocation_dispred#ff#min_range/4@768d56
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::LocalVariable::getLocation_dispred#ff#min_term/7@6b497b
+[2021-04-27 14:06:27] (1s)  >>> Created relation SSA::SsaDefinition::hasLocationInfo_dispred#ffffff/6@b3b755 with 439 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::JsxAttributeAsPropWrite#class#ff/2@44f8ce
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::JsxAttributeAsPropWrite#class#ff/2@44f8ce with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Functions::Function::inferNameFromMemberDef_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::inferNameFromMemberDef_dispred#ff/2@b78c32 with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::LocalVariable::getLocation_dispred#ff#min_range/4@768d56 with 5188 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::LocalVariable::getLocation_dispred#ff#min_term/7@6b497b with 5188 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate decl_1#antijoin_rhs/1@7536b3
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate AST::StmtContainer::getEntry_dispred#ff/2@864d81
+[2021-04-27 14:06:27] (1s)  >>> Created relation decl_1#antijoin_rhs/1@7536b3 with 6054 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation project#Functions::Function::inferNameFromMemberDef_dispred#ff/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#Functions::Function::inferNameFromMemberDef_dispred#ff/1@113db2 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate SSA::SsaDefinition::getSourceVariable_dispred#ff/2@6f37cd
+[2021-04-27 14:06:27] (1s)  >>> Created relation SSA::SsaDefinition::getSourceVariable_dispred#ff/2@6f37cd with 439 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate SSA::SsaDefinition::getSourceVariable_dispred#ff_10#join_rhs/2@a462ae
+[2021-04-27 14:06:27] (1s)  >>> Created relation SSA::SsaDefinition::getSourceVariable_dispred#ff_10#join_rhs/2@a462ae with 439 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation jsdoc_tags/5@3638ff with 18122 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate jsdoc_tags_12#join_rhs/2@1798e1
+[2021-04-27 14:06:27] (1s)  >>> Created relation exprs_01243#join_rhs/5@e6d754 with 63353 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Functions::Function::getIdentifier_dispred#ff/2@c112ae
+[2021-04-27 14:06:27] (1s)  >>> Created relation jsdoc/3@f99632 with 9173 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation AST::StmtContainer::getEntry_dispred#ff/2@864d81 with 4077 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate AST::StmtContainer::getEntry_dispred#ff_10#join_rhs/2@a65077
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ValueProperty#class#f/1@3cfde7
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ValueProperty#class#f/1@3cfde7 with 226 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate JSX::JSXAttribute::getNameExpr_dispred#ff#join_rhs/2@e8d95d
+[2021-04-27 14:06:27] (1s)  >>> Created relation JSX::JSXAttribute::getNameExpr_dispred#ff#join_rhs/2@e8d95d with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::LocalVariable::getDeclaringContainer_dispred#ff#shared/2@be0fbf
+[2021-04-27 14:06:27] (1s)  >>> Created relation AST::StmtContainer::getEntry_dispred#ff_10#join_rhs/2@a65077 with 4077 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::getIdentifier_dispred#ff/2@c112ae with 791 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Functions::Function::getIdentifier_dispred#ff_0#antijoin_rhs/1@a672f9
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::LocalVariable::getDeclaringContainer_dispred#ff#shared/2@be0fbf with 5188 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::getIdentifier_dispred#ff_0#antijoin_rhs/1@a672f9 with 791 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::UpdateExpr#class#f/1@daa40d
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::UpdateExpr#class#f/1@daa40d with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Expr::UpdateExpr::getOperand_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::UpdateExpr::getOperand_dispred#ff/2@0f0996 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Expr::UpdateExpr::getOperand_dispred#ff_1#join_rhs/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::UpdateExpr::getOperand_dispred#ff_1#join_rhs/1@ebd40a with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::Assignment::getRhs_dispred#ff/2@2c9133
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation m#DefUse::VarDef::getTarget_dispred#bf#shared/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation m#DefUse::VarDef::getTarget_dispred#bf#shared/1@bc29d6 with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::Assignment::getRhs_dispred#ff/2@2c9133 with 4084 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::PropertyGetter#class#f/1@59eb01
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::PropertyGetter#class#f/1@59eb01 with 14 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate exprs_032#join_rhs/3@ebd4ce
+[2021-04-27 14:06:27] (1s)  >>> Created relation comments/5@f79f00 with 10592 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate TypeScript::TypeAssertion#class#f/1@336f15
+[2021-04-27 14:06:27] (1s)  >>> Created relation TypeScript::TypeAssertion#class#f/1@336f15 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation TypeScript::TypeAssertion::getExpression_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation TypeScript::TypeAssertion::getExpression_dispred#ff/2@564d16 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation TypeScript::TypeAssertion::getExpression_dispred#ff_10#join_rhs/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation TypeScript::TypeAssertion::getExpression_dispred#ff_10#join_rhs/2@1120b1 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingReference_dispred#ff/2@i1#3c71fw (iteration 1)
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Functions::Function::getIdentifier_dispred#ff_10#join_rhs/2@3cec9a
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::getIdentifier_dispred#ff_10#join_rhs/2@3cec9a with 791 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::LocalVariable::getDeclaringContainer_dispred#ff#antijoin_rhs/2@1adc38
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::LocalVariable::getDeclaringContainer_dispred#ff#antijoin_rhs/2@1adc38 with 39 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation jsdoc_tags_12#join_rhs/2@1798e1 with 15744 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate AST::TopLevel::isExterns_dispred#f/1@cfcb99
+[2021-04-27 14:06:27] (1s)  >>> Created relation AST::TopLevel::isExterns_dispred#f/1@cfcb99 with 110 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::PropertySetter#class#f/1@eec04c
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Stmt::DeclStmt#class#f/1@7a1724
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::PropertySetter#class#f/1@eec04c with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Stmt::DeclStmt#class#f/1@7a1724 with 283 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation exprs_032#join_rhs/3@ebd4ce with 63353 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate exprs_12034#join_rhs/5@8d1253
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate properties_03#join_rhs/2@c0ec0c
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Functions::Function::inferNameFromProp_dispred#ff/2@53b173
+[2021-04-27 14:06:27] (1s)  >>> Created relation properties_03#join_rhs/2@c0ec0c with 240 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ComprehensionBlock#class#f/1@d7e0f3
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ComprehensionBlock#class#f/1@d7e0f3 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::PropAccess::getBase_dispred#ff/2@1ab59c
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::inferNameFromProp_dispred#ff/2@53b173 with 79 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate project#Functions::Function::inferNameFromProp_dispred#ff/1@b2962c
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#Functions::Function::inferNameFromProp_dispred#ff/1@b2962c with 79 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::MethodCallExpr::getMethodName_dispred#ff_10#join_rhs/2@a6723e
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::MethodCallExpr::getMethodName_dispred#ff_10#join_rhs/2@a6723e with 224 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation scopenodes/2@d21758 with 4003 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation HTML::HTML::Attribute#class#f/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::PropAccess::getBase_dispred#ff/2@1ab59c with 18984 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation HTML::HTML::Attribute#class#f/1@18bc81 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::MethodCallExpr::getReceiver_dispred#ff/2@865acc
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::MethodCallExpr::getReceiver_dispred#ff/2@865acc with 224 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::ObjectDefinePropertyAsPropWrite#class#ff/2@4b5bae
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::ObjectDefinePropertyAsPropWrite#class#ff/2@4b5bae with 1 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation xmllocations/2@5bbc93 with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation is_nodejs/1@64d299 with 48 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate @call_signature#b/1@8edaaa
+[2021-04-27 14:06:27] (1s)  >>> Created relation @call_signature#b/1@8edaaa with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Classes::CallSignature#class#f/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Classes::CallSignature#class#f/1@9bede7 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Functions::Function::inferNameFromCallSig_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::inferNameFromCallSig_dispred#ff/2@d09568 with 0 rows.
+[2021-04-27 14:06:27] (1s) 			 - Expr::ExprOrType::getUnderlyingReference_dispred#ff_delta has 35645 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation project#Functions::Function::inferNameFromCallSig_dispred#ff/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#Functions::Function::inferNameFromCallSig_dispred#ff/1@92ba3a with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Classes::MemberSignature#b/1 is empty
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingReference_dispred#ff/2@i2#3c71fw (iteration 2)
+[2021-04-27 14:06:27] (1s)  >>> Created relation Classes::MemberSignature#b/1@0e2b77 with 0 rows.
+[2021-04-27 14:06:27] (1s) Empty delta for Expr::ExprOrType::getUnderlyingReference_dispred#ff_delta (order for disjuncts: delta=10000).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Classes::IndexSignature#class#f/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Classes::IndexSignature#class#f/1@bf6101 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Functions::Function::inferNameFromIndexSig_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::inferNameFromIndexSig_dispred#ff/2@8444f4 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Functions::Function::inferNameFromIndexSig_dispred#ff_0#antijoin_rhs/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::inferNameFromIndexSig_dispred#ff_0#antijoin_rhs/1@945220 with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation is_module/1@e232b9 with 48 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate NodeJS::NodeModule#class#f/1@a59201
+[2021-04-27 14:06:27] (1s)  >>> Created relation NodeJS::NodeModule#class#f/1@a59201 with 48 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate JSX::JSXQualifiedName::getName_dispred#ff/2@b5142c
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation TypeScript::FunctionTypeExpr#class#f/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation JSX::JSXQualifiedName::getName_dispred#ff/2@b5142c with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation TypeScript::FunctionTypeExpr#class#f/1@ca45bf with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Functions::Function::inferNameFromFunctionType_dispred#cpe#1#f/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::inferNameFromFunctionType_dispred#cpe#1#f/1@1183d0 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate JSX::JSXQualifiedName::getNamespace_dispred#ff/2@6e2441
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate properties_31#join_rhs/2@ee0203
+[2021-04-27 14:06:27] (1s)  >>> Created relation JSX::JSXQualifiedName::getNamespace_dispred#ff/2@6e2441 with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation properties_31#join_rhs/2@ee0203 with 88 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate AST::StmtContainer#class#f/1@de2f83
+[2021-04-27 14:06:27] (1s)  >>> Created relation is_es2015_module/1@9a09d6 with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation AST::StmtContainer#class#f/1@de2f83 with 4077 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate AST::StmtContainer::getScope_dispred#ff/2@00f664
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate BasicExprTypeInference::AnalyzedJSXQualifiedName#class#ff#join_rhs/1@711041
+[2021-04-27 14:06:27] (1s)  >>> Created relation BasicExprTypeInference::AnalyzedJSXQualifiedName#class#ff#join_rhs/1@711041 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::PropAccess::getBase_dispred#ff_10#join_rhs/2@0c4c90
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingReference_dispred#ff/2@3c71fw with 35645 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingReference_dispred#ff_10#join_rhs/2@2adbc2
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::PropAccess::getBase_dispred#ff_10#join_rhs/2@0c4c90 with 18984 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation AST::StmtContainer::getScope_dispred#ff/2@00f664 with 4003 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::LocalVariable::getDeclaringContainer_dispred#ff/2@fab8bd
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate JSX::JSXName#class#b#join_rhs/1@80e123
+[2021-04-27 14:06:27] (1s)  >>> Created relation JSX::JSXName#class#b#join_rhs/1@80e123 with 2 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate JSX::JSXAttribute::getNameExpr_dispred#ff/2@i1#be3fbw (iteration 1)
+[2021-04-27 14:06:27] (1s) Empty delta for JSX::JSXAttribute::getNameExpr_dispred#ff_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate m#JSX::JSXName::getValue#bf/1@i1#be3fbx (iteration 1)
+[2021-04-27 14:06:27] (1s) Empty delta for m#JSX::JSXName::getValue#bf_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate m#JSX::JSXName#class#b/1@i1#be3fby (iteration 1)
+[2021-04-27 14:06:27] (1s) Empty delta for m#JSX::JSXName#class#b_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate JSX::JSXName#class#b/1@i1#be3fbz (iteration 1)
+[2021-04-27 14:06:27] (1s) Empty delta for JSX::JSXName#class#b_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s)  >>> Created relation JSX::JSXAttribute::getNameExpr_dispred#ff/2@be3fbw with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation m#JSX::JSXName::getValue#bf/1@be3fbx with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation m#JSX::JSXName#class#b/1@be3fby with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation JSX::JSXName#class#b/1@be3fbz with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation JSX::JSXName::getValue#bf#join_rhs/3 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation JSX::JSXName::getValue#bf#join_rhs/3@8731c0 with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingReference_dispred#ff_10#join_rhs/2@2adbc2 with 35645 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate JSX::JSXName::getValue#bf/2@i1#97652w (iteration 1)
+[2021-04-27 14:06:27] (1s) Empty delta for JSX::JSXName::getValue#bf_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s)  >>> Created relation JSX::JSXName::getValue#bf/2@97652w with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation exprs_12034#join_rhs/5@8d1253 with 63353 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Stmt::DeclStmt::getADecl_dispred#ff/2@395137
+[2021-04-27 14:06:27] (1s)  >>> Created relation Stmt::DeclStmt::getADecl_dispred#ff/2@395137 with 283 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Stmt::DeclStmt::getADecl_dispred#ff_10#join_rhs/2@092e0e
+[2021-04-27 14:06:27] (1s)  >>> Created relation Stmt::DeclStmt::getADecl_dispred#ff_10#join_rhs/2@092e0e with 283 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Externs::hasTypedefAnnotation#b/1@6613d0
+[2021-04-27 14:06:27] (1s)  >>> Created relation Externs::hasTypedefAnnotation#b/1@6613d0 with 82 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Externs::ExternalGlobalVarDecl#class#f#antijoin_rhs/1@eabbc5
+[2021-04-27 14:06:27] (1s)  >>> Created relation Externs::ExternalGlobalVarDecl#class#f#antijoin_rhs/1@eabbc5 with 82 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Externs::ExternalGlobalVarDecl#class#f/1@b26be1
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::LocalVariable::getDeclaringContainer_dispred#ff/2@fab8bd with 9406 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Externs::ExternalGlobalVarDecl#class#f/1@b26be1 with 154 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::VariableDeclarator::getInit_dispred#ff/2@cc0dcf
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::VariableDeclarator::getInit_dispred#ff/2@cc0dcf with 158 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::LocalVariable::getLocation_dispred#ff/2@d69a7c
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DefUse::defn#2#fff/3@e35eca
+[2021-04-27 14:06:27] (1s)  >>> Created relation DefUse::defn#2#fff/3@e35eca with 5033 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate project#DefUse::defn#2#fff/2@34f095
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#DefUse::defn#2#fff/2@34f095 with 5033 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DefUse::defn#ff/2@083fa4
+[2021-04-27 14:06:27] (1s)  >>> Created relation DefUse::defn#ff/2@083fa4 with 10069 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate project#DefUse::defn#ff/1@14c3be
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DefUse::lvalAux#ff/2@i1#9ec37w (iteration 1)
+[2021-04-27 14:06:27] (1s) 			 - DefUse::lvalAux#ff_delta has 10069 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#DefUse::defn#ff/1@14c3be with 10069 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DefUse::lvalAux#ff/2@i2#9ec37w (iteration 2)
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Variables::DestructuringPattern#class#f/1@38136c
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::DestructuringPattern#class#f/1@38136c with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DefUse::VarDef::getSource_dispred#ff/2@10d734
+[2021-04-27 14:06:27] (1s)  >>> Created relation DefUse::VarDef::getSource_dispred#ff/2@10d734 with 5033 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Variables::LocalVariable::getLocation_dispred#ff/2@d69a7c with 9406 rows.
+[2021-04-27 14:06:27] (1s) Empty delta for DefUse::lvalAux#ff_delta (order for disjuncts: delta=10000).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DefUse::VarDef::getSource_dispred#ff_10#join_rhs/2@c024d6
+[2021-04-27 14:06:27] (1s)  >>> Created relation DefUse::lvalAux#ff/2@9ec37w with 10069 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate project#DefUse::lvalAux#ff/1@11b278
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::Node::hasLocationInfo_dispred#ffffff/6@132f4c
+[2021-04-27 14:06:27] (1s)  >>> Created relation DefUse::VarDef::getSource_dispred#ff_10#join_rhs/2@c024d6 with 5033 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate m#DefUse::VarDef::getTarget_dispred#bf/1@1bc8ec
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#DefUse::lvalAux#ff/1@11b278 with 10069 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DefUse::LValue#class#f/1@aa5af9
+[2021-04-27 14:06:27] (1s)  >>> Created relation m#DefUse::VarDef::getTarget_dispred#bf/1@1bc8ec with 4240 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DefUse::VarDef::getTarget_dispred#bf/2@dc6fa0
+[2021-04-27 14:06:27] (1s)  >>> Created relation DefUse::LValue#class#f/1@aa5af9 with 10069 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::PropLValueAsPropWrite#class#ff/2@c05fee
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DefUse::RValue#class#b/1@67476f
+[2021-04-27 14:06:27] (1s)  >>> Created relation DefUse::VarDef::getTarget_dispred#bf/2@dc6fa0 with 4240 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Functions::Function::inferNameFromVarDef_dispred#ff/2@8d93a3
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::PropLValueAsPropWrite#class#ff/2@c05fee with 4075 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::inferNameFromVarDef_dispred#ff/2@8d93a3 with 845 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate project#Functions::Function::inferNameFromVarDef_dispred#ff/1@aacc42
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#Functions::Function::inferNameFromVarDef_dispred#ff/1@aacc42 with 845 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Functions::Function::describe_dispred#ff/2@3172e8
+[2021-04-27 14:06:27] (1s)  >>> Created relation DefUse::RValue#class#b/1@67476f with 14909 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::PropRValueAsPropRead#class#ff/2@0ae5bc
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::describe_dispred#ff/2@3172e8 with 3955 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::Node::toString_dispred#ff/2@923bb5
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::PropRValueAsPropRead#class#ff/2@0ae5bc with 14909 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::PropRead#class#f/1@b68a51
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::PropRef::getPropertyName_dispred#ff/2@470039
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::PropRead#class#f/1@b68a51 with 14909 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Sources::SourceNode::getAPropertyRead_dispred#bff/3@1fb604
+[2021-04-27 14:06:27] (1s)  >>> Created relation Sources::SourceNode::getAPropertyRead_dispred#bff/3@1fb604 with 15036 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Nodes::globalObjectRef#f/1@ba28be
+[2021-04-27 14:06:27] (1s)  >>> Created relation Nodes::globalObjectRef#f/1@ba28be with 122 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Nodes::globalVarRef#ff/2@2b788e
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::PropRef::getPropertyName_dispred#ff/2@470039 with 19214 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate project#DataFlow::DataFlow::PropRef::getPropertyName_dispred#ff#2/1@c4f6b5
+[2021-04-27 14:06:27] (1s)  >>> Created relation Nodes::globalVarRef#ff/2@2b788e with 6358 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Nodes::globalVarRef#ff_10#join_rhs/2@b8c03c
+[2021-04-27 14:06:27] (1s)  >>> Created relation Nodes::globalVarRef#ff_10#join_rhs/2@b8c03c with 6358 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::Node::accessesGlobal_dispred#bf/2@841696
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Node::accessesGlobal_dispred#bf/2@841696 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation project#DataFlow::DataFlow::Node::accessesGlobal_dispred#bf/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#DataFlow::DataFlow::Node::accessesGlobal_dispred#bf/1@7e13da with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::Root::isGlobal_dispred#f#shared/1@af6a6b
+[2021-04-27 14:06:27] (1s)  >>> Created relation GlobalAccessPaths::AccessPath::Root::isGlobal_dispred#f#shared/1@af6a6b with 1 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#DataFlow::DataFlow::PropRef::getPropertyName_dispred#ff#2/1@c4f6b5 with 5038 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation project#FlowSteps::CachedSteps::identityFunctionStep/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#FlowSteps::CachedSteps::identityFunctionStep/1@9b73e2 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate DataFlow::DataFlow::parameterNode#ff/2@668fbe
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::parameterNode#ff/2@668fbe with 5036 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Nodes::ParameterNode#class#ff/2@14c724
+[2021-04-27 14:06:27] (1s)  >>> Created relation Nodes::ParameterNode#class#ff/2@14c724 with 5036 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Functions::Function::getParameter_dispred#fff/3@0d7503
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::getParameter_dispred#fff/3@0d7503 with 5036 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Functions::Function::getParameter_dispred#fff_20#join_rhs/2@3f2f91
+[2021-04-27 14:06:27] (1s)  >>> Created relation Functions::Function::getParameter_dispred#fff_20#join_rhs/2@3f2f91 with 5036 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingValue_dispred#ff#join_rhs/2@e0555f
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType#class#f/1@f48b6b
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingValue_dispred#ff#join_rhs/2@e0555f with 4084 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Expr::ExprOrType::getUnderlyingValue_dispred#bf#join_rhs#3/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingValue_dispred#bf#join_rhs#3/2@7e0f02 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::Assignment::getRhs_dispred#ff_10#join_rhs/2@d233eb
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::Assignment::getRhs_dispred#ff_10#join_rhs/2@d233eb with 4084 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Node::hasLocationInfo_dispred#ffffff/6@132f4c with 77398 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate project#DataFlow::DataFlow::Node::hasLocationInfo_dispred#ffffff/1@14b10a
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::SeqExpr::getOperand_dispred#fff#antijoin_rhs/1@15a023
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::SeqExpr::getOperand_dispred#fff#antijoin_rhs/1@15a023 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Expr::SeqExpr::getNumOperands_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::SeqExpr::getNumOperands_dispred#ff/2@2462af with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Expr::SeqExpr::getLastOperand_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::SeqExpr::getLastOperand_dispred#ff/2@8e5869 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate m#Expr::ExprOrType::getUnderlyingValue_dispred#bf/1@i1#09778w (iteration 1)
+[2021-04-27 14:06:27] (1s) 			 - m#Expr::ExprOrType::getUnderlyingValue_dispred#bf_delta has 227 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate m#Expr::ExprOrType::getUnderlyingValue_dispred#bf/1@i2#09778w (iteration 2)
+[2021-04-27 14:06:27] (1s) Empty delta for m#Expr::ExprOrType::getUnderlyingValue_dispred#bf_delta (order for disjuncts: delta=100).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s)  >>> Created relation m#Expr::ExprOrType::getUnderlyingValue_dispred#bf/1@09778w with 227 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Expr::SeqExpr::getLastOperand_dispred#ff_10#join_rhs/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::SeqExpr::getLastOperand_dispred#ff_10#join_rhs/2@99ba18 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingValue_dispred#bf#join_rhs#1/2@9395b4
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingValue_dispred#bf#join_rhs#1/2@9395b4 with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingValue_dispred#bf#join_rhs/2@1bc4c9
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingValue_dispred#bf#join_rhs/2@1bc4c9 with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType#class#f/1@f48b6b with 63353 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType_not_AssignExpr_ParExpr_SeqExpr_TypeAssertion#f/1@01577e
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation Expr::ExprOrType::getUnderlyingValue_dispred#bf#join_rhs#2/2 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingValue_dispred#bf#join_rhs#2/2@bb1f21 with 0 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#DataFlow::DataFlow::Node::hasLocationInfo_dispred#ffffff/1@14b10a with 77398 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType_not_AssignExpr_ParExpr_SeqExpr_TypeAssertion#f/1@01577e with 59266 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingValue_dispred#bf/2@i1#3dfc4w (iteration 1)
+[2021-04-27 14:06:27] (1s) 			 - Expr::ExprOrType::getUnderlyingValue_dispred#bf_delta has 227 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingValue_dispred#bf/2@i2#3dfc4w (iteration 2)
+[2021-04-27 14:06:27] (1s) Empty delta for Expr::ExprOrType::getUnderlyingValue_dispred#bf_delta (order for disjuncts: delta=100).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingValue_dispred#bf/2@3dfc4w with 227 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingValue_dispred#fb/2@i1#ade58w (iteration 1)
+[2021-04-27 14:06:27] (1s)  >>> Created relation DataFlow::DataFlow::Node::toString_dispred#ff/2@923bb5 with 77399 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate project#DataFlow::DataFlow::Node::toString_dispred#ff/1@a45cdd
+[2021-04-27 14:06:27] (1s) 			 - Expr::ExprOrType::getUnderlyingValue_dispred#fb_delta has 3166 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingValue_dispred#fb/2@i2#ade58w (iteration 2)
+[2021-04-27 14:06:27] (1s) 			 - Expr::ExprOrType::getUnderlyingValue_dispred#fb_delta has 2986 rows (order for disjuncts: delta=1000).
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingValue_dispred#fb/2@i3#ade58w (iteration 3)
+[2021-04-27 14:06:27] (1s) Empty delta for Expr::ExprOrType::getUnderlyingValue_dispred#fb_delta (order for disjuncts: delta=1000).
+[2021-04-27 14:06:27] (1s) Accumulating deltas
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#DataFlow::DataFlow::Node::toString_dispred#ff/1@a45cdd with 77399 rows.
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingValue_dispred#fb/2@ade58w with 6152 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ExprOrType::getUnderlyingValue_dispred#fb_10#join_rhs/2@73658a
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ExprOrType::getUnderlyingValue_dispred#fb_10#join_rhs/2@73658a with 6152 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate Expr::ImmediatelyInvokedFunctionExpr#class#fff/3@a85e7d
+[2021-04-27 14:06:27] (1s)  >>> Created relation Expr::ImmediatelyInvokedFunctionExpr#class#fff/3@a85e7d with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation project#Expr::ImmediatelyInvokedFunctionExpr#class#fff/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#Expr::ImmediatelyInvokedFunctionExpr#class#fff/1@9f0306 with 0 rows.
+[2021-04-27 14:06:27] (1s) Inferred that non-rec relation GlobalAccessPaths::AccessPath::Root::isGlobal_dispred#f#antijoin_rhs/1 is empty
+[2021-04-27 14:06:27] (1s)  >>> Created relation GlobalAccessPaths::AccessPath::Root::isGlobal_dispred#f#antijoin_rhs/1@c06a5f with 0 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::Root::isGlobal_dispred#f/1@dea558
+[2021-04-27 14:06:27] (1s)  >>> Created relation GlobalAccessPaths::AccessPath::Root::isGlobal_dispred#f/1@dea558 with 1 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::getAnAssignmentTo#fff/3@c0cb5f
+[2021-04-27 14:06:27] (1s)  >>> Created relation GlobalAccessPaths::AccessPath::getAnAssignmentTo#fff/3@c0cb5f with 2214 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate project#GlobalAccessPaths::AccessPath::getAnAssignmentTo#fff/1@0604cf
+[2021-04-27 14:06:27] (1s)  >>> Created relation project#GlobalAccessPaths::AccessPath::getAnAssignmentTo#fff/1@0604cf with 1552 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate StepSummary::PropertyName#class#f/1@b8366d
+[2021-04-27 14:06:27] (1s)  >>> Created relation StepSummary::PropertyName#class#f/1@b8366d with 8804 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate StepSummary::OptionalPropertyName#class#f/1@b27623
+[2021-04-27 14:06:27] (1s)  >>> Created relation StepSummary::OptionalPropertyName#class#f/1@b27623 with 8805 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate dom#TypeTracking::MkTypeBackTracker#ff/2@6039dd
+[2021-04-27 14:06:27] (1s)  >>> Created relation dom#TypeTracking::MkTypeBackTracker#ff/2@6039dd with 17610 rows.
+[2021-04-27 14:06:27] (1s) Starting to evaluate predicate construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff/3@bdd7a4
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff/3@bdd7a4 with 17610 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_12#join_rhs/2@68174f
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_12#join_rhs/2@68174f with 17610 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Regexp::regExpSource#2#fff#join_rhs/2@bc283f
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::localFlowStep#ff_10#join_rhs/2@546ecc
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_102#join_rhs/3@ae2d68
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate dom#SSA::Internal::Read#/0@f34704
+[2021-04-27 14:06:27] (2s)  >>> Created relation dom#SSA::Internal::Read#/0@f34704 with 1 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TypeTag,4>@dom#InferredTypes::TTString#0#f/1@2b2f98
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TypeTag,4>@dom#InferredTypes::TTString#0#f/1@2b2f98 with 1 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::localFlowStep#ff_10#join_rhs/2@546ecc with 8776 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::InvokeNode::getArgument_dispred#fff_120#join_rhs/3@264efb
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::InvokeNode::getArgument_dispred#fff_120#join_rhs/3@264efb with 430 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TStepSummary,0>@dom#StepSummary::LevelStep#0#f/1@545cde
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::Cached::invocation#ff_10#join_rhs/2@836aa4
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::Cached::invocation#ff_10#join_rhs/2@836aa4 with 257 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_2#join_rhs/1@6fe4ff
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_102#join_rhs/3@ae2d68 with 17610 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_2#join_rhs/1@6fe4ff with 17610 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate TaintTracking::TaintTracking::AdditionalTaintStep::step_dispred#fff_201#join_rhs/3@778823
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::FunctionNode#class#ff/2@e1b128
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TStepSummary,0>@dom#StepSummary::LevelStep#0#f/1@545cde with 1 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::FunctionNode#class#ff/2@e1b128 with 3955 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#Expr::InvokeExpr::getArgument_dispred#fff/1@5ba233
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::FunctionNode::getReceiver_dispred#ff/2@1ecc9a
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#Expr::InvokeExpr::getArgument_dispred#fff/1@5ba233 with 276 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation TaintTracking::TaintTracking::AdditionalTaintStep::step_dispred#fff_201#join_rhs/3@778823 with 13376 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::regExpSource#2#fff#join_rhs/2@bc283f with 13376 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TStepSummary,5>@dom#StepSummary::CopyStep#1#ff/2@e428fb
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TStepSummary,1>@dom#StepSummary::CallStep#0#f/1@05c4b7
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Expr::InvokeExpr::getArgument_dispred#fff_02#count_range/2@7bacd5
+[2021-04-27 14:06:27] (2s)  >>> Created relation Expr::InvokeExpr::getArgument_dispred#fff_02#count_range/2@7bacd5 with 430 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Expr::InvokeExpr::getNumArgument_dispred#ff/2@b259a3
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::FunctionNode::getReceiver_dispred#ff/2@1ecc9a with 3941 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Expr::InvokeExpr::getNumArgument_dispred#ff/2@b259a3 with 311 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Nodes::ClassNode::ES6Class#class#ff/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::ES6Class#class#ff/2@e3424b with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation project#Expr::InvokeExpr::isSpreadArgument_dispred#ff/1 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#Expr::InvokeExpr::isSpreadArgument_dispred#ff/1@b37edb with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::ValueNode::getFile_dispred#bf/2@71aca2
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::InvokeNode::getNumArgument_dispred#ff/2@05ac01
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::InvokeNode::getNumArgument_dispred#ff/2@05ac01 with 311 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Regexp::isInterpretedAsRegExp#f#shared/4@b3de56
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::ValueNode::getFile_dispred#bf/2@71aca2 with 64382 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TStepSummary,4>@dom#StepSummary::LoadStep#1#ff/2@62c888
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TStepSummary,5>@dom#StepSummary::CopyStep#1#ff/2@e428fb with 8804 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TStepSummary,2>@dom#StepSummary::ReturnStep#0#f/1@244845
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TStepSummary,4>@dom#StepSummary::LoadStep#1#ff/2@62c888 with 8804 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::getAnAssignmentTo#2#ff/2@814cd8
+[2021-04-27 14:06:27] (2s)  >>> Created relation GlobalAccessPaths::AccessPath::getAnAssignmentTo#2#ff/2@814cd8 with 3015 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_120#join_rhs/3@ae4071
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_120#join_rhs/3@ae4071 with 17610 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#Nodes::MethodCallNode::getMethodName_dispred#ff/1@017be1
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#Nodes::MethodCallNode::getMethodName_dispred#ff/1@017be1 with 224 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::CallNode#class#ff/2@3551ab
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::CallNode#class#ff/2@3551ab with 304 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TStepSummary,1>@dom#StepSummary::CallStep#0#f/1@05c4b7 with 1 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TStepSummary,2>@dom#StepSummary::ReturnStep#0#f/1@244845 with 1 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate m#DataFlow::DataFlow::Impl::CallNodeDef::getReceiver_dispred#bf/1@8565d6
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate TypeInference::AnalyzedNode::getAValue_dispred#ff_10#join_rhs/2@5bc7da
+[2021-04-27 14:06:27] (2s)  >>> Created relation m#DataFlow::DataFlow::Impl::CallNodeDef::getReceiver_dispred#bf/1@8565d6 with 224 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::Impl::CallNodeDef::getReceiver_dispred#bf/2@98b98a
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#DataFlow::DataFlow::PropRef::getPropertyName_dispred#ff/1@230ed9
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::Impl::CallNodeDef::getReceiver_dispred#bf/2@98b98a with 224 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::CallNode::getReceiver_dispred#bf/2@08a0d4
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::CallNode::getReceiver_dispred#bf/2@08a0d4 with 224 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::PropRef::getPropertyName_dispred#ff_10#join_rhs/2@9baf0b
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#DataFlow::DataFlow::PropRef::getPropertyName_dispred#ff/1@230ed9 with 19214 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_021#join_rhs/3@098a76
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TTypeBackTracker,0>@dom#TypeTracking::MkTypeBackTracker#2#fff_021#join_rhs/3@098a76 with 17610 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate construct<TStepSummary,3>@dom#StepSummary::StoreStep#1#ff/2@6f4b55
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::PropRef::getPropertyName_dispred#ff_10#join_rhs/2@9baf0b with 19214 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::Node::getFile_dispred#bf/2@b1f824
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::Node::getFile_dispred#bf/2@b1f824 with 19214 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#PreCallGraphStep::PreCallGraphStep::step/1@989673
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#PreCallGraphStep::PreCallGraphStep::step/1@989673 with 34 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#PreCallGraphStep::PreCallGraphStep::storeStep/1@de7f2c
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#PreCallGraphStep::PreCallGraphStep::storeStep/1@de7f2c with 30 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Expr::Property::getObjectExpr_dispred#ff/2@dff5dd
+[2021-04-27 14:06:27] (2s)  >>> Created relation Expr::Property::getObjectExpr_dispred#ff/2@dff5dd with 240 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#PreCallGraphStep::PreCallGraphStep::loadStep/1@12e83d
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#PreCallGraphStep::PreCallGraphStep::loadStep/1@12e83d with 24 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#PreCallGraphStep::PreCallGraphStep::loadStoreStep/1@40f0d0
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#PreCallGraphStep::PreCallGraphStep::loadStoreStep/1@40f0d0 with 28 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate PreCallGraphStep::AdditionalTypeTrackingStepFromPreCallGraph#class#b/1@cd2d75
+[2021-04-27 14:06:27] (2s)  >>> Created relation PreCallGraphStep::AdditionalTypeTrackingStepFromPreCallGraph#class#b/1@cd2d75 with 90 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::MemberDeclaration::getDeclaringClass_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::MemberDeclaration::getDeclaringClass_dispred#ff/2@aa6eb8 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation JSX::JSXAttribute::getElement_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation JSX::JSXAttribute::getElement_dispred#ff/2@f59506 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::fromReference#fff_201#join_rhs/3@fe6573
+[2021-04-27 14:06:27] (2s)  >>> Created relation construct<TStepSummary,3>@dom#StepSummary::StoreStep#1#ff/2@6f4b55 with 8804 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate TypeTracking::TypeBackTracker::prepend_dispred#fff/3@6f517b
+[2021-04-27 14:06:27] (2s)  >>> Created relation TypeInference::AnalyzedNode::getAValue_dispred#ff_10#join_rhs/2@5bc7da with 85900 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::isInterpretedAsRegExp#f#shared/4@b3de56 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Regexp::isInterpretedAsRegExp#f#antijoin_rhs/3 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::isInterpretedAsRegExp#f#antijoin_rhs/3@350bb3 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Regexp::isInterpretedAsRegExp#f#shared#1/3@edcc46
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::getAReferenceTo#ff/2@d3ecff
+[2021-04-27 14:06:27] (2s)  >>> Created relation GlobalAccessPaths::AccessPath::fromReference#fff_201#join_rhs/3@fe6573 with 51132 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::Cached::hasLocalSource#ff_10#join_rhs/2@a784da
+[2021-04-27 14:06:27] (2s)  >>> Created relation GlobalAccessPaths::AccessPath::getAReferenceTo#ff/2@d3ecff with 16427 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::MethodDeclaration::getBody_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::MethodDeclaration::getBody_dispred#ff/2@f60d73 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation DataFlow::DataFlow::thisNode#2#bf/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::thisNode#2#bf/2@e5f034 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::ClassDefinition::getConstructor_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::ClassDefinition::getConstructor_dispred#ff/2@77f222 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::ClassDefinition::getConstructor_dispred#ff_10#join_rhs/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::ClassDefinition::getConstructor_dispred#ff_10#join_rhs/2@41e2c3 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ParameterNode#class#ff_10#join_rhs/2@3e1deb
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ParameterNode#class#ff_10#join_rhs/2@3e1deb with 5036 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::FunctionNode::getAParameter_dispred#ff/2@0eaae1
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::FunctionNode::getAParameter_dispred#ff/2@0eaae1 with 5036 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate stmts_230#join_rhs/3@7b8527
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::Cached::hasLocalSource#ff_10#join_rhs/2@a784da with 51517 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation stmts_230#join_rhs/3@7b8527 with 14479 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::MemberDeclaration::getDeclaringClass_dispred#ff_10#join_rhs/2 is empty
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate AST::ASTNode::getChild_dispred#fff/3@d4079f
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::MemberDeclaration::getDeclaringClass_dispred#ff_10#join_rhs/2@445bc2 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::PropRef::getBase_dispred#bf/2@73da66
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::PropRef::getBase_dispred#bf/2@73da66 with 19214 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#DataFlow::DataFlow::PropRef::getBase_dispred#bf/1@ca872a
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#DataFlow::DataFlow::PropRef::getBase_dispred#bf/1@ca872a with 19061 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::isInterpretedAsRegExp#f#shared#1/3@edcc46 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Regexp::isInterpretedAsRegExp#f#antijoin_rhs#1/3 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::isInterpretedAsRegExp#f#antijoin_rhs#1/3@1e38f2 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Regexp::isInterpretedAsRegExp#f/1@6e0fb0
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::getAnAssignmentTo#2#ff_10#join_rhs/2@741ad5
+[2021-04-27 14:06:27] (2s)  >>> Created relation GlobalAccessPaths::AccessPath::getAnAssignmentTo#2#ff_10#join_rhs/2@741ad5 with 3015 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation AST::ASTNode::getChild_dispred#fff/3@d4079f with 77832 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::getAReferenceOrAssignmentTo#fb/2@8a2207
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::PropRef::getBase_dispred#bf_10#join_rhs/2@6a9245
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::PropRef::getBase_dispred#bf_10#join_rhs/2@6a9245 with 19214 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Functions::Function::getBody_dispred#ff/2@5f3168
+[2021-04-27 14:06:27] (2s)  >>> Created relation Functions::Function::getBody_dispred#ff/2@5f3168 with 3955 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Functions::Function::getBody_dispred#ff_10#join_rhs/2@0a7c46
+[2021-04-27 14:06:27] (2s)  >>> Created relation Functions::Function::getBody_dispred#ff_10#join_rhs/2@0a7c46 with 3955 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Functions::Function::getAReturnedExpr_dispred#ff/2@e3be8c
+[2021-04-27 14:06:27] (2s)  >>> Created relation GlobalAccessPaths::AccessPath::getAReferenceOrAssignmentTo#fb/2@8a2207 with 12208 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate GlobalAccessPaths::AccessPath::getAReferenceOrAssignmentTo#fb_10#join_rhs/2@72d857
+[2021-04-27 14:06:27] (2s)  >>> Created relation GlobalAccessPaths::AccessPath::getAReferenceOrAssignmentTo#fb_10#join_rhs/2@72d857 with 12208 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::getAPrototypeReferenceInFile#fff/3@4e0662
+[2021-04-27 14:06:27] (2s)  >>> Created relation Functions::Function::getAReturnedExpr_dispred#ff/2@e3be8c with 24 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::FunctionNode::getAReturn_dispred#ff/2@7aa494
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::FunctionNode::getAReturn_dispred#ff/2@7aa494 with 24 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::FunctionNode::getAReturn_dispred#ff_10#join_rhs/2@5dbb98
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::FunctionNode::getAReturn_dispred#ff_10#join_rhs/2@5dbb98 with 24 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::getAPrototypeReferenceInFile#fff/3@4e0662 with 5508 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#Nodes::ClassNode::getAPrototypeReferenceInFile#fff/2@a8d867
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate FlowSteps::CachedSteps::argumentPassing#ffff_2301#join_rhs/4@fa4890
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#Nodes::ClassNode::getAPrototypeReferenceInFile#fff/2@a8d867 with 650 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#Nodes::ClassNode::getAPrototypeReferenceInFile#fff_10#join_rhs/2@5541ed
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#Nodes::ClassNode::getAPrototypeReferenceInFile#fff_10#join_rhs/2@5541ed with 650 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::FunctionStyleClass#class#fff/3@ff56a1
+[2021-04-27 14:06:27] (2s)  >>> Created relation FlowSteps::CachedSteps::argumentPassing#ffff_2301#join_rhs/4@fa4890 with 12 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::isInterpretedAsRegExp#f/1@6e0fb0 with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation TypeTracking::TypeBackTracker::prepend_dispred#fff/3@6f517b with 96849 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::FunctionStyleClass#class#fff/3@ff56a1 with 643 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::FunctionStyleClass#class#fff_0#join_rhs/1@e4aafe
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::FunctionStyleClass#class#fff_0#join_rhs/1@e4aafe with 643 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::Range#class#f/1@143451
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::Range#class#f/1@143451 with 643 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::Range::getConstructor_dispred#ff/2@82296e
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::Range::getConstructor_dispred#ff/2@82296e with 643 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::MemberKind#class#f/1@caaeb9
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::Range::getConstructor_dispred#ff_10#join_rhs/2@ca3bb0
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::MemberKind#class#f/1@caaeb9 with 3 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::Range::getConstructor_dispred#ff_10#join_rhs/2@ca3bb0 with 643 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::ClassOrInterface::getAMethod_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::MemberDeclaration::getInit_dispred#ff/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::ClassOrInterface::getAMethod_dispred#ff/2@df8526 with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::MemberDeclaration::getInit_dispred#ff/2@d3038c with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::parameterNode#ff_10#join_rhs/2@bcd6ef
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::PropWrite#class#f/1@056d6a
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate JSX::JSXAttribute::getValue#ff/2@8bbdea
+[2021-04-27 14:06:27] (2s)  >>> Created relation JSX::JSXAttribute::getValue#ff/2@8bbdea with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Expr::SpreadProperty#class#b#antijoin_rhs/1@716d20
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::parameterNode#ff_10#join_rhs/2@bcd6ef with 5036 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::MemberDeclaration::isConcrete_dispred#b#shared/1 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Expr::SpreadProperty#class#b#antijoin_rhs/1@716d20 with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::MemberDeclaration::isConcrete_dispred#b#shared/1@39d1f2 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::MemberDeclaration::isConcrete_dispred#b/1 is empty
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation JSX::JSXAttribute::getNameExpr_dispred#ff_0#antijoin_rhs/1 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::MemberDeclaration::isConcrete_dispred#b/1@a82e9b with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation JSX::JSXAttribute::getNameExpr_dispred#ff_0#antijoin_rhs/1@a75e8f with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::AccessorMethodDefinition#class#f/1 is empty
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate JSX::JSXSpreadAttribute#class#f/1@459673
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::AccessorMethodDefinition#class#f/1@fb9325 with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation JSX::JSXSpreadAttribute#class#f/1@459673 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation JSX::JSXAttribute::getValue#ff_10#join_rhs/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation JSX::JSXAttribute::getValue#ff_10#join_rhs/2@c04f4d with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::PropWrite#class#f/1@056d6a with 4316 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate JSX::JSXAttribute::getValue_dispred#ff/2@2ddfac
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::Cached::namedPropRef#fff_120#join_rhs/3@ccdb0a
+[2021-04-27 14:06:27] (2s)  >>> Created relation JSX::JSXAttribute::getValue_dispred#ff/2@2ddfac with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Nodes::ClassNode::Range::getAnInstanceMember_dispred#ffb#antijoin_rhs/3 is empty
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate m#Sources::SourceNode::getAPropertyRead_dispred#fbf/1@6d9bda
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::Range::getAnInstanceMember_dispred#ffb#antijoin_rhs/3@b4dbc1 with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation m#Sources::SourceNode::getAPropertyRead_dispred#fbf/1@6d9bda with 3 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::SourceNode::getAPropertyRead_dispred#fbf/3@f017c5
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::SourceNode::getACall_dispred#ff/2@c0bb35
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::SourceNode::getACall_dispred#ff/2@c0bb35 with 250 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DefUse::defn#2#fff_12#join_rhs/2@084426
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate m#LodashUnderscore::LodashUnderscore::member#bf/1@179bbe
+[2021-04-27 14:06:27] (2s)  >>> Created relation m#LodashUnderscore::LodashUnderscore::member#bf/1@179bbe with 7 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation DefUse::defn#2#fff_12#join_rhs/2@084426 with 5033 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Classes::ClassOrInterface::getAMethod_dispred#ff_1#join_rhs/1 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Classes::ClassOrInterface::getAMethod_dispred#ff_1#join_rhs/1@2a74e8 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Nodes::MemberKind::of#bf/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::MemberKind::of#bf/2@5c007f with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate AngularJSCore::angular#f/1@e21785
+[2021-04-27 14:06:27] (2s)  >>> Created relation AngularJSCore::angular#f/1@e21785 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate m#Nodes::moduleMember#bbf#mcpe_path/1@da6b03
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::SourceNode::getAPropertyRead_dispred#fbf/3@f017c5 with 6382 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::Impl::InvokeNodeDef::getAnArgument_dispred#ff/2@i1#e3cd2w (iteration 1)
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::SourceNode::getAPropertyRead_dispred#fbf_120#join_rhs/3@3fcccb
+[2021-04-27 14:06:27] (2s)  >>> Created relation m#Nodes::moduleMember#bbf#mcpe_path/1@da6b03 with 9 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate m#Nodes::moduleMember#bbf#mcpe_m/1@73266c
+[2021-04-27 14:06:27] (2s) 			 - DataFlow::DataFlow::Impl::InvokeNodeDef::getAnArgument_dispred#ff_delta has 430 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (2s)  >>> Created relation m#Nodes::moduleMember#bbf#mcpe_m/1@73266c with 14 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::moduleMember#bbf/3@74c413
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::Impl::InvokeNodeDef::getAnArgument_dispred#ff/2@i2#e3cd2w (iteration 2)
+[2021-04-27 14:06:27] (2s) Empty delta for DataFlow::DataFlow::Impl::InvokeNodeDef::getAnArgument_dispred#ff_delta (order for disjuncts: delta=100).
+[2021-04-27 14:06:27] (2s) Accumulating deltas
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::SourceNode::getAPropertyRead_dispred#fbf_120#join_rhs/3@3fcccb with 6382 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::Impl::InvokeNodeDef::getAnArgument_dispred#ff/2@e3cd2w with 430 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate m#DataFlow::DataFlow::Node::accessesGlobal_dispred#fb/1@241423
+[2021-04-27 14:06:27] (2s)  >>> Created relation m#DataFlow::DataFlow::Node::accessesGlobal_dispred#fb/1@241423 with 2 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Extend::localDollar#f/1@8c263b
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::Cached::namedPropRef#fff_120#join_rhs/3@ccdb0a with 19368 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate m#Expr::ObjectExpr::getPropertyByName_dispred#fbf/1@7e2f35
+[2021-04-27 14:06:27] (2s)  >>> Created relation m#Expr::ObjectExpr::getPropertyByName_dispred#fbf/1@7e2f35 with 2 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Expr::ObjectExpr::getPropertyByName_dispred#fbf/3@ceb167
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::moduleMember#bbf/3@74c413 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Extend::FunctionalExtendCallShallow#ff/2@d132cf
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate LodashUnderscore::LodashUnderscore::member#bf/2@42ff3f
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::localDollar#f/1@8c263b with 289 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Expr::ObjectExpr::getPropertyByName_dispred#fbf/3@ceb167 with 1 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::FunctionalExtendCallShallow#ff/2@d132cf with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Extend::ExtendCallWithFlag#ff/2@8d1a6a
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::PropWrite::getRhs_dispred#ff/2@08d460
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::ExtendCallWithFlag#ff/2@8d1a6a with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Extend::ExtendCallWithFlag::getTranslatedArgument_dispred#fff/3 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::ExtendCallWithFlag::getTranslatedArgument_dispred#fff/3@40aa55 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Extend::ExtendCallWithFlag::getTranslatedArgument_dispred#fff_102#join_rhs/3 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::ExtendCallWithFlag::getTranslatedArgument_dispred#fff_102#join_rhs/3@8403f8 with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation LodashUnderscore::LodashUnderscore::member#bf/2@42ff3f with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Extend::ExtendCallShallow#ff/2@4c11a0
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Extend::ExtendCallDeep#ff/2@446a04
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::ExtendCallShallow#ff/2@4c11a0 with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::ExtendCallDeep#ff/2@446a04 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Extend::ExtendCall::getDestinationOperand_dispred#ff/2@d95da7
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Extend::ExtendCall::getASourceOperand_dispred#ff/2@4b56f7
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::ExtendCall::getDestinationOperand_dispred#ff/2@d95da7 with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::ExtendCall::getASourceOperand_dispred#ff/2@4b56f7 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Extend::ExtendCall::getDestinationOperand_dispred#ff_10#join_rhs/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Extend::ExtendCall::getDestinationOperand_dispred#ff_10#join_rhs/2@4d8f19 with 0 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::PropWrite::getRhs_dispred#ff/2@08d460 with 4302 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate DataFlow::DataFlow::PropWrite::getRhs_dispred#ff_10#join_rhs/2@fa6130
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::SourceNode::getAPropertySource_dispred#fbf#cpe#13/2@fd5c32
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::PropWrite::getRhs_dispred#ff_10#join_rhs/2@fa6130 with 4302 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::SourceNode::getAPropertySource_dispred#fbf#cpe#13/2@fd5c32 with 1 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::FunctionStyleClass::getAPrototypeReference#ff/2@i1#d5dfbw (iteration 1)
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#DataFlow::DataFlow::PropWrite::getRhs_dispred#ff/1@f44dcc
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#DataFlow::DataFlow::PropWrite::getRhs_dispred#ff/1@f44dcc with 4302 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#Sources::Cached::namedPropRef/2@6d906c
+[2021-04-27 14:06:27] (2s) 			 - Nodes::ClassNode::FunctionStyleClass::getAPrototypeReference#ff_delta has 6411 rows (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::FunctionStyleClass::getAPrototypeReference#ff/2@i2#d5dfbw (iteration 2)
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#Sources::Cached::namedPropRef/2@6d906c with 19368 rows.
+[2021-04-27 14:06:27] (2s) Empty delta for Nodes::ClassNode::FunctionStyleClass::getAPrototypeReference#ff_delta (order for disjuncts: delta=10000).
+[2021-04-27 14:06:27] (2s) Accumulating deltas
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::SourceNode::getAPropertyReference_dispred#2#fb/2@06cd7d
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::FunctionStyleClass::getAPrototypeReference#ff/2@d5dfbw with 6411 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::FunctionStyleClass::getAPrototypeReference#ff_10#join_rhs/2@2d7bbe
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::FunctionStyleClass::getAPrototypeReference#ff_10#join_rhs/2@2d7bbe with 6411 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::FunctionStyleClass::getAnAccessor_dispred#fff/3@b7ee2d
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::FunctionStyleClass::getAnAccessor_dispred#fff/3@b7ee2d with 14 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::FunctionStyleClass::getAnAccessor_dispred#fff_201#join_rhs/3@8c74c8
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::FunctionStyleClass::getAnAccessor_dispred#fff_201#join_rhs/3@8c74c8 with 14 rows.
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::SourceNode::getAPropertyReference_dispred#2#fb/2@06cd7d with 4326 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::SourceNode::getAPropertyReference_dispred#2#fb_10#join_rhs/2@cc8a11
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::SourceNode::getAPropertyReference_dispred#2#fb_10#join_rhs/2@cc8a11 with 4326 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::SourceNode::getAPropertySource_dispred#2#fb/2@43356d
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::SourceNode::getAPropertySource_dispred#2#fb/2@43356d with 3105 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::SourceNode::getAPropertySource_dispred#2#fb_10#join_rhs/2@48c9e0
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::SourceNode::getAPropertySource_dispred#2#fb_10#join_rhs/2@48c9e0 with 3105 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::Range::getAnInstanceMember_dispred#ffb/3@595432
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::Range::getAnInstanceMember_dispred#ffb/3@595432 with 2298 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#Nodes::ClassNode::Range::getAnInstanceMember_dispred#ffb/2@556e68
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#Nodes::ClassNode::Range::getAnInstanceMember_dispred#ffb/2@556e68 with 2298 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Nodes::ClassNode::getAReceiverNode_dispred#ff/2@b80472
+[2021-04-27 14:06:27] (2s)  >>> Created relation Nodes::ClassNode::getAReceiverNode_dispred#ff/2@b80472 with 2941 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate project#Nodes::ClassNode::getAReceiverNode_dispred#ff/1@10948c
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#Nodes::ClassNode::getAReceiverNode_dispred#ff/1@10948c with 2844 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Sources::SourceNode::getAPropertyWrite_dispred#2#bff/3@c751e0
+[2021-04-27 14:06:27] (2s)  >>> Created relation Sources::SourceNode::getAPropertyWrite_dispred#2#bff/3@c751e0 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation DataFlow::DataFlow::localFieldStep#ff/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation DataFlow::DataFlow::localFieldStep#ff/2@c1b4bc with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate StepSummary::StepSummary::smallstep#fff/3@87261b
+[2021-04-27 14:06:27] (2s)  >>> Created relation StepSummary::StepSummary::smallstep#fff/3@87261b with 39642 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate StepSummary::StepSummary::smallstep#fff_102#join_rhs/3@b38a58
+[2021-04-27 14:06:27] (2s)  >>> Created relation StepSummary::StepSummary::smallstep#fff_102#join_rhs/3@b38a58 with 39642 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Regexp::regExpSource#2#fff/3@i1#71f64w (iteration 1)
+[2021-04-27 14:06:27] (2s) Empty delta for Regexp::regExpSource#2#fff_delta (order for disjuncts: delta=<standard>).
+[2021-04-27 14:06:27] (2s) Accumulating deltas
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::regExpSource#2#fff/3@71f64w with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Regexp::regExpSource#2#fff_102#join_rhs/3 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::regExpSource#2#fff_102#join_rhs/3@72a26f with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation Regexp::StringRegExpPatternSource#class#ff/2 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::StringRegExpPatternSource#class#ff/2@772085 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation project#Regexp::StringRegExpPatternSource#class#ff/1 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation project#Regexp::StringRegExpPatternSource#class#ff/1@eb70c5 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate Regexp::RegExpPatternSource::getRegExpTerm_dispred#ff/2@fcff33
+[2021-04-27 14:06:27] (2s)  >>> Created relation Regexp::RegExpPatternSource::getRegExpTerm_dispred#ff/2@fcff33 with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation #select#cpe#123#fff/3 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation #select#cpe#123#fff/3@99af9a with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation #select#query#ffffffffffffffff#shared/4 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation #select#query#ffffffffffffffff#shared/4@ef4752 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate #select#query#ffffffffffffffff#shared#1/6@66a98f
+[2021-04-27 14:06:27] (2s)  >>> Created relation #select#query#ffffffffffffffff#shared#1/6@66a98f with 0 rows.
+[2021-04-27 14:06:27] (2s) Inferred that non-rec relation #select#query#ffffffffffffffff#antijoin_rhs/5 is empty
+[2021-04-27 14:06:27] (2s)  >>> Created relation #select#query#ffffffffffffffff#antijoin_rhs/5@087851 with 0 rows.
+[2021-04-27 14:06:27] (2s) Starting to evaluate predicate #select#query#ffffffffffffffff/16@a280d0
+[2021-04-27 14:06:27] (2s)  >>> Created relation #select#query#ffffffffffffffff/16@a280d0 with 0 rows.
+[2021-04-27 14:06:28] (2s) Query done
+[2021-04-27 14:06:28] CSV_CACHE_DIFF: #select#query#ffffffffffffffff (IncompleteHostnameRegExp.ql),2.065,6.474,0.765,0.339,0.475,0.067,0,0,0,0,0,0,0
+[2021-04-27 14:06:28] (2s) Sequence stamp origin is -6598171595623968229
+[2021-04-27 14:06:28] (2s) Stopped the world to sync to disk at sequence stamp o+0
+[2021-04-27 14:06:28] (2s) Starting the world again
+[2021-04-27 14:06:28] CSV_IMB_QUERIES: Query,#select#query#ffffffffffffffff,IncompleteHostnameRegExp.ql,28,Success,2.065,0,2644
+[2021-04-27 14:06:28] Evaluation of C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql produced BQRS results.
+[2021-04-27 14:06:28] [PROGRESS] execute queries> [1/1 eval 2.7s] Evaluation done; writing results to codeql-javascript\Security\CWE-020\IncompleteHostnameRegExp.bqrs.
+[2021-04-27 14:06:28] [PROGRESS] execute queries> Shutting down query evaluator.
+[2021-04-27 14:06:28] Stopped the world to close the cache at sequence stamp o+1
+[2021-04-27 14:06:28] The disk cache is freshly trimmed; leave it be.
+[2021-04-27 14:06:28] Starting the world again
+[2021-04-27 14:06:28] Terminating normally.

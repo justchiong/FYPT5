@@ -1,0 +1,143 @@
+[2021-04-27 13:38:12] This is codeql execute queries -J-Xmx4000M --off-heap-ram=4000 --verbosity=progress --logdir=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB\log --threads=4 --ml-model-path=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP --native-library-path=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP --warnings=show --no-rerun --output=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB\results -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB\db-javascript C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security/./CWE-020/IncompleteHostnameRegExp.ql
+[2021-04-27 13:38:12] Calling plumbing command: codeql resolve queries --format=json -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security/./CWE-020/IncompleteHostnameRegExp.ql
+[2021-04-27 13:38:12] Plumbing command codeql resolve queries completed:
+                      [
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\Security\\CWE-020\\IncompleteHostnameRegExp.ql"
+                      ]
+[2021-04-27 13:38:12] Creating executor with 4 threads.
+[2021-04-27 13:38:13] Calling plumbing command: codeql resolve library-path --query=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql --format=json
+[2021-04-27 13:38:13] [DETAILS] resolve library-path> Resolving query at normalized path C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 13:38:13] [DETAILS] resolve library-path> Found enclosing pack 'codeql-javascript' at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src.
+[2021-04-27 13:38:13] [DETAILS] resolve library-path> Adding compilation cache at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\.cache.
+[2021-04-27 13:38:13] [DETAILS] resolve library-path> Resolving library dependencies from C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\qlpack.yml.
+[2021-04-27 13:38:13] [DETAILS] resolve library-path> QL pack dependencies for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src resolved OK.
+[2021-04-27 13:38:13] [DETAILS] resolve library-path> Found dbscheme through QL packs: C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\semmlecode.javascript.dbscheme.
+[2021-04-27 13:38:13] Plumbing command codeql resolve library-path completed:
+                      {
+                        "qlPack" : {
+                          "library" : false,
+                          "name" : "github/codeql-javascript",
+                          "version" : {
+                            "major" : 0,
+                            "minor" : 0,
+                            "patch" : 0,
+                            "prerelease" : false
+                          },
+                          "dbscheme" : "semmlecode.javascript.dbscheme",
+                          "suites" : "codeql-suites",
+                          "extractor" : "javascript"
+                        },
+                        "libraryPath" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src"
+                        ],
+                        "dbscheme" : "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\semmlecode.javascript.dbscheme",
+                        "compilationCache" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\.cache"
+                        ],
+                        "qlPackName" : "codeql-javascript",
+                        "relativeName" : "codeql-javascript\\Security\\CWE-020\\IncompleteHostnameRegExp.ql"
+                      }
+[2021-04-27 13:38:13] [PROGRESS] execute queries> Compiling query plan for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 13:38:13] [DETAILS] execute queries> Resolving imports for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 13:38:16] Resolved file set for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql hashes to 38904aa6a75f7ddefd9c993d0ee014a188c49bee.
+[2021-04-27 13:38:16] [DETAILS] execute queries> Checking QL for C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 13:38:17] ExternalModuleBindingPass ...
+[2021-04-27 13:38:19] ExternalModuleBindingPass time: 00:02.472
+[2021-04-27 13:38:19] QLPredicateSynthesiser ...
+[2021-04-27 13:38:19] QLPredicateSynthesiser time: 00:00.086
+[2021-04-27 13:38:19] DeclarationBindingPass ...
+[2021-04-27 13:38:19] DeclarationBindingPass time: 00:00.130
+[2021-04-27 13:38:19] Fixed point time ...
+[2021-04-27 13:38:20] Fixed point time time: 00:00.811
+[2021-04-27 13:38:20] ReferenceBindingPass ...
+[2021-04-27 13:38:20] ReferenceBindingPass time: 00:00.113
+[2021-04-27 13:38:20] EntityTypeUpdateBindingPass ...
+[2021-04-27 13:38:20] EntityTypeUpdateBindingPass time: 00:00.086
+[2021-04-27 13:38:20] ReferenceBindingCheck ...
+[2021-04-27 13:38:20] ReferenceBindingCheck time: 00:00.060
+[2021-04-27 13:38:20] PredicateBodyBindingPass ...
+[2021-04-27 13:38:22] PredicateBodyBindingPass time: 00:01.132
+[2021-04-27 13:38:22] LanguagePragmaPropagationPass ...
+[2021-04-27 13:38:22] LanguagePragmaPropagationPass time: 00:00.040
+[2021-04-27 13:38:22] Ambiguity checks ...
+[2021-04-27 13:38:22] Ambiguity checks time: 00:00.171
+[2021-04-27 13:38:22] Ql checks ...
+[2021-04-27 13:38:23] Ql checks time: 00:00.765
+[2021-04-27 13:38:32] Compilation pipeline
+[2021-04-27 13:38:32] Type Inference ...
+[2021-04-27 13:38:32] CSV_TYPE_HIERARCHY: Best number of iterations,Maximum number of runs,Number of BDD variables,Size of BDD for typefacts
+[2021-04-27 13:38:32] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2021-04-27 13:38:32] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2021-04-27 13:38:32] CSV_TYPE_HIERARCHY: 0,0,83,90
+[2021-04-27 13:38:32] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2021-04-27 13:38:32] CSV_TYPE_HIERARCHY: 0,0,0,0
+[2021-04-27 13:38:33] CSV_TYPE_HIERARCHY: 0,0,777,4386
+[2021-04-27 13:38:33] CSV_TYPE_HIERARCHY: 0,0,17,17
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,740,10317
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,9,9
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,26,26
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,12,12
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,12,15
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,6,7
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,7,7
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,1,1
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,10,13
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,17,19
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,6,6
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,7,10
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,4,4
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,6,6
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,6,7
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,3,3
+[2021-04-27 13:38:34] CSV_TYPE_HIERARCHY: 0,0,2,2
+[2021-04-27 13:38:37] Type Inference time: 00:05.005
+[2021-04-27 13:38:37] Binding Checks ...
+[2021-04-27 13:38:38] Binding Checks time: 00:00.967
+[2021-04-27 13:38:40] [DETAILS] execute queries> Optimizing C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteHostnameRegExp.ql.
+[2021-04-27 13:38:40] Processing compilation pipeline
+[2021-04-27 13:38:40] Started compiling a query
+[2021-04-27 13:38:40] Initialising compiler...
+[2021-04-27 13:38:40] 	 ... compiler initialised
+[2021-04-27 13:38:40] About to start query optimisation
+[2021-04-27 13:38:41] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:41] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:42] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:42] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:42] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:42] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:42] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:43] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:43] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:43] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:43] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:43] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:44] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:44] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:44] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:45] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:45] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:45] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:45] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:46] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:47] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:47] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:47] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:47] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:48] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:48] Compilation cache hit - skipping compilation.
+[2021-04-27 13:38:49] Compilation cache miss for a9203310ee774d57ca3d53824380df570a375a29.

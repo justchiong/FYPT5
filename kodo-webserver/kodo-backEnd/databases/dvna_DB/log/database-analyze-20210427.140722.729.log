@@ -1,0 +1,87 @@
+[2021-04-27 14:07:22] This is codeql database analyze --ram=8000 --threads=4 --format=csv --output=./results/IncompleteUrlSubstringSanitization.csv C:/Users/davet/OneDrive/Documents/SingaporePoly/FYP/dvnaDB C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security/./CWE-020/IncompleteUrlSubstringSanitization.ql
+[2021-04-27 14:07:22] Log file was started late.
+[2021-04-27 14:07:22] [PROGRESS] database analyze> Running queries.
+[2021-04-27 14:07:22] Running plumbing command: codeql database run-queries --threads=4 --ml-model-path= --native-library-path= --ram=8000 --warnings=show --no-rerun -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security/./CWE-020/IncompleteUrlSubstringSanitization.ql
+[2021-04-27 14:07:22] Calling plumbing command: codeql resolve ram --ram=8000 --format=json
+[2021-04-27 14:07:22] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx4000M",
+                        "--off-heap-ram=4000"
+                      ]
+[2021-04-27 14:07:22] Spawning plumbing command: execute queries -J-Xmx4000M --off-heap-ram=4000 --verbosity=progress --logdir=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB\log --threads=4 --ml-model-path=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP --native-library-path=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP --warnings=show --no-rerun --output=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB\results -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB\db-javascript C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security/./CWE-020/IncompleteUrlSubstringSanitization.ql
+[2021-04-27 14:07:30] Plumbing command codeql execute queries terminated with status 0.
+[2021-04-27 14:07:30] Plumbing command codeql database run-queries completed with status 0.
+[2021-04-27 14:07:30] [PROGRESS] database analyze> Interpreting results.
+[2021-04-27 14:07:30] Running plumbing command: codeql database interpret-results --format=csv -o=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\results\IncompleteUrlSubstringSanitization.csv --max-paths=4 --csv-location-format=line-column --threads=4 -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\dvnaDB C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security/./CWE-020/IncompleteUrlSubstringSanitization.ql
+[2021-04-27 14:07:30] Calling plumbing command: codeql resolve queries --format=json -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security/./CWE-020/IncompleteUrlSubstringSanitization.ql
+[2021-04-27 14:07:30] Plumbing command codeql resolve queries completed:
+                      [
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\Security\\CWE-020\\IncompleteUrlSubstringSanitization.ql"
+                      ]
+[2021-04-27 14:07:30] [DETAILS] database interpret-results> Scanning for qlpack.yml from C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\.codeqlmanifest.json
+[2021-04-27 14:07:30] [DETAILS] database interpret-results> Scanning for qlpack.yml from C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\
+[2021-04-27 14:07:30] [DETAILS] database interpret-results> Not scanning from C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home which is already done.
+[2021-04-27 14:07:30] Calling plumbing command: codeql resolve library-path --query=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteUrlSubstringSanitization.ql --full-library-path=none --dbscheme=none --format=json
+[2021-04-27 14:07:30] [DETAILS] resolve library-path> Resolving query at normalized path C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-020\IncompleteUrlSubstringSanitization.ql.
+[2021-04-27 14:07:30] [DETAILS] resolve library-path> Found enclosing pack 'codeql-javascript' at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src.
+[2021-04-27 14:07:30] [DETAILS] resolve library-path> Adding compilation cache at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\.cache.
+[2021-04-27 14:07:30] [DETAILS] resolve library-path> Dbscheme was explicitly overridden as C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\none
+[2021-04-27 14:07:30] [DETAILS] resolve library-path> Library path was overridden on command line.
+[2021-04-27 14:07:31] Plumbing command codeql resolve library-path completed:
+                      {
+                        "qlPack" : {
+                          "library" : false,
+                          "name" : "github/codeql-javascript",
+                          "version" : {
+                            "major" : 0,
+                            "minor" : 0,
+                            "patch" : 0,
+                            "prerelease" : false
+                          },
+                          "dbscheme" : "semmlecode.javascript.dbscheme",
+                          "suites" : "codeql-suites",
+                          "extractor" : "javascript"
+                        },
+                        "libraryPath" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\none"
+                        ],
+                        "dbscheme" : "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\none",
+                        "compilationCache" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\.cache"
+                        ],
+                        "qlPackName" : "codeql-javascript",
+                        "relativeName" : "codeql-javascript\\Security\\CWE-020\\IncompleteUrlSubstringSanitization.ql"
+                      }
+[2021-04-27 14:07:31] Exception caught at top level: Could not write CSV file
+                      (eventual cause: NoSuchFileException "C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\results\IncompleteUrlSubstringSanitization.csv")
+                      com.semmle.analysis.export.ExportCSV.export(ExportCSV.java:122)
+                      com.semmle.cli2.bqrs.InterpretCommand.exportResults(InterpretCommand.java:224)
+                      com.semmle.cli2.database.InterpretResultsCommand.executeSubcommand(InterpretResultsCommand.java:146)
+                      com.semmle.cli2.picocli.PlumbingRunner.run(PlumbingRunner.java:110)
+                      com.semmle.cli2.picocli.SubcommandCommon.runPlumbingInProcess(SubcommandCommon.java:159)
+                      com.semmle.cli2.database.AnalyzeCommand.executeSubcommand(AnalyzeCommand.java:83)
+                      com.semmle.cli2.picocli.SubcommandCommon.call(SubcommandCommon.java:430)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:201)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:209)
+                      com.semmle.cli2.CodeQL.main(CodeQL.java:93)
+                      
+                       ... caused by:
+                      
+                      java.nio.file.NoSuchFileException: C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\results\IncompleteUrlSubstringSanitization.csv
+                      java.base/sun.nio.fs.WindowsException.translateToIOException(Unknown Source)
+                      java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+                      java.base/sun.nio.fs.WindowsException.rethrowAsIOException(Unknown Source)
+                      java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(Unknown Source)
+                      java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(Unknown Source)
+                      java.base/java.nio.file.Files.newOutputStream(Unknown Source)
+                      java.base/java.nio.file.Files.newBufferedWriter(Unknown Source)
+                      com.semmle.analysis.export.ExportCSV.export(ExportCSV.java:119)
+                      com.semmle.cli2.bqrs.InterpretCommand.exportResults(InterpretCommand.java:224)
+                      com.semmle.cli2.database.InterpretResultsCommand.executeSubcommand(InterpretResultsCommand.java:146)
+                      com.semmle.cli2.picocli.PlumbingRunner.run(PlumbingRunner.java:110)
+                      com.semmle.cli2.picocli.SubcommandCommon.runPlumbingInProcess(SubcommandCommon.java:159)
+                      com.semmle.cli2.database.AnalyzeCommand.executeSubcommand(AnalyzeCommand.java:83)
+                      com.semmle.cli2.picocli.SubcommandCommon.call(SubcommandCommon.java:430)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:201)
+                      com.semmle.cli2.picocli.SubcommandMaker.runMain(SubcommandMaker.java:209)
+                      com.semmle.cli2.CodeQL.main(CodeQL.java:93)
