@@ -8,7 +8,7 @@ import glob, os
 # cwd argument to change working directory
 
 # get queries to run from backend server and put into this variable
-queriesToRun = ['cwe079', 'cwe078', 'cwe089']
+queriesToRun = ['CWE-079', 'CWE-078', 'CWE-089']
 
 # get .ql filenames in the folder and put in a list
 queryFiles = []
