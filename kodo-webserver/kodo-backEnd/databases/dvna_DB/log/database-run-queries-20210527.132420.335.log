@@ -1,0 +1,11 @@
+[2021-05-27 13:24:20] This is codeql database run-queries --threads=3 --ram=8000 ./kodo-webserver/kodo-backEnd/databases/dvna_DB CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-079
+[2021-05-27 13:24:20] Log file was started late.
+[2021-05-27 13:24:20] Calling plumbing command: codeql resolve ram --ram=8000 --format=json
+[2021-05-27 13:24:20] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx4000M",
+                        "--off-heap-ram=4000"
+                      ]
+[2021-05-27 13:24:20] Spawning plumbing command: execute queries -J-Xmx4000M --off-heap-ram=4000 --verbosity=progress --logdir=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\dvna_DB\log --threads=3 --ml-model-path= --native-library-path= --warnings=show --output=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\dvna_DB\results -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\dvna_DB\db-javascript CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-079
+[2021-05-27 13:24:59] Plumbing command codeql execute queries terminated with status 0.
+[2021-05-27 13:24:59] Exiting with code 0
