@@ -5,6 +5,8 @@ var bodyParser=require('body-parser');
 const cors = require("cors");
 app.use(bodyParser.json())
 app.use(cors());
+const spawn = require('child_process').spawn;
+
 
 const JWT_SECRET = require("../auth/config.js"); 
 const jwt = require('jsonwebtoken')
@@ -48,5 +50,9 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
     }
     console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
     res.sendStatus(200)
+    const pyProcess = spawn('python', ["./codeql_create_DB.py", req.uuid])
+        pyProcess.stdout.on('data', data => {
+        console.log(data.toString())
+    })
 })
 module.exports=app;
