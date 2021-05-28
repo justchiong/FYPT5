@@ -16,7 +16,7 @@ var multer = require('multer');
 
 var storages = multer.diskStorage({
     destination: function(req, file, callback) {
-        callback(null, './zipFiles/');
+        callback(null, './kodo-backEnd/zipFiles/');
      },
     filename: function(req, file, callback) {
         callback(null, req.uuid +".zip");
@@ -50,7 +50,7 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
     }
     console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
     res.sendStatus(200)
-    const pyProcess = spawn('python', ["./codeql_create_DB.py", req.uuid])
+    const pyProcess = spawn('python', ["./kodo-backEnd/codeql_create_DB.py", req.uuid])
         pyProcess.stdout.on('data', data => {
         console.log(data.toString())
     })

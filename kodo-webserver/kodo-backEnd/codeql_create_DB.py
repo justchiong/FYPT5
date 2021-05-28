@@ -25,8 +25,12 @@ zipPath = os.path.dirname(os.path.realpath(__file__)) + "/zipFiles/" + directory
 with zipfile.ZipFile(zipPath, 'r') as zip_ref:
      zip_ref.extractall(destPath)
 
-process1= subprocess.run(filePath, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE, cwd="./kodo-webserver/kodo-backEnd/zipFiles")
-
+cmd = f"codeql database create ./kodo-backEnd/databases/{directory}_db --source-root=./kodo-backEnd/webServer_Folders/{directory} --language=javascript"
+process1= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
+print(process1.returncode)
+print(process1.stderr)
+print(process1.stdout)
+print("CodeQL Database Created.")
 # print(process1.returncode)
 # print(process1.stderr)
 # print(process1.stdout)
