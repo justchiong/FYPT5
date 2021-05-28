@@ -50,8 +50,8 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
     }
     console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
     res.sendStatus(200)
-    const pyProcess = spawn('python', ["./kodo-backEnd/codeql_create_DB.py", req.uuid])
-        pyProcess.stdout.on('data', data => {
+    var pyProcess = spawn('python', ["./kodo-backEnd/createDB.py", req.uuid])
+    pyProcess.stdout.on('data', data => {
         console.log(data.toString())
     })
 })

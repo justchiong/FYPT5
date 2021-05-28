@@ -3,6 +3,7 @@ import zipfile
 import sys
 import zipfile
 import os
+import removeReq
 # .stout for output
 # .stderr for printing err in python terminal
 # .args for the list of arguments used
@@ -28,9 +29,7 @@ with zipfile.ZipFile(zipPath, 'r') as zip_ref:
 cmd = f"codeql database create ./kodo-backEnd/databases/{uuid}_db --source-root=./kodo-backEnd/webServer_Folders/{uuid} --language=javascript"
 print("Creating database...")
 process1= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
-print(process1.returncode)
-print(process1.stderr)
-print(process1.stdout)
+
 print("CodeQL Database Created.")
 # print(process1.returncode)
 # print(process1.stderr)
@@ -49,10 +48,9 @@ databaseName = uuid +"_db"
 # get .ql filenames in the folder and put in a list
 
 for query in queriesToRun:
-     print("Scanning daabase with query" + query)
+     print("Scanning database for " + query)
      cmd = f"codeql database analyze --format=csv --output=./kodo-backEnd/scanResults/{scanResultFolderName}/{query}_result.csv --threads=4 --ram=8000 --no-rerun ./kodo-backEnd/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{query}"
      process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
-     print(process1.returncode)
-     print(process1.stderr)
-     print(process1.stdout)
-print("scanning completed! WOOOOOOOO")
+     print("Scan with complete for " + query)
+print("scanning completed! Now request deleting database, folder and zip file...")
+removeReq.deleteFiles()
