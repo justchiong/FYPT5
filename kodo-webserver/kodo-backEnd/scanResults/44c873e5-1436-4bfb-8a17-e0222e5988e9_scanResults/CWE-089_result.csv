@@ -1,1 +1,0 @@
-"Database query built from user-controlled sources","Building a database query from user-controlled sources is vulnerable to insertion of malicious code by the user.","error","This query depends on [[""a user-provided value""|""relative:///dvna-master/core/appHandler.js:10:58:10:65""]].","/dvna-master/core/appHandler.js","11","21","11","25"
