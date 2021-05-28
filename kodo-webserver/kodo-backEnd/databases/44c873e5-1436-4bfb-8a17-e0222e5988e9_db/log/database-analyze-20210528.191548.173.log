@@ -1,0 +1,58 @@
+[2021-05-28 19:15:48] This is codeql database analyze --format=csv --output=./kodo-backEnd/scanResults/44c873e5-1436-4bfb-8a17-e0222e5988e9_scanResults/CWE-089_result.csv --threads=4 --ram=8000 --no-rerun ./kodo-backEnd/databases/44c873e5-1436-4bfb-8a17-e0222e5988e9_db ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-05-28 19:15:48] Log file was started late.
+[2021-05-28 19:15:48] [PROGRESS] database analyze> Running queries.
+[2021-05-28 19:15:48] Running plumbing command: codeql database run-queries --threads=4 --ml-model-path= --native-library-path= --ram=8000 --warnings=show --no-rerun -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\44c873e5-1436-4bfb-8a17-e0222e5988e9_db ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-05-28 19:15:48] Calling plumbing command: codeql resolve ram --ram=8000 --format=json
+[2021-05-28 19:15:48] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx4000M",
+                        "--off-heap-ram=4000"
+                      ]
+[2021-05-28 19:15:48] Spawning plumbing command: execute queries -J-Xmx4000M --off-heap-ram=4000 --verbosity=progress --logdir=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\44c873e5-1436-4bfb-8a17-e0222e5988e9_db\log --threads=4 --ml-model-path=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver --native-library-path=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver --warnings=show --no-rerun --output=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\44c873e5-1436-4bfb-8a17-e0222e5988e9_db\results -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\44c873e5-1436-4bfb-8a17-e0222e5988e9_db\db-javascript ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-05-28 19:16:25] Plumbing command codeql execute queries terminated with status 0.
+[2021-05-28 19:16:25] Plumbing command codeql database run-queries completed with status 0.
+[2021-05-28 19:16:25] [PROGRESS] database analyze> Interpreting results.
+[2021-05-28 19:16:25] Running plumbing command: codeql database interpret-results --format=csv -o=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\scanResults\44c873e5-1436-4bfb-8a17-e0222e5988e9_scanResults\CWE-089_result.csv --max-paths=4 --csv-location-format=line-column --threads=4 -- C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\kodo-backEnd\databases\44c873e5-1436-4bfb-8a17-e0222e5988e9_db ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-05-28 19:16:25] Calling plumbing command: codeql resolve queries --format=json -- ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-05-28 19:16:25] [SPAMMY] resolve queries> Scanning for QL files at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089.
+[2021-05-28 19:16:25] [SPAMMY] resolve queries> Found 1 QL files in C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089.
+[2021-05-28 19:16:25] Plumbing command codeql resolve queries completed:
+                      [
+                        "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\Security\\CWE-089\\SqlInjection.ql"
+                      ]
+[2021-05-28 19:16:25] [DETAILS] database interpret-results> Scanning for qlpack.yml from C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home\.codeqlmanifest.json
+[2021-05-28 19:16:25] [DETAILS] database interpret-results> Scanning for qlpack.yml from C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\
+[2021-05-28 19:16:25] [DETAILS] database interpret-results> Not scanning from C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\CodeQL-home which is already done.
+[2021-05-28 19:16:25] Calling plumbing command: codeql resolve library-path --query=C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\SqlInjection.ql --full-library-path=none --dbscheme=none --format=json
+[2021-05-28 19:16:25] [DETAILS] resolve library-path> Resolving query at normalized path C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\SqlInjection.ql.
+[2021-05-28 19:16:25] [DETAILS] resolve library-path> Found enclosing pack 'codeql-javascript' at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src.
+[2021-05-28 19:16:25] [DETAILS] resolve library-path> Adding compilation cache at C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\.cache.
+[2021-05-28 19:16:25] [DETAILS] resolve library-path> Dbscheme was explicitly overridden as C:\Users\davet\OneDrive\Documents\SingaporePoly\FYP\FYPT5-test\FYPT5-test\kodo-webserver\none
+[2021-05-28 19:16:25] [DETAILS] resolve library-path> Library path was overridden on command line.
+[2021-05-28 19:16:25] Plumbing command codeql resolve library-path completed:
+                      {
+                        "qlPack" : {
+                          "library" : false,
+                          "name" : "github/codeql-javascript",
+                          "version" : {
+                            "major" : 0,
+                            "minor" : 0,
+                            "patch" : 0,
+                            "prerelease" : false
+                          },
+                          "dbscheme" : "semmlecode.javascript.dbscheme",
+                          "suites" : "codeql-suites",
+                          "extractor" : "javascript"
+                        },
+                        "libraryPath" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\kodo-webserver\\none"
+                        ],
+                        "dbscheme" : "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\kodo-webserver\\none",
+                        "compilationCache" : [
+                          "C:\\Users\\davet\\OneDrive\\Documents\\SingaporePoly\\FYP\\FYPT5-test\\FYPT5-test\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\.cache"
+                        ],
+                        "qlPackName" : "codeql-javascript",
+                        "relativeName" : "codeql-javascript\\Security\\CWE-089\\SqlInjection.ql"
+                      }
+[2021-05-28 19:16:26] Plumbing command codeql database interpret-results completed.
+[2021-05-28 19:16:26] Terminating normally.

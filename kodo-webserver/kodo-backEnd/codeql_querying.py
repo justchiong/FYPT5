@@ -8,7 +8,7 @@ import glob, os
 # cwd argument to change working directory
 
 # get queries to run from backend server and put into this variable
-queriesToRun = ['CWE-089'] #, 'CWE-078', 'CWE-089']
+queriesToRun = ['CWE-089', 'CWE-078', 'CWE-089']
 # get database name
 databaseName = "dvna_DB"
 
@@ -16,14 +16,6 @@ databaseName = "dvna_DB"
 # get .ql filenames in the folder and put in a list
 count = 0
 for query in queriesToRun:
-    """ count = count+1
-    queryFiles = []
-    if count >1:
-        os.chdir(f"../{query}")
-    else:
-        os.chdir(f"./standard-queries/{query}")
-    for file in glob.glob("*.ql"):
-        queryFiles.append(file) """
     print(os.getcwd())
     #cmd = f"codeql database run-queries --threads=3 --ram=8000 ./kodo-webserver/kodo-backEnd/databases/{databaseName} ./standard-queries/{query}"
     #cmd = f"codeql database run-queries --threads=3 --ram=8000 ./kodo-webserver/kodo-backEnd/databases/{databaseName} CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{query}"

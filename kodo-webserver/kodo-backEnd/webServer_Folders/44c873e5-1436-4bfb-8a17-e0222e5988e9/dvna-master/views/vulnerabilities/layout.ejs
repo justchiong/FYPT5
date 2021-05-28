@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../common/head %>
+</head>
+<body>
+    <% include ../common/navigation %>
+<div class='container' style='min-height: 450px'><div class='row'><div class='col-md-12'>
+
+    <div class='row'>
+        <div class='col-md-3'>
+            <div class='list-group'>
+                <h4>OWASP Top 10 2017</h4>
+                <% for (var vulnKey in vulnerabilities) { %>
+                    <% if (vulnKey[1]!='x') { %>
+                    <a href="/learn/vulnerability/<%=vulnKey%>" class='list-group-item'>
+                        <i class='fa fa-angle-double-right'></i> <%=vulnerabilities[vulnKey]%>
+                    </a>
+                    <% } %>
+                <% } %>
+                <h4>OWASP Top 10 2013</h4>
+                <% for (var vulnKey in vulnerabilities) { %>
+                    <% if (vulnKey[1]=='x') { %>
+                    <a href="/learn/vulnerability/<%=vulnKey%>" class='list-group-item'>
+                        <i class='fa fa-angle-double-right'></i> <%=vulnerabilities[vulnKey]%>
+                    </a>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+        <div class='col-md-9'>
+            <h3><%=vuln_title%></h3>
+
+            <h4>Scenario</h4>
+            <%- include(vuln_scenario) %>
+
+            <h4>Overview</h4>
+            <%- include(vuln_description) %>
+
+            <h4>Reference</h4>
+            <%- include(vuln_reference) %>
+        </div>
+    </div>
+
+</div></div></div>
+<% include ../common/footer %>
+</body>
+</html>
