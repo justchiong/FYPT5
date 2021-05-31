@@ -31,15 +31,14 @@ print("Creating database...")
 process1= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
 
 print("CodeQL Database Created.")
-# print(process1.returncode)
-# print(process1.stderr)
-# print(process1.stdout)
+print(process1.returncode)
+print(process1.stderr)
+print(process1.stdout)
 
 result_parent_dir = os.path.dirname(os.path.realpath(__file__)) + "/scanResults"
 scanResultFolderName = uuid + '_scanResults'
 resultPath = os.path.join(result_parent_dir, scanResultFolderName)
 os.mkdir(resultPath)
-print("Directory '% s' created" % uuid)
 
 # get queries to run from backend server and put into this variable
 queriesToRun = ['CWE-089'] #, 'CWE-078', 'CWE-089']
@@ -52,5 +51,8 @@ for query in queriesToRun:
      cmd = f"codeql database analyze --format=csv --output=./kodo-backEnd/scanResults/{scanResultFolderName}/{query}_result.csv --threads=4 --ram=8000 --no-rerun ./kodo-backEnd/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{query}"
      process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
      print("Scan with complete for " + query)
-print("scanning completed! Now request deleting database, folder and zip file...")
+     print(process2.returncode)
+     print(process2.stderr)
+     print(process2.stdout)
+     print("scanning completed! Now request deleting database, folder and zip file...")
 removeReq.deleteFiles()
