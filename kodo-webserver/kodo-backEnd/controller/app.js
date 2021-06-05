@@ -31,10 +31,18 @@ var upload = multer({storage: storages,
     });
 
 app.post('/request/parameters', function(req,res){
+    var emailPattern = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
     var email = req.body.email  
     var queriesToUse = req.body.queriesToUse
+    if (!req.body.hasOwnProperty("email") || !req.body.hasOwnProperty("queriesToUse")) {
+        res.status(500).send("Internal Server Error")
+        return
+    }else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
+        res.status(422).send()
+        return
+    }
     request_uuid = uuidv4()
-    var token = jwt.sign({ requestId: request_uuid, userEmail: email, queries: queriesToUse}, JWT_SECRET.key, {
+    var token = jwt.sign({ requestId: request_uuid, userEmail: email, queies: queriesToUse}, JWT_SECRET.key, {
         expiresIn: 86400 //expires in 24 hrs
     });
     console.log(`Token created with request UUID of ${request_uuid}`)
