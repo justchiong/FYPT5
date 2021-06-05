@@ -15,6 +15,8 @@ import removeReq
 uuid = sys.argv[1]
 parent_dir = os.path.dirname(os.path.realpath(__file__)) + "/webServer_Folders"
 
+queriesToRun = sys.argv[2]
+email = sys.argv[3]
 
 dirPath = os.path.join(parent_dir, uuid)
 destPath = parent_dir + '/' + uuid
@@ -41,7 +43,6 @@ resultPath = os.path.join(result_parent_dir, scanResultFolderName)
 os.mkdir(resultPath)
 
 # get queries to run from backend server and put into this variable
-queriesToRun = ['CWE-089'] #, 'CWE-078', 'CWE-089']
 databaseName = uuid +"_db"
 
 # get .ql filenames in the folder and put in a list
