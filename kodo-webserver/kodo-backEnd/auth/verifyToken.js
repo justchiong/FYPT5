@@ -6,7 +6,7 @@ function verifyToken(req, res, next){
 
     var token = req.headers['authorization']; //retrieve authorization header's content
     if(!token || !token.startsWith('Bearer ') || token===null || token===undefined){ //process the token
-        return res.status(403).send({'auth':false, 'message':'Not logged in!'});
+        return res.status(403).send({'auth':false, 'message':'First request has not been sent!'});
     }
     else{
         token=token.split('Bearer ')[1]; //obtain the token's value
