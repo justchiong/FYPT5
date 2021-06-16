@@ -28,7 +28,7 @@ zipPath = os.path.dirname(os.path.realpath(__file__)) + "/zipFiles/" + uuid +".z
 with zipfile.ZipFile(zipPath, 'r') as zip_ref:
      zip_ref.extractall(destPath)
 
-cmd = f"codeql database create ./kodo-backEnd/databases/{uuid}_db --source-root=./kodo-backEnd/webServer_Folders/{uuid} --language=javascript"
+cmd = f"codeql database create ./backend/databases/{uuid}_db --source-root=./backend/webServer_Folders/{uuid} --language=javascript"
 print("Creating database...")
 process1= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
 
@@ -49,7 +49,7 @@ databaseName = uuid +"_db"
 
 for query in queriesToRun:
      print("Scanning database for " + query)
-     cmd = f"codeql database analyze --format=csv --output=./kodo-backEnd/scanResults/{scanResultFolderName}/{query}_result.csv --threads=4 --ram=8000 --no-rerun ./kodo-backEnd/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{query}"
+     cmd = f"codeql database analyze --format=csv --output=./backend/scanResults/{scanResultFolderName}/{query}_result.csv --threads=4 --ram=8000 --no-rerun ./backend/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{query}"
      process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
      print("Scan with complete for " + query)
      print(process2.returncode)
