@@ -5,8 +5,8 @@ app.use(express.static('public'))
 app.get("/", (req, res) => {
   res.sendFile("/public/dashboard.html", { root: __dirname });
 });
-app.get("/", (req, res) => {
-  res.sendFile("/public/Logo/Blue_Hotel___Lodgings_Logo__1_-removebg-preview.png", { root: __dirname });
+app.get("/kodoLogo.png", (req, res) => {
+  res.sendFile("/public/logo/kodoLogo.png", { root: __dirname });
 });
 
 /* app.get("/users/:id", (req, res) => {

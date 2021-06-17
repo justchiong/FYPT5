@@ -7,7 +7,7 @@ def remove_readonly(func, path, _):
     os.chmod(path, stat.S_IWRITE)
     func(path)
 
-uuid = sys.argv[1]
+uuid = "fb702581-2f1f-4073-b5ef-10358bd4558e"
 parent_dir = os.path.dirname(os.path.realpath(__file__)) + "\\webServer_Folders"
 
 db_dir = os.path.dirname(os.path.realpath(__file__)) + "\\databases"
