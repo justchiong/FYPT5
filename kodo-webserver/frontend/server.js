@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 app.use(express.static('public'))
 
-app.get("/", (req, res) => {
+app.get("/dashboard.html", (req, res) => {
   res.sendFile("/public/dashboard.html", { root: __dirname });
 });
 app.get("/kodoLogo.png", (req, res) => {
