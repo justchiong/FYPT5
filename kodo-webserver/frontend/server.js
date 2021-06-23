@@ -14,9 +14,6 @@ app.get("/kodoLogo.png", (req, res) => {
 app.get("/summary.html", (req, res) => {
   res.sendFile("/public/summary.html", { root: __dirname });
 });
-app.get("/specific_result.html", (req, res) => {
-  res.sendFile("/public/specific_result.html", { root: __dirname });
-});
 
 /* app.get("/users/:id", (req, res) => {
   res.sendFile("/public/user.html", { root: __dirname });

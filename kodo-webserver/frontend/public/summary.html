@@ -39,8 +39,14 @@
             .mt-10{
                 margin-top: 15%;
             }
+            .ml-10{
+                margin-left: 10%;
+            }
             .afterNav{
                 margin-top: 100px;
+            }
+            .container-fluid {
+                max-width:85%;
             }
         </style>
     </head>
@@ -62,13 +68,13 @@
                 </li>
               </ul>
             <a class="navbar-brand" href="#">
-                <img src="./Logo/kodoLogo.png" width="30" height="30" class="d-inline-block align-top mx-2" alt="">
+                <img src="./Logo/kodoLogo.png" width="60" height="60" class="d-inline-block align-top mx-2" alt="">
             </a>
         </nav>
     </div>
     <div class="jumbotron jumboStyle">
-        <div class="container ml-5 pl-5">
-            <h1 class="display-3 mt-3" style="font-weight: bold;">
+        <div class="container ml-10 pl-5">
+            <h1 class="display-3 mt-5" style="font-weight: bold;">
                 Results   <img src="/kodoLogo.png" width="100" height="100" class="d-inline-block align-top mx-2" alt="">
             </h1>
             <p class="lead">Enter your unique result access key here:</p>
@@ -80,27 +86,44 @@
             </div>
         </div>
     </div>
-    <div id="accordion" class="container-fluid afterNav">
+    <div id="accordion" class="container-fluid mt-4">
         <div class="card">
             <div class="card-header" id="headingOne">
-            <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
-                </button>
-            </h5>
-            </div>
-
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
+                <h5 class="mb-0">
+                    <div class="btn w-100">
+                        <table class="table table-borderless text-left">
+                        <tr>
+                            <td>Vulnerability</td>
+                            <td>Description</td>
+                            <td>Severity</td>
+                        </tr>
+                    </table>
+                    </div>
+                </h5>
             </div>
         </div>
         <div class="card">
             <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
+                <button class="btn btn-link collapsed w-100" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <!-- <table class="table text-left">
+                        <thead>
+                            <tr>
+                            <th scope="col">Vulnerability</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Severity</th>
+                            </tr>
+                        </thead>
+                    <table> -->
+                    <table class="table table-borderless text-left">
+                        <thead>
+                            <tr>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>test</td>
+                            </tr>
+                        </thead>
+                    </table>
                 </button>
             </h5>
             </div>
@@ -113,8 +136,23 @@
         <div class="card">
             <div class="card-header" id="headingThree">
             <h5 class="mb-0">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Collapsible Group Item #3
+                <button class="btn btn-link collapsed w-100" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <!-- <table class="table text-left">
+                        <thead>
+                            <tr>
+                            <th scope="col">Vulnerability</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Severity</th>
+                            </tr>
+                        </thead>
+                    <table> -->
+                    <table class="table table-borderless text-left">
+                        <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>test</td>
+                        </tr>
+                    </table>
                 </button>
             </h5>
             </div>
