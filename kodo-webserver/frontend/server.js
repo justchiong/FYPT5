@@ -5,8 +5,17 @@ app.use(express.static('public'))
 app.get("/dashboard.html", (req, res) => {
   res.sendFile("/public/dashboard.html", { root: __dirname });
 });
+app.get("/Logo/kodoLogo.png", (req, res) => {
+  res.sendFile("/public/Logo/kodoLogo.png", { root: __dirname });
+});
 app.get("/kodoLogo.png", (req, res) => {
-  res.sendFile("/public/logo/kodoLogo.png", { root: __dirname });
+  res.sendFile("/public/Logo/kodoLogo.png", { root: __dirname });
+});
+app.get("/summary.html", (req, res) => {
+  res.sendFile("/public/summary.html", { root: __dirname });
+});
+app.get("/specific_result.html", (req, res) => {
+  res.sendFile("/public/specific_result.html", { root: __dirname });
 });
 
 /* app.get("/users/:id", (req, res) => {
