@@ -16,9 +16,13 @@
             color: #4304c2 !important;
             
         }
+        .blacktext{
+            color:black !important;
+
+        }
         .navbar-fonts {
-            font-family: Verdana;
-            font-weight: bold;
+            color:black !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: larger;
         }
     </style>
@@ -31,17 +35,17 @@
             <!-- Links -->
                 <ul class="navbar-nav pl-5 navbar-fonts" id="appendNavItem">
                 <li class="nav-item mx-1">
-                  <a class="nav-link kodo-purple" href="./summary.html">Results</a>
+                  <a class="nav-link blacktext" href="./summary.html">Results</a>
                 </li>
                 <li class="nav-item mx-1">
-                    <a class="nav-link kodo-purple" href="./dashboard.html">Scanner</a>
+                    <a class="nav-link blacktext" href="./dashboard.html">Scanner</a>
                 </li>
                 <li class="nav-item mx-1">
-                    <a class="nav-link kodo-purple" href="#">Contact Us</a>
+                    <a class="nav-link blacktext" href="#">Contact Us</a>
                 </li>
               </ul>
             <a class="navbar-brand" href="#">
-                <img src="/kodoLogo.png" width="60" height="60" class="d-inline-block align-top mx-2" alt="">
+                <img src="/kodoLogo.png" width="45" height="45" class="d-inline-block align-top mx-2" alt="">
             </a>
 
         </nav>
@@ -54,7 +58,7 @@
           <p class="lead">A powerful tool at your fingertips to scan for vulnerable code and to enable developers to secure them.</p>
         </div>
     </div>
-    <form class="container" id="scanRequest">
+    <form class="container mb-5" id="scanRequest">
         <!-- FILE UPLOAD (.zip)-->
         <div class="row mt-5 pt-2">
             <label class="text-white col-2 text-left pr-0 mr-0 my-0" for="zipfile">Upload:</label>
