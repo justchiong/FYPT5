@@ -60,6 +60,38 @@
                 padding-top: 0px !important;
                 padding-bottom: 0px !important;
             }
+            
+            .column1{
+                width: 30%;
+            }
+            .column2{
+                width: 30%;
+            }
+            .column3{
+                width: 10%;
+                text-align: center;
+            }
+            .card:hover {
+                background-color: lightgray;
+            }
+            @media only screen and (max-width: 600px) {
+                #accordion{
+                    padding-left: 0%;
+                    padding-right: 0%;
+                }
+            }
+            @media only screen and (min-width: 600px) {
+                #accordion{
+                    padding-left: 5%;
+                    padding-right: 5%;
+                }
+            }
+            @media only screen and (min-width: 1025px) {
+                #accordion{
+                    padding-left: 13%;
+                    padding-right: 13%;
+                }
+            }
         </style>
     </head>
 <body class="mb-5">
@@ -105,9 +137,9 @@
                     <button class="btn w-100" style="height: 2.5em;">
                         <table class="table table-borderless text-left">
                             <tr style="font-weight: bold;">
-                                <td>Vulnerability</td>
-                                <td>Description</td>
-                                <td>Severity</td>
+                                <td class="column1">Vulnerability</td>
+                                <td class="column2">Description</td>
+                                <td class="column3">Severity</td>
                             </tr>
                         </table>
                     </button>
@@ -118,21 +150,12 @@
             <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
                 <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <!-- <table class="table text-left">
-                        <thead>
-                            <tr>
-                            <th scope="col">Vulnerability</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Severity</th>
-                            </tr>
-                        </thead>
-                    <table> -->
                     <table class="table table-borderless text-left">
                         <thead>
                             <tr>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>test</td>
+                                <td class="column1">Donec varius erat ante, sed auctor leo egestas ut. Donec urna sem, finibus ac felis at, tincidunt pharetra purus.</td>
+                                <td class="column2">Maecenas consequat leo a lorem mattis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam a turpis id tellus elementum scelerisque at quis mi.</td>
+                                <td class="column3">test</td>
                             </tr>
                         </thead>
                     </table>
@@ -149,20 +172,11 @@
             <div class="card-header" id="headingThree">
             <h5 class="mb-0">
                 <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <!-- <table class="table text-left">
-                        <thead>
-                            <tr>
-                            <th scope="col">Vulnerability</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Severity</th>
-                            </tr>
-                        </thead>
-                    <table> -->
                     <table class="table table-borderless text-left">
                         <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>test</td>
+                            <td class="column1">Mark</td>
+                            <td class="column2">Otto</td>
+                            <td class="column3">test</td>
                         </tr>
                     </table>
                 </button>
