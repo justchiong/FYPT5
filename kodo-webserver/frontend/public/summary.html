@@ -14,15 +14,25 @@
         crossorigin="anonymous"></script>
         <style>
             body{
-                background-color: #372152;
+                /* background-color: #372152; */
+                background-color: #494654;
             }
             .kodo-purple {
-                color: #4304c2 !important;
-                
+                background-color: #4304c2 !important;
+            }
+            .kodo-yellow{
+                background-color: #e5ba3f;
+            }
+            .kodo-gray{
+                background-color: #45414f;
+            }
+            .kodo-lightgray{
+                background-color: #908c9c;
             }
             .navlinkcolor{
                 color: black !important;
             }
+
             .jumboStyle {
                 /*background-color: #241b29 !important;*/
                 background-color: #4304c2;
@@ -32,8 +42,10 @@
                 background-color: white;
             }
             .blacktext{
-            color:black !important;
-
+                color:black !important;
+            }
+            .yellowtext{
+                color:  #e5ba3f!important;
             }
             .navbar-fonts {
                 color:black !important;
@@ -57,8 +69,8 @@
                 padding-bottom: 0px !important;
             }
             .card-header{
-                padding-top: 0px !important;
-                padding-bottom: 0px !important;
+                padding-top: 10px !important;
+                padding-bottom: 5px !important;
             }
             
             .column1{
@@ -71,8 +83,12 @@
                 width: 10%;
                 text-align: center;
             }
-            .card:hover {
-                background-color: lightgray;
+            .cardhover:hover {
+                background-color: #524d5e;
+            }
+            .cardhover{
+                background-color: #45414f;
+                color: #E2E2E2;
             }
             @media only screen and (max-width: 600px) {
                 #accordion{
@@ -91,6 +107,15 @@
                     padding-left: 13%;
                     padding-right: 13%;
                 }
+            }
+            .card-body p span{
+                font-weight: bold;
+            }
+            .tableheader{
+                color: #45414f;
+            }
+            .btn:focus {
+                box-shadow: none;
             }
         </style>
     </head>
@@ -131,31 +156,32 @@
         </div>
     </div>
     <div id="accordion" class="container-fluid mt-4">
-        <div class="card">
+        <div class="card kodo-yellow">
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn w-100" style="height: 2.5em;">
                         <table class="table table-borderless text-left">
                             <tr style="font-weight: bold;">
-                                <td class="column1">Vulnerability</td>
-                                <td class="column2">Description</td>
-                                <td class="column3">Severity</td>
+                                <td class="column1 tableheader">Vulnerability</td>
+                                <td class="column2 tableheader">Description</td>
+                                <td class="column3 tableheader">Severity</td>
                             </tr>
                         </table>
                     </button>
                 </h5>
             </div>
         </div>
-        <div class="card">
+        <!--Start of first row result-->
+        <div class="card cardhover">
             <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
                 <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <table class="table table-borderless text-left">
+                    <table class="table table-borderless text-left yellowtext">
                         <thead>
-                            <tr>
-                                <td class="column1">Donec varius erat ante, sed auctor leo egestas ut. Donec urna sem, finibus ac felis at, tincidunt pharetra purus.</td>
-                                <td class="column2">Maecenas consequat leo a lorem mattis egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam a turpis id tellus elementum scelerisque at quis mi.</td>
-                                <td class="column3">test</td>
+                            <tr style="font-weight: bold;">
+                                <td class="column1">SQL injection | model.js</td>
+                                <td class="column2">Untrusted input concatenated with raw SQL query can result in SQL injection</td>
+                                <td class="column3"><span class="badge badge-pill badge-danger">ERROR</span></td>
                             </tr>
                         </thead>
                     </table>
@@ -163,29 +189,44 @@
             </h5>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
+                <div class="card-body px-5 kodo-gray">
+                    <p><span>Description:&nbsp;&nbsp;</span>Untrusted input concatenated with raw SQL query can result in SQL injection</p>
+                    <p><span>Severity:&nbsp;&nbsp;</span><span class="badge badge-pill badge-danger">ERROR</span></p>
+                    <p><span>OWASP:&nbsp;&nbsp;</span>A1:Injection</p>
+                    <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL command (SQL injection)</p>
+                    <br>
+                    <p><span>File Path:&nbsp;&nbsp;</span>model.js</p>
+                    <p><span>Line [line:char]:&nbsp;&nbsp;</span>[32:15]</p>
+                </div>
             </div>
         </div>
-        <div class="card">
+        <!--End of first row result-->
+        <div class="card cardhover">
             <div class="card-header" id="headingThree">
             <h5 class="mb-0">
                 <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <table class="table table-borderless text-left">
-                        <tr>
-                            <td class="column1">Mark</td>
-                            <td class="column2">Otto</td>
-                            <td class="column3">test</td>
-                        </tr>
+                    <table class="table table-borderless text-left yellowtext">
+                        <thead>
+                            <tr style="font-weight: bold;">
+                                <td class="column1">Cross-site Scripting | app.js</td>
+                                <td class="column2">Untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.</td>
+                                <td class="column3"><span class="badge badge-pill badge-warning">WARNING</span></td>
+                            </tr>
+                        </thead>
                     </table>
                 </button>
             </h5>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-            <div class="card-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
+                <div class="card-body px-5 kodo-gray">
+                    <p><span>Description:&nbsp;&nbsp;</span>Untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.</p>
+                    <p><span>Severity:&nbsp;&nbsp;</span><span class="badge badge-pill badge-warning">WARNING</span></p>
+                    <p><span>OWASP:&nbsp;&nbsp;</span>A7:Injection</p>
+                    <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL command (SQL injection)</p>
+                    <br>
+                    <p><span>File Path:&nbsp;&nbsp;</span>app.js</p>
+                    <p><span>Line [line:char]:&nbsp;&nbsp;</span>[89:54]</p>
+                </div>
             </div>
         </div>
     </div>
