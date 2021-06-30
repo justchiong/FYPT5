@@ -83,4 +83,68 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
     })
 })
 
+app.post('/request/results', function(req,res) {
+    allResults = {
+        1 :{
+            vulnerability: "SQL injection | model.js",
+            description: "Untrusted input concatenated with raw SQL query can result in SQL injection",
+            severity: "lorem",
+            severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
+            owasp: "A1:lorem",
+            cwe: "CWE-lorem:asdasd",
+            filepath: "lorem.js",
+            line: "[59:20]",
+            codeCopied: `var upload = multer({storage: storages,
+fileFilter: function(req, file, callback){
+req.valid = file.mimetype == "application/x-zip-compressed"
+return callback(null, file.mimetype == "application/x-zip-compressed")
+}
+});
+
+var nodemailer = require('nodemailer');
+
+app.post('/request/parameters', function(req,res){
+var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+var email = req.body.email  
+var queriesToUse = req.body.queriesToUse
+if (!req.body.hasOwnProperty("email") || !req.body.hasOwnProperty("queriesToUse")) {
+res.status(500).send("Internal Server Error")
+return
+}else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
+res.status(422).send()
+return`
+        },
+        2 :{
+            vulnerability: "lorem",
+            description: "lorem",
+            severity: "lorem",
+            severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
+            owasp: "A1:lorem",
+            cwe: "CWE-lorem:asdasd",
+            filepath: "lorem.js",
+            line: "[59:20]",
+            codeCopied: `var upload = multer({storage: storages,
+fileFilter: function(req, file, callback){
+req.valid = file.mimetype == "application/x-zip-compressed"
+return callback(null, file.mimetype == "application/x-zip-compressed")
+}
+});
+
+var nodemailer = require('nodemailer');
+
+app.post('/request/parameters', function(req,res){
+var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+var email = req.body.email  
+var queriesToUse = req.body.queriesToUse
+if (!req.body.hasOwnProperty("email") || !req.body.hasOwnProperty("queriesToUse")) {
+res.status(500).send("Internal Server Error")
+return
+}else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
+res.status(422).send()
+return`
+
+        }
+    }
+})
+
 module.exports=app;

@@ -183,10 +183,10 @@
             <p class="lead">Enter your unique result access-key here:</p>
             <div class="input-group mb-3 w-50">
                 <input type="text" class="form-control" placeholder="access-key from email"
-                    aria-label="access-key from email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-success" type="button" id="button-addon2">Retrieve</button>
-                </div>
+                    aria-label="access-key from email" aria-describedby="button-addon2" id="accesskey">
+                <form class="input-group-append" id="getResults">
+                    <button class="btn btn-success" type="submit" id="button-addon2">Retrieve</button>
+                </form>
             </div>
         </div>
     </div>
@@ -206,38 +206,39 @@
                 </h5>
             </div>
         </div>
-        <!--Start of first row result-->
-        <div class="card cardhover">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="false" aria-controls="collapseTwo">
-                        <table class="table table-borderless text-left yellowtext">
-                            <thead>
-                                <tr style="font-weight: bold;">
-                                    <td class="column1">SQL injection | model.js</td>
-                                    <td class="column2">Untrusted input concatenated with raw SQL query can result in
-                                        SQL injection</td>
-                                    <td class="column3"><span class="badge badge-pill badge-danger">ERROR</span></td>
-                                </tr>
-                            </thead>
-                        </table>
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body px-5 kodo-gray">
-                    <p><span>Description:&nbsp;&nbsp;</span>Untrusted input concatenated with raw SQL query can result
-                        in SQL injection</p>
-                    <p><span>Severity:&nbsp;&nbsp;</span><span class="badge badge-pill badge-danger">ERROR</span></p>
-                    <p><span>OWASP:&nbsp;&nbsp;</span>A1:Injection</p>
-                    <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL
-                        command (SQL injection)</p>
-                    <br>
-                    <p><span>File Path:&nbsp;&nbsp;</span>model.js</p>
-                    <p><span>Line [line:char]:&nbsp;&nbsp;</span>[32:15]</p>
-                    <!--EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly-->
-                    <pre class="prettyprint linenums:32">
+        <div id="results_container">
+            <!--Start of row result-->
+            <div class="card cardhover">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                            <table class="table table-borderless text-left yellowtext">
+                                <thead>
+                                    <tr style="font-weight: bold;">
+                                        <td class="column1">SQL injection | model.js</td>
+                                        <td class="column2">Untrusted input concatenated with raw SQL query can result in
+                                            SQL injection</td>
+                                        <td class="column3"><span class="badge badge-pill badge-danger">ERROR</span></td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body px-5 kodo-gray">
+                        <p><span>Description:&nbsp;&nbsp;</span>Untrusted input concatenated with raw SQL query can result
+                            in SQL injection</p>
+                        <p><span>Severity:&nbsp;&nbsp;</span><span class="badge badge-pill badge-danger">ERROR</span></p>
+                        <p><span>OWASP:&nbsp;&nbsp;</span>A1:Injection</p>
+                        <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL
+                            command (SQL injection)</p>
+                        <br>
+                        <p><span>File Path:&nbsp;&nbsp;</span>model.js</p>
+                        <p><span>Line [line:char]:&nbsp;&nbsp;</span>[32:15]</p>
+                        <!--EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly-->
+                        <pre class="prettyprint linenums:32">
 var upload = multer({storage: storages,
     fileFilter: function(req, file, callback){
         req.valid = file.mimetype == "application/x-zip-compressed"
@@ -257,11 +258,13 @@ app.post('/request/parameters', function(req,res){
     }else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
         res.status(422).send()
         return
-                    </pre>
+                        </pre>
+                    </div>
                 </div>
             </div>
+        <!--End of row result-->
         </div>
-        <!--End of first row result-->
+        
         <div class="card cardhover">
             <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
@@ -318,5 +321,122 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 </script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    baseUrl = "http://localhost:3000"
+    //post request to give app.js the accesskey and retrieve params
 
+
+    $("#getResults").submit((event) => {
+        event.preventDefault()
+        const requestBody = {
+            accesskey = $("#accesskey").val()
+        }
+        axios.post(`${baseUrl}/request/results`,requestBody)
+                    .then((response) => {
+                        var allResults = response.data
+                        count = 0
+                        allResults = {
+                            1 :{
+                                vulnerability: "SQL injection | model.js",
+                                description: "Untrusted input concatenated with raw SQL query can result in SQL injection",
+                                severity: "lorem",
+                                severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
+                                owasp: "A1:lorem",
+                                cwe: "CWE-lorem:asdasd",
+                                filepath: "lorem.js",
+                                line: "[59:20]",
+                                codeCopied: `var upload = multer({storage: storages,
+    fileFilter: function(req, file, callback){
+        req.valid = file.mimetype == "application/x-zip-compressed"
+        return callback(null, file.mimetype == "application/x-zip-compressed")
+    }
+});
+
+var nodemailer = require('nodemailer');
+
+app.post('/request/parameters', function(req,res){
+    var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+    var email = req.body.email  
+    var queriesToUse = req.body.queriesToUse
+    if (!req.body.hasOwnProperty("email") || !req.body.hasOwnProperty("queriesToUse")) {
+        res.status(500).send("Internal Server Error")
+        return
+    }else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
+        res.status(422).send()
+        return`
+                            },
+                            2 :{
+                                vulnerability: "lorem",
+                                description: "lorem",
+                                severity: "lorem",
+                                severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
+                                owasp: "A1:lorem",
+                                cwe: "CWE-lorem:asdasd",
+                                filepath: "lorem.js",
+                                line: "[59:20]",
+                                codeCopied: `var upload = multer({storage: storages,
+    fileFilter: function(req, file, callback){
+        req.valid = file.mimetype == "application/x-zip-compressed"
+        return callback(null, file.mimetype == "application/x-zip-compressed")
+    }
+});
+
+var nodemailer = require('nodemailer');
+
+app.post('/request/parameters', function(req,res){
+    var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+    var email = req.body.email  
+    var queriesToUse = req.body.queriesToUse
+    if (!req.body.hasOwnProperty("email") || !req.body.hasOwnProperty("queriesToUse")) {
+        res.status(500).send("Internal Server Error")
+        return
+    }else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
+        res.status(422).send()
+        return`
+
+                            }
+                        }
+                        allParameters.forEach(result =>{
+                            count = count + 1
+                            var resultRowHTML = `
+            <!--Start of row ${count} result-->
+            <div class="card cardhover">
+                <div class="card-header" id="heading${count}">
+                    <h5 class="mb-0">
+                        <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapse${count}"
+                            aria-expanded="false" aria-controls="collapse${count}">
+                            <table class="table table-borderless text-left yellowtext">
+                                <thead>
+                                    <tr style="font-weight: bold;">
+                                        <td class="column1">${vulnerability}</td>
+                                        <td class="column2">${description}</td>
+                                        <td class="column3"><span class="badge badge-pill badge-${severityColor}">${severity}</span></td>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapse${count}" class="collapse" aria-labelledby="heading${count}" data-parent="#accordion">
+                    <div class="card-body px-5 kodo-gray">
+                        <p><span>Description:&nbsp;&nbsp;</span>${description}</p>
+                        <p><span>Severity:&nbsp;&nbsp;</span><span class="badge badge-pill badge-${severityColor}">${severity}</span></p>
+                        <p><span>OWASP:&nbsp;&nbsp;</span>${owasp}</p>
+                        <p><span>CWE:&nbsp;&nbsp;</span>${cwe}</p>
+                        <br>
+                        <p><span>File Path:&nbsp;&nbsp;</span>${filepath}</p>
+                        <p><span>Line [line:char]:&nbsp;&nbsp;</span>${line}</p>
+                        <!--EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly-->
+                        <pre class="prettyprint linenums:32">
+${codeCopied}
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        <!--End of row ${count} result-->`
+                            $("#results_container").append(resultRowHTML)
+                        })
+                    })
+    })
+</script>
 </html>
