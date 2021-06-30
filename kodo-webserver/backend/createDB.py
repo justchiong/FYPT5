@@ -33,9 +33,9 @@ with zipfile.ZipFile(zipPath, 'r') as zip_ref:
 cmd = f"codeql database create ./backend/databases/{uuid}_db --source-root=./backend/webServer_Folders/{uuid} --language=javascript"
 print("Creating database...")
 process1= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
-print(process1.returncode)
-print(process1.stderr)
-print(process1.stdout)
+# print(process1.returncode)
+# print(process1.stderr)
+# print(process1.stdout)
 print("CodeQL Database Created.")
 
 result_parent_dir = os.path.dirname(os.path.realpath(__file__)) + "/scanResults"
@@ -89,10 +89,10 @@ for query in queriesToRun:
           cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}_result_{cwe}.csv --threads=4 --ram=8000 --no-rerun ./backend/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{cwe}"
           csvList.append(f"{scanResultFolderPath}/{query}_result_{cwe}.csv")    
           process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
-          print(process2.returncode)
-          print(process2.stderr)
-          print(process2.stdout)
-     print("scanning completed! Now deleting request database, folder and zip file...")
+          # print(process2.returncode)
+          # print(process2.stderr)
+          # print(process2.stdout)
+print("scanning completed! Now deleting request database, folder and zip file...")
 
 removeReq.deleteFiles(uuid)
  
