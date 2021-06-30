@@ -1,133 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Kodo</title>
-        <link rel="shortcut icon" type="image/jpg" href="/kodoLogo.png"/>
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-        <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-        <style>
-            body{
-                /* background-color: #372152; */
-                background-color: #494654;
-            }
-            .kodo-purple {
-                background-color: #4304c2 !important;
-            }
-            .kodo-yellow{
-                background-color: #e5ba3f;
-            }
-            .kodo-gray{
-                background-color: #45414f;
-            }
-            .kodo-lightgray{
-                background-color: #908c9c;
-            }
-            .navlinkcolor{
-                color: black !important;
-            }
 
-            .jumboStyle {
-                /*background-color: #241b29 !important;*/
-                background-color: #4304c2;
-                color: white !important;
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodo</title>
+    <link rel="shortcut icon" type="image/jpg" href="/kodoLogo.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=js&amp;skin=sunburst">
+    </script>
+
+    <style>
+        body {
+            /* background-color: #372152; */
+            background-color: #494654;
+        }
+
+        .kodo-purple {
+            background-color: #4304c2 !important;
+        }
+
+        .kodo-yellow {
+            background-color: #e5ba3f;
+        }
+
+        .kodo-gray {
+            background-color: #45414f;
+        }
+
+        .kodo-lightgray {
+            background-color: #908c9c;
+        }
+
+        .navlinkcolor {
+            color: black !important;
+        }
+
+        .jumboStyle {
+            /*background-color: #241b29 !important;*/
+            background-color: #4304c2;
+            color: white !important;
+        }
+
+        .navStyle {
+            background-color: white;
+        }
+
+        .blacktext {
+            color: black !important;
+        }
+
+        .yellowtext {
+            color: #e5ba3f !important;
+        }
+
+        .navbar-fonts {
+            color: black !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: larger;
+        }
+
+        .mt-10 {
+            margin-top: 15%;
+        }
+
+        .ml-10 {
+            margin-left: 10%;
+        }
+
+        .afterNav {
+            margin-top: 100px;
+        }
+
+        .container-fluid {
+            max-width: 85%;
+        }
+
+        td {
+            padding-top: 0px !important;
+            padding-bottom: 0px !important;
+        }
+
+        .card-header {
+            padding-top: 10px !important;
+            padding-bottom: 5px !important;
+        }
+
+        .column1 {
+            width: 30%;
+        }
+
+        .column2 {
+            width: 30%;
+        }
+
+        .column3 {
+            width: 10%;
+            text-align: center;
+        }
+
+        .cardhover:hover {
+            background-color: #524d5e;
+        }
+
+        .cardhover {
+            background-color: #45414f;
+            color: #E2E2E2;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #accordion {
+                padding-left: 0%;
+                padding-right: 0%;
             }
-            .navStyle{
-                background-color: white;
+        }
+
+        @media only screen and (min-width: 600px) {
+            #accordion {
+                padding-left: 5%;
+                padding-right: 5%;
             }
-            .blacktext{
-                color:black !important;
+        }
+
+        @media only screen and (min-width: 1025px) {
+            #accordion {
+                padding-left: 13%;
+                padding-right: 13%;
             }
-            .yellowtext{
-                color:  #e5ba3f!important;
-            }
-            .navbar-fonts {
-                color:black !important;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-size: larger;
-            }
-            .mt-10{
-                margin-top: 15%;
-            }
-            .ml-10{
-                margin-left: 10%;
-            }
-            .afterNav{
-                margin-top: 100px;
-            }
-            .container-fluid {
-                max-width:85%;
-            }
-            td{
-                padding-top: 0px !important;
-                padding-bottom: 0px !important;
-            }
-            .card-header{
-                padding-top: 10px !important;
-                padding-bottom: 5px !important;
-            }
-            
-            .column1{
-                width: 30%;
-            }
-            .column2{
-                width: 30%;
-            }
-            .column3{
-                width: 10%;
-                text-align: center;
-            }
-            .cardhover:hover {
-                background-color: #524d5e;
-            }
-            .cardhover{
-                background-color: #45414f;
-                color: #E2E2E2;
-            }
-            @media only screen and (max-width: 600px) {
-                #accordion{
-                    padding-left: 0%;
-                    padding-right: 0%;
-                }
-            }
-            @media only screen and (min-width: 600px) {
-                #accordion{
-                    padding-left: 5%;
-                    padding-right: 5%;
-                }
-            }
-            @media only screen and (min-width: 1025px) {
-                #accordion{
-                    padding-left: 13%;
-                    padding-right: 13%;
-                }
-            }
-            .card-body p span{
-                font-weight: bold;
-            }
-            .tableheader{
-                color: #45414f;
-            }
-            .btn:focus {
-                box-shadow: none;
-            }
-        </style>
-    </head>
+        }
+
+        .card-body p span {
+            font-weight: bold;
+        }
+
+        .tableheader {
+            color: #45414f;
+        }
+
+        .btn:focus {
+            box-shadow: none;
+        }
+    </style>
+</head>
+
 <body class="mb-5">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
     <div class="container-fluid px-0">
-        <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-end fixed-top"> <!--bg-light navbar-light-->
+        <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-end fixed-top">
+            <!--bg-light navbar-light-->
             <!-- Links -->
-                <ul class="navbar-nav pl-5 navbar-fonts" id="appendNavItem">
+            <ul class="navbar-nav pl-5 navbar-fonts" id="appendNavItem">
                 <li class="nav-item mx-1 ">
-                  <a class="nav-link navlinkcolor" href="./summary.html">Results</a>
+                    <a class="nav-link navlinkcolor" href="./summary.html">Results</a>
                 </li>
                 <li class="nav-item mx-1 ">
                     <a class="nav-link navlinkcolor" href="./dashboard.html">Scanner</a>
@@ -135,7 +169,7 @@
                 <li class="nav-item mx-1 ">
                     <a class="nav-link navlinkcolor" href="#">Contact Us</a>
                 </li>
-              </ul>
+            </ul>
             <a class="navbar-brand" href="#">
                 <img src="./Logo/kodoLogo.png" width="45" height="45" class="d-inline-block align-top mx-2" alt="">
             </a>
@@ -144,11 +178,12 @@
     <div class="jumbotron jumboStyle">
         <div class="container ml-10 pl-5">
             <h1 class="display-3 mt-5" style="font-weight: bold;">
-                Results   <img src="/kodoLogo.png" width="100" height="100" class="d-inline-block align-top mx-2" alt="">
+                Results <img src="/kodoLogo.png" width="100" height="100" class="d-inline-block align-top mx-2" alt="">
             </h1>
             <p class="lead">Enter your unique result access-key here:</p>
             <div class="input-group mb-3 w-50">
-                <input type="text" class="form-control" placeholder="access-key from email" aria-label="access-key from email" aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="access-key from email"
+                    aria-label="access-key from email" aria-describedby="button-addon2">
                 <div class="input-group-append">
                     <button class="btn btn-success" type="button" id="button-addon2">Retrieve</button>
                 </div>
@@ -174,55 +209,86 @@
         <!--Start of first row result-->
         <div class="card cardhover">
             <div class="card-header" id="headingTwo">
-            <h5 class="mb-0">
-                <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    <table class="table table-borderless text-left yellowtext">
-                        <thead>
-                            <tr style="font-weight: bold;">
-                                <td class="column1">SQL injection | model.js</td>
-                                <td class="column2">Untrusted input concatenated with raw SQL query can result in SQL injection</td>
-                                <td class="column3"><span class="badge badge-pill badge-danger">ERROR</span></td>
-                            </tr>
-                        </thead>
-                    </table>
-                </button>
-            </h5>
+                <h5 class="mb-0">
+                    <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseTwo"
+                        aria-expanded="false" aria-controls="collapseTwo">
+                        <table class="table table-borderless text-left yellowtext">
+                            <thead>
+                                <tr style="font-weight: bold;">
+                                    <td class="column1">SQL injection | model.js</td>
+                                    <td class="column2">Untrusted input concatenated with raw SQL query can result in
+                                        SQL injection</td>
+                                    <td class="column3"><span class="badge badge-pill badge-danger">ERROR</span></td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </button>
+                </h5>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body px-5 kodo-gray">
-                    <p><span>Description:&nbsp;&nbsp;</span>Untrusted input concatenated with raw SQL query can result in SQL injection</p>
+                    <p><span>Description:&nbsp;&nbsp;</span>Untrusted input concatenated with raw SQL query can result
+                        in SQL injection</p>
                     <p><span>Severity:&nbsp;&nbsp;</span><span class="badge badge-pill badge-danger">ERROR</span></p>
                     <p><span>OWASP:&nbsp;&nbsp;</span>A1:Injection</p>
-                    <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL command (SQL injection)</p>
+                    <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL
+                        command (SQL injection)</p>
                     <br>
                     <p><span>File Path:&nbsp;&nbsp;</span>model.js</p>
                     <p><span>Line [line:char]:&nbsp;&nbsp;</span>[32:15]</p>
+                    <pre class="prettyprint linenums:32">
+var upload = multer({storage: storages,
+    fileFilter: function(req, file, callback){
+        req.valid = file.mimetype == "application/x-zip-compressed"
+        return callback(null, file.mimetype == "application/x-zip-compressed")
+    }
+});
+
+var nodemailer = require('nodemailer');
+
+app.post('/request/parameters', function(req,res){
+    var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+    var email = req.body.email  
+    var queriesToUse = req.body.queriesToUse
+    if (!req.body.hasOwnProperty("email") || !req.body.hasOwnProperty("queriesToUse")) {
+        res.status(500).send("Internal Server Error")
+        return
+    }else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
+        res.status(422).send()
+        return
+                    </pre>
                 </div>
             </div>
         </div>
         <!--End of first row result-->
         <div class="card cardhover">
             <div class="card-header" id="headingThree">
-            <h5 class="mb-0">
-                <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <table class="table table-borderless text-left yellowtext">
-                        <thead>
-                            <tr style="font-weight: bold;">
-                                <td class="column1">Cross-site Scripting | app.js</td>
-                                <td class="column2">Untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.</td>
-                                <td class="column3"><span class="badge badge-pill badge-warning">WARNING</span></td>
-                            </tr>
-                        </thead>
-                    </table>
-                </button>
-            </h5>
+                <h5 class="mb-0">
+                    <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseThree"
+                        aria-expanded="false" aria-controls="collapseThree">
+                        <table class="table table-borderless text-left yellowtext">
+                            <thead>
+                                <tr style="font-weight: bold;">
+                                    <td class="column1">Cross-site Scripting | app.js</td>
+                                    <td class="column2">Untrusted data in a new web page without proper validation or
+                                        escaping, or updates an existing web page with user-supplied data using a
+                                        browser API that can create HTML or JavaScript.</td>
+                                    <td class="column3"><span class="badge badge-pill badge-warning">WARNING</span></td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </button>
+                </h5>
             </div>
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div class="card-body px-5 kodo-gray">
-                    <p><span>Description:&nbsp;&nbsp;</span>Untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.</p>
+                    <p><span>Description:&nbsp;&nbsp;</span>Untrusted data in a new web page without proper validation
+                        or escaping, or updates an existing web page with user-supplied data using a browser API that
+                        can create HTML or JavaScript.</p>
                     <p><span>Severity:&nbsp;&nbsp;</span><span class="badge badge-pill badge-warning">WARNING</span></p>
                     <p><span>OWASP:&nbsp;&nbsp;</span>A7:Cross-site Scripting (XSS)</p>
-                    <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL command (SQL injection)</p>
+                    <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL
+                        command (SQL injection)</p>
                     <br>
                     <p><span>File Path:&nbsp;&nbsp;</span>app.js</p>
                     <p><span>Line [line:char]:&nbsp;&nbsp;</span>[89:54]</p>
@@ -232,7 +298,9 @@
     </div>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </html>
