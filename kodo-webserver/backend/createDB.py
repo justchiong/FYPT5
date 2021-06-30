@@ -24,6 +24,8 @@ os.mkdir(dirPath)
 
 print("Directory '% s' created" % uuid)
 
+csvList = []
+
 zipPath = os.path.dirname(os.path.realpath(__file__)) + "/zipFiles/" + uuid +".zip"
 with zipfile.ZipFile(zipPath, 'r') as zip_ref:
      zip_ref.extractall(destPath)
@@ -37,21 +39,20 @@ print(process1.stdout)
 print("CodeQL Database Created.")
 
 result_parent_dir = os.path.dirname(os.path.realpath(__file__)) + "/scanResults"
+
 scanResultFolderName = uuid + '_scanResults'
+scanResultFolderPath = f"./backend/scanResults/{scanResultFolderName}"
+
 resultPath = os.path.join(result_parent_dir, scanResultFolderName)
 os.mkdir(resultPath)
 
-# get queries to run from backend server and put into this variable
 databaseName = uuid +"_db"
-print(queriesToRun)
+
 # get .ql filenames in the folder and put in a list
 for query in queriesToRun:
      cweList = []
      if query == "injection":
           cweList = ["CWE-089"]
-          print("this is still running")
-          print("cweList: " + cweList[0])
-
 
      elif query == "ba":
           cweList = ["MISSING QUERY FILE"]
@@ -83,14 +84,15 @@ for query in queriesToRun:
      elif query == "ilm":
           cweList = ["MISSING QUERY FILE"]
      #Missing Some CWEs Check OWASP Website
-
      for cwe in cweList:
           print("Scanning database for " + cwe)
-          cmd = f"codeql database analyze --format=csv --output=./backend/scanResults/{scanResultFolderName}/{query}_result_{cwe}.csv --threads=4 --ram=8000 --no-rerun ./backend/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{cwe}"
+          cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}_result_{cwe}.csv --threads=4 --ram=8000 --no-rerun ./backend/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{cwe}"
+          csvList.append(f"{scanResultFolderPath}/{query}_result_{cwe}.csv")    
           process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
-          print("Scan complete for " + cwe)
           print(process2.returncode)
           print(process2.stderr)
           print(process2.stdout)
      print("scanning completed! Now deleting request database, folder and zip file...")
-removeReq.deleteFiles()
+
+removeReq.deleteFiles(uuid)
+ 

@@ -7,19 +7,18 @@ def remove_readonly(func, path, _):
     os.chmod(path, stat.S_IWRITE)
     func(path)
 
-uuid = "fb702581-2f1f-4073-b5ef-10358bd4558e"
-parent_dir = os.path.dirname(os.path.realpath(__file__)) + "\\webServer_Folders"
 
-db_dir = os.path.dirname(os.path.realpath(__file__)) + "\\databases"
 
-zip_dir = os.path.dirname(os.path.realpath(__file__)) + "\\zipFiles"
-zipath = zip_dir + '\\' + uuid + ".zip"
+def deleteFiles(uuid): 
+    parent_dir = os.path.dirname(os.path.realpath(__file__)) + "\\webServer_Folders"
+    db_dir = os.path.dirname(os.path.realpath(__file__)) + "\\databases"
+    zip_dir = os.path.dirname(os.path.realpath(__file__)) + "\\zipFiles"
 
-path = os.path.join(parent_dir, uuid)
-destPath = parent_dir + '\\' + uuid
-dbPath = db_dir + '\\' + uuid + "_db"
+    zipath = zip_dir + '\\' + uuid + ".zip"
+    path = os.path.join(parent_dir, uuid)
+    destPath = parent_dir + '\\' + uuid
+    dbPath = db_dir + '\\' + uuid + "_db"
 
-def deleteFiles(): 
     i = 0
     while i <=2:
         if i == 0:

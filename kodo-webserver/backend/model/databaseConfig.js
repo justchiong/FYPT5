@@ -1,20 +1,14 @@
-var mysql=require('mysql');
+var mysql = require('mysql');
 
-var dbConnect={
-
+var dbConnect = {
     getConnection:function(){
-        var conn=mysql.createConnection({
+        var conn = mysql.createConnection({
             host:"localhost",
-            user:"root",
-            password:"Aruther123",
+            user:"kodo",
+            password:"kodoPass",
             database:"sp_travel"
-
-        }
-
-        );
-
-        return conn;
-
+        });
+    return conn;
     }
 }
-module.exports=dbConnect;
+module.exports = dbConnect;
