@@ -49,7 +49,7 @@ app.post('/request/parameters', function(req,res){
         //   from: String.fromCharCode(115,112,46,107,111,100,111,46,101,109,97,105,108,64,103,109,97,105,108,46,99,111,109),
         //   to: `${emailAddr}`,
         //   subject: 'Sending Email using Node.js',
-        //   text: 'Erin wants to know your location...'
+        //   text: 'Send acknowledgement and access key to results'
         // };
         
         // transporter.sendMail(mailOptions, function(error, info){

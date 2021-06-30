@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kodo</title>
-    <link rel="shortcut icon" type="image/jpg" href="/kodoLogo.png"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/jpg" href="/kodoLogo.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <style>
-        body{
+        body {
             background-color: #4304c2;
-            padding-top: 65px; 
+            padding-top: 65px;
         }
+
         .kodo-purple {
             color: #4304c2 !important;
-            
-        }
-        .blacktext{
-            color:black !important;
 
         }
+
+        .blacktext {
+            color: black !important;
+
+        }
+
         .navbar-fonts {
-            color:black !important;
+            color: black !important;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: larger;
         }
     </style>
 </head>
+
 <body>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
     <div class="container-fluid px-0">
         <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-end fixed-top">
             <!-- Links -->
-                <ul class="navbar-nav pl-5 navbar-fonts" id="appendNavItem">
+            <ul class="navbar-nav pl-5 navbar-fonts" id="appendNavItem">
                 <li class="nav-item mx-1">
-                  <a class="nav-link blacktext" href="./summary.html">Results</a>
+                    <a class="nav-link blacktext" href="./summary.html">Results</a>
                 </li>
                 <li class="nav-item mx-1">
                     <a class="nav-link blacktext" href="./dashboard.html">Scanner</a>
@@ -43,7 +53,7 @@
                 <li class="nav-item mx-1">
                     <a class="nav-link blacktext" href="#">Contact Us</a>
                 </li>
-              </ul>
+            </ul>
             <a class="navbar-brand" href="#">
                 <img src="/kodoLogo.png" width="45" height="45" class="d-inline-block align-top mx-2" alt="">
             </a>
@@ -52,10 +62,12 @@
     </div>
     <div class="jumbotron">
         <div class="container ml-5 pl-5">
-          <h1 class="display-3 mt-3" style="font-weight: bold;">
-            Kodo Scan   <img src="/kodoLogo.png" width="100" height="100" class="d-inline-block align-top mx-2" alt="">
-          </h1>
-          <p class="lead">A powerful tool at your fingertips to scan for vulnerable code and to enable developers to secure them.</p>
+            <h1 class="display-3 mt-3" style="font-weight: bold;">
+                Kodo Scan <img src="/kodoLogo.png" width="100" height="100" class="d-inline-block align-top mx-2"
+                    alt="">
+            </h1>
+            <p class="lead">A powerful tool at your fingertips to scan for vulnerable code and to enable developers to
+                secure them.</p>
         </div>
     </div>
     <form class="container mb-5" id="scanRequest">
@@ -63,7 +75,8 @@
         <div class="row mt-5 pt-2">
             <label class="text-white col-2 text-left pr-0 mr-0 my-0" for="zipfile">Upload:</label>
             <div class="custom-file col-4">
-                <input type="file" accept=".zip" enctype = "multipart/form-data" class="custom-file-input " id="customFile" name="zipfile" required>
+                <input type="file" accept=".zip" enctype="multipart/form-data" class="custom-file-input "
+                    id="customFile" name="zipfile" required>
                 <label class="custom-file-label " for="customFile" id="customFileName">Choose file</label>
             </div>
         </div>
@@ -71,7 +84,8 @@
         <div class="row mt-2">
             <label for="email" class="text-white col-2 text-left pr-0 mr-0 my-0">Email:</label>
             <div class="col-4 px-0">
-                <input type="email" class="form-control" id="email" placeholder="example@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                <input type="email" class="form-control" id="email" placeholder="example@gmail.com"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
             </div>
         </div>
         <!--Choose vulnerability to scan-->
@@ -79,22 +93,22 @@
         <div class="row d-flex h-100 mt-4 pt-3 pl-0">
             <div class="col-4">
                 <div class="form-check pl-0">
-                
-                    <input class="form-check-input mx-0" type="checkbox" value="" id="injection" name="groupcheck"> 
+
+                    <input class="form-check-input mx-0" type="checkbox" value="" id="injection" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="injection">
-                    Injection
+                        Injection
                     </label>
                 </div>
                 <div class="form-check pl-0">
-                    
+
                     <input class="form-check-input mx-0" type="checkbox" value="" id="ba" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="ba">
-                    Broken Authentication (BA)
+                        Broken Authentication (BA)
                     </label>
                 </div>
                 <div class="form-check pl-0">
-                    
-                    <input class="form-check-input mx-0" type="checkbox" value="" id="sde" name="groupcheck">              
+
+                    <input class="form-check-input mx-0" type="checkbox" value="" id="sde" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="sde">
                         Sensitive Data Exposure (SDE)
                     </label>
@@ -103,21 +117,21 @@
             <!--column 2-->
             <div class="col-4">
                 <div class="form-check pl-0">
-                
+
                     <input class="form-check-input mx-0" type="checkbox" value="" id="xxe" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="xxe">
-                    XML External Entities (XXE)
+                        XML External Entities (XXE)
                     </label>
                 </div>
                 <div class="form-check pl-0">
-                    
+
                     <input class="form-check-input mx-0" type="checkbox" value="" id="bac" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="bac">
-                    Broken Access Control (BAC)
+                        Broken Access Control (BAC)
                     </label>
                 </div>
                 <div class="form-check pl-0">
-                    
+
                     <input class="form-check-input mx-0" type="checkbox" value="" id="sm" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="sm">
                         Security Misconfiguration (SM)
@@ -127,21 +141,21 @@
             <!--column 3-->
             <div class="col-4">
                 <div class="form-check pl-0">
-                
+
                     <input class="form-check-input mx-0" type="checkbox" value="" id="xss" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="xss">
-                    Cross-site Scripting (XSS)
+                        Cross-site Scripting (XSS)
                     </label>
                 </div>
                 <div class="form-check pl-0">
-                    
+
                     <input class="form-check-input mx-0" type="checkbox" value="" id="id" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="id">
-                    Insecure Deserialization (ID)
+                        Insecure Deserialization (ID)
                     </label>
                 </div>
                 <div class="form-check pl-0">
-                    
+
                     <input class="form-check-input mx-0" type="checkbox" value="" id="ilm" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="ilm">
                         Insufficient Logging & Monitoring (ILM)
@@ -149,21 +163,24 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="row mt-5 pt-5 mr-0">
             <div class="col-12 text-right">
-                <button type="submit" class="btn btn-warning btn-block font-weight-bold text-dark">Send Query Request</button>
+                <button type="submit" class="btn btn-warning btn-block font-weight-bold text-dark">Send Query
+                    Request</button>
             </div>
         </div>
     </form>
-    
+
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <!--Main body script-->
 <script>
-    $("#customFile").change(function(){
+    $("#customFile").change(function () {
         $("#customFileName").text(this.files[0].name);
     });
     const baseUrl = "http://localhost:3000";
@@ -172,18 +189,18 @@
         var checkboxes = document.getElementsByName(chkboxName);
         var checkboxesChecked = [];
         // loop over them all
-        for (var i=0; i<checkboxes.length; i++) {
-            currentid = checkboxes[i].getAttribute( 'id' )
+        for (var i = 0; i < checkboxes.length; i++) {
+            currentid = checkboxes[i].getAttribute('id')
             // And stick the checked ones onto an array...
             if (checkboxes[i].checked) {
                 checkboxesChecked.push(currentid);
             }
         }
-        if (checkboxesChecked.length == 0 || checkboxesChecked == null){
+        if (checkboxesChecked.length == 0 || checkboxesChecked == null) {
             console.log(checkboxesChecked)
             var error = "error"
             return error
-        }else{
+        } else {
             return checkboxesChecked
         }
     }
@@ -193,53 +210,59 @@
 
         const email = $("#email").val();
         const queries = getCheckedBoxes("groupcheck")
-        if (queries == "error"){
+        if (queries == "error") {
             //code to tell user to select a query (atleast 1) then refresh the page
             alert("Please choose at least 1 vulnerability to scan for.")
             location.reload();
-        }else{
+        } else {
             const requestBody = {
-            "queriesToUse": queries,
-            "email": email
-        };
-        // console.log(requestBody)
+                "queriesToUse": queries,
+                "email": email
+            };
+            // console.log(requestBody)
 
-        axios.post(`${baseUrl}/request/parameters`, requestBody)
-            .then((response) => {
-                // reset form value.
-                $("#email").val("")
-                var reqToken = response.data.requestToken
-                console.log(reqToken)
-                //new form to submit zip file
-                var formData = new FormData()
-                var zipFileValues = $("#customFile")[0]
-                formData.append("zipFile", zipFileValues.files[0])
+            axios.post(`${baseUrl}/request/parameters`, requestBody)
+                .then((response) => {
+                    // reset form value.
+                    $("#email").val("")
+                    var reqToken = response.data.requestToken
+                    console.log(reqToken)
+                    //new form to submit zip file
+                    var formData = new FormData()
+                    var zipFileValues = $("#customFile")[0]
+                    formData.append("zipFile", zipFileValues.files[0])
 
-                axios.post(`${baseUrl}/request/zipFile`, formData, {headers: { "Authorization": "Bearer " + reqToken}})
-                    .then((response) => {
-                        
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                        if (error.response.status === 400) {
-                            alert("Validation failed");
-                        } else {
-                            alert("Something unexpected went wrong.");
-                        }
-                    });
-            })
-            .catch((error) => {
-                console.log(error);
-                if (error.response.status === 400) {
-                    alert("Validation failed");
-                } else {
-                    alert("Something unexpected went wrong.");
-                }
-            });
+                    axios.post(`${baseUrl}/request/zipFile`, formData, {
+                            headers: {
+                                "Authorization": "Bearer " + reqToken
+                            }
+                        })
+                        .then((response) => {
+
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                            if (error.response.status === 400) {
+                                alert("Validation failed");
+                            } else {
+                                alert("Something unexpected went wrong.");
+                            }
+                        });
+                })
+                .catch((error) => {
+                    console.log(error);
+                    if (error.response.status === 400) {
+                        alert("Validation failed");
+                    } else {
+                        alert("Something unexpected went wrong.");
+                    }
+                });
         }
-        
-    });
 
+    });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+</script>
+
 </html>
