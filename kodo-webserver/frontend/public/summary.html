@@ -236,6 +236,7 @@
                     <br>
                     <p><span>File Path:&nbsp;&nbsp;</span>model.js</p>
                     <p><span>Line [line:char]:&nbsp;&nbsp;</span>[32:15]</p>
+                    <!--EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly-->
                     <pre class="prettyprint linenums:32">
 var upload = multer({storage: storages,
     fileFilter: function(req, file, callback){
@@ -292,6 +293,21 @@ app.post('/request/parameters', function(req,res){
                     <br>
                     <p><span>File Path:&nbsp;&nbsp;</span>app.js</p>
                     <p><span>Line [line:char]:&nbsp;&nbsp;</span>[89:54]</p>
+                    <pre class="prettyprint linenums:89">
+app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,res){
+    if(!req.valid){
+        console.log(`File with request UUID ${req.uuid} is invalid.`)
+        res.status(422).send("Wrong file type, only zip files are accepted.")
+        return
+    }
+    console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
+    res.sendStatus(200)
+    var pyProcess = spawn('python', ["./backend/createDB.py", req.uuid, req.queriesToUse, req.email])
+    pyProcess.stdout.on('data', data => {
+        console.log(data.toString())
+    })
+})
+                    </pre>
                 </div>
             </div>
         </div>
