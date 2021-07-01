@@ -334,11 +334,11 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
         axios.post(`${baseUrl}/request/results`,requestBody)
                     .then((response) => {
                         var allResults = response.data
+                        console.log(allResults)
                         count = 0
-                        for (result in allResults){
-                            console.log(allResults.result)
-                            console.log(result)
-                            console.log(result.vulnerability)
+                        for(var result in allResults){
+                            console.log(allResults[result])
+                            result = allResults[result]
                             count = count + 1
                             var resultRowHTML = `
             <!--Start of row ${count} result-->
