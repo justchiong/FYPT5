@@ -1,5 +1,5 @@
 var db = require('./databaseConfig.js');
-var travelDB = {
+var kodoDB = {
     searchTravel(maxCost, preferredMonth,preferredCountry, callback){
         var preferredMonthArray = preferredMonth.split("-")
         var preferredMonth = preferredMonthArray[1] + "-" + preferredMonthArray[0]
@@ -50,5 +50,29 @@ var travelDB = {
 				});
 			}
 		});
+    },
+    addRequest(callback){
+        console.log("Adding Adding Request")
+        var conn = db.getConnection()
+        conn.connect(function(err){
+            if(err){
+                console.log(err)
+                return callback(err, null)
+            }
+            else{
+                var sql = "select userid, username, profile_pic_url, created_at, email, role from users"
+                conn.query(sql, function(err,result){
+                    conn.end()
+                    if(err){
+                        return callback(err,null)
+
+                    }else{
+                        return callback(null, result)
+                    }
+
+                })
+            }
+        })
     }
 }
+module.exports=kodoDB;
