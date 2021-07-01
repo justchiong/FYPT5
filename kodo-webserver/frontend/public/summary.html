@@ -11,9 +11,7 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script
-        src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=js&amp;skin=sunburst">
-    </script>
+
 
     <style>
         body {
@@ -145,6 +143,10 @@
         .btn:focus {
             box-shadow: none;
         }
+
+        pre code {
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -237,7 +239,7 @@
                     <p><span>File Path:&nbsp;&nbsp;</span>model.js</p>
                     <p><span>Line [line:char]:&nbsp;&nbsp;</span>[32:15]</p>
                     <!--EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly-->
-                    <pre class="prettyprint linenums:32">
+                    <pre><code>
 var upload = multer({storage: storages,
     fileFilter: function(req, file, callback){
         req.valid = file.mimetype == "application/x-zip-compressed"
@@ -257,7 +259,7 @@ app.post('/request/parameters', function(req,res){
     }else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
         res.status(422).send()
         return
-                        </pre>
+                    </code></pre>
                 </div>
             </div>
         </div>
@@ -295,7 +297,7 @@ app.post('/request/parameters', function(req,res){
                     <br>
                     <p><span>File Path:&nbsp;&nbsp;</span>app.js</p>
                     <p><span>Line [line:char]:&nbsp;&nbsp;</span>[89:54]</p>
-                    <pre class="prettyprint linenums:89">
+                    <pre><code>
 app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,res){
     if(!req.valid){
         console.log(`File with request UUID ${req.uuid} is invalid.`)
@@ -309,7 +311,7 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
         console.log(data.toString())
     })
 })
-                    </pre>
+                    </code></pre>
                 </div>
             </div>
         </div>
@@ -320,10 +322,13 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 </script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/sunburst.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
 <script>
+    hljs.highlightAll();
     baseUrl = "http://localhost:3000"
 
-    
+
     //post request to give app.js the accesskey and retrieve params
     $("#getResults").submit((event) => {
         event.preventDefault()
@@ -370,16 +375,15 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
                         <p><span>File Path:&nbsp;&nbsp;</span>${result.filepath}</p>
                         <p><span>Line [line:char]:&nbsp;&nbsp;</span>${result.line}</p>
                         <!--EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly-->
-                        <pre class="prettyprint prettyprinted" id="codeCopied">
-
-                        </pre>
+                        <pre><code>
+${result.codeCopied}
+                        </code></pre>
                     </div>
                 </div>
             </div>
         <!--End of row ${count} result-->`
-                    //$("#results_container").append(resultRowHTML)
                     document.getElementById("addResultAfter").insertAdjacentHTML("afterend", resultRowHTML)
-                    $("#codeCopied").html(result.codeCopied)
+                    hljs.highlightAll();
                 }
             })
             .catch((err) => {
