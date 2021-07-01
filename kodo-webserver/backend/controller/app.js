@@ -106,8 +106,9 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
 
 
 app.post('/request/results', function(req,res) {
-    allResults = {
-        1 :{
+    
+    res.json({
+        one :{
             vulnerability: "SQL injection | model.js",
             description: "Untrusted input concatenated with raw SQL query can result in SQL injection",
             severity: "lorem",
@@ -136,7 +137,7 @@ return
 res.status(422).send()
 return`
         },
-        2 :{
+        two :{
             vulnerability: "lorem",
             description: "lorem",
             severity: "lorem",
@@ -166,7 +167,8 @@ res.status(422).send()
 return`
 
         }
-    }
+    })
+    res.send()
 })
 
 module.exports=app;
