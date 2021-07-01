@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(bodyParser.json())
 app.use(cors());
 const spawn = require('child_process').spawn;
-
+const readline = require('readline');
 
 const JWT_SECRET = require("../auth/config.js");
 const jwt = require('jsonwebtoken')
@@ -17,7 +17,7 @@ const {
 const verifyToken = require('../auth/verifyToken.js');
 var multer = require('multer');
 
-const CsvReadableStream = require('csv-reader');
+const fastcsv = require('fast-csv');
 const fs = require('fs');
 
 var storages = multer.diskStorage({
@@ -33,11 +33,11 @@ var upload = multer({
     storage: storages,
     fileFilter: function (req, file, callback) {
         req.valid = file.mimetype == "application/x-zip-compressed"
+        req.originalName = file.originalname
         return callback(null, file.mimetype == "application/x-zip-compressed")
     }
 });
 
-var nodemailer = require('nodemailer');
 
 app.post('/request/parameters', function (req, res) {
     var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
@@ -82,12 +82,15 @@ app.post('/request/parameters', function (req, res) {
     res.send().status(200)
 })
 
+
+
 app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (req, res) {
     if (!req.valid) {
         console.log(`File with request UUID ${req.uuid} is invalid.`)
         res.status(422).send("Wrong file type, only zip files are accepted.")
         return
     }
+    
     console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
     res.sendStatus(200)
 
@@ -97,33 +100,43 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
     })
     pyProcess.stdout.on('end', function(){
         var csvList = fs.readdirSync(`./backend/scanResults/${req.uuid}_scanResults`);
-        for(var i = 0; i < csvList.length; i++){
-            kodoDB.addRequest(req,uuid, req.email, function(err, result){
-                if(err){
-                    res.sendStatus(500)
-                }else{
-                    let inputStream = fs.createReadStream(`./backend/scanResults/${req.uuid}_scanResults/${csvList[i]}`, 'utf8');
-                    inputStream
-                        .pipe(new CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
-                        .on('data', function (row){
-                            console.log('A row arrived: ', row);
-                            kodoDB.addResult(function(err, result){
-                                if(err){
-                                    res.sendStatus(500)
-                                }else{
-                                    res.status(200).send(result)
-                                }
-                            })
+        var locationArray = []
+        csvList.forEach(element => locationArray.push(`./backend/scanResults/${req.uuid}_scanResults/` + element));
+        var querieStr = req.queriesToUse.toString()
+            kodoDB.addRequest(req.uuid, req.email, req.originalName, querieStr,  function(err, result){
+            if(err){
+                console.log(err)
+            }else{
+                for(let i = 0; i < csvList.length; i++){
+                    let csvData = [];
+                    console.log(csvList[i])
+                    fastcsv
+                        .parseFile(`./backend/scanResults/${req.uuid}_scanResults/${csvList[i]}`)
+                        .on('data', (data) => {
+                            csvData.push(data);
                         })
-                        .on('end', function () {
-                            console.log('No more rows!');   
-                        });
+                        .on('end', () => {
+                            if(csvData == []){
+                                return
+                            }else{
+                                for(let j = 0; j < csvData.length; j++){
+                                    console.log(csvData[j])
+                                    shortenedString = csvData[j][3].substring(csvData[j][3].indexOf("relative:") + 9)
+                                    highlighted_code = shortenedString.substring(shortenedString.indexOf(":") + 1, shortenedString.indexOf("\""))
+                                    console.log(highlighted_code)
+                                    // var pyProcessCsv = spawn('python', ["./backend/processcsv.py", req.uuid, req.queriesToUse, req.email])
+                                    // pyProcessCsv.stdout.on('data', data => {
+                                    //     console.log(data.toString())
+                                    // })
+                                }
+                            }   
+                        })   
                 }
-            })
-        }
+            }
+        })
     })
 })
-
+  
 
 
 app.post('/request/results', function (req, res) {

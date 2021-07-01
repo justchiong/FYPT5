@@ -1,7 +1,6 @@
 import os
 import shutil
 import stat
-import sys
 
 def remove_readonly(func, path, _):
     os.chmod(path, stat.S_IWRITE)
