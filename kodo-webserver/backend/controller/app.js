@@ -1,5 +1,6 @@
-var express = require('express');
-var app = express();
+var express=require('express');
+var app=express();
+var kodoDB = require('../model/model.js');
 
 var bodyParser = require('body-parser');
 const cors = require("cors");
@@ -82,8 +83,6 @@ app.post('/request/parameters', function (req, res) {
 })
 
 app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (req, res) {
-    var resultsList = []
-    var cweList = []
     if (!req.valid) {
         console.log(`File with request UUID ${req.uuid} is invalid.`)
         res.status(422).send("Wrong file type, only zip files are accepted.")
@@ -96,22 +95,31 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
     pyProcess.stdout.on('data', data => {
         console.log(data.toString())
     })
-    pyProcess.stdout.on('end', function () {
+    pyProcess.stdout.on('end', function(){
         var csvList = fs.readdirSync(`./backend/scanResults/${req.uuid}_scanResults`);
-        for (var i = 0; i < csvList.length; i++) {
-            let inputStream = fs.createReadStream(`./backend/scanResults/${req.uuid}_scanResults/${csvList[i]}`, 'utf8');
-            inputStream
-                .pipe(new CsvReadableStream({
-                    parseNumbers: true,
-                    parseBooleans: true,
-                    trim: true
-                }))
-                .on('data', function (row) {
-                    console.log('A row arrived: ', row);
-                })
-                .on('end', function () {
-                    console.log('No more rows!');
-                });
+        for(var i = 0; i < csvList.length; i++){
+            kodoDB.addRequest(req,uuid, req.email, function(err, result){
+                if(err){
+                    res.sendStatus(500)
+                }else{
+                    let inputStream = fs.createReadStream(`./backend/scanResults/${req.uuid}_scanResults/${csvList[i]}`, 'utf8');
+                    inputStream
+                        .pipe(new CsvReadableStream({ parseNumbers: true, parseBooleans: true, trim: true }))
+                        .on('data', function (row){
+                            console.log('A row arrived: ', row);
+                            kodoDB.addResult(function(err, result){
+                                if(err){
+                                    res.sendStatus(500)
+                                }else{
+                                    res.status(200).send(result)
+                                }
+                            })
+                        })
+                        .on('end', function () {
+                            console.log('No more rows!');   
+                        });
+                }
+            })
         }
     })
 })
