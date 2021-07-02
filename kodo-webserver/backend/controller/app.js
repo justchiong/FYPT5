@@ -182,6 +182,7 @@ pyProcess.stdout.on('data', data => {
                 cwe: "CWE-089:Improper neutralization of special elements used in an SQL command (SQL injection)",
                 filepath: "model/model.js",
                 line: "[59:20]",
+                lineStart: "54", //-5 of line
                 codeCopied: codeCopied
             },
             {
@@ -192,7 +193,8 @@ pyProcess.stdout.on('data', data => {
                 owasp: "A7:Cross-site Scripting (XSS)",
                 cwe: "CWE-089:Improper neutralization of special elements used in an XSS command",
                 filepath: "controller/app.js",
-                line: "[59:20]",
+                line: "[200:33]",
+                lineStart: "195", //-5 of line
                 codeCopied: codeCopied1
             }
         ]

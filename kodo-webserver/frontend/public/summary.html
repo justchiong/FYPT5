@@ -144,9 +144,9 @@
         .btn:focus {
             box-shadow: none;
         }
-
         pre code {
             border-radius: 10px;
+            max-height: 45vh !important;
         }
         .hljs-ln-numbers {
             -webkit-touch-callout: none;
@@ -285,7 +285,7 @@
                         <p><span>File Path:&nbsp;&nbsp;</span>${result.filepath}</p>
                         <p><span>Line [line:char]:&nbsp;&nbsp;</span>${result.line}</p>
                         <!--EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly-->
-                        <pre><code>
+                        <pre><code data-ln-start-from="${result.lineStart}">
 ${result.codeCopied}
                         </code></pre>
                     </div>
