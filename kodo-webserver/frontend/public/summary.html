@@ -11,7 +11,7 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 
     <style>
         body {
@@ -209,7 +209,7 @@
             </div>
         </div>
         <!--Start of row result-->
-        <div class="card cardhover">
+        <!-- <div class="card cardhover">
             <div class="card-header" id="headingTwo">
                 <h5 class="mb-0">
                     <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseTwo"
@@ -238,7 +238,7 @@
                     <br>
                     <p><span>File Path:&nbsp;&nbsp;</span>model.js</p>
                     <p><span>Line [line:char]:&nbsp;&nbsp;</span>[32:15]</p>
-                    <!--EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly-->
+                    EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly
                     <pre><code>
 var upload = multer({storage: storages,
     fileFilter: function(req, file, callback){
@@ -262,11 +262,11 @@ app.post('/request/parameters', function(req,res){
                     </code></pre>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--End of row result-->
 
 
-        <div class="card cardhover">
+        <!-- <div class="card cardhover">
             <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
                     <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseThree"
@@ -314,7 +314,7 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
                     </code></pre>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </body>
 
@@ -332,7 +332,7 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
     //post request to give app.js the accesskey and retrieve params
     $("#getResults").submit((event) => {
         event.preventDefault()
-
+        $('#addResultAfter').nextAll().remove()
         const requestBody = {
             accesskey: $("#accesskey").val()
         }
@@ -340,10 +340,8 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
             .then((response) => {
                 var allResults = response.data
                 allResults = allResults.results
-                console.log(allResults)
                 count = 0
                 for (var result in allResults) {
-                    console.log(allResults[result])
                     result = allResults[result]
                     count = count + 1
                     var resultRowHTML = `

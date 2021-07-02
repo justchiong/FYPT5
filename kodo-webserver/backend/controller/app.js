@@ -132,11 +132,11 @@ app.post('/request/results', function (req, res) {
         'results': [{
                 vulnerability: "SQL injection | model.js",
                 description: "Untrusted input concatenated with raw SQL query can result in SQL injection",
-                severity: "lorem",
+                severity: "ERROR",
                 severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
-                owasp: "A1:lorem",
-                cwe: "CWE-lorem:asdasd",
-                filepath: "lorem.js",
+                owasp: "A1:Injection",
+                cwe: "CWE-089:Improper neutralization of special elements used in an SQL command (SQL injection)",
+                filepath: "model/model.js",
                 line: "[59:20]",
                 codeCopied: `var upload = multer({storage: storages,
 fileFilter: function(req, file, callback){
@@ -159,33 +159,15 @@ res.status(422).send()
 return`
             },
             {
-                vulnerability: "lorem",
-                description: "lorem",
-                severity: "lorem",
-                severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
-                owasp: "A1:lorem",
-                cwe: "CWE-lorem:asdasd",
-                filepath: "lorem.js",
+                vulnerability: "Cross-site Scripting | app.js",
+                description: "Untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.",
+                severity: "WARNING",
+                severityColor: "warning", //base on bootstrap button colors (primary,danger,warning,etc)
+                owasp: "A7:Cross-site Scripting (XSS)",
+                cwe: "CWE-089:Improper neutralization of special elements used in an XSS command",
+                filepath: "controller/app.js",
                 line: "[59:20]",
-                codeCopied: `var upload = multer({storage: storages,
-fileFilter: function(req, file, callback){
-req.valid = file.mimetype == "application/x-zip-compressed"
-return callback(null, file.mimetype == "application/x-zip-compressed")
-}
-});
-
-var nodemailer = require('nodemailer');
-
-app.post('/request/parameters', function(req,res){
-var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
-var email = req.body.email  
-var queriesToUse = req.body.queriesToUse
-if (!req.body.hasOwnProperty("email") || !req.body.hasOwnProperty("queriesToUse")) {
-res.status(500).send("Internal Server Error")
-return
-}else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
-res.status(422).send()
-return`
+                codeCopied: `app.post(\'/request/zipFile\',verifyToken, upload.single(\'zipFile\'), function(req,res){\n    if(!req.valid){\n        console.log(\`File with request UUID ${req.uuid} is invalid.\`)\n        res.status(422).send(\"Wrong file type, only zip files are accepted.\")\n        return\n    }\n    console.log(\`Zip file of request UUID ${req.uuid} received and stored.\`)\n    res.sendStatus(200)\n    var pyProcess = spawn(\'python\', [\"./backend/createDB.py\", req.uuid, req.queriesToUse, req.email])\n    pyProcess.stdout.on(\'data\', data => {\n        console.log(data.toString())\n    })\n})`
             }
         ]
     })
