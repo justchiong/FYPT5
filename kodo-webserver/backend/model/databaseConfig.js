@@ -6,7 +6,7 @@ var dbConnect = {
             host:"localhost",
             user:"kodo",
             password:"kodoPass",
-            database:"sp_travel"
+            database:"kododb"
         });
     return conn;
     }
