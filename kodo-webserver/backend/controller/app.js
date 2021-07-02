@@ -1,5 +1,5 @@
-var express=require('express');
-var app=express();
+var express = require('express');
+var app = express();
 var kodoDB = require('../model/model.js');
 
 var bodyParser = require('body-parser');
@@ -90,7 +90,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
         res.status(422).send("Wrong file type, only zip files are accepted.")
         return
     }
-    
+
     console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
     res.sendStatus(200)
 
@@ -98,16 +98,16 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
     pyProcess.stdout.on('data', data => {
         console.log(data.toString())
     })
-    pyProcess.stdout.on('end', function(){
+    pyProcess.stdout.on('end', function () {
         var csvList = fs.readdirSync(`./backend/scanResults/${req.uuid}_scanResults`);
         var locationArray = []
         csvList.forEach(element => locationArray.push(`./backend/scanResults/${req.uuid}_scanResults/` + element));
         var querieStr = req.queriesToUse.toString()
-            kodoDB.addRequest(req.uuid, req.email, req.originalName, querieStr,  function(err, result){
-            if(err){
+        kodoDB.addRequest(req.uuid, req.email, req.originalName, querieStr, function (err, result) {
+            if (err) {
                 console.log(err)
-            }else{
-                for(let i = 0; i < csvList.length; i++){
+            } else {
+                for (let i = 0; i < csvList.length; i++) {
                     let csvData = [];
                     console.log(csvList[i])
                     fastcsv
@@ -116,10 +116,10 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                             csvData.push(data);
                         })
                         .on('end', () => {
-                            if(csvData == []){
+                            if (csvData == []) {
                                 return
-                            }else{
-                                for(let j = 0; j < csvData.length; j++){
+                            } else {
+                                for (let j = 0; j < csvData.length; j++) {
                                     console.log(csvData[j])
                                     shortenedString = csvData[j][3].substring(csvData[j][3].indexOf("relative:") + 9)
                                     highlighted_code = shortenedString.substring(shortenedString.indexOf(":") + 1, shortenedString.indexOf("\""))
@@ -129,29 +129,17 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                     //     console.log(data.toString())
                                     // })
                                 }
-                            }   
-                        })   
+                            }
+                        })
                 }
             }
         })
     })
 })
-  
-
 
 app.post('/request/results', function (req, res) {
 
-    res.json({
-        'results': [{
-                vulnerability: "SQL injection | model.js",
-                description: "Untrusted input concatenated with raw SQL query can result in SQL injection",
-                severity: "ERROR",
-                severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
-                owasp: "A1:Injection",
-                cwe: "CWE-089:Improper neutralization of special elements used in an SQL command (SQL injection)",
-                filepath: "model/model.js",
-                line: "[59:20]",
-                codeCopied: `var upload = multer({storage: storages,
+    codeCopied = `var upload = multer({storage: storages,
 fileFilter: function(req, file, callback){
 req.valid = file.mimetype == "application/x-zip-compressed"
 return callback(null, file.mimetype == "application/x-zip-compressed")
@@ -170,6 +158,31 @@ return
 }else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
 res.status(422).send()
 return`
+    codeCopied1 = `app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,res){
+if(!req.valid){
+    console.log(\`File with request UUID ${req.uuid} is invalid.\`)
+    res.status(422).send("Wrong file type, only zip files are accepted.")
+    return
+}
+console.log(\`Zip file of request UUID ${req.uuid} received and stored.\`)
+res.sendStatus(200)
+var pyProcess = spawn('python', ["./backend/createDB.py", req.uuid, req.queriesToUse, req.email])
+pyProcess.stdout.on('data', data => {
+    console.log(data.toString())
+})
+})`
+
+    res.json({
+        'results': [{
+                vulnerability: "SQL injection | model.js",
+                description: "Untrusted input concatenated with raw SQL query can result in SQL injection",
+                severity: "ERROR",
+                severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
+                owasp: "A1:Injection",
+                cwe: "CWE-089:Improper neutralization of special elements used in an SQL command (SQL injection)",
+                filepath: "model/model.js",
+                line: "[59:20]",
+                codeCopied: codeCopied
             },
             {
                 vulnerability: "Cross-site Scripting | app.js",
@@ -180,7 +193,7 @@ return`
                 cwe: "CWE-089:Improper neutralization of special elements used in an XSS command",
                 filepath: "controller/app.js",
                 line: "[59:20]",
-                codeCopied: `app.post(\'/request/zipFile\',verifyToken, upload.single(\'zipFile\'), function(req,res){\n    if(!req.valid){\n        console.log(\`File with request UUID ${req.uuid} is invalid.\`)\n        res.status(422).send(\"Wrong file type, only zip files are accepted.\")\n        return\n    }\n    console.log(\`Zip file of request UUID ${req.uuid} received and stored.\`)\n    res.sendStatus(200)\n    var pyProcess = spawn(\'python\', [\"./backend/createDB.py\", req.uuid, req.queriesToUse, req.email])\n    pyProcess.stdout.on(\'data\', data => {\n        console.log(data.toString())\n    })\n})`
+                codeCopied: codeCopied1
             }
         ]
     })

@@ -11,7 +11,8 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js">
+    </script>
 
     <style>
         body {
@@ -147,6 +148,23 @@
         pre code {
             border-radius: 10px;
         }
+        .hljs-ln-numbers {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            text-align: center;
+            color: #504c5c;
+            /*border-right: 1px solid #322f38;*/
+            vertical-align: top;
+            padding-right: 5px !important;
+        }
+        .hljs-ln-code {
+            padding-left: 10px !important;
+        }
     </style>
 </head>
 
@@ -208,113 +226,6 @@
                 </h5>
             </div>
         </div>
-        <!--Start of row result-->
-        <!-- <div class="card cardhover">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="false" aria-controls="collapseTwo">
-                        <table class="table table-borderless text-left yellowtext">
-                            <thead>
-                                <tr style="font-weight: bold;">
-                                    <td class="column1">SQL injection | model.js</td>
-                                    <td class="column2">Untrusted input concatenated with raw SQL query can result in
-                                        SQL injection</td>
-                                    <td class="column3"><span class="badge badge-pill badge-danger">ERROR</span></td>
-                                </tr>
-                            </thead>
-                        </table>
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                <div class="card-body px-5 kodo-gray">
-                    <p><span>Description:&nbsp;&nbsp;</span>Untrusted input concatenated with raw SQL query can result
-                        in SQL injection</p>
-                    <p><span>Severity:&nbsp;&nbsp;</span><span class="badge badge-pill badge-danger">ERROR</span></p>
-                    <p><span>OWASP:&nbsp;&nbsp;</span>A1:Injection</p>
-                    <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL
-                        command (SQL injection)</p>
-                    <br>
-                    <p><span>File Path:&nbsp;&nbsp;</span>model.js</p>
-                    <p><span>Line [line:char]:&nbsp;&nbsp;</span>[32:15]</p>
-                    EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly
-                    <pre><code>
-var upload = multer({storage: storages,
-    fileFilter: function(req, file, callback){
-        req.valid = file.mimetype == "application/x-zip-compressed"
-        return callback(null, file.mimetype == "application/x-zip-compressed")
-    }
-});
-
-var nodemailer = require('nodemailer');
-
-app.post('/request/parameters', function(req,res){
-    var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
-    var email = req.body.email  
-    var queriesToUse = req.body.queriesToUse
-    if (!req.body.hasOwnProperty("email") || !req.body.hasOwnProperty("queriesToUse")) {
-        res.status(500).send("Internal Server Error")
-        return
-    }else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
-        res.status(422).send()
-        return
-                    </code></pre>
-                </div>
-            </div>
-        </div> -->
-        <!--End of row result-->
-
-
-        <!-- <div class="card cardhover">
-            <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                    <button class="btn collapsed w-100" data-toggle="collapse" data-target="#collapseThree"
-                        aria-expanded="false" aria-controls="collapseThree">
-                        <table class="table table-borderless text-left yellowtext">
-                            <thead>
-                                <tr style="font-weight: bold;">
-                                    <td class="column1">Cross-site Scripting | app.js</td>
-                                    <td class="column2">Untrusted data in a new web page without proper validation or
-                                        escaping, or updates an existing web page with user-supplied data using a
-                                        browser API that can create HTML or JavaScript.</td>
-                                    <td class="column3"><span class="badge badge-pill badge-warning">WARNING</span></td>
-                                </tr>
-                            </thead>
-                        </table>
-                    </button>
-                </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                <div class="card-body px-5 kodo-gray">
-                    <p><span>Description:&nbsp;&nbsp;</span>Untrusted data in a new web page without proper validation
-                        or escaping, or updates an existing web page with user-supplied data using a browser API that
-                        can create HTML or JavaScript.</p>
-                    <p><span>Severity:&nbsp;&nbsp;</span><span class="badge badge-pill badge-warning">WARNING</span></p>
-                    <p><span>OWASP:&nbsp;&nbsp;</span>A7:Cross-site Scripting (XSS)</p>
-                    <p><span>CWE:&nbsp;&nbsp;</span>CWE-089:Improper neutralization of special elements used in an SQL
-                        command (SQL injection)</p>
-                    <br>
-                    <p><span>File Path:&nbsp;&nbsp;</span>app.js</p>
-                    <p><span>Line [line:char]:&nbsp;&nbsp;</span>[89:54]</p>
-                    <pre><code>
-app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,res){
-    if(!req.valid){
-        console.log(`File with request UUID ${req.uuid} is invalid.`)
-        res.status(422).send("Wrong file type, only zip files are accepted.")
-        return
-    }
-    console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
-    res.sendStatus(200)
-    var pyProcess = spawn('python', ["./backend/createDB.py", req.uuid, req.queriesToUse, req.email])
-    pyProcess.stdout.on('data', data => {
-        console.log(data.toString())
-    })
-})
-                    </code></pre>
-                </div>
-            </div>
-        </div> -->
     </div>
 </body>
 
@@ -324,10 +235,11 @@ app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/sunburst.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js">
+</script>
 <script>
-    hljs.highlightAll();
     baseUrl = "http://localhost:3000"
-
+    hljs.initLineNumbersOnLoad();
 
     //post request to give app.js the accesskey and retrieve params
     $("#getResults").submit((event) => {
@@ -382,6 +294,7 @@ ${result.codeCopied}
         <!--End of row ${count} result-->`
                     document.getElementById("addResultAfter").insertAdjacentHTML("afterend", resultRowHTML)
                     hljs.highlightAll();
+                    hljs.initLineNumbersOnLoad();
                 }
             })
             .catch((err) => {
