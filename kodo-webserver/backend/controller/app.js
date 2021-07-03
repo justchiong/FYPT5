@@ -98,7 +98,10 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
     pyProcess.stdout.on('data', data => {
         console.log(data.toString())
     })
-    pyProcess.stdout.on('end', function () {
+
+    pyProcess.stdout.on('end', function(){
+        console.log("Completed Scanning and Creation of Results")
+        console.log("Starting Extraction of CSV Data...")
         var csvList = fs.readdirSync(`./backend/scanResults/${req.uuid}_scanResults`);
         var locationArray = []
         csvList.forEach(element => locationArray.push(`./backend/scanResults/${req.uuid}_scanResults/` + element));
@@ -109,7 +112,6 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
             } else {
                 for (let i = 0; i < csvList.length; i++) {
                     let csvData = [];
-                    console.log(csvList[i])
                     fastcsv
                         .parseFile(`./backend/scanResults/${req.uuid}_scanResults/${csvList[i]}`)
                         .on('data', (data) => {
@@ -118,12 +120,101 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                         .on('end', () => {
                             if (csvData == []) {
                                 return
-                            } else {
-                                for (let j = 0; j < csvData.length; j++) {
-                                    console.log(csvData[j])
-                                    shortenedString = csvData[j][3].substring(csvData[j][3].indexOf("relative:") + 9)
-                                    highlighted_code = shortenedString.substring(shortenedString.indexOf(":") + 1, shortenedString.indexOf("\""))
-                                    console.log(highlighted_code)
+                            }else{
+                                let highlightedLineStartArray = []
+                                let highlightedCharStartArray = []
+
+                                let highlightedLineEndArray = []
+                                let highlightedCharEndArray = []
+
+
+                                let referencedLineStartArray = []
+                                let referencedCharStartArray = []
+
+                                let referencedLineEndArray = []
+                                let referencedCharEndArray = []
+
+                                
+                                let startlineArray = []
+                                let lineCountArray = []
+                                let snippetArray = []
+                                let endLineCountArray = []
+                                let extendStartSnippetArray = []
+
+                                for(let j = 0; j < csvData.length; j++){
+                                    let row = csvData[j]
+                                    let startLineNumber = 0
+                                    let shortenedString = ""
+
+                                    shortenedString = row[3].substring(row[3].indexOf("relative:") + 9)
+                                    highlightedCodeLocation = shortenedString.substring(shortenedString.indexOf(":") + 1, shortenedString.indexOf("\""))
+                                    highlightedArray = highlightedCodeLocation.split(":")
+
+                                    highlightedLineStartArray.push(parseInt(highlightedArray[0]))
+                                    highlightedCharStartArray.push(parseInt(highlightedArray[1]))
+                                    highlightedLineEndArray.push(parseInt(highlightedArray[2]))
+                                    highlightedCharEndArray.push(parseInt(highlightedArray[3]))
+
+
+                                    referencedLineStartArray.push(parseInt(row[5]))
+                                    referencedCharStartArray.push(parseInt(row[6]))
+                                    referencedLineEndArray.push(parseInt(row[7]))
+                                    referencedCharEndArray.push(parseInt(row[8]))
+
+
+                                    startLineNumber = highlightedLineStartArray[j]
+                                    if(startLineNumber > 5){
+                                        extendStartSnippetArray.push(5)
+                                        startLineNumber -= 5
+                                    }else{
+                                        startLineNumber = 1
+                                        extendStartSnippetArray.push(startLineNumber - 1)
+                                    }
+                                    console.log(row)
+                                    startlineArray.push(startLineNumber)
+                                    snippetArray.push("")
+                                    lineCountArray.push(0)
+                                    endLineCountArray.push(0)
+                                    fileReadStream = fs.createReadStream(`./backend/webServer_Folders/${req.uuid}${row[4]}`)
+                                    readline.createInterface({
+                                        input: fileReadStream,
+                                        output: process.stdout,
+                                        terminal: false
+                                    })
+                                    .on('line', (line) => {
+                                        lineCountArray[j]++
+                                        if(lineCountArray[j] >= startlineArray[j]){
+                                            if(lineCountArray[j] <= referencedLineEndArray[j]){
+                                                snippetArray[j] += `${line}\n`
+                                                
+                                            }
+                                            else if(endLineCountArray[j] < 5 ){
+                                                snippetArray[j] += `${line}\n`
+                                                endLineCountArray[j]++
+                                            }
+
+                                        }
+                                    })
+                                    .on('close', () => {
+                                        let selectedOption = csvList[i].split("-separator-")[0]
+                                        let cwe = csvList[i].split("-separator-")[1].replace(".csv", "")
+                                        let description = csvData[j][1]
+                                        let descriptionArray = csvData[j][3].split("[[")
+                                        let decriptionArray2 = descriptionArray[1].split("]]")
+                                        let highlightedStr = decriptionArray2[0].substring(1, decriptionArray2[0].substring(1).indexOf("\"") + 1)
+                                        description += `\n${descriptionArray[0]}\|${highlightedStr}\|${decriptionArray2[1]}`
+                                        let relativeHighlightLocation = `${highlightedLineStartArray[j] - startlineArray[j]}:${highlightedCharStartArray[j]},${highlightedLineEndArray[j] - startlineArray[j]}:${highlightedCharEndArray[j]}`
+                                        let relativeReferenceLocation = `${referencedLineStartArray[j] - startlineArray[j]}:${referencedCharStartArray[j]},${referencedLineEndArray[j] - startlineArray[j]}:${referencedCharEndArray[j]}`
+
+                                        kodoDB.addResult(req.uuid, selectedOption, cwe, csvData[j][0], description, csvData[j][2], relativeHighlightLocation, relativeReferenceLocation, snippetArray[j], function(err, result){
+                                            if(err){
+                                                // res.sendStatus(500)
+                                                console.log(err)
+                                            }else{
+                                                
+                                            }
+                                        })
+                                    });
                                     // var pyProcessCsv = spawn('python', ["./backend/processcsv.py", req.uuid, req.queriesToUse, req.email])
                                     // pyProcessCsv.stdout.on('data', data => {
                                     //     console.log(data.toString())
