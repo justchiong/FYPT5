@@ -1,0 +1,61 @@
+[2021-07-03 17:25:02] This is codeql database analyze --format=csv --output=./backend/scanResults/9680b81b-89a1-48ff-a752-c16d3e7a99b3_scanResults/injection-separator-CWE-089.csv --threads=4 --ram=8000 --no-rerun ./backend/databases/9680b81b-89a1-48ff-a752-c16d3e7a99b3_db ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-07-03 17:25:02] Log file was started late.
+[2021-07-03 17:25:02] [PROGRESS] database analyze> Running queries.
+[2021-07-03 17:25:02] Running plumbing command: codeql database run-queries --threads=4 --ml-model-path= --native-library-path= --ram=8000 --warnings=show --no-rerun -- E:\WilliamsWork\FYP\github\FYPT5\kodo-webserver\backend\databases\9680b81b-89a1-48ff-a752-c16d3e7a99b3_db ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-07-03 17:25:02] Calling plumbing command: codeql resolve ram --ram=8000 --format=json
+[2021-07-03 17:25:02] Plumbing command codeql resolve ram completed:
+                      [
+                        "-J-Xmx4000M",
+                        "--off-heap-ram=4000"
+                      ]
+[2021-07-03 17:25:02] Spawning plumbing command: execute queries -J-Xmx4000M --off-heap-ram=4000 --verbosity=progress --logdir=E:\WilliamsWork\FYP\github\FYPT5\kodo-webserver\backend\databases\9680b81b-89a1-48ff-a752-c16d3e7a99b3_db\log --threads=4 --ml-model-path=E:\WilliamsWork\FYP\github\FYPT5\kodo-webserver --native-library-path=E:\WilliamsWork\FYP\github\FYPT5\kodo-webserver --warnings=show --no-rerun --output=E:\WilliamsWork\FYP\github\FYPT5\kodo-webserver\backend\databases\9680b81b-89a1-48ff-a752-c16d3e7a99b3_db\results -- E:\WilliamsWork\FYP\github\FYPT5\kodo-webserver\backend\databases\9680b81b-89a1-48ff-a752-c16d3e7a99b3_db\db-javascript ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-07-03 17:25:16] Plumbing command codeql execute queries terminated with status 0.
+[2021-07-03 17:25:16] Plumbing command codeql database run-queries completed with status 0.
+[2021-07-03 17:25:16] [PROGRESS] database analyze> Interpreting results.
+[2021-07-03 17:25:16] Running plumbing command: codeql database interpret-results --format=csv -o=E:\WilliamsWork\FYP\github\FYPT5\kodo-webserver\backend\scanResults\9680b81b-89a1-48ff-a752-c16d3e7a99b3_scanResults\injection-separator-CWE-089.csv --max-paths=4 --csv-location-format=line-column --threads=4 -- E:\WilliamsWork\FYP\github\FYPT5\kodo-webserver\backend\databases\9680b81b-89a1-48ff-a752-c16d3e7a99b3_db ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-07-03 17:25:16] Calling plumbing command: codeql resolve queries --format=json -- ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/CWE-089
+[2021-07-03 17:25:16] [SPAMMY] resolve queries> Scanning for QL files at E:\WilliamsWork\FYP\github\FYPT5\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089.
+[2021-07-03 17:25:16] [SPAMMY] resolve queries> Found 1 QL files in E:\WilliamsWork\FYP\github\FYPT5\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089.
+[2021-07-03 17:25:16] Plumbing command codeql resolve queries completed:
+                      [
+                        "E:\\WilliamsWork\\FYP\\github\\FYPT5\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\Security\\CWE-089\\SqlInjection.ql"
+                      ]
+[2021-07-03 17:25:16] [DETAILS] database interpret-results> Scanning for qlpack.yml from C:\Users\super\OneDrive\Desktop\codeql-home\codeql\.codeqlmanifest.json
+[2021-07-03 17:25:16] [DETAILS] database interpret-results> Scanning for qlpack.yml from C:\Users\super\OneDrive\Desktop\codeql-home\
+[2021-07-03 17:25:16] [DETAILS] database interpret-results> Not scanning from C:\Users\super\OneDrive\Desktop\codeql-home\codeql which is already done.
+[2021-07-03 17:25:16] [DETAILS] database interpret-results> Scanning for qlpack.yml from C:\Users\super\OneDrive\Desktop\codeql-home\vscode-codeql-starter\.codeqlmanifest.json
+[2021-07-03 17:25:16] [DETAILS] database interpret-results> Scanning for qlpack.yml from C:\Users\super\OneDrive\Desktop\codeql-home\vscode-codeql-starter\codeql-go\.codeqlmanifest.json
+[2021-07-03 17:25:16] [DETAILS] database interpret-results> Scanning for qlpack.yml from C:\Users\super\OneDrive\Desktop\codeql-home\vscode-codeql-starter\ql\.codeqlmanifest.json
+[2021-07-03 17:25:16] Calling plumbing command: codeql resolve library-path --query=E:\WilliamsWork\FYP\github\FYPT5\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\SqlInjection.ql --full-library-path=none --dbscheme=none --format=json
+[2021-07-03 17:25:16] [DETAILS] resolve library-path> Resolving query at normalized path E:\WilliamsWork\FYP\github\FYPT5\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\Security\CWE-089\SqlInjection.ql.
+[2021-07-03 17:25:16] [DETAILS] resolve library-path> Found enclosing pack 'codeql-javascript' at E:\WilliamsWork\FYP\github\FYPT5\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src.
+[2021-07-03 17:25:16] [DETAILS] resolve library-path> Adding compilation cache at E:\WilliamsWork\FYP\github\FYPT5\CodeQL-home\vscode-codeql-starter\ql\javascript\ql\src\.cache.
+[2021-07-03 17:25:16] [DETAILS] resolve library-path> Dbscheme was explicitly overridden as E:\WilliamsWork\FYP\github\FYPT5\kodo-webserver\none
+[2021-07-03 17:25:16] [DETAILS] resolve library-path> Library path was overridden on command line.
+[2021-07-03 17:25:16] Plumbing command codeql resolve library-path completed:
+                      {
+                        "qlPack" : {
+                          "library" : false,
+                          "name" : "github/codeql-javascript",
+                          "version" : {
+                            "major" : 0,
+                            "minor" : 0,
+                            "patch" : 0,
+                            "prerelease" : false
+                          },
+                          "dbscheme" : "semmlecode.javascript.dbscheme",
+                          "suites" : "codeql-suites",
+                          "extractor" : "javascript"
+                        },
+                        "libraryPath" : [
+                          "E:\\WilliamsWork\\FYP\\github\\FYPT5\\kodo-webserver\\none"
+                        ],
+                        "dbscheme" : "E:\\WilliamsWork\\FYP\\github\\FYPT5\\kodo-webserver\\none",
+                        "compilationCache" : [
+                          "E:\\WilliamsWork\\FYP\\github\\FYPT5\\CodeQL-home\\vscode-codeql-starter\\ql\\javascript\\ql\\src\\.cache"
+                        ],
+                        "qlPackName" : "codeql-javascript",
+                        "relativeName" : "codeql-javascript\\Security\\CWE-089\\SqlInjection.ql"
+                      }
+[2021-07-03 17:25:16] Plumbing command codeql database interpret-results completed.
+[2021-07-03 17:25:16] Terminating normally.

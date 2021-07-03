@@ -89,5 +89,4 @@ for query in queriesToRun:
           # print(process2.returncode)
           # print(process2.stderr)
           # print(process2.stdout)
-print("scanning completed! Now deleting request database, folder and zip file...")
  
