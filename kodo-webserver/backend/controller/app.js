@@ -98,13 +98,10 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
     pyProcess.stdout.on('data', data => {
         console.log(data.toString())
     })
-<<<<<<< Updated upstream
-    pyProcess.stdout.on('end', function () {
-=======
+
     pyProcess.stdout.on('end', function(){
         console.log("Completed Scanning and Creation of Results")
         console.log("Starting Extraction of CSV Data...")
->>>>>>> Stashed changes
         var csvList = fs.readdirSync(`./backend/scanResults/${req.uuid}_scanResults`);
         var locationArray = []
         csvList.forEach(element => locationArray.push(`./backend/scanResults/${req.uuid}_scanResults/` + element));
@@ -123,14 +120,6 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                         .on('end', () => {
                             if (csvData == []) {
                                 return
-<<<<<<< Updated upstream
-                            } else {
-                                for (let j = 0; j < csvData.length; j++) {
-                                    console.log(csvData[j])
-                                    shortenedString = csvData[j][3].substring(csvData[j][3].indexOf("relative:") + 9)
-                                    highlighted_code = shortenedString.substring(shortenedString.indexOf(":") + 1, shortenedString.indexOf("\""))
-                                    console.log(highlighted_code)
-=======
                             }else{
                                 let highlightedLineStartArray = []
                                 let highlightedCharStartArray = []
@@ -226,7 +215,6 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                             }
                                         })
                                     });
->>>>>>> Stashed changes
                                     // var pyProcessCsv = spawn('python', ["./backend/processcsv.py", req.uuid, req.queriesToUse, req.email])
                                     // pyProcessCsv.stdout.on('data', data => {
                                     //     console.log(data.toString())
