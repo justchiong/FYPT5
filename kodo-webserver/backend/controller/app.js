@@ -278,7 +278,6 @@ app.get('/request/results/:uuid', function (req, res) {
     }
 
 })
-
 app.post('/request/results', function (req, res) {
 
     codeCopied = `var upload = multer({storage: storages,
@@ -302,11 +301,11 @@ res.status(422).send()
 return`
     codeCopied1 = `app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,res){
 if(!req.valid){
-    console.log(\`File with request UUID ${req.uuid} is invalid.\`)
+    console.log(\`File with request UUID \${req.uuid} is invalid.\`)
     res.status(422).send("Wrong file type, only zip files are accepted.")
     return
 }
-console.log(\`Zip file of request UUID ${req.uuid} received and stored.\`)
+console.log(\`Zip file of request UUID \${req.uuid} received and stored.\`)
 res.sendStatus(200)
 var pyProcess = spawn('python', ["./backend/createDB.py", req.uuid, req.queriesToUse, req.email])
 pyProcess.stdout.on('data', data => {
@@ -321,7 +320,7 @@ pyProcess.stdout.on('data', data => {
         severityColor='danger'
     }else if (severity=="warning"){
         severityColor='warning'
-    }else if (severity=="reccomendation"){
+    }else if (severity=="recommendation"){
         severityColor='primary'
     }
     res.json({
