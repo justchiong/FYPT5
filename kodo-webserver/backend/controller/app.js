@@ -19,6 +19,9 @@ var multer = require('multer');
 
 const fastcsv = require('fast-csv');
 const fs = require('fs');
+const {
+    isNullOrUndefined
+} = require('util');
 
 var storages = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -38,25 +41,31 @@ var upload = multer({
     }
 });
 
-function removeReqFiles(requuid){
-    fs.rmdir(`.\\backend\\webServer_Folders\\${requuid}`, { recursive: true }, (err) => {
+function removeReqFiles(requuid) {
+    fs.rmdir(`.\\backend\\webServer_Folders\\${requuid}`, {
+        recursive: true
+    }, (err) => {
         if (err) {
             throw err;
-        }}
-    )
-    fs.rmdir(`.\\backend\\scanResults\\${requuid}_scanResults`, { recursive: true }, (err) => {
+        }
+    })
+    fs.rmdir(`.\\backend\\scanResults\\${requuid}_scanResults`, {
+        recursive: true
+    }, (err) => {
         if (err) {
             throw err;
-        }}
-    )
-    fs.rmdir(`.\\backend\\databases\\${requuid}_db`, { recursive: true }, (err) => {
+        }
+    })
+    fs.rmdir(`.\\backend\\databases\\${requuid}_db`, {
+        recursive: true
+    }, (err) => {
         if (err) {
             throw err;
-        }}
-    )
+        }
+    })
     fs.unlink(`.\\backend\\zipFiles\\${requuid}.zip`, (err) => {
         if (err) {
-        throw err
+            throw err
         }
     })
 }
@@ -121,7 +130,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
         console.log(data.toString())
     })
 
-    pyProcess.stdout.on('end', function(){
+    pyProcess.stdout.on('end', function () {
         console.log("Completed Scanning and Creation of Results")
         console.log("Starting Extraction of CSV Data...")
         var csvList = fs.readdirSync(`./backend/scanResults/${req.uuid}_scanResults`);
@@ -142,7 +151,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                         .on('end', () => {
                             if (csvData == []) {
                                 return
-                            }else{
+                            } else {
                                 let highlightedLineStartArray = []
                                 let highlightedCharStartArray = []
 
@@ -156,13 +165,13 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                 let referencedLineEndArray = []
                                 let referencedCharEndArray = []
 
-                                
+
                                 let startlineArray = []
                                 let lineCountArray = []
                                 let snippetArray = []
                                 let endLineCountArray = []
 
-                                for(let j = 0; j < csvData.length; j++){
+                                for (let j = 0; j < csvData.length; j++) {
                                     let row = csvData[j]
                                     let startLineNumber = 0
                                     let shortenedString = ""
@@ -184,9 +193,9 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
 
 
                                     startLineNumber = highlightedLineStartArray[j]
-                                    if(startLineNumber > 5){
+                                    if (startLineNumber > 5) {
                                         startLineNumber -= 5
-                                    }else{
+                                    } else {
                                         startLineNumber = 1
                                     }
                                     console.log(row)
@@ -196,49 +205,48 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                     endLineCountArray.push(0)
                                     fileReadStream = fs.createReadStream(`./backend/webServer_Folders/${req.uuid}${row[4]}`)
                                     readline.createInterface({
-                                        input: fileReadStream,
-                                        output: process.stdout,
-                                        terminal: false
-                                    })
-                                    .on('line', (line) => {
-                                        lineCountArray[j]++
-                                        if(lineCountArray[j] >= startlineArray[j]){
-                                            if(lineCountArray[j] <= referencedLineEndArray[j]){
-                                                snippetArray[j] += `${line}\n`
-                                                
-                                            }
-                                            else if(endLineCountArray[j] < 5 ){
-                                                snippetArray[j] += `${line}\n`
-                                                endLineCountArray[j]++
-                                            }
-
-                                        }
-                                    })
-                                    .on('close', () => {
-                                        let selectedOption = csvList[i].split("-separator-")[0]
-                                        let cwe = csvList[i].split("-separator-")[1].replace(".csv", "")
-                                        let description = csvData[j][1]
-                                        let descriptionArray = csvData[j][3].split("[[")
-                                        let decriptionArray2 = descriptionArray[1].split("]]")
-                                        let highlightedStr = decriptionArray2[0].substring(1, decriptionArray2[0].substring(1).indexOf("\"") + 1)
-                                        description += `\n${descriptionArray[0]}\|${highlightedStr}\|${decriptionArray2[1]}`
-                                        let relativeHighlightLocation = `${highlightedLineStartArray[j] - startlineArray[j]}:${highlightedCharStartArray[j]},${highlightedLineEndArray[j] - startlineArray[j]}:${highlightedCharEndArray[j]}`
-                                        let relativeReferenceLocation = `${referencedLineStartArray[j] - startlineArray[j]}:${referencedCharStartArray[j]},${referencedLineEndArray[j] - startlineArray[j]}:${referencedCharEndArray[j]}`
-
-                                        kodoDB.addResult(req.uuid, selectedOption, cwe, csvData[j][0], description, csvData[j][2], relativeHighlightLocation, relativeReferenceLocation, snippetArray[j], function(err, result){
-                                            if(err){
-                                                // res.sendStatus(500)
-                                                console.log(err)
-                                            }else{
-                                                
-                                            }
-                                        if(i == csvList.length - 1 && j == csvData.length - 1){
-                                            removeReqFiles(req.uuid)
-                                            console.log('Completed Deleting of Request Files.')
-
-                                        }
+                                            input: fileReadStream,
+                                            output: process.stdout,
+                                            terminal: false
                                         })
-                                    });
+                                        .on('line', (line) => {
+                                            lineCountArray[j]++
+                                            if (lineCountArray[j] >= startlineArray[j]) {
+                                                if (lineCountArray[j] <= referencedLineEndArray[j]) {
+                                                    snippetArray[j] += `${line}\n`
+
+                                                } else if (endLineCountArray[j] < 5) {
+                                                    snippetArray[j] += `${line}\n`
+                                                    endLineCountArray[j]++
+                                                }
+
+                                            }
+                                        })
+                                        .on('close', () => {
+                                            let selectedOption = csvList[i].split("-separator-")[0]
+                                            let cwe = csvList[i].split("-separator-")[1].replace(".csv", "")
+                                            let description = csvData[j][1]
+                                            let descriptionArray = csvData[j][3].split("[[")
+                                            let decriptionArray2 = descriptionArray[1].split("]]")
+                                            let highlightedStr = decriptionArray2[0].substring(1, decriptionArray2[0].substring(1).indexOf("\"") + 1)
+                                            description += `\n${descriptionArray[0]}\|${highlightedStr}\|${decriptionArray2[1]}`
+                                            let relativeHighlightLocation = `${highlightedLineStartArray[j] - startlineArray[j]}:${highlightedCharStartArray[j]},${highlightedLineEndArray[j] - startlineArray[j]}:${highlightedCharEndArray[j]}`
+                                            let relativeReferenceLocation = `${referencedLineStartArray[j] - startlineArray[j]}:${referencedCharStartArray[j]},${referencedLineEndArray[j] - startlineArray[j]}:${referencedCharEndArray[j]}`
+
+                                            kodoDB.addResult(req.uuid, selectedOption, cwe, csvData[j][0], description, csvData[j][2], relativeHighlightLocation, relativeReferenceLocation, snippetArray[j], function (err, result) {
+                                                if (err) {
+                                                    // res.sendStatus(500)
+                                                    console.log(err)
+                                                } else {
+
+                                                }
+                                                if (i == csvList.length - 1 && j == csvData.length - 1) {
+                                                    removeReqFiles(req.uuid)
+                                                    console.log('Completed Deleting of Request Files.')
+
+                                                }
+                                            })
+                                        });
                                     // var pyProcessCsv = spawn('python', ["./backend/processcsv.py", req.uuid, req.queriesToUse, req.email])
                                     // pyProcessCsv.stdout.on('data', data => {
                                     //     console.log(data.toString())
@@ -252,17 +260,23 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
     })
 })
 
-app.get('/request/results/:uuid', function(req,res){
+app.get('/request/results/:uuid', function (req, res) {
     uuid = req.params.uuid
-    kodoDB.getResults(uuid, function(err, result){
-        if(err){
-            res.sendStatus(500)
-        }else{
-            res.status(200)
-            console.log(result[0].code_snippet)
-            res.send(result)
-        }
-    })
+    //validate uuid pattern match
+    if (!isUuid(uuid)) {
+        res.sendStatus(400)
+    } else {
+        kodoDB.getResults(uuid, function (err, result) {
+            if (err) {
+                res.sendStatus(500)
+            } else {
+                res.status(200)
+                console.log(result[0].code_snippet)
+                res.send(result)
+            }
+        })
+    }
+
 })
 
 app.post('/request/results', function (req, res) {
