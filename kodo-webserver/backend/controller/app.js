@@ -38,6 +38,28 @@ var upload = multer({
     }
 });
 
+function removeReqFiles(requuid){
+    fs.rmdir(`.\\backend\\webServer_Folders\\${requuid}`, { recursive: true }, (err) => {
+        if (err) {
+            throw err;
+        }}
+    )
+    fs.rmdir(`.\\backend\\scanResults\\${requuid}_scanResults`, { recursive: true }, (err) => {
+        if (err) {
+            throw err;
+        }}
+    )
+    fs.rmdir(`.\\backend\\databases\\${requuid}_db`, { recursive: true }, (err) => {
+        if (err) {
+            throw err;
+        }}
+    )
+    fs.unlink(`.\\backend\\zipFiles\\${requuid}.zip`, (err) => {
+        if (err) {
+        throw err
+        }
+    })
+}
 
 app.post('/request/parameters', function (req, res) {
     var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
@@ -139,7 +161,6 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                 let lineCountArray = []
                                 let snippetArray = []
                                 let endLineCountArray = []
-                                let extendStartSnippetArray = []
 
                                 for(let j = 0; j < csvData.length; j++){
                                     let row = csvData[j]
@@ -164,11 +185,9 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
 
                                     startLineNumber = highlightedLineStartArray[j]
                                     if(startLineNumber > 5){
-                                        extendStartSnippetArray.push(5)
                                         startLineNumber -= 5
                                     }else{
                                         startLineNumber = 1
-                                        extendStartSnippetArray.push(startLineNumber - 1)
                                     }
                                     console.log(row)
                                     startlineArray.push(startLineNumber)
@@ -213,6 +232,11 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                             }else{
                                                 
                                             }
+                                        if(i == csvList.length - 1 && j == csvData.length - 1){
+                                            removeReqFiles(req.uuid)
+                                            console.log('Completed Deleting of Request Files.')
+
+                                        }
                                         })
                                     });
                                     // var pyProcessCsv = spawn('python', ["./backend/processcsv.py", req.uuid, req.queriesToUse, req.email])
@@ -225,6 +249,19 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                 }
             }
         })
+    })
+})
+
+app.get('/request/results/:uuid', function(req,res){
+    uuid = req.params.uuid
+    kodoDB.getResults(uuid, function(err, result){
+        if(err){
+            res.sendStatus(500)
+        }else{
+            res.status(200)
+            console.log(result[0].code_snippet)
+            res.send(result)
+        }
     })
 })
 
