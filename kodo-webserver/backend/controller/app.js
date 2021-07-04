@@ -313,7 +313,17 @@ pyProcess.stdout.on('data', data => {
     console.log(data.toString())
 })
 })`
-
+    severity = "Error"
+    severity = severity.toLowerCase()
+    // get severityColor for html
+    var severityColor = ""
+    if (severity=="error"){
+        severityColor='danger'
+    }else if (severity=="warning"){
+        severityColor='warning'
+    }else if (severity=="reccomendation"){
+        severityColor='primary'
+    }
     res.json({
         'results': [{
                 vulnerability: "SQL injection | model.js",
