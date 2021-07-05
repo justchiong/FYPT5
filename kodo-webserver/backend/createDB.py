@@ -45,48 +45,52 @@ resultPath = os.path.join(result_parent_dir, scanResultFolderName)
 os.mkdir(resultPath)
 
 databaseName = uuid +"_db"
+print(queriesToRun)
 
 # get .ql filenames in the folder and put in a list
 for query in queriesToRun:
      cweList = []
-     if query == "injection":
+     queryCode = ""
+     if query == "SQL_Injection":
           cweList = ["CWE-089"]
 
-     elif query == "ba":
+     elif query == "Broken_Authentication":
           cweList = ["MISSING QUERY FILE"]
      #Missing Some CWEs Check OWASP Website
 
-     elif query == "sde":
+     elif query == "Sensitive_Data_Exposure":
           cweList = ["CWE-312", "CWE-327"]
      #Missing Some CWEs Check OWASP Website
 
-     elif query == "xxe":
+     elif query == "XML_External_Entities":
           cweList = ["CWE-611"]
 
-     elif query == "bac":
+     elif query == "Broken_Access_Control":
           cweList = ["CWE-022"]
      #Missing Some CWEs Check OWASP Website
 
-     elif query == "sm":
+     elif query == "Security_Misconfiguration":
           cweList = ["MISSING QUERY FILE"]
      #Missing Some CWEs Check OWASP Website
 
-     elif query == "xss":
+     elif query == "Cross-site_Scripting":
           cweList = ["CWE-079"]
      #Missing Some CWEs Check OWASP Website
 
-     elif query == "id":
+     elif query == "Insecure_Deserialization":
           cweList = ["CWE-502"]
      #Missing Some CWEs Check OWASP Website
 
-     elif query == "ilm":
+     elif query == "Insufficient_Logging_&_Monitoring":
           cweList = ["MISSING QUERY FILE"]
      #Missing Some CWEs Check OWASP Website
      for cwe in cweList:
           print("Scanning database for " + cwe)
+          print(query)
+
           cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./backend/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{cwe}"
           process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
-          # print(process2.returncode)
-          # print(process2.stderr)
-          # print(process2.stdout)
+          print(process2.returncode)
+          print(process2.stderr)
+          print(process2.stdout)
  

@@ -23,7 +23,7 @@ var kodoDB = {
             }
         })
     },
-    addResult(request_uuid, selected_option, cwe, type, description, severity, highlighted_code, referenced_code, code_snippet, callback){
+    addResult(request_uuid, selected_option, cwe, type, description, severity, highlighted_code, referenced_code, code_snippet, fileLocation, lineNumbers, callback){
         var conn = db.getConnection()
         conn.connect(function(err){
             if(err){
@@ -31,8 +31,8 @@ var kodoDB = {
                 return callback(err, null)
             }
             else{
-                var sql = 'INSERT INTO results (request_uuid, selected_option, cwe, type, description, severity, highlighted_code, referenced_code, code_snippet) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)'
-                conn.query(sql, [request_uuid, selected_option, cwe, type, description, severity, highlighted_code, referenced_code, code_snippet], function(err,result){
+                var sql = 'INSERT INTO results (request_uuid, selected_option, cwe, type, description, severity, highlighted_code, referenced_code, code_snippet, fileLocation, lineNumbers) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+                conn.query(sql, [request_uuid, selected_option, cwe, type, description, severity, highlighted_code, referenced_code, code_snippet, fileLocation, lineNumbers], function(err,result){
                     conn.end()
                     if(err){
                         return callback(err,null)
@@ -48,12 +48,12 @@ var kodoDB = {
     getResults(uuid, callback){
         console.log(`Getting results associated with request UUID of ${uuid}...`)
         var conn = db.getConnection()
-        conn.connect(function(err){
+        conn.connect(function(err){ 
             if(err){
                 console.log(err)
                 return callback(err, null)
             }else{
-                var sql = 'select selected_option, cwe, type, description, severity, highlighted_code, referenced_code, code_snippet from results where request_uuid=?'
+                var sql = 'select results.fileLocation, results.selected_option, results.cwe, results.type, results.description, results.severity, results.highlighted_code, results.referenced_code, results.code_snippet, results.lineNumbers from results where results.request_uuid=?'
                 conn.query(sql, [uuid], function(err, result){
                     conn.end();
                     if(err){
