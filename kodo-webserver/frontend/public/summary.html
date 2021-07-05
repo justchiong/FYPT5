@@ -190,7 +190,6 @@
     });
     hljs.initLineNumbersOnLoad();
 
-<<<<<<< Updated upstream
     function removeChartData(chart) {
         chart.data.datasets.forEach((dataset) => {
             dataset.data.pop();
@@ -204,9 +203,7 @@
         chart.update();
     }
     //post request to give app.js the accesskey and retrieve params
-=======
     //get request to give app.js the accesskey and retrieve params
->>>>>>> Stashed changes
     $("#getResults").submit((event) => {
         event.preventDefault()
         $('#addResultAfter').nextAll().remove() //remove all existing rows
@@ -217,11 +214,9 @@
         axios.get(`${baseUrl}/request/results/${$("#accesskey").val()}`)
             .then((response) => {
                 var allResults = response.data
-<<<<<<< Updated upstream
                 var allGeneral = allResults.general[0]
-=======
                 console.log(allResults)
->>>>>>> Stashed changes
+
                 allResults = allResults.results
                 sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
                 removeChartData(sevCvar)

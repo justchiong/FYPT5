@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 var express = require('express');
 var app = express();
 var kodoDB = require('../model/model.js');
@@ -62,41 +61,9 @@ function removeReqFiles(requuid) {
     }, function(err) {
         if (err) {
             throw err;
-=======
-    var express = require('express');
-    var app = express();
-    var kodoDB = require('../model/model.js');
-
-    var bodyParser = require('body-parser');
-    const cors = require("cors");
-    app.use(bodyParser.json())
-    app.use(cors());
-    const spawn = require('child_process').spawn;
-    const readline = require('readline');
-
-    const JWT_SECRET = require("../auth/config.js");
-    const jwt = require('jsonwebtoken')
-    const {
-        v4: uuidv4
-    } = require('uuid');
-    const verifyToken = require('../auth/verifyToken.js');
-    var multer = require('multer');
-
-    const fastcsv = require('fast-csv');
-    const fs = require('fs');
-    const {
-        isNullOrUndefined
-    } = require('util');
-
-    var storages = multer.diskStorage({
-        destination: function (req, file, callback) {
-            callback(null, './backend/zipFiles/');
-        },
-        filename: function (req, file, callback) {
-            callback(null, req.uuid + ".zip");
->>>>>>> Stashed changes
         }
     });
+}
 
     var upload = multer({
         storage: storages,
@@ -366,89 +333,6 @@ function removeReqFiles(requuid) {
             })
         }
 
-<<<<<<< Updated upstream
-})
-app.post('/request/results', function (req, res) {
-
-    codeCopied = `var upload = multer({storage: storages,
-fileFilter: function(req, file, callback){
-req.valid = file.mimetype == "application/x-zip-compressed"
-return callback(null, file.mimetype == "application/x-zip-compressed")
-}
-});
-
-var nodemailer = require('nodemailer');
-
-app.post('/request/parameters', function(req,res){
-var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
-var email = req.body.email  
-var queriesToUse = req.body.queriesToUse
-if (!req.body.hasOwnProperty("email") || !req.body.hasOwnProperty("queriesToUse")) {
-res.status(500).send("Internal Server Error")
-return
-}else if(!emailPattern.test(email) || !(queriesToUse.constructor === Array)){
-res.status(422).send()
-return`
-    codeCopied1 = `app.post('/request/zipFile',verifyToken, upload.single('zipFile'), function(req,res){
-if(!req.valid){
-    console.log(\`File with request UUID \${req.uuid} is invalid.\`)
-    res.status(422).send("Wrong file type, only zip files are accepted.")
-    return
-}
-console.log(\`Zip file of request UUID \${req.uuid} received and stored.\`)
-res.sendStatus(200)
-var pyProcess = spawn('python', ["./backend/createDB.py", req.uuid, req.queriesToUse, req.email])
-pyProcess.stdout.on('data', data => {
-    console.log(data.toString())
-})
-})`
-    severity = "Error"
-    severity = severity.toLowerCase()
-    // get severityColor for html
-    var severityColor = ""
-    if (severity=="error"){
-        severityColor='danger'
-    }else if (severity=="warning"){
-        severityColor='warning'
-    }else if (severity=="recommendation"){
-        severityColor='primary'
-    }
-    res.json({
-        'results': [{
-                vulnerability: "SQL injection | model.js",
-                description: "Untrusted input concatenated with raw SQL query can result in SQL injection",
-                severity: "ERROR",
-                severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
-                owasp: "A1:Injection",
-                cwe: "CWE-089:Improper neutralization of special elements used in an SQL command (SQL injection)",
-                filepath: "model/model.js",
-                line: "[59:20]",
-                lineStart: "54", //-5 of line
-                codeCopied: codeCopied
-            },
-            {
-                vulnerability: "Cross-site Scripting | app.js",
-                description: "Untrusted data in a new web page without proper validation or escaping, or updates an existing web page with user-supplied data using a browser API that can create HTML or JavaScript.",
-                severity: "WARNING",
-                severityColor: "warning", //base on bootstrap button colors (primary,danger,warning,etc)
-                owasp: "A7:Cross-site Scripting (XSS)",
-                cwe: "CWE-089:Improper neutralization of special elements used in an XSS command",
-                filepath: "controller/app.js",
-                line: "[200:33]",
-                lineStart: "195", //-5 of line
-                codeCopied: codeCopied1
-            }
-        ],
-        'general': [{
-                zipName: "DVNA-master.zip",
-                md5: "701df3a511a5e0d1f31eadd7a015dd65",
-                totalIssues: "23",
-                totalErrors: "10",
-                totalWarns: "7",
-                totalRecomms: "3"
-        }]
-=======
->>>>>>> Stashed changes
     })
     // app.post('/request/results', function (req, res) {
 
