@@ -44,21 +44,21 @@ var upload = multer({
 function removeReqFiles(requuid) {
     fs.rmdir(`.\\backend\\webServer_Folders\\${requuid}`, {
         recursive: true
-    }, (err) => {
+    }, function(err){
         if (err) {
             throw err;
         }
     })
     fs.rmdir(`.\\backend\\scanResults\\${requuid}_scanResults`, {
         recursive: true
-    }, (err) => {
+    }, function(err) {
         if (err) {
             throw err;
         }
     })
     fs.rmdir(`.\\backend\\databases\\${requuid}_db`, {
         recursive: true
-    }, (err) => {
+    }, function(err) {
         if (err) {
             throw err;
         }
@@ -348,7 +348,15 @@ pyProcess.stdout.on('data', data => {
                 lineStart: "195", //-5 of line
                 codeCopied: codeCopied1
             }
-        ]
+        ],
+        'general': [{
+                zipName: "DVNA-master.zip",
+                md5: "701df3a511a5e0d1f31eadd7a015dd65",
+                totalIssues: "23",
+                totalErrors: "10",
+                totalWarns: "7",
+                totalRecomms: "3"
+        }]
     })
     res.send()
 })

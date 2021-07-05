@@ -66,11 +66,11 @@
                     <h6 class="card-subtitle mb-2 text-muted">BASIC SCAN INFORMATION</h6>
                     <h5 class="card-title">Information</h5>
                     <p class="card-text">
-                        <p><span class="badge badge-primary">&nbsp;&nbsp;File&nbsp;&nbsp;</span><br>DVNA-master.zip</p>
+                        <p><span class="badge badge-primary">&nbsp;&nbsp;File&nbsp;&nbsp;</span><br><div id="zipName">Kodo.zip</div></p>
                         <p><span class="badge badge-primary">&nbsp;&nbsp;MD5
-                                Hash&nbsp;&nbsp;</span><br>22932655a6ad0b8020aa2abac66d4bb8</p>
+                                Hash&nbsp;&nbsp;</span><br><div id="md5">22932655a6ad0b8020aa2abac66d4bb8</div></p>
                         <p><span class="badge badge-warning">&nbsp;&nbsp;Total No. of Issues:&nbsp;&nbsp;</span><span
-                                style="font-size:19px;padding-left: 8px;">23</span></p>
+                                style="font-size:19px;padding-left: 8px;" id="totalIssues">18</span></p>
                     </p>
                 </div>
             </div>
@@ -127,7 +127,6 @@
 
     var sevC = document.getElementById('severityCanvas').getContext('2d');
     var vulnC = document.getElementById('vulnCanvas').getContext('2d');
-
     var sevCvar = new Chart(sevC, {
         type: 'pie',
         data: {
@@ -144,7 +143,6 @@
                     'rgba(135, 135, 135,0.6)',
                     'rgba(135, 135, 135,0.6)',
                     'rgba(135, 135, 135,0.6)'
-
                 ],
                 borderWidth: 1
             }]
@@ -192,6 +190,18 @@
     });
     hljs.initLineNumbersOnLoad();
 
+    function removeChartData(chart) {
+        chart.data.datasets.forEach((dataset) => {
+            dataset.data.pop();
+        });
+        chart.update();
+    }
+    function addChartData(chart, data) {
+        chart.data.datasets.forEach((dataset) => {
+            console.log(dataset.data.push(data));
+        });
+        chart.update();
+    }
     //post request to give app.js the accesskey and retrieve params
     $("#getResults").submit((event) => {
         event.preventDefault()
@@ -201,9 +211,19 @@
         }
         axios.post(`${baseUrl}/request/results`, requestBody)
             .then((response) => {
-                document.getElementById('accordion').scrollIntoView()
                 var allResults = response.data
+                var allGeneral = allResults.general[0]
                 allResults = allResults.results
+                sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
+                removeChartData(sevCvar)
+                addChartData(sevCvar,sevCdata)
+
+                document.getElementById('zipName').innerHTML = allGeneral.zipName
+                document.getElementById('md5').innerHTML = allGeneral.md5
+                document.getElementById('totalIssues').innerHTML = allGeneral.totalIssues
+
+                document.getElementById('accordion').scrollIntoView()
+                
                 count = 0
                 for (var result in allResults) {
                     result = allResults[result]
