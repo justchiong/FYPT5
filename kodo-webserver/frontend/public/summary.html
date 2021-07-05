@@ -213,18 +213,18 @@
         console.log($("#accesskey").val())
         axios.get(`${baseUrl}/request/results/${$("#accesskey").val()}`)
             .then((response) => {
-                var allResults = response.data
-                var allGeneral = allResults.general[0]
+                var allResults = response.data.results
+                // var allGeneral = allResults.general[0]
                 console.log(allResults)
 
-                allResults = allResults.results
-                sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
-                removeChartData(sevCvar)
-                addChartData(sevCvar,sevCdata)
+                // allResults = allResults.results
+                // sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
+                // removeChartData(sevCvar)
+                // addChartData(sevCvar,sevCdata)
 
-                document.getElementById('zipName').innerHTML = allGeneral.zipName
-                document.getElementById('md5').innerHTML = allGeneral.md5
-                document.getElementById('totalIssues').innerHTML = allGeneral.totalIssues
+                // document.getElementById('zipName').innerHTML = allGeneral.zipName
+                // document.getElementById('md5').innerHTML = allGeneral.md5
+                // document.getElementById('totalIssues').innerHTML = allGeneral.totalIssues
 
                 document.getElementById('accordion').scrollIntoView()
                 

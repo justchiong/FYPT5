@@ -90,7 +90,7 @@ for query in queriesToRun:
 
           cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./backend/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{cwe}"
           process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
-          print(process2.returncode)
-          print(process2.stderr)
-          print(process2.stdout)
+          # print(process2.returncode)
+          # print(process2.stderr)
+          # print(process2.stdout)
  
