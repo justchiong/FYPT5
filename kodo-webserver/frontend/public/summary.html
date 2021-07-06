@@ -328,6 +328,28 @@
     }
     //post request to give app.js the accesskey and retrieve params
     //get request to give app.js the accesskey and retrieve params
+    function shortForm(names){
+        let nameSplit = []
+        for(let i = 0; i < names; i++){
+            if(names[i] == "XML External Entities"){
+                names[i] = "XXE"
+            }else if(names[i] == "Cross-site Scripting"){
+                names[i] = "XSS"
+            }else if(names[i].indexOf(" ") == -1){
+                names[i] = names[i].substring(0, 3).toUpperCase()
+            }else{
+                nameSplit = []
+                nameSplit = names[i].split(" ")
+                shortForm = ""
+                for(let l = 0; l < nameSplit; l++){
+                    if(nameSplit[l] != nameSplit[l].toLowerCase()){
+                        shortForm += nameSplit[l]
+                    }
+                }
+                names[i] = shortForm
+            }
+        }
+    }
     $("#getResults").submit((event) => {
         event.preventDefault()
         $('#addResultAfter').nextAll().remove() //remove all existing rows
@@ -340,7 +362,10 @@
                 var allResults = response.data.results
                 var allGeneral = response.data.allGeneral
                 console.log(allResults)
-
+                vulnCdict = {}
+                for (let p = 0; p < allResults; p++){
+                    vulnCdict[allResults[p].]
+                }
                 // allResults = allResults.results
                 sevCdata = []
                 sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
