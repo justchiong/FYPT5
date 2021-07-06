@@ -267,7 +267,7 @@
         }
     }
     $("#scanRequest").submit((event) => {
-
+        event.preventDefault()
         const email = $("#email").val();
         const queries = getCheckedBoxes("groupcheck")
         if (queries == "error") {
