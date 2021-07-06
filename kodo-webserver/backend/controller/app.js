@@ -297,6 +297,17 @@ function removeReqFiles(requuid) {
         let uuidRegExp = new RegExp("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[4][0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$")
         return uuidRegExp.test(uuid)
     }
+    function sevColor(severity){
+        severity = severity.toLowerCase()
+        //get severityColor for html
+        if (severity=="error"){
+            return 'danger'
+        }else if (severity=="warning"){
+            return 'warning'
+        }else if (severity=="recommendation"){
+            return 'primary'
+        }
+    }
     app.get('/request/results/:uuid', function (req, res) {
         uuid = req.params.uuid
         //validate uuid pattern match
@@ -315,8 +326,8 @@ function removeReqFiles(requuid) {
                         singleResult = { 
                             vulnerability: `${result[k].selected_option} | ${result[k].fileLocation}`,
                             description: `${result[k].type}. ${result[k].description}`,
-                            severity: result[k].severity,
-                            severityColor: "danger", //base on bootstrap button colors (primary,danger,warning,etc)
+                            severity: result[k].severity.toUpperCase(),
+                            severityColor: sevColor(result[k].severity), //base on bootstrap button colors (primary,danger,warning,etc)
                             owasp: result[k].selected_option,
                             cwe: result[k].cwe,
                             filepath: result[k].fileLocation,
