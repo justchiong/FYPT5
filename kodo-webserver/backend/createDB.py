@@ -51,11 +51,11 @@ print(queriesToRun)
 for query in queriesToRun:
      cweList = []
      queryCode = ""
-     if query == "SQL_Injection":
+     if query == "Injection":
           cweList = ["CWE-089"]
 
-     elif query == "Broken_Authentication":
-          cweList = ["MISSING QUERY FILE"]
+     #elif query == "Broken_Authentication":
+          #cweList = []
      #Missing Some CWEs Check OWASP Website
 
      elif query == "Sensitive_Data_Exposure":
@@ -69,8 +69,8 @@ for query in queriesToRun:
           cweList = ["CWE-022"]
      #Missing Some CWEs Check OWASP Website
 
-     elif query == "Security_Misconfiguration":
-          cweList = ["MISSING QUERY FILE"]
+     #elif query == "Security_Misconfiguration":
+          #cweList = ["MISSING QUERY FILE"]
      #Missing Some CWEs Check OWASP Website
 
      elif query == "Cross-site_Scripting":
@@ -81,9 +81,31 @@ for query in queriesToRun:
           cweList = ["CWE-502"]
      #Missing Some CWEs Check OWASP Website
 
-     elif query == "Insufficient_Logging_&_Monitoring":
-          cweList = ["MISSING QUERY FILE"]
+     #elif query == "Insufficient_Logging_&_Monitoring":
+          #cweList = ["MISSING QUERY FILE"]
      #Missing Some CWEs Check OWASP Website
+     elif query == "Improper_Input_Validation":
+          cweList = ["CWE-020"]
+     #Missing Some CWEs Check OWASP Website
+     elif query == "OS_Command_Injection":
+          cweList = ["CWE-078"]
+     #Missing Some CWEs Check OWASP Website
+     elif query == "Code_Injection":
+          cweList = ["CWE-094"]
+     #Missing Some CWEs Check OWASP Website
+     elif query == "Cross_Site_Request_Forgery":
+          cweList = ["CWE-352"]
+     #Missing Some CWEs Check OWASP Website
+     elif query == "Open_Redirect":
+          cweList = ["CWE-601"]
+     #Missing Some CWEs Check OWASP Website
+     elif query == "XML_Entity_Expansion":
+          cweList = ["CWE-776"]
+     #Missing Some CWEs Check OWASP Website
+     elif query == "Use_Of_Hardcoded_Credentials":
+          cweList = ["CWE-798"]
+     #Missing Some CWEs Check OWASP Website
+
      for cwe in cweList:
           print("Scanning database for " + cwe)
           print(query)

@@ -90,8 +90,14 @@
             </div>
         </div>
         <!--Choose vulnerability to scan-->
+        <div class="mt-4 text-left">
+            <input class="form-check-input mx-0" type="checkbox" value="" id="selectAll" onClick="toggle(this)">
+            <label class="form-check-label text-white mx-4" for="selectAll">
+                Select all
+            </label>
+        </div>
         <!--column 1-->
-        <div class="row d-flex h-100 mt-4 pt-3 pl-0">
+        <div class="row d-flex h-100 mt-2 pt-3 pl-0">
             <div class="col-4">
                 <div class="form-check pl-0">
 
@@ -112,6 +118,27 @@
                     <input class="form-check-input mx-0" type="checkbox" value="" id="Sensitive_Data_Exposure" name="groupcheck">
                     <label class="form-check-label text-white mx-4" for="Sensitive_Data_Exposure">
                         Sensitive Data Exposure (SDE)
+                    </label>
+                </div>
+                <div class="form-check pl-0">
+
+                    <input class="form-check-input mx-0" type="checkbox" value="" id="Improper_Input_Validation" name="groupcheck">
+                    <label class="form-check-label text-white mx-4" for="Improper_Input_Validation">
+                        Improper Input Validation (IIV)
+                    </label>
+                </div>
+                <div class="form-check pl-0">
+
+                    <input class="form-check-input mx-0" type="checkbox" value="" id="Cross_Site_Request_Forgery" name="groupcheck">
+                    <label class="form-check-label text-white mx-4" for="Cross_Site_Request_Forgery">
+                        Cross Site Request Forgery (CSRF)
+                    </label>
+                </div>
+                <div class="form-check pl-0">
+
+                    <input class="form-check-input mx-0" type="checkbox" value="" id="Use_Of_Hardcoded_Credentials" name="groupcheck">
+                    <label class="form-check-label text-white mx-4" for="Use_Of_Hardcoded_Credentials">
+                        Use Of Hardcoded Credentials
                     </label>
                 </div>
             </div>
@@ -138,6 +165,20 @@
                         Security Misconfiguration (SM)
                     </label>
                 </div>
+                <div class="form-check pl-0">
+
+                    <input class="form-check-input mx-0" type="checkbox" value="" id="OS_Command_Injection" name="groupcheck">
+                    <label class="form-check-label text-white mx-4" for="OS_Command_Injection">
+                        OS Command Injection
+                    </label>
+                </div>
+                <div class="form-check pl-0">
+
+                    <input class="form-check-input mx-0" type="checkbox" value="" id="Open_Redirect" name="groupcheck">
+                    <label class="form-check-label text-white mx-4" for="Open_Redirect">
+                        Open Redirect
+                    </label>
+                </div>
             </div>
             <!--column 3-->
             <div class="col-4">
@@ -162,9 +203,23 @@
                         Insufficient Logging & Monitoring (ILM)
                     </label>
                 </div>
+                <div class="form-check pl-0">
+
+                    <input class="form-check-input mx-0" type="checkbox" value="" id="Code_Injection" name="groupcheck">
+                    <label class="form-check-label text-white mx-4" for="Code_Injection">
+                        Code Injection
+                    </label>
+                </div>
+                <div class="form-check pl-0">
+
+                    <input class="form-check-input mx-0" type="checkbox" value="" id="XML_Entity_Expansion" name="groupcheck">
+                    <label class="form-check-label text-white mx-4" for="XML_Entity_Expansion">
+                        XML Entity Expansion
+                    </label>
+                </div>
             </div>
         </div>
-
+        
         <div class="row mt-5 pt-5 mr-0">
             <div class="col-12 text-right">
                 <button type="submit" class="btn btn-warning btn-block font-weight-bold text-dark">Send Query
@@ -205,9 +260,13 @@
             return checkboxesChecked
         }
     }
+    function toggle(source) {
+        checkboxes = document.getElementsByName('groupcheck');
+        for(var i=0, n=checkboxes.length;i<n;i++) {
+            checkboxes[i].checked = source.checked;
+        }
+    }
     $("#scanRequest").submit((event) => {
-        // prevent page reload
-        event.preventDefault();
 
         const email = $("#email").val();
         const queries = getCheckedBoxes("groupcheck")
