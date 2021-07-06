@@ -175,6 +175,7 @@ function removeReqFiles(requuid) {
                     console.log(err)
                 } else {
                     for (let i = 0; i < csvList.length; i++) {
+                        
                         let csvData = [];
                         fastcsv
                             .parseFile(`./backend/scanResults/${req.uuid}_scanResults/${csvList[i]}`)
@@ -204,6 +205,8 @@ function removeReqFiles(requuid) {
                                     let snippetArray = []
                                     let endLineCountArray = []
 
+                                    let endofCodeSnippetArray = []
+
                                     for (let j = 0; j < csvData.length; j++) {
                                         let row = csvData[j]
                                         let startLineNumber = 0
@@ -223,7 +226,8 @@ function removeReqFiles(requuid) {
                                         referencedCharStartArray.push(parseInt(row[6]))
                                         referencedLineEndArray.push(parseInt(row[7]))
                                         referencedCharEndArray.push(parseInt(row[8]))
-
+                                        
+                                        endofCodeSnippetArray.push(0)
 
                                         startLineNumber = highlightedLineStartArray[j]
                                         if (startLineNumber > 5) {
@@ -236,6 +240,7 @@ function removeReqFiles(requuid) {
                                         snippetArray.push("")
                                         lineCountArray.push(0)
                                         endLineCountArray.push(0)
+
                                         fileReadStream = fs.createReadStream(`./backend/webServer_Folders/${req.uuid}${row[4]}`)
                                         readline.createInterface({
                                                 input: fileReadStream,
@@ -247,16 +252,19 @@ function removeReqFiles(requuid) {
                                                 if (lineCountArray[j] >= startlineArray[j]) {
                                                     if (lineCountArray[j] <= referencedLineEndArray[j]) {
                                                         snippetArray[j] += `${line}\n`
+                                                        endofCodeSnippetArray[j] = lineCountArray[j]
+
 
                                                     } else if (endLineCountArray[j] < 5) {
                                                         snippetArray[j] += `${line}\n`
+                                                        endofCodeSnippetArray[j] = lineCountArray[j]
                                                         endLineCountArray[j]++
                                                     }
 
                                                 }
                                             })
                                             .on('close', () => {
-                                                let lineNumbers = `${highlightedLineStartArray[j]}:${referencedLineEndArray[j]}`
+                                                let lineNumbers = `${startlineArray[j]}:${endofCodeSnippetArray[j]}`
                                                 let selectedOption = csvList[i].split("-separator-")[0]
                                                 let cwe = csvList[i].split("-separator-")[1].replace(".csv", "")
                                                 let description = csvData[j][1]
@@ -277,6 +285,7 @@ function removeReqFiles(requuid) {
                                                     if (i == csvList.length - 1 && j == csvData.length - 1) {
                                                         removeReqFiles(req.uuid)
                                                         console.log('Completed Deleting of Request Files.')
+                                                        console.log("Request uuid: " + req.uuid)
 
                                                     }
                                                 })
@@ -320,7 +329,7 @@ function removeReqFiles(requuid) {
                 } else {
                     let resultsArray = []
                     for(var k = 0; k < result.length; k++){
-                        startLine = result[k].lineNumbers.substring(0, result[k].lineNumbers.indexOf(":") - 1) - 5
+                        startLine = result[k].lineNumbers.substring(0, result[k].lineNumbers.indexOf(":"))
                         result[k].selected_option = result[k].selected_option.replace("_", " ")
                         result[k].fileLocation
                         singleResult = { 
@@ -332,7 +341,7 @@ function removeReqFiles(requuid) {
                             cwe: result[k].cwe,
                             filepath: result[k].fileLocation,
                             line: `[${result[k].lineNumbers}]`,
-                            lineStart: startLine + "",
+                            lineStart: startLine,
                             codeCopied: result[k].code_snippet
                         }
                         resultsArray.push(singleResult)
