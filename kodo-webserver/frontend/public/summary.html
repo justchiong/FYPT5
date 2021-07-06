@@ -190,16 +190,9 @@
     });
     hljs.initLineNumbersOnLoad();
 
-    function removeChartData(chart) {
-        chart.data.datasets.forEach((dataset) => {
-            dataset.data.pop();
-        });
-        chart.update();
-    }
-    function addChartData(chart, data) {
-        chart.data.datasets.forEach((dataset) => {
-            console.log(dataset.data.push(data));
-        });
+    function updateChart(chart, newData) {
+        chart.data.datasets[0].data = []
+        chart.data.datasets[0].data = newData
         chart.update();
     }
     //post request to give app.js the accesskey and retrieve params
@@ -219,15 +212,23 @@
 
                 // allResults = allResults.results
                 // sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
-                // removeChartData(sevCvar)
-                // addChartData(sevCvar,sevCdata)
-
+                sevCdata = []
+                vulnCdata = []
+                for(num=0;num<10;num++){
+                    ranNum = Math.floor(Math.random() * (20 - 3) + 3)
+                    vulnCdata.push(ranNum)
+                }
+                for(num2=0;num2<3;num2++){
+                    ranNum = Math.floor(Math.random() * (20 - 3) + 3)
+                    sevCdata.push(ranNum)
+                }
+                updateChart(sevCvar,sevCdata)
+                updateChart(vulnCvar,vulnCdata)
                 // document.getElementById('zipName').innerHTML = allGeneral.zipName
                 // document.getElementById('md5').innerHTML = allGeneral.md5
                 // document.getElementById('totalIssues').innerHTML = allGeneral.totalIssues
 
                 document.getElementById('accordion').scrollIntoView()
-                
                 count = 0
                 for (var result in allResults) {
                     result = allResults[result]
