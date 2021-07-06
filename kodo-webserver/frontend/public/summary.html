@@ -190,8 +190,9 @@
     });
     hljs.initLineNumbersOnLoad();
 
-    function updateChart(chart, newData) {
+    function updateChart(chart, newData, labels) {
         chart.data.datasets[0].data = []
+        chart.data.labels = labels
         chart.data.datasets[0].data = newData
         chart.update();
     }
@@ -207,23 +208,25 @@
         axios.get(`${baseUrl}/request/results/${$("#accesskey").val()}`)
             .then((response) => {
                 var allResults = response.data.results
-                // var allGeneral = allResults.general[0]
+                var allGeneral = response.data.allGeneral
                 console.log(allResults)
 
                 // allResults = allResults.results
-                // sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
                 sevCdata = []
-                vulnCdata = []
-                for(num=0;num<10;num++){
-                    ranNum = Math.floor(Math.random() * (20 - 3) + 3)
-                    vulnCdata.push(ranNum)
-                }
-                for(num2=0;num2<3;num2++){
-                    ranNum = Math.floor(Math.random() * (20 - 3) + 3)
-                    sevCdata.push(ranNum)
-                }
-                updateChart(sevCvar,sevCdata)
-                updateChart(vulnCvar,vulnCdata)
+                sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
+                vulnCdata = allGeneral.vulnCdata
+                vulnClabels = allGeneral.labels
+
+                var pointBackgroundColor = [
+                '#e6194B', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#42d4f4', '#f032e6', '#bfef45', '#fabed4'
+                ]
+
+                // for(num2=0;num2<3;num2++){
+                //     ranNum = Math.floor(Math.random() * (20 - 3) + 3)
+                //     sevCdata.push(ranNum)
+                // }
+                updateChart(sevCvar, sevCdata, ['Error', 'Warning', 'Recommendation'])
+                updateChart(vulnCvar, vulnCdata, vulnClabels)
                 // document.getElementById('zipName').innerHTML = allGeneral.zipName
                 // document.getElementById('md5').innerHTML = allGeneral.md5
                 // document.getElementById('totalIssues').innerHTML = allGeneral.totalIssues
