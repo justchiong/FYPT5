@@ -283,7 +283,7 @@ function removeReqFiles(requuid) {
 
                                                     }
                                                     if (i == csvList.length - 1 && j == csvData.length - 1) {
-                                                        removeReqFiles(req.uuid)
+                                                        // removeReqFiles(req.uuid)
                                                         console.log('Completed Deleting of Request Files.')
                                                         console.log("Request uuid: " + req.uuid)
 
@@ -328,12 +328,38 @@ function removeReqFiles(requuid) {
                     res.sendStatus(500)
                 } else {
                     let resultsArray = []
+                    errorArray = []
+                    warnArray = []
+                    recommArray = []
+                    vulnClabels = []
+                    vulnCdata = []
+                    vulnName = [
+                        'A1:(INJ)',
+                        'A2:(BA)',
+                        'A3:(SDE)',
+                        'A4:(XXE)',
+                        'A5:(BAC)',
+                        'A6:(XM)',
+                        'A7:(XSS)',
+                        'A8:(ID)',
+                        'A10:(ILM)',
+                    ]
+                    vulnNum = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                    
                     for(var k = 0; k < result.length; k++){
                         startLine = result[k].lineNumbers.substring(0, result[k].lineNumbers.indexOf(":"))
                         startLine = parseInt(startLine)-5
                         if (startLine<1){startLine=1}
-                        result[k].selected_option = result[k].selected_option.replace("_", " ")
+                        result[k].selected_option = result[k].selected_option.split("_").join(" ")
+
                         result[k].fileLocation
+                        if(result[k].severity == "error"){
+                            errorArray.push(result[k])
+                        }else if(result[k].severity == "warning"){
+                            warnArray.push(result[k])
+                        }else if(result[k].severity == "reccomendations"){
+                            recommArray.push(result[k])
+                        }
                         singleResult = { 
                             vulnerability: `${result[k].selected_option} | ${result[k].fileLocation}`,
                             description: `${result[k].type}. ${result[k].description}`,
@@ -346,10 +372,45 @@ function removeReqFiles(requuid) {
                             lineStart: startLine,
                             codeCopied: result[k].code_snippet
                         }
+                        if (result[k].selected_option == "Injection"){
+                            vulnNum[0]++
+                        }else if(result[k].selected_option == "Broken_Authentication"){
+                            vulnNum[1]++ 
+                        }else if(result[k].selected_option == "Sensitive_Data_Exposure"){
+                            vulnNum[2]++
+                        }else if(result[k].selected_option == "XML_External_Entities"){
+                            vulnNum[3]++ 
+                        }else if(result[k].selected_option == "Broken_Access_Control"){
+                            vulnNum[4]++  
+                        }else if(result[k].selected_option == "Security_Misconfiguration"){
+                            vulnNum[5]++  
+                        }else if(result[k].selected_option == "Cross-site_Scripting"){
+                            vulnNum[6]++
+                        }else if(result[k].selected_option == "Insecure_Deserialization"){
+                            vulnNum[7]++   
+                        }else if(result[k].selected_option == "Insufficient_Logging_&_Monitoring"){
+                            vulnNum[8]++
+                        }
+                        for(var p = 0; p < vulnNum.length; p++){
+                            if(vulnNum[p] != 0){
+                                vulnClabels.push(vulnName[p])
+                                vulnCdata.push(vulnNum[p])
+                            }
+                        }                        
+
                         resultsArray.push(singleResult)
                     }
+
+                    allGeneral = {
+                        'totalErrors': errorArray.length,
+                        'totalWarns': warnArray.length,
+                        'totalRecomms': recommArray.length,
+                        'vulnCdata':  vulnCdata,
+                        'vulnClabels': vulnClabels
+                    }
                     res.send({
-                        'results': resultsArray
+                        'results': resultsArray,
+                        'allGeneral': allGeneral
                     })
                 }
             })
