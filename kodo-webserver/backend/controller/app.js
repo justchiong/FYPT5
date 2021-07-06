@@ -330,6 +330,8 @@ function removeReqFiles(requuid) {
                     let resultsArray = []
                     for(var k = 0; k < result.length; k++){
                         startLine = result[k].lineNumbers.substring(0, result[k].lineNumbers.indexOf(":"))
+                        startLine = parseInt(startLine)-5
+                        if (startLine<1){startLine=1}
                         result[k].selected_option = result[k].selected_option.replace("_", " ")
                         result[k].fileLocation
                         singleResult = { 

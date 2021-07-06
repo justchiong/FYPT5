@@ -2,7 +2,7 @@ import subprocess
 import sys
 import zipfile
 import os
-import removeReq
+
 # .stout for output
 # .stderr for printing err in python terminal
 # .args for the list of arguments used

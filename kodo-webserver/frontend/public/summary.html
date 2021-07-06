@@ -128,7 +128,7 @@
     var sevC = document.getElementById('severityCanvas').getContext('2d');
     var vulnC = document.getElementById('vulnCanvas').getContext('2d');
     var sevCvar = new Chart(sevC, {
-        type: 'pie',
+        type: 'doughnut',
         data: {
             labels: ['Error', 'Warning', 'Recommendation'],
             datasets: [{
