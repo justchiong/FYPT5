@@ -66,11 +66,11 @@
                     <h6 class="card-subtitle mb-2 text-muted">BASIC SCAN INFORMATION</h6>
                     <h5 class="card-title">Information</h5>
                     <p class="card-text">
-                        <p><span class="badge badge-primary">&nbsp;&nbsp;File&nbsp;&nbsp;</span><br><div id="zipName">Kodo.zip</div></p>
-                        <p><span class="badge badge-primary">&nbsp;&nbsp;MD5
-                                Hash&nbsp;&nbsp;</span><br><div id="md5">22932655a6ad0b8020aa2abac66d4bb8</div></p>
+                        <p><span class="badge badge-primary">&nbsp;&nbsp;File&nbsp;&nbsp;</span><br><div id="zipName">Please enter your access-key</div></p>
+                        <!-- <p><span class="badge badge-primary">&nbsp;&nbsp;MD5
+                                Hash&nbsp;&nbsp;</span><br><div id="md5">22932655a6ad0b8020aa2abac66d4bb8</div></p> -->
                         <p><span class="badge badge-warning">&nbsp;&nbsp;Total No. of Issues:&nbsp;&nbsp;</span><span
-                                style="font-size:19px;padding-left: 8px;" id="totalIssues">18</span></p>
+                                style="font-size:19px;padding-left: 8px;" id="totalIssues">0</span></p>
                     </p>
                 </div>
             </div>
@@ -330,25 +330,29 @@
     //get request to give app.js the accesskey and retrieve params
     function shortForm(names){
         let nameSplit = []
-        for(let i = 0; i < names; i++){
+        let shortnames = names
+        for(let i = 0; i < names.length; i++){
             if(names[i] == "XML External Entities"){
-                names[i] = "XXE"
+                shortnames[i] = "XXE"
             }else if(names[i] == "Cross-site Scripting"){
-                names[i] = "XSS"
+                shortnames[i] = "XSS"
             }else if(names[i].indexOf(" ") == -1){
-                names[i] = names[i].substring(0, 3).toUpperCase()
+                shortnames[i] = names[i].substring(0, 3).toUpperCase()
             }else{
                 nameSplit = []
                 nameSplit = names[i].split(" ")
-                shortForm = ""
-                for(let l = 0; l < nameSplit; l++){
-                    if(nameSplit[l] != nameSplit[l].toLowerCase()){
-                        shortForm += nameSplit[l]
+                let shortForms = ""
+                for(let l = 0; l < nameSplit.length; l++){
+                    console.log(nameSplit[l])
+                    if(nameSplit[l] != nameSplit[l][0].toLowerCase()){
+                        shortForms += nameSplit[l][0]
                     }
                 }
-                names[i] = shortForm
+                shortnames[i] = shortForms
             }
         }
+        console.log(shortnames)
+        return shortnames
     }
     $("#getResults").submit((event) => {
         event.preventDefault()
@@ -361,31 +365,43 @@
             .then((response) => {
                 var allResults = response.data.results
                 var allGeneral = response.data.allGeneral
-                console.log(allResults)
-                vulnCdict = {}
-                for (let p = 0; p < allResults; p++){
-                    vulnCdict[allResults[p].]
+                let vulnCdata = []
+                let vulnClabels = []
+                let vulnCdict = {}
+                let pointBackgroundColor = []
+                for (let p = 0; p < allResults.length; p++){
+                    if(!(allResults[p].selected_option in vulnCdict)){
+                        vulnCdict[allResults[p].selected_option] = 1
+                    }else{
+                        vulnCdict[allResults[p].selected_option] += 1 
+                    }
                 }
+                for (var [label, value] of Object.entries(vulnCdict)) {
+                    vulnCdata.push(value)
+                    vulnClabels.push(label)
+                    pointBackgroundColor.push("e6194B")
+                }
+
                 // allResults = allResults.results
                 sevCdata = []
                 sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
-                vulnCdata = allGeneral.vulnCdata
-                vulnClabels = allGeneral.labels
 
-                var pointBackgroundColor = [
-                '#e6194B', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#42d4f4', '#f032e6', '#bfef45', '#fabed4'
-                ]
+
 
                 // for(num2=0;num2<3;num2++){
                 //     ranNum = Math.floor(Math.random() * (20 - 3) + 3)
                 //     sevCdata.push(ranNum)
                 // }
                 updateChart(sevCvar, sevCdata, ['Error', 'Warning', 'Recommendation'])
-                updateChart(vulnCvar, vulnCdata, vulnClabels)
-                // document.getElementById('zipName').innerHTML = allGeneral.zipName
+                if(vulnClabels.length > 12){
+                    updateChart(vulnCvar, vulnCdata, shortForm(vulnClabels))
+                }else{
+                    updateChart(vulnCvar, vulnCdata, vulnClabels)
+                }
+                document.getElementById('zipName').innerHTML = allGeneral.fileName
                 // document.getElementById('md5').innerHTML = allGeneral.md5
-                // document.getElementById('totalIssues').innerHTML = allGeneral.totalIssues
-
+                document.getElementById('totalIssues').innerHTML = vulnClabels.length
+                
                 document.getElementById('accordion').scrollIntoView()
                 count = 0
                 for (var result in allResults) {

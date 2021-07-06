@@ -53,7 +53,7 @@ var kodoDB = {
                 console.log(err)
                 return callback(err, null)
             }else{
-                var sql = 'select results.fileLocation, results.selected_option, results.cwe, results.type, results.description, results.severity, results.highlighted_code, results.referenced_code, results.code_snippet, results.lineNumbers from results where results.request_uuid=?'
+                var sql = 'select requests.original_filename, results.fileLocation, results.selected_option, results.cwe, results.type, results.description, results.severity, results.highlighted_code, results.referenced_code, results.code_snippet, results.lineNumbers from results inner join requests on requests.uuid=results.request_uuid where results.request_uuid=?'
                 conn.query(sql, [uuid], function(err, result){
                     conn.end();
                     if(err){

@@ -349,7 +349,7 @@ function removeReqFiles(requuid) {
                         }else if(result[k].severity == "reccomendations"){
                             recommArray.push(result[k])
                         }
-                        singleResult = { 
+                        singleResult = {
                             vulnerability: `${result[k].selected_option} | ${result[k].fileLocation}`,
                             description: `${result[k].type}. ${result[k].description}`,
                             severity: result[k].severity.toUpperCase(),
@@ -359,14 +359,16 @@ function removeReqFiles(requuid) {
                             filepath: result[k].fileLocation,
                             line: `[${result[k].lineNumbers}]`,
                             lineStart: startLine,
-                            codeCopied: result[k].code_snippet
+                            codeCopied: result[k].code_snippet,
+                            selected_option: result[k].selected_option
                         }
-\
+
 
                         resultsArray.push(singleResult)
                     }
 
                     allGeneral = {
+                        'fileName': result[0].original_filename,
                         'totalErrors': errorArray.length,
                         'totalWarns': warnArray.length,
                         'totalRecomms': recommArray.length,
