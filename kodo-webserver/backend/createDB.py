@@ -80,8 +80,9 @@ for query in queriesToRun:
           cweList = ["CWE-502"]
      #Missing Some CWEs Check OWASP Website
 
-     #elif query == "Insufficient_Logging_&_Monitoring":
-          #cweList = ["MISSING QUERY FILE"]
+     # elif query == "Insufficient_Logging_&_Monitoring":
+     #      cweList = ["MISSING QUERY FILE"] 
+
      #Missing Some CWEs Check OWASP Website
      elif query == "Improper_Input_Validation":
           cweList = ["CWE-020"]
@@ -92,9 +93,11 @@ for query in queriesToRun:
      elif query == "Code_Injection":
           cweList = ["CWE-094"]
      #Missing Some CWEs Check OWASP Website
-     elif query == "Cross_Site_Request_Forgery":
-          cweList = ["CWE-352"]
+
+     # elif query == "Cross_Site_Request_Forgery":
+     #      cweList = ["CWE-352"] 
      #Missing Some CWEs Check OWASP Website
+
      elif query == "Open_Redirect":
           cweList = ["CWE-601"]
      #Missing Some CWEs Check OWASP Website

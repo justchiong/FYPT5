@@ -69,8 +69,8 @@
                         <p><span class="badge badge-primary">&nbsp;&nbsp;File&nbsp;&nbsp;</span><br><div id="zipName">Please enter your access-key</div></p>
                         <!-- <p><span class="badge badge-primary">&nbsp;&nbsp;MD5
                                 Hash&nbsp;&nbsp;</span><br><div id="md5">22932655a6ad0b8020aa2abac66d4bb8</div></p> -->
-                        <p><span class="badge badge-warning">&nbsp;&nbsp;Total No. of Issues:&nbsp;&nbsp;</span><span
-                                style="font-size:19px;padding-left: 8px;" id="totalIssues">0</span></p>
+                        <p><span class="badge badge-warning">&nbsp;&nbsp;Types of Issues:&nbsp;&nbsp;</span><span
+                                style="font-size:19px;padding-left: 8px;" id="totalTypes">0</span></p>
                     </p>
                 </div>
             </div>
@@ -215,7 +215,7 @@
           var sidePadding = centerConfig.sidePadding || 20;
           var sidePaddingCalculated = (sidePadding / 100) * (chart.innerRadius * 2)
           // Start with a base font of 30px
-          ctx.font = "30px " + fontStyle;
+          ctx.font = "25px " + fontStyle;
 
           // Get the width of the string and also the width of the element minus 10 to give it 5px side padding
           var stringWidth = ctx.measureText(txt).width;
@@ -289,7 +289,7 @@
             labels: ['Issues'],
             datasets: [{
                 //label: 'Error',
-                data: [10, 20-10],
+                data: [7, 10-7],
                 backgroundColor: [
                     '#44d4b4'
                 ],
@@ -299,12 +299,12 @@
         options: {
             elements: {
                 center: {
-                    text: '10',
+                    text: '7',
                     color: '#FF6384', // Default is #000000
                     fontStyle: 'Arial', // Default is Arial
-                    sidePadding: 30, // Default is 20 (as a percentage)
+                    sidePadding: 20, // Default is 20 (as a percentage)
                     minFontSize: 20, // Default is 20 (in px), set to false and text will not wrap.
-                    lineHeight: 20 // Default is 25 (in px), used for when text wraps
+                    lineHeight: 10 // Default is 25 (in px), used for when text wraps
                 }
             },
             maintainAspectRatio: false, //important for scaling to work properly
@@ -386,13 +386,13 @@
                 sevCdata = []
                 sevCdata = [allGeneral.totalErrors, allGeneral.totalWarns, allGeneral.totalRecomms]
 
-
-
                 // for(num2=0;num2<3;num2++){
                 //     ranNum = Math.floor(Math.random() * (20 - 3) + 3)
                 //     sevCdata.push(ranNum)
                 // }
                 updateChart(sevCvar, sevCdata, ['Error', 'Warning', 'Recommendation'])
+                updateChart(issueCvar,[allGeneral.totalIssues,15-allGeneral.totalIssues],['Issue'])
+                issueCvar.options.elements.center.text = allGeneral.totalIssues
                 if(vulnClabels.length > 12){
                     updateChart(vulnCvar, vulnCdata, shortForm(vulnClabels))
                 }else{
@@ -400,9 +400,9 @@
                 }
                 document.getElementById('zipName').innerHTML = allGeneral.fileName
                 // document.getElementById('md5').innerHTML = allGeneral.md5
-                document.getElementById('totalIssues').innerHTML = vulnClabels.length
+                document.getElementById('totalTypes').innerHTML = vulnClabels.length
                 
-                document.getElementById('accordion').scrollIntoView()
+                document.getElementById('contain123').scrollIntoView()
                 count = 0
                 for (var result in allResults) {
                     result = allResults[result]

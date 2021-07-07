@@ -362,8 +362,6 @@ function removeReqFiles(requuid) {
                             codeCopied: result[k].code_snippet,
                             selected_option: result[k].selected_option
                         }
-
-
                         resultsArray.push(singleResult)
                     }
 
@@ -372,6 +370,7 @@ function removeReqFiles(requuid) {
                         'totalErrors': errorArray.length,
                         'totalWarns': warnArray.length,
                         'totalRecomms': recommArray.length,
+                        'totalIssues': resultsArray.length
                     }
                     res.send({
                         'results': resultsArray,
