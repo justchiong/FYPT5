@@ -103,9 +103,9 @@ for query in queriesToRun:
      #Missing Some CWEs Check OWASP Website
      elif query == "XML_Entity_Expansion":
           cweList = ["CWE-776"]
-     #Missing Some CWEs Check OWASP Website
-     elif query == "Use_of_Hardcoded_Credentials":
-          cweList = ["CWE-798"]
+     # #Missing Some CWEs Check OWASP Website
+     # elif query == "Use_of_Hardcoded_Credentials":
+     #      cweList = ["CWE-798"]  
      #Missing Some CWEs Check OWASP Website
 
      for cwe in cweList:

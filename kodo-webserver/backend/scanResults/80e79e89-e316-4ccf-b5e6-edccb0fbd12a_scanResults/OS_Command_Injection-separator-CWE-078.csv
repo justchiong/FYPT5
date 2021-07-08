@@ -1,0 +1,1 @@
+"Uncontrolled command line","Using externally controlled strings in a command line may allow a malicious user to change the meaning of the command.","error","This command depends on [[""a user-provided value""|""relative:///dvna-master/core/appHandler.js:39:22:39:29""]].","/dvna-master/core/appHandler.js","39","7","39","37"

@@ -1,0 +1,1 @@
+"XML external entity expansion","Parsing user input as an XML document with external entity expansion is vulnerable to XXE attacks.","error","A [[""user-provided value""|""relative:///dvna-master/core/appHandler.js:235:42:235:50""]] is parsed as XML without guarding against external entity expansion.","/dvna-master/core/appHandler.js","235","42","235","81"
