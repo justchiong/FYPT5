@@ -272,10 +272,7 @@ function removeReqFiles(requuid) {
                                                 let decriptionArray2 = descriptionArray[1].split("]]")
                                                 let highlightedStr = decriptionArray2[0].substring(1, decriptionArray2[0].substring(1).indexOf("\"") + 1)
                                                 description += `\n${descriptionArray[0]}\|${highlightedStr}\|${decriptionArray2[1]}`
-                                                let relativeHighlightLocation = `${highlightedLineStartArray[j] - startlineArray[j]}:${highlightedCharStartArray[j]},${highlightedLineEndArray[j] - startlineArray[j]}:${highlightedCharEndArray[j]}`
-                                                let relativeReferenceLocation = `${referencedLineStartArray[j] - startlineArray[j]}:${referencedCharStartArray[j]},${referencedLineEndArray[j] - startlineArray[j]}:${referencedCharEndArray[j]}`
-
-                                                kodoDB.addResult(req.uuid, selectedOption, cwe, csvData[j][0], description, csvData[j][2], relativeHighlightLocation, relativeReferenceLocation, snippetArray[j], csvData[j][4], lineNumbers, function (err, result) {
+                                                kodoDB.addResult(req.uuid, selectedOption, cwe, csvData[j][0], description, csvData[j][2], snippetArray[j], csvData[j][4], lineNumbers, function (err, result) {
                                                     if (err) {
                                                         // res.sendStatus(500)
                                                         console.log(err)
@@ -337,11 +334,9 @@ function removeReqFiles(requuid) {
                     
                     for(var k = 0; k < result.length; k++){
                         startLine = result[k].lineNumbers.substring(0, result[k].lineNumbers.indexOf(":"))
-                        startLine = parseInt(startLine)-5
                         if (startLine<1){startLine=1}
                         result[k].selected_option = result[k].selected_option.split("_").join(" ")
 
-                        result[k].fileLocation
                         if(result[k].severity == "error"){
                             errorArray.push(result[k])
                         }else if(result[k].severity == "warning"){
@@ -372,6 +367,7 @@ function removeReqFiles(requuid) {
                         'totalRecomms': recommArray.length,
                         'totalIssues': resultsArray.length
                     }
+                    console.log(resultsArray)
                     res.send({
                         'results': resultsArray,
                         'allGeneral': allGeneral
