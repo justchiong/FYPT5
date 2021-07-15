@@ -1,8 +1,23 @@
-# FYPT5
-FYP Team 5's Github Repo
+# Kodo Javascript Vulnerability Scanner
+## _Watching your back as you develop.._
 
-- "standard-queries" folder includes all the basic codeQL queries that has been tested on DVNA and has produced relevant scan results.
+Kodo leverages cutting-edge open-sourced technology by Microsoft, CodeQL,
+a semantic code analysis engine to enable developers to pin-point vulnerable code
+easily.
 
-- "custom-queries" folder includes all custom queries made by FYP Team 5 members.
+- Based on  ✨Node.js ✨
+- CSS framework Bootstrap
 
-- A webserver is created to allow automation of codeql database creation and querying through a GUI.
+## Getting Started
+Two terminals, one for the front-end, one for the back-end.
+
+Terminal 1
+```sh
+cd /kodo-webserver
+node /frontEnd/server.js
+```
+Terminal 2
+```sh
+cd /kodo-webserver
+node /backEnd/server.js
+```
