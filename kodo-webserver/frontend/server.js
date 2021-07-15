@@ -5,7 +5,12 @@ app.use(express.static('public'))
 app.get("/", (req, res) => {
   res.sendFile("/public/dashboard.html", { root: __dirname });
 });
-
+app.get("/build/pdfmake.min.js", (req, res) => {
+  res.sendFile("/pdfmake/build/pdfmake.min.js", { root: __dirname });
+});
+app.get("/build/vfs_fonts.js", (req, res) => {
+  res.sendFile("/pdfmake/build/vfs_fonts.js", { root: __dirname });
+});
 app.get("/dashboard.html", (req, res) => {
   res.sendFile("/public/dashboard.html", { root: __dirname });
 });

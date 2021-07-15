@@ -14,6 +14,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src='/build/pdfmake.min.js'></script>
+    <script src='/build/vfs_fonts.js'></script>
     <link rel="stylesheet" href="/summary.css">
 </head>
 
@@ -58,6 +60,10 @@
                     <button class="btn btn-success w-25" type="submit" id="button-addon2">Retrieve</button>
                 </form>
             </div>
+            <div class="text-left">
+                <button class="btn btn-warning" type="button" id="pdfbtn">Print PDF</button>
+            </div>
+            
         </div>
     </div>
     <div class="container" id="contain123" style="width: 100vw;">
@@ -139,7 +145,7 @@
 </script>
 <script>
     baseUrl = "http://localhost:3000"
-
+    $("#pdfbtn").hide()
     var sevC = document.getElementById('severityCanvas').getContext('2d');
     var vulnC = document.getElementById('vulnCanvas').getContext('2d');
     var issueC = document.getElementById('issueCanvas').getContext('2d');
@@ -368,7 +374,6 @@
         const requestBody = {
             accesskey: $("#accesskey").val()
         }
-        console.log($("#accesskey").val())
         axios.get(`${baseUrl}/request/results/${$("#accesskey").val()}`)
             .then((response) => {
                 var allResults = response.data.results
@@ -411,6 +416,23 @@
                 document.getElementById('totalTypes').innerHTML = vulnClabels.length
 
                 document.getElementById('contain123').scrollIntoView()
+
+                var docDefinition = { 
+                    content: [
+                    `File name: ${allGeneral.fileName}`,
+                    //`MD5 Hash: ${}`,
+                    `Types of issues: ${vulnClabels.length}`,
+                    `Errors: ${allGeneral.totalErrors}`,
+                    `Warnings: ${allGeneral.totalWarns}`,
+                    `Recommendations: ${allGeneral.totalRecomms}`,
+                    `Issues found: ${allGeneral.totalIssues}`,
+                    " ",
+                ],
+                defaultStyle: {
+                    fontSize: 15,
+                    lineHeight: 1.5,
+                    characterSpacing: 1.5
+                }};
                 count = 0
                 for (var result in allResults) {
                     result = allResults[result]
@@ -453,8 +475,30 @@
                     document.getElementById("addResultAfter").insertAdjacentHTML("afterend", resultRowHTML)
                     hljs.highlightAll();
                     hljs.initLineNumbersOnLoad();
-                }
+                    tableObj = {
+                        table: {
+                                // headers are automatically repeated if the table spans over multiple pages
+                                // you can declare how many rows should be treated as headers
+                                headerRows: '1',
+                                widths: [ '*' ],
+                                body: []
+                        }
+                    }
+                    rowContent = [{text:`Description: ${result.description}\nSeverity: ${result.severity}\nOWASP: ${result.owasp}\nCWE: ${result.cwe}\n\nFile Path: ${result.filepath}\nLine [Start:End]: ${result.line}`,fontSize: '11'} ]
+                    headContent = [ { text: `${result.vulnerability}`, bold: 'true' }]
+                    
 
+                    tableObj.table.body.push(headContent)
+                    tableObj.table.body.push(rowContent)
+                    docDefinition.content.push(tableObj)
+                }
+                $("#pdfbtn").show()
+                $("#pdfbtn").click(function(){
+                    //open in browser
+                    pdfMake.createPdf(docDefinition).open();
+                    //download
+                    //pdfMake.createPdf(docDefinition).download();
+                })
             })
             .catch((err) => {
                 console.log(err)
