@@ -1,1 +1,0 @@
-"Server-side URL redirect","Server-side URL redirection based on unvalidated user input may cause redirection to malicious web sites.","warning","Untrusted URL redirection due to [[""user-provided value""|""relative:///dvna-master/core/appHandler.js:188:16:188:28""]].","/dvna-master/core/appHandler.js","188","16","188","28"

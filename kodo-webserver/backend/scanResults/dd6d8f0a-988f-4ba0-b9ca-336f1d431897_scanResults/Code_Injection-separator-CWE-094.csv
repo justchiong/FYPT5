@@ -1,1 +1,0 @@
-"Code injection","Interpreting unsanitized user input as code allows a malicious user arbitrary code execution.","error","[[""User-provided value""|""relative:///dvna-master/core/appHandler.js:218:40:218:48""]] flows to here and is interpreted as code.","/dvna-master/core/appHandler.js","218","40","218","79"
