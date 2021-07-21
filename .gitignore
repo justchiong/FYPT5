@@ -3,3 +3,4 @@ kodo-webserver/backend/webServer_Folders/
 kodo-webserver/backend/databases/
 kodo-webserver/backend/scanResults/
 kodo-webserver/backend/zipFiles/
+kodo-webserver/backend/model/databaseConfig.js

@@ -3,6 +3,7 @@ var kodoDB = {
     addRequest(uuid, email, originalName, querieStr, callback){
         console.log("Adding Request...")
         var conn = db.getConnection()
+        console.log("connected")
         conn.connect(function(err){
             if(err){
                 console.log(err)
@@ -24,7 +25,9 @@ var kodoDB = {
         })
     },
     addResult(request_uuid, selected_option, cwe, type, description, severity, code_snippet, fileLocation, lineNumbers, referencedLocation, callback){
+        console.log("adding results...")
         var conn = db.getConnection()
+        console.log("connected")
         conn.connect(function(err){
             if(err){
                 console.log(err)
