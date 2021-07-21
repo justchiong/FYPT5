@@ -32,16 +32,6 @@ var storages = multer.diskStorage({
     }
 });
 
-var upload = multer({
-    storage: storages,
-    fileFilter: function (req, file, callback) {
-        req.valid = file.mimetype == "application/x-zip-compressed"
-        req.originalName = file.originalname
-        return callback(null, file.mimetype == "application/x-zip-compressed")
-    }
-});
-
-
     var upload = multer({
         storage: storages,
         fileFilter: function (req, file, callback) {
@@ -78,6 +68,36 @@ var upload = multer({
                 throw err
             }
         })
+    }
+
+    function extractFileName(mystring){
+        csvColumn = ""
+        csvColumn = mystring
+        let matches = csvColumn.match(/\[\[(.*?)\]/);
+        if(matches){
+            let substring = matches[0].split('\|')[1]
+            let submatches = substring.match(/\"(.*?)\"/);
+            if(submatches){
+                return submatches[1].replace("relative://", "").split(":")[0]
+            }
+        }
+    }
+
+    function isUuid(uuid){
+        let uuidRegExp = new RegExp("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[4][0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$")
+        return uuidRegExp.test(uuid)
+    }
+
+    function sevColor(severity){
+        severity = severity.toLowerCase()
+        //get severityColor for html
+        if (severity=="error"){
+            return 'danger'
+        }else if (severity=="warning"){
+            return 'warning'
+        }else if (severity=="recommendation"){
+            return 'primary'
+        }
     }
 
     app.post('/request/parameters', function (req, res) {
@@ -117,7 +137,6 @@ var upload = multer({
         }
 
         console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
-        res.sendStatus(200)
 
         var pyProcess = spawn('python', ["./backend/createDB.py", req.uuid, req.queriesToUse, req.email])
         pyProcess.stdout.on('data', data => {
@@ -177,17 +196,26 @@ var upload = multer({
                                         highlightedCodeLocation = shortenedString.substring(shortenedString.indexOf(":") + 1, shortenedString.indexOf("\""))
                                         highlightedArray = highlightedCodeLocation.split(":")
 
-                                        highlightedLineStartArray.push(parseInt(highlightedArray[0]))
-                                        highlightedCharStartArray.push(parseInt(highlightedArray[1]))
-                                        highlightedLineEndArray.push(parseInt(highlightedArray[2]))
-                                        highlightedCharEndArray.push(parseInt(highlightedArray[3]))
 
 
+
+                                        if(extractFileName(row[3]) != row[4]){
+                                            highlightedLineStartArray.push(parseInt(row[5]))
+                                            highlightedCharStartArray.push(parseInt(row[6]))    
+                                            highlightedLineEndArray.push(parseInt(row[7]))
+                                            highlightedCharEndArray.push(parseInt(row[8]))
+                                        }
+                                        else{
+                                            highlightedLineStartArray.push(parseInt(highlightedArray[0]))
+                                            highlightedCharStartArray.push(parseInt(highlightedArray[1]))
+                                            highlightedLineEndArray.push(parseInt(highlightedArray[2]))
+                                            highlightedCharEndArray.push(parseInt(highlightedArray[3]))
+                                        }
                                         referencedLineStartArray.push(parseInt(row[5]))
                                         referencedCharStartArray.push(parseInt(row[6]))
                                         referencedLineEndArray.push(parseInt(row[7]))
                                         referencedCharEndArray.push(parseInt(row[8]))
-                                        
+
                                         endofCodeSnippetArray.push(0)
 
                                         startLineNumber = highlightedLineStartArray[j]
@@ -240,6 +268,7 @@ var upload = multer({
                                                         removeReqFiles(req.uuid)
                                                         console.log('Completed Deleting of Request Files.')
                                                         console.log("Request uuid: " + req.uuid)
+                                                        res.status(200).send(`${req.uuid}`)
                                                     }
                                                 })
                                             });
@@ -251,21 +280,9 @@ var upload = multer({
             })
         })
     })
-    function isUuid(uuid){
-        let uuidRegExp = new RegExp("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[4][0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$")
-        return uuidRegExp.test(uuid)
-    }
-    function sevColor(severity){
-        severity = severity.toLowerCase()
-        //get severityColor for html
-        if (severity=="error"){
-            return 'danger'
-        }else if (severity=="warning"){
-            return 'warning'
-        }else if (severity=="recommendation"){
-            return 'primary'
-        }
-    }
+
+
+
     app.get('/request/results/:uuid', function (req, res) {
         uuid = req.params.uuid
         //validate uuid pattern match
