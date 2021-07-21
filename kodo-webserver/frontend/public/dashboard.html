@@ -298,7 +298,9 @@
                             }
                         })
                         .then((response) => {
-
+                            res = response.data
+                            acceptedId = res.acceptedID
+                            window.location = '/summary.html?uuid=' + acceptedId;
                         })
                         .catch((error) => {
                             console.log(error);
