@@ -145,6 +145,7 @@ pre code {
     max-height: 45vh !important;
 }
 
+
 .hljs-ln-numbers {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -162,8 +163,8 @@ pre code {
 
 .hljs-ln-code {
     padding-left: 10px !important;
+    
 }
-
 .card-subtitle {
     font-size: smaller;
 }

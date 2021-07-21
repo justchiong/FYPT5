@@ -22,6 +22,7 @@ const fs = require('fs');
 const {
     isNullOrUndefined
 } = require('util');
+const { Console } = require('console');
 
 var storages = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -253,6 +254,7 @@ var storages = multer.diskStorage({
                                             })
                                             .on('close', () => {
                                                 let lineNumbers = `${startlineArray[j]}:${endofCodeSnippetArray[j]}`
+                                                let referencedLocation = `${referencedLineStartArray[j]}:${referencedCharStartArray[j]}:${referencedLineStartArray[j]}:${referencedCharEndArray[j]}`
                                                 let selectedOption = csvList[i].split("-separator-")[0]
                                                 let cwe = csvList[i].split("-separator-")[1].replace(".csv", "")
                                                 let description = csvData[j][1]
@@ -260,7 +262,7 @@ var storages = multer.diskStorage({
                                                 let decriptionArray2 = descriptionArray[1].split("]]")
                                                 let highlightedStr = decriptionArray2[0].substring(1, decriptionArray2[0].substring(1).indexOf("\"") + 1)
                                                 description += `\n${descriptionArray[0]}\|${highlightedStr}\|${decriptionArray2[1]}`
-                                                kodoDB.addResult(req.uuid, selectedOption, cwe, csvData[j][0], description, csvData[j][2], snippetArray[j], csvData[j][4], lineNumbers, function (err, result) {
+                                                kodoDB.addResult(req.uuid, selectedOption, cwe, csvData[j][0], description, csvData[j][2], snippetArray[j], csvData[j][4], lineNumbers, referencedLocation, function (err, result) {
                                                     if (err) {
                                                         console.log(err)
                                                     }
@@ -323,10 +325,11 @@ var storages = multer.diskStorage({
                                 owasp: result[k].selected_option,
                                 cwe: result[k].cwe,
                                 filepath: result[k].fileLocation,
-                                line: `[${result[k].lineNumbers}]`,
+                                line: `${result[k].lineNumbers}`,
                                 lineStart: startLine,
                                 codeCopied: result[k].code_snippet,
-                                selected_option: result[k].selected_option
+                                selected_option: result[k].selected_option,
+                                referencedLocation: `${result[k].referencedLocation}`
                             }
                             resultsArray.push(singleResult)
                         }
@@ -342,6 +345,7 @@ var storages = multer.diskStorage({
                         if(result[0].requestFound == true){
                             allGeneral.fileName = result[0].original_filename
                         }
+                        console.log(resultsArray)
                         console.log(allGeneral)
                         res.send({
                             'results': resultsArray,

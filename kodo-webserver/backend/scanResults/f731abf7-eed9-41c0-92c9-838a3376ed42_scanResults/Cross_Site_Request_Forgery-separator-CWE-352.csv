@@ -1,1 +1,0 @@
-"Missing CSRF middleware","Using cookies without CSRF protection may allow malicious websites to submit requests on behalf of the user.","error","This cookie middleware is serving a request handler [[""here""|""relative:///dvna-master/routes/app.js:58:59:58:83""]] without CSRF protection.","/dvna-master/server.js","23","9","28","2"
