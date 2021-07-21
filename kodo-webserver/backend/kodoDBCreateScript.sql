@@ -56,7 +56,7 @@ CREATE TABLE `results` (
   UNIQUE KEY `result_id_UNIQUE` (`result_id`),
   KEY `uuid_idx` (`request_uuid`),
   CONSTRAINT `uuid` FOREIGN KEY (`request_uuid`) REFERENCES `requests` (`uuid`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -68,4 +68,4 @@ CREATE TABLE `results` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-14 22:09:30
+-- Dump completed on 2021-07-21 17:18:26

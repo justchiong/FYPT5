@@ -76,10 +76,7 @@
                         <p><span class="badge badge-primary">&nbsp;&nbsp;File&nbsp;&nbsp;</span><br>
                             <div id="zipName">Sample.zip</div>
                         </p>
-                        <p><span class="badge badge-primary">&nbsp;&nbsp;MD5
-                                Hash&nbsp;&nbsp;</span><br>
-                            <div id="md5">22932655a6ad0b8020aa2abac66d4bb8</div>
-                        </p>
+
                         <p><span class="badge badge-warning">&nbsp;&nbsp;Types of Issues:&nbsp;&nbsp;</span><span
                                 style="font-size:19px;padding-left: 8px;" id="totalTypes">7</span></p>
                     </p>
@@ -382,6 +379,9 @@
                 let vulnClabels = []
                 let vulnCdict = {}
                 let pointBackgroundColor = []
+                if(allGeneral.requestfound == false){
+                    window.location = "/noRequest"
+                }
                 for (let p = 0; p < allResults.length; p++) {
                     if (!(allResults[p].selected_option in vulnCdict)) {
                         vulnCdict[allResults[p].selected_option] = 1
