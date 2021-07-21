@@ -8,7 +8,11 @@ easily.
 - Based on  ✨Node.js ✨
 - CSS framework Bootstrap
 
-## Getting Started
+##Prerequisites
+- Python 3.9
+- Node.js 14.x
+
+## Usage
 Two terminals, one for the front-end, one for the back-end.
 
 Terminal 1
