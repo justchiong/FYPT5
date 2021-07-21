@@ -1,3 +1,0 @@
-name: codeql-go-examples
-version: 0.0.0
-libraryPathDependencies: codeql-go
