@@ -14,10 +14,10 @@ Two terminals, one for the front-end, one for the back-end.
 Terminal 1
 ```sh
 cd /kodo-webserver
-node /frontend/server.js
+node /frontEnd/server.js
 ```
 Terminal 2
 ```sh
 cd /kodo-webserver
-node /backend/server.js
+node /backEnd/server.js
 ```
