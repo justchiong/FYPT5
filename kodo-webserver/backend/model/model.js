@@ -55,12 +55,38 @@ var kodoDB = {
             }else{
                 var sql = 'select requests.original_filename, results.fileLocation, results.selected_option, results.cwe, results.type, results.description, results.severity, results.code_snippet, results.lineNumbers from results inner join requests on requests.uuid=results.request_uuid where results.request_uuid=?'
                 conn.query(sql, [uuid], function(err, result){
-                    conn.end();
                     if(err){
+                        conn.end();
                         console.log(err)
                         return callback(err, null)
                     }else{
-                        return callback(null, result)
+                        if(result.length == 0){
+                            noResultSql = 'select requests.original_filename from requests where requests.uuid=?'
+                            conn.query(noResultSql, [uuid], function(err, noRes){
+                                if(err){
+                                    conn.end();
+                                    console.log(err)
+                                    return callback(err, null)
+                                }else{
+                                    if(noRes.length == 0){
+                                        noRes.push({}) 
+                                        noRes[0].requestFound = false
+                                    }else{
+                                        noRes.push({})
+                                        noRes[0].requestFound = true
+                                    }
+                                    noRes[0].resultsFound = false
+                                    return callback(null, noRes)
+                                }
+                            })
+                        }
+                        else{
+                            result[0].requestFound = true
+                            result[0].resultsFound = true
+                            return callback(null, result)
+                        }
+
+
                     }
                 })
             }

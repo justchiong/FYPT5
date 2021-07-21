@@ -44,7 +44,7 @@ resultPath = os.path.join(result_parent_dir, scanResultFolderName)
 os.mkdir(resultPath)
 
 databaseName = uuid +"_db"
-print(queriesToRun)
+# print("The options selected for the scan are: \n"+ queriesToRun)
 
 # get .ql filenames in the folder and put in a list
 for query in queriesToRun:
@@ -107,14 +107,12 @@ for query in queriesToRun:
      # elif query == "Use_of_Hardcoded_Credentials":
      #      cweList = ["CWE-798"]  
      #Missing Some CWEs Check OWASP Website
-
      for cwe in cweList:
           print("Scanning database for " + cwe)
-          print(query)
 
           cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./backend/databases/{databaseName} ../CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{cwe}"
           process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
-          # print(process2.returncode)
-          # print(process2.stderr)
-          # print(process2.stdout)
+          print(process2.returncode)
+          print(process2.stderr)
+          print(process2.stdout)
  
