@@ -270,7 +270,7 @@ var storages = multer.diskStorage({
                                                         removeReqFiles(req.uuid)
                                                         console.log('Completed Deleting of Request Files.')
                                                         console.log("Request uuid: " + req.uuid)
-                                                        res.status(200).send(`${req.uuid}`)
+                                                        res.status(200).send({acceptedID:`${req.uuid}`})
                                                     }
                                                 })
                                             });

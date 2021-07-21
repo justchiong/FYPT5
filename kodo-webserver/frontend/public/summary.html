@@ -371,18 +371,6 @@
         console.log(shortnames)
         return shortnames
     }
-    //check url param query string
-    var url_string = window.location.search
-    var url = new URLSearchParams(url_string);
-    console.log(url)
-    var paramUuid = url.get("uuid");
-    if ((paramUuid != null) || (paramUuid!=undefined) || (paramUuid!="")){
-        console.log("error at paramUuid")
-    }else{
-        console.log("success at paramUuid")
-        $("#accesskey").val() + paramUuid
-        console.log($("#accesskey").val())
-    }
 
     $("#getResults").submit((event) => {
         event.preventDefault()
@@ -530,6 +518,19 @@
                 console.log(err)
             })
     })
+    //check url param query string
+    var url_string = window.location.search
+    var url = new URLSearchParams(url_string);
+    
+    var paramUuid = url.get("uuid");
+    console.log(paramUuid)
+    if ((paramUuid == null) || (paramUuid==undefined) || (paramUuid=="")){
+        var nothing=1 //do nothing
+    }else{
+        console.log("success at paramUuid")
+        $("#accesskey").val(`${paramUuid}`)
+        $("#button-addon2").submit()
+    }
 </script>
 
 </html>

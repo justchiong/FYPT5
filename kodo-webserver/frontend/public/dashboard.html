@@ -304,7 +304,7 @@
                         })
                         .catch((error) => {
                             console.log(error);
-                            if (error.response.status === 400) {
+                            if (error.response.status === '400') {
                                 alert("Validation failed");
                             } else {
                                 alert("Something unexpected went wrong.");
