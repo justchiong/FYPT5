@@ -232,9 +232,6 @@
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 </script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src='/build/pdfmake.min.js'></script>
-<script src='/build/vfs_fonts.js'></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
 <!--Main body script-->
 <script>
     $("#customFile").change(function () {
@@ -266,7 +263,6 @@
             checkboxes[i].checked = source.checked;
         }
     }
-    
     $("#scanRequest").submit((event) => {
         event.preventDefault()
         const email = $("#email").val();
@@ -302,7 +298,6 @@
                             successWin.close()
                             res = response.data
                             acceptedId = res.acceptedID
-                            
                             window.location = '/summary?uuid=' + acceptedId;
                         })
                         .catch((error) => {
