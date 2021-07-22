@@ -133,14 +133,14 @@ var storages = multer.diskStorage({
             res.status(422).send("Wrong file type, only zip files are accepted.")
             return
         }
-        kodoDB.alreadyExists(req.uuid, function (err, result){
+        kodoDB.alreadyExists(req.uuid, function (err, exists){
             if(err){
                 console.log(err)
                 res.sendStatus(500)
                 return
             }
-            if(result){
-                if(result.length == 1){
+            if(exists){
+                if(exists.length != 0){
                     console.log("UUID already exists!")
                     res.status(409).send("UUID Already Exists")
                     return
@@ -163,6 +163,8 @@ var storages = multer.diskStorage({
                             if (err) {
                                 console.log(err)
                             } else {
+                                console.log(locationArray)
+
                                 for (let i = 0; i < csvList.length; i++) {
                                     
                                     let csvData = [];
@@ -172,14 +174,14 @@ var storages = multer.diskStorage({
                                             csvData.push(data);
                                         })
                                         .on('end', () => {
-                                            if (csvData.length == 0) {
-                                                console.log(csvData)
-                                                removeReqFiles(req.uuid)
-                                                console.log('Completed Deleting of Request Files.')
-                                                console.log("Request uuid: " + req.uuid)
-                                                res.status(200).send({acceptedID:`${req.uuid}`})
-                                                return
-                                            } else {
+                                            // if (csvData.length == 0) {
+                                            //     console.log(csvData)
+                                            //     removeReqFiles(req.uuid)
+                                            //     console.log('Completed Deleting of Request Files.')
+                                            //     console.log("Request uuid: " + req.uuid)
+                                            //     res.status(200).send({acceptedID:`${req.uuid}`})
+                                            //     return
+                                            // } else {
                                                 let highlightedLineStartArray = []
                                                 let highlightedCharStartArray = []
 
@@ -278,10 +280,15 @@ var storages = multer.diskStorage({
                                                             description += `\n${descriptionArray[0]}\|${highlightedStr}\|${decriptionArray2[1]}`
                                                             kodoDB.addResult(req.uuid, selectedOption, cwe, csvData[j][0], description, csvData[j][2], snippetArray[j], csvData[j][4], lineNumbers, referencedLocation, function (err, result) {
                                                                 if (err) {
+                                                                    if(i == csvList.length - 1 && j == csvData.length - 1){
+                                                                        removeReqFiles(req.uuid)
+                                                                        res.sendStatus(500)
+                                                                        return
+                                                                    }
                                                                     console.log(err)
-                                                                }
 
-                                                                if ( (i == csvList.length - 1 && j == csvData.length - 1)) {
+                                                                }
+                                                                else if (i == csvList.length - 1 && j == csvData.length - 1) {
                                                                     removeReqFiles(req.uuid)
                                                                     console.log('Completed Deleting of Request Files.')
                                                                     console.log("Request uuid: " + req.uuid)
@@ -290,7 +297,7 @@ var storages = multer.diskStorage({
                                                             })
                                                         });
                                                 }
-                                            }
+                                            // }
                                         })
                                 }
                             }

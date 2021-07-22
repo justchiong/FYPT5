@@ -300,7 +300,7 @@
                             successWin.close()
                             res = response.data
                             acceptedId = res.acceptedID
-                            window.location = '/summary.html?uuid=' + acceptedId;
+                            window.location = '/summary?uuid=' + acceptedId;
                         })
                         .catch((error) => {
                             console.log(error);
