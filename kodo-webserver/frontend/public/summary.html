@@ -514,6 +514,16 @@
                 console.log(err)
             })
     })
+    function saveAccesskey(uuid) {
+        var docDefinition = { 
+            content: ["Save this access key for future reference.",`\nAccess Key:\n${uuid}`],
+            defaultStyle: {
+                fontSize: 20,
+                bold: true
+            }
+        };
+        pdfMake.createPdf(docDefinition).download('accesskey.pdf')
+    }
     //check url param query string
     var url_string = window.location.search
     var url = new URLSearchParams(url_string);
@@ -522,6 +532,8 @@
     if ((paramUuid == null) || (paramUuid==undefined) || (paramUuid=="")){
         var nothing=1 //do nothing
     }else{
+        //save accesskey
+        saveAccesskey(paramUuid)
         console.log("success at paramUuid")
         $("#accesskey").val(`${paramUuid}`)
         $("#button-addon2").submit()
