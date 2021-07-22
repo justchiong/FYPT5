@@ -15,12 +15,16 @@ const {
     v4: uuidv4
 } = require('uuid');
 const verifyToken = require('../auth/verifyToken.js');
+var multer = require('multer');
 
 const fastcsv = require('fast-csv');
 const fs = require('fs');
 
+<<<<<<< HEAD
 var multer = require('multer');
 const { alreadyExists } = require('../model/model.js');
+=======
+>>>>>>> parent of 65a8b42b (Updated URLs to exclude file extension, fixed bug for scans with no results.)
 var storages = multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, './backend/zipFiles/');
@@ -30,13 +34,13 @@ var storages = multer.diskStorage({
     }
 });
 
-var upload = multer({
-    storage: storages,
-    fileFilter: function (req, file, callback) {
-        req.valid = file.mimetype == "application/x-zip-compressed"
-        req.originalName = file.originalname
-        return callback(null, file.mimetype == "application/x-zip-compressed")
-    }
+    var upload = multer({
+        storage: storages,
+        fileFilter: function (req, file, callback) {
+            req.valid = file.mimetype == "application/x-zip-compressed"
+            req.originalName = file.originalname
+            return callback(null, file.mimetype == "application/x-zip-compressed")
+        }
     });
 
     function removeReqFiles(requuid) {
@@ -131,6 +135,7 @@ var upload = multer({
             res.status(422).send("Wrong file type, only zip files are accepted.")
             return
         }
+<<<<<<< HEAD
         kodoDB.alreadyExists(req.uuid, function (err, result){
             if(err){
                 console.log(err)
@@ -217,6 +222,119 @@ var upload = multer({
                                                         highlightedCharStartArray.push(parseInt(row[6]))    
                                                         highlightedLineEndArray.push(parseInt(row[7]))
                                                         highlightedCharEndArray.push(parseInt(row[8]))
+=======
+
+        console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
+
+        var pyProcess = spawn('python', ["./backend/createDB.py", req.uuid, req.queriesToUse, req.email])
+        pyProcess.stdout.on('data', data => {
+            console.log(data.toString())
+        })
+
+        pyProcess.stdout.on('end', function () {
+            console.log("Completed Scanning and Creation of Results")
+            console.log("Starting Extraction of CSV Data...")
+            var csvList = fs.readdirSync(`./backend/scanResults/${req.uuid}_scanResults`);
+            var locationArray = []
+            csvList.forEach(element => locationArray.push(`./backend/scanResults/${req.uuid}_scanResults/` + element));
+            var querieStr = req.queriesToUse.toString()
+            kodoDB.addRequest(req.uuid, req.email, req.originalName, querieStr, function (err, result) {
+                if (err) {
+                    console.log(err)
+                } else {
+                    for (let i = 0; i < csvList.length; i++) {
+                        
+                        let csvData = [];
+                        fastcsv
+                            .parseFile(`./backend/scanResults/${req.uuid}_scanResults/${csvList[i]}`)
+                            .on('data', (data) => {
+                                csvData.push(data);
+                            })
+                            .on('end', () => {
+                                if (csvData == []) {
+                                    return
+                                } else {
+                                    let highlightedLineStartArray = []
+                                    let highlightedCharStartArray = []
+
+                                    let highlightedLineEndArray = []
+                                    let highlightedCharEndArray = []
+
+
+                                    let referencedLineStartArray = []
+                                    let referencedCharStartArray = []
+
+                                    let referencedLineEndArray = []
+                                    let referencedCharEndArray = []
+
+
+                                    let startlineArray = []
+                                    let lineCountArray = []
+                                    let snippetArray = []
+                                    let endLineCountArray = []
+
+                                    let endofCodeSnippetArray = []
+
+                                    for (let j = 0; j < csvData.length; j++) {
+                                        let row = csvData[j]
+                                        let startLineNumber = 0
+                                        let shortenedString = ""
+
+                                        shortenedString = row[3].substring(row[3].indexOf("relative:") + 9)
+                                        highlightedCodeLocation = shortenedString.substring(shortenedString.indexOf(":") + 1, shortenedString.indexOf("\""))
+                                        highlightedArray = highlightedCodeLocation.split(":")
+
+
+
+
+                                        if(extractFileName(row[3]) != row[4]){
+                                            highlightedLineStartArray.push(parseInt(row[5]))
+                                            highlightedCharStartArray.push(parseInt(row[6]))    
+                                            highlightedLineEndArray.push(parseInt(row[7]))
+                                            highlightedCharEndArray.push(parseInt(row[8]))
+                                        }
+                                        else{
+                                            highlightedLineStartArray.push(parseInt(highlightedArray[0]))
+                                            highlightedCharStartArray.push(parseInt(highlightedArray[1]))
+                                            highlightedLineEndArray.push(parseInt(highlightedArray[2]))
+                                            highlightedCharEndArray.push(parseInt(highlightedArray[3]))
+                                        }
+                                        referencedLineStartArray.push(parseInt(row[5]))
+                                        referencedCharStartArray.push(parseInt(row[6]))
+                                        referencedLineEndArray.push(parseInt(row[7]))
+                                        referencedCharEndArray.push(parseInt(row[8]))
+
+                                        endofCodeSnippetArray.push(0)
+
+                                        startLineNumber = highlightedLineStartArray[j]
+                                        if (startLineNumber > 5) {
+                                            startLineNumber -= 5
+                                        } else {
+                                            startLineNumber = 1
+                                        }
+                                        startlineArray.push(startLineNumber)
+                                        snippetArray.push("")
+                                        lineCountArray.push(0)
+                                        endLineCountArray.push(0)
+
+                                        fileReadStream = fs.createReadStream(`./backend/webServer_Folders/${req.uuid}${row[4]}`)
+                                        readline.createInterface({
+                                                input: fileReadStream,
+                                                output: process.stdout,
+                                                terminal: false
+                                            })
+                                            .on('line', (line) => {
+                                                lineCountArray[j]++
+                                                if (lineCountArray[j] >= startlineArray[j]) {
+                                                    if (lineCountArray[j] <= referencedLineEndArray[j]) {
+                                                        snippetArray[j] += `${line}\n`
+                                                        endofCodeSnippetArray[j] = lineCountArray[j]
+
+                                                    } else if (endLineCountArray[j] < 5) {
+                                                        snippetArray[j] += `${line}\n`
+                                                        endofCodeSnippetArray[j] = lineCountArray[j]
+                                                        endLineCountArray[j]++
+>>>>>>> parent of 65a8b42b (Updated URLs to exclude file extension, fixed bug for scans with no results.)
                                                     }
                                                     else{
                                                         highlightedLineStartArray.push(parseInt(highlightedArray[0]))
@@ -224,6 +342,7 @@ var upload = multer({
                                                         highlightedLineEndArray.push(parseInt(highlightedArray[2]))
                                                         highlightedCharEndArray.push(parseInt(highlightedArray[3]))
                                                     }
+<<<<<<< HEAD
                                                     referencedLineStartArray.push(parseInt(row[5]))
                                                     referencedCharStartArray.push(parseInt(row[6]))
                                                     referencedLineEndArray.push(parseInt(row[7]))
@@ -236,6 +355,13 @@ var upload = multer({
                                                         startLineNumber -= 5
                                                     } else {
                                                         startLineNumber = 1
+=======
+                                                    if (i == csvList.length - 1 && j == csvData.length - 1) {
+                                                        removeReqFiles(req.uuid)
+                                                        console.log('Completed Deleting of Request Files.')
+                                                        console.log("Request uuid: " + req.uuid)
+                                                        res.status(200).send({acceptedID:`${req.uuid}`})
+>>>>>>> parent of 65a8b42b (Updated URLs to exclude file extension, fixed bug for scans with no results.)
                                                     }
                                                     startlineArray.push(startLineNumber)
                                                     snippetArray.push("")
@@ -333,7 +459,7 @@ var upload = multer({
                                 vulnerability: `${result[k].selected_option} | ${result[k].fileLocation}`,
                                 description: `${result[k].type}. ${result[k].description}`,
                                 severity: result[k].severity.toUpperCase(),
-                                severityColor: sevColor(result[k].severity), //based on bootstrap button colors (primary,danger,warning,etc)
+                                severityColor: sevColor(result[k].severity), //base on bootstrap button colors (primary,danger,warning,etc)
                                 owasp: result[k].selected_option,
                                 cwe: result[k].cwe,
                                 filepath: result[k].fileLocation,
@@ -357,10 +483,8 @@ var upload = multer({
                         if(result[0].requestFound == true){
                             allGeneral.fileName = result[0].original_filename
                         }
-                        console.log(`\nArray of results retrieved:`)
-                        console.log(resultsArray)
-                        console.log(`\nGeneral Information of Scan:`)
-                        console.log(allGeneral)
+                        console.log(`Array of results retrieved: \n${resultsArray}`)
+                        console.log(`General Information of Scan: \n${allGeneral}`)
                         res.send({
                             'results': resultsArray,
                             'allGeneral': allGeneral
