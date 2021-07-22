@@ -148,7 +148,6 @@ var storages = multer.diskStorage({
                     res.status(409).send("UUID Already Exists")
                     return
                 }else{
-                    console.log("UUID does not already exist\n") 
                     console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
 
                     var pyProcess = spawn('python', ["./backend/createDB.py", req.uuid, req.queriesToUse, req.email])

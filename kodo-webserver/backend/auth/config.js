@@ -1,2 +1,2 @@
-var secret='pd.%XW7aps#'; 
+var secret='abc13nmmAXz'; 
 module.exports.key = secret;
