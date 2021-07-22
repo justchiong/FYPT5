@@ -19,10 +19,6 @@ var multer = require('multer');
 
 const fastcsv = require('fast-csv');
 const fs = require('fs');
-const {
-    isNullOrUndefined
-} = require('util');
-const { Console } = require('console');
 
 var storages = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -243,7 +239,6 @@ var storages = multer.diskStorage({
                                                         snippetArray[j] += `${line}\n`
                                                         endofCodeSnippetArray[j] = lineCountArray[j]
 
-
                                                     } else if (endLineCountArray[j] < 5) {
                                                         snippetArray[j] += `${line}\n`
                                                         endofCodeSnippetArray[j] = lineCountArray[j]
@@ -299,9 +294,6 @@ var storages = multer.diskStorage({
                     let errorArray = []
                     let warnArray = []
                     let recommArray = []
-                    let vulnClabels = []
-                    let vulnCdata = []
-                    let vulnNum = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                     let allGeneral = {}
 
                     if (result[0].resultsFound == true && result[0].requestFound == true) {
@@ -345,8 +337,8 @@ var storages = multer.diskStorage({
                         if(result[0].requestFound == true){
                             allGeneral.fileName = result[0].original_filename
                         }
-                        console.log(resultsArray)
-                        console.log(allGeneral)
+                        console.log(`Array of results retrieved: \n${resultsArray}`)
+                        console.log(`General Information of Scan: \n${allGeneral}`)
                         res.send({
                             'results': resultsArray,
                             'allGeneral': allGeneral
