@@ -35,16 +35,14 @@
             <!-- Links -->
             <ul class="navbar-nav pl-5 navbar-fonts" id="appendNavItem">
                 <li class="nav-item mx-1 ">
-                    <a class="nav-link navlinkcolor" href="./summary.html">Results</a>
+                    <a class="nav-link navlinkcolor" href="./summary">Results</a>
                 </li>
                 <li class="nav-item mx-1 ">
-                    <a class="nav-link navlinkcolor" href="./dashboard.html">Scanner</a>
+                    <a class="nav-link navlinkcolor" href="./">Scanner</a>
                 </li>
-                <li class="nav-item mx-1 ">
-                    <a class="nav-link navlinkcolor" href="#">Contact Us</a>
-                </li>
+
             </ul>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./">
                 <img src="./Logo/kodoLogo.png" width="45" height="45" class="d-inline-block align-top mx-2" alt="">
             </a>
         </nav>
@@ -79,10 +77,7 @@
                         <p><span class="badge badge-primary">&nbsp;&nbsp;File&nbsp;&nbsp;</span><br>
                             <div id="zipName">Sample.zip</div>
                         </p>
-                        <p><span class="badge badge-primary">&nbsp;&nbsp;MD5
-                                Hash&nbsp;&nbsp;</span><br>
-                            <div id="md5">22932655a6ad0b8020aa2abac66d4bb8</div>
-                        </p>
+
                         <p><span class="badge badge-warning">&nbsp;&nbsp;Types of Issues:&nbsp;&nbsp;</span><span
                                 style="font-size:19px;padding-left: 8px;" id="totalTypes">7</span></p>
                     </p>
@@ -360,7 +355,6 @@
                 nameSplit = names[i].split(" ")
                 let shortForms = ""
                 for (let l = 0; l < nameSplit.length; l++) {
-                    console.log(nameSplit[l])
                     if (nameSplit[l] != nameSplit[l][0].toLowerCase()) {
                         shortForms += nameSplit[l][0]
                     }
@@ -368,7 +362,6 @@
                 shortnames[i] = shortForms
             }
         }
-        console.log(shortnames)
         return shortnames
     }
 
@@ -386,6 +379,9 @@
                 let vulnClabels = []
                 let vulnCdict = {}
                 let pointBackgroundColor = []
+                if(!allGeneral.requestfound){
+                    window.location.replace("./error");
+                }
                 for (let p = 0; p < allResults.length; p++) {
                     if (!(allResults[p].selected_option in vulnCdict)) {
                         vulnCdict[allResults[p].selected_option] = 1
@@ -523,7 +519,6 @@
     var url = new URLSearchParams(url_string);
     
     var paramUuid = url.get("uuid");
-    console.log(paramUuid)
     if ((paramUuid == null) || (paramUuid==undefined) || (paramUuid=="")){
         var nothing=1 //do nothing
     }else{

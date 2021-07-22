@@ -46,16 +46,14 @@
             <!-- Links -->
             <ul class="navbar-nav pl-5 navbar-fonts" id="appendNavItem">
                 <li class="nav-item mx-1">
-                    <a class="nav-link blacktext" href="./summary.html">Results</a>
+                    <a class="nav-link blacktext" href="./summary">Results</a>
                 </li>
                 <li class="nav-item mx-1">
-                    <a class="nav-link blacktext" href="./dashboard.html">Scanner</a>
+                    <a class="nav-link blacktext" href="./">Scanner</a>
                 </li>
-                <li class="nav-item mx-1">
-                    <a class="nav-link blacktext" href="#">Contact Us</a>
-                </li>
+
             </ul>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./">
                 <img src="/kodoLogo.png" width="45" height="45" class="d-inline-block align-top mx-2" alt="">
             </a>
 
@@ -253,7 +251,6 @@
             }
         }
         if (checkboxesChecked.length == 0 || checkboxesChecked == null) {
-            console.log(checkboxesChecked)
             var error = "error"
             return error
         } else {
@@ -286,13 +283,12 @@
                     // reset form value.
                     $("#email").val("")
                     var reqToken = response.data.requestToken
-                    console.log(reqToken)
                     //new form to submit zip file
                     var formData = new FormData()
                     var zipFileValues = $("#customFile")[0]
                     formData.append("zipFile", zipFileValues.files[0])
                     //redirect to successpage
-                    successWin = window.open('/success.html');
+                    successWin = window.open('/success');
                     axios.post(`${baseUrl}/request/zipFile`, formData, {
                             headers: {
                                 "Authorization": "Bearer " + reqToken
@@ -302,7 +298,7 @@
                             successWin.close()
                             res = response.data
                             acceptedId = res.acceptedID
-                            window.location = '/summary.html?uuid=' + acceptedId;
+                            window.location = '/summary?uuid=' + acceptedId;
                         })
                         .catch((error) => {
                             console.log(error);
