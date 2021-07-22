@@ -94,7 +94,7 @@ var kodoDB = {
         })
     },
     alreadyExists(uuid, callback){
-        console.log(`Checking if request with UUID of ${uuid} already exists...`)
+        console.log(`\nChecking if request with UUID of ${uuid} already exists...`)
         var conn = db.getConnection()
         conn.connect(function(err){
             if(err){
