@@ -291,13 +291,15 @@
                     var formData = new FormData()
                     var zipFileValues = $("#customFile")[0]
                     formData.append("zipFile", zipFileValues.files[0])
-
+                    //redirect to successpage
+                    successWin = window.open('/success.html');
                     axios.post(`${baseUrl}/request/zipFile`, formData, {
                             headers: {
                                 "Authorization": "Bearer " + reqToken
                             }
                         })
                         .then((response) => {
+                            successWin.close()
                             res = response.data
                             acceptedId = res.acceptedID
                             window.location = '/summary.html?uuid=' + acceptedId;

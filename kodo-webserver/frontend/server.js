@@ -29,6 +29,9 @@ app.get("/summary.css", (req, res) => {
 app.get("/noRequest", (req, res) => {
   res.sendFile("/public/error.html", { root: __dirname });
 });
+app.get("/success.html", (req, res) => {
+  res.sendFile("/public/success.html", { root: __dirname });
+});
 /* app.get("/users/:id", (req, res) => {
   res.sendFile("/public/user.html", { root: __dirname });
 });
