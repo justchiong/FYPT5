@@ -251,7 +251,6 @@
             }
         }
         if (checkboxesChecked.length == 0 || checkboxesChecked == null) {
-            console.log(checkboxesChecked)
             var error = "error"
             return error
         } else {
@@ -284,7 +283,6 @@
                     // reset form value.
                     $("#email").val("")
                     var reqToken = response.data.requestToken
-                    console.log(reqToken)
                     //new form to submit zip file
                     var formData = new FormData()
                     var zipFileValues = $("#customFile")[0]
@@ -300,7 +298,7 @@
                             successWin.close()
                             res = response.data
                             acceptedId = res.acceptedID
-                            window.location = '/summary.html?uuid=' + acceptedId;
+                            window.location = '/summary?uuid=' + acceptedId;
                         })
                         .catch((error) => {
                             console.log(error);

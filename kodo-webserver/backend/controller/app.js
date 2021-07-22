@@ -15,11 +15,11 @@ const {
     v4: uuidv4
 } = require('uuid');
 const verifyToken = require('../auth/verifyToken.js');
-var multer = require('multer');
 
 const fastcsv = require('fast-csv');
 const fs = require('fs');
 
+var multer = require('multer');
 var storages = multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, './backend/zipFiles/');
@@ -29,13 +29,13 @@ var storages = multer.diskStorage({
     }
 });
 
-    var upload = multer({
-        storage: storages,
-        fileFilter: function (req, file, callback) {
-            req.valid = file.mimetype == "application/x-zip-compressed"
-            req.originalName = file.originalname
-            return callback(null, file.mimetype == "application/x-zip-compressed")
-        }
+var upload = multer({
+    storage: storages,
+    fileFilter: function (req, file, callback) {
+        req.valid = file.mimetype == "application/x-zip-compressed"
+        req.originalName = file.originalname
+        return callback(null, file.mimetype == "application/x-zip-compressed")
+    }
     });
 
     function removeReqFiles(requuid) {
@@ -160,7 +160,12 @@ var storages = multer.diskStorage({
                                 csvData.push(data);
                             })
                             .on('end', () => {
-                                if (csvData == []) {
+                                if (csvData.length == 0) {
+                                    console.log(csvData)
+                                    removeReqFiles(req.uuid)
+                                    console.log('Completed Deleting of Request Files.')
+                                    console.log("Request uuid: " + req.uuid)
+                                    res.status(200).send({acceptedID:`${req.uuid}`})
                                     return
                                 } else {
                                     let highlightedLineStartArray = []
@@ -261,7 +266,8 @@ var storages = multer.diskStorage({
                                                     if (err) {
                                                         console.log(err)
                                                     }
-                                                    if (i == csvList.length - 1 && j == csvData.length - 1) {
+
+                                                    if ( (i == csvList.length - 1 && j == csvData.length - 1)) {
                                                         removeReqFiles(req.uuid)
                                                         console.log('Completed Deleting of Request Files.')
                                                         console.log("Request uuid: " + req.uuid)
@@ -313,7 +319,7 @@ var storages = multer.diskStorage({
                                 vulnerability: `${result[k].selected_option} | ${result[k].fileLocation}`,
                                 description: `${result[k].type}. ${result[k].description}`,
                                 severity: result[k].severity.toUpperCase(),
-                                severityColor: sevColor(result[k].severity), //base on bootstrap button colors (primary,danger,warning,etc)
+                                severityColor: sevColor(result[k].severity), //based on bootstrap button colors (primary,danger,warning,etc)
                                 owasp: result[k].selected_option,
                                 cwe: result[k].cwe,
                                 filepath: result[k].fileLocation,
@@ -337,8 +343,10 @@ var storages = multer.diskStorage({
                         if(result[0].requestFound == true){
                             allGeneral.fileName = result[0].original_filename
                         }
-                        console.log(`Array of results retrieved: \n${resultsArray}`)
-                        console.log(`General Information of Scan: \n${allGeneral}`)
+                        console.log(`\nArray of results retrieved:`)
+                        console.log(resultsArray)
+                        console.log(`\nGeneral Information of Scan:`)
+                        console.log(allGeneral)
                         res.send({
                             'results': resultsArray,
                             'allGeneral': allGeneral
