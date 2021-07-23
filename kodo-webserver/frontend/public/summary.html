@@ -77,10 +77,7 @@
                         <p><span class="badge badge-primary">&nbsp;&nbsp;File&nbsp;&nbsp;</span><br>
                             <div id="zipName">Sample.zip</div>
                         </p>
-                        <p><span class="badge badge-primary">&nbsp;&nbsp;MD5
-                                Hash&nbsp;&nbsp;</span><br>
-                            <div id="md5">22932655a6ad0b8020aa2abac66d4bb8</div>
-                        </p>
+
                         <p><span class="badge badge-warning">&nbsp;&nbsp;Types of Issues:&nbsp;&nbsp;</span><span
                                 style="font-size:19px;padding-left: 8px;" id="totalTypes">7</span></p>
                     </p>
@@ -418,7 +415,6 @@
                     updateChart(vulnCvar, vulnCdata, vulnClabels)
                 }
                 document.getElementById('zipName').innerHTML = allGeneral.fileName
-                // document.getElementById('md5').innerHTML = allGeneral.md5
                 document.getElementById('totalTypes').innerHTML = vulnClabels.length
 
                 document.getElementById('contain123').scrollIntoView()
@@ -426,7 +422,6 @@
                 var docDefinition = { 
                     content: [
                     `File name: ${allGeneral.fileName}`,
-                    //`MD5 Hash: ${}`,
                     `Types of issues: ${vulnClabels.length}`,
                     `Errors: ${allGeneral.totalErrors}`,
                     `Warnings: ${allGeneral.totalWarns}`,
