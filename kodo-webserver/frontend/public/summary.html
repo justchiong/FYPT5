@@ -75,11 +75,11 @@
                     <h5 class="card-title">Information</h5>
                     <p class="card-text">
                         <p><span class="badge badge-primary">&nbsp;&nbsp;File&nbsp;&nbsp;</span><br>
-                            <div id="zipName">Sample.zip</div>
+                            <div id="zipName"></div>
                         </p>
 
                         <p><span class="badge badge-warning">&nbsp;&nbsp;Types of Issues:&nbsp;&nbsp;</span><span
-                                style="font-size:19px;padding-left: 8px;" id="totalTypes">7</span></p>
+                                style="font-size:19px;padding-left: 8px;" id="totalTypes"></span></p>
                     </p>
                 </div>
             </div>
@@ -148,13 +148,18 @@
     var vulnC = document.getElementById('vulnCanvas').getContext('2d');
     var issueC = document.getElementById('issueCanvas').getContext('2d');
 
+
     var sevCvar = new Chart(sevC, {
         type: 'doughnut',
         data: {
-            labels: ['Error', 'Warning', 'Recommendation'],
+            labels: [
+                // 'Error', 'Warning', 'Recommendation'
+            ],
             datasets: [{
                 label: 'Error',
-                data: [12, 19, 3],
+                data: [
+                    // 12, 19, 3
+                ],
                 backgroundColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(255, 206, 86, 1)',
@@ -171,7 +176,7 @@
         options: {
             maintainAspectRatio: false, //important for scaling to work properly
             animation: {
-                duration: 10000,
+                duration: 1500,
             },
             scales: {
                 y: {
@@ -183,16 +188,22 @@
     var vulnCvar = new Chart(vulnC, {
         type: 'line',
         data: {
-            labels: ['A1:(INJ)', 'A2:(XSS)', 'A3:(SM)', 'A4:(SDE)', 'A5:(BA)', 'A6:(XXE)', 'A7:(BAC)',
-                'A8:(ID)', 'A9:(ABC)', 'A10:(DEF)'
+            // labels: ['A1:(INJ)', 'A2:(XSS)', 'A3:(SM)', 'A4:(SDE)', 'A5:(BA)', 'A6:(XXE)', 'A7:(BAC)',
+            //     'A8:(ID)', 'A9:(ABC)', 'A10:(DEF)'
+            // ],
+            labels: [
             ],
             datasets: [{
-                label: '# of vuln',
-                data: [12, 19, 3, 4, 30, 12, 1, 5, 9, 4],
+                label: 'Number of Vulnerabilities',
+                // data: [12, 19, 3, 4, 30, 12, 1, 5, 9, 4],
+                // data: [12, 19, 3, 4, 30, 12, 1, 5, 9, 4],
+
                 backgroundColor: 'rgba(255, 71,71,0.5)',
                 pointBackgroundColor: [
                     '#e6194B', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#42d4f4',
                     '#f032e6', '#bfef45', '#fabed4'
+                ],
+                pointBackgroundColor: [
                 ],
                 pointBorderColor: [
                     '#000000'
@@ -206,9 +217,21 @@
                 duration: 10000
             },
             scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Vulnerability Type'
+                    }
+                },
                 y: {
-                    beginAtZero: true
+                    title:{
+                        display: true,
+                        text:"Number of Vulnerabilies Found"
+                    },
+                    beginAtZero: true,
+                    min: 0           
                 }
+
             }
         }
     });
@@ -298,10 +321,10 @@
     var issueCvar = new Chart(issueC, {
         type: 'doughnut',
         data: {
-            labels: ['Issues'],
+            labels: [],
             datasets: [{
                 //label: 'Error',
-                data: [7, 10 - 7],
+                data: [],
                 backgroundColor: [
                     '#44d4b4'
                 ],
@@ -311,7 +334,7 @@
         options: {
             elements: {
                 center: {
-                    text: '7',
+                    text: '',
                     color: '#FF6384', // Default is #000000
                     fontStyle: 'Arial', // Default is Arial
                     sidePadding: 20, // Default is 20 (as a percentage)
@@ -321,7 +344,7 @@
             },
             maintainAspectRatio: false, //important for scaling to work properly
             animation: {
-                duration: 10000,
+                duration: 1500,
             },
             scales: {
                 y: {
@@ -336,6 +359,8 @@
         chart.data.datasets[0].data = []
         chart.data.labels = labels
         chart.data.datasets[0].data = newData
+        chart.options.scales.y.ticks = {}
+        chart.options.scales.y.ticks.stepSize == 1
         chart.update();
     }
     //post request to give app.js the accesskey and retrieve params
@@ -381,7 +406,6 @@
                 let vulnClabels = []
                 let vulnCdict = {}
                 let pointBackgroundColor = []
-                console.log(allGeneral)
                 if(!allGeneral.requestfound){
                     window.location.replace("./error");
                 }
@@ -407,7 +431,7 @@
                 //     sevCdata.push(ranNum)
                 // }
                 updateChart(sevCvar, sevCdata, ['Error', 'Warning', 'Recommendation'])
-                updateChart(issueCvar, [allGeneral.totalIssues, 15 - allGeneral.totalIssues], ['Issue'])
+                updateChart(issueCvar, [allGeneral.totalIssues], ['Issue'])
                 issueCvar.options.elements.center.text = allGeneral.totalIssues
                 if (vulnClabels.length > 12) {
                     updateChart(vulnCvar, vulnCdata, shortForm(vulnClabels))
@@ -416,7 +440,6 @@
                 }
                 document.getElementById('zipName').innerHTML = allGeneral.fileName
                 document.getElementById('totalTypes').innerHTML = vulnClabels.length
-
                 document.getElementById('contain123').scrollIntoView()
 
                 var docDefinition = { 
@@ -445,8 +468,9 @@
                     count = count + 1
                     lineArray = result.line.split(":")
                     referencedLocationArray = result.referencedLocation.split(":")
-
+                    
                     result.codeCopied = result.codeCopied.substring(0, result.codeCopied.length - 1)
+                    result.codeCopied = result.codeCopied
                     var resultRowHTML = `
             <!--Start of row ${count} result-->
             <div class="card cardhover">
@@ -473,7 +497,7 @@
                         <p><span>OWASP:&nbsp;&nbsp;</span>${result.owasp}</p>
                         <p><span>CWE:&nbsp;&nbsp;</span>${result.cwe}</p>
                         <p><span>File Path:&nbsp;&nbsp;</span>${result.filepath}</p>
-                        <p><span>Line [start:end]:&nbsp;&nbsp;</span>${referencedLocationArray[0]}:${referencedLocationArray[2]}</p>
+                        <p><span>Lines [start:end]:&nbsp;&nbsp;</span>${referencedLocationArray[0]}:${referencedLocationArray[2]}</p>
                         <!--EMBEDDED CODE starts here note: code needs to be added to the leftmost(as shown below) without tabbing for it to display on webpage properly-->
                         <pre><code data-ln-start-from="${result.lineStart}">${result.codeCopied}
                         </pre>
@@ -520,11 +544,9 @@
     var url = new URLSearchParams(url_string);
     
     var paramUuid = url.get("uuid");
-    console.log(paramUuid)
     if ((paramUuid == null) || (paramUuid==undefined) || (paramUuid=="")){
         var nothing=1 //do nothing
     }else{
-        console.log("success at paramUuid")
         $("#accesskey").val(`${paramUuid}`)
         $("#button-addon2").submit()
     }

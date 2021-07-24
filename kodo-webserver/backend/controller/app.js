@@ -152,7 +152,7 @@ var storages = multer.diskStorage({
                     pyProcess.stdout.on('data', data => {
                         console.log(data.toString())
                     })
-
+                    
                     pyProcess.stdout.on('end', function () {
                         console.log("Completed Scanning and Creation of Results")
                         console.log("Starting Extraction of CSV Data...")
@@ -164,7 +164,17 @@ var storages = multer.diskStorage({
                             if (err) {
                                 console.log(err)
                             } else {
+                                if(locationArray.length == 0){
+                                    console.log("No CSV Files Found!")
+                                    removeReqFiles(req.uuid)
+                                    console.log('Completed Deleting of Request Files.')
+                                    console.log("Request uuid: " + req.uuid)
+                                    res.status(200).send({acceptedID:`${req.uuid}`})
+                                    return
+                                }
                                     for (let i = 0; i < csvList.length; i++) {
+                                        console.log("Current csvList" + csvList[i])
+
                                         let csvData = [];
                                         fastcsv
                                             .parseFile(`./backend/scanResults/${req.uuid}_scanResults/${csvList[i]}`)
@@ -196,6 +206,7 @@ var storages = multer.diskStorage({
                                                     let endofCodeSnippetArray = []
 
                                                     for (let j = 0; j < csvData.length; j++) {
+                                                        console.log("Current csvData" + csvList[i])
                                                         let row = csvData[j]
                                                         let startLineNumber = 0
                                                         let shortenedString = ""
@@ -266,18 +277,18 @@ var storages = multer.diskStorage({
                                                                 let descriptionArray = csvData[j][3].split("[[")
                                                                 let decriptionArray2 = descriptionArray[1].split("]]")
                                                                 let highlightedStr = decriptionArray2[0].substring(1, decriptionArray2[0].substring(1).indexOf("\"") + 1)
-                                                                description += `\n${descriptionArray[0]}\|${highlightedStr}\|${decriptionArray2[1]}`
+                                                                description += `\n${descriptionArray[0]}${highlightedStr}${decriptionArray2[1]}`
                                                                 kodoDB.addResult(req.uuid, selectedOption, cwe, csvData[j][0], description, csvData[j][2], snippetArray[j], csvData[j][4], lineNumbers, referencedLocation, function (err, result) {
                                                                     if (err) {
                                                                         if(i == csvList.length - 1 && j == csvData.length - 1){
-                                                                            // removeReqFiles(req.uuid)
+                                                                            removeReqFiles(req.uuid)
                                                                             res.sendStatus(500)
                                                                             return
                                                                         }
                                                                         console.log(err)
                                                                     }
                                                                     else if (i == csvList.length - 1 && j == csvData.length - 1) {
-                                                                        // removeReqFiles(req.uuid)
+                                                                        removeReqFiles(req.uuid)
                                                                         console.log('Completed Deleting of Request Files.')
                                                                         console.log("Request uuid: " + req.uuid)
                                                                         res.status(200).send({acceptedID:`${req.uuid}`})
