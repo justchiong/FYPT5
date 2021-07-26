@@ -369,10 +369,11 @@
         console.log(shortnames)
         return shortnames
     }
-
+    //submit form for id #getResults
     $("#getResults").submit((event) => {
         event.preventDefault()
-        $('#addResultAfter').nextAll().remove() //remove all existing rows
+        //remove all existing rows
+        $('#addResultAfter').nextAll().remove() 
         const requestBody = {
             accesskey: $("#accesskey").val()
         }
