@@ -32,9 +32,8 @@ print("Creating database...")
 process1= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
 print("\nDatabase Creation Return Code:")
 print(process1.returncode)
-print("\stderr of Database Creation:")
-
-print(process1.stderr)
+# print("\nstderr of Database Creation:")
+# print(process1.stderr)
 # print(process1.stdout)
 print("CodeQL Database Created.")
 

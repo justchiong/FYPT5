@@ -302,6 +302,7 @@ var storages = multer.diskStorage({
                                                     removeReqFiles(req.uuid)
                                                     console.log('Completed Deleting of Request Files.')
                                                     console.log("Request uuid: " + req.uuid)
+                                                    console.log("\n\n")
                                                     res.status(200).send({acceptedID:`${req.uuid}`})
                                                 }
                                             })
@@ -373,9 +374,9 @@ var storages = multer.diskStorage({
                         if(result[0].requestFound == true){
                             allGeneral.fileName = result[0].original_filename
                         }
-                        console.log(`Array of results retrieved:`)
+                        console.log(`\nArray of results retrieved:`)
                         console.log(resultsArray)
-                        console.log(`General Information of Scan:`)
+                        console.log(`\nGeneral Information of Scan:`)
                         console.log(allGeneral)
                         res.send({
                             'results': resultsArray,
