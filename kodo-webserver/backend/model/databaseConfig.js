@@ -4,8 +4,8 @@ var dbConnect = {
     getConnection:function(){
         var conn = mysql.createConnection({
             host:"localhost",
-            user:"root",
-            password:"Djboy900123!",
+            user:"kodo",
+            password:"kodoPass",
             database:"kododb"
         });
     return conn;
