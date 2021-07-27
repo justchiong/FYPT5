@@ -264,6 +264,11 @@
             checkboxes[i].checked = source.checked;
         }
     }
+    function hasExtension(inputID, exts) {
+        var fileName = document.getElementById(inputID).value;
+        return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
+    }
+    var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
     $("#scanRequest").submit((event) => {
         event.preventDefault()
         const email = $("#email").val();
@@ -271,7 +276,14 @@
         if (queries == "error") {
             //code to tell user to select a query (atleast 1) then refresh the page
             alert("Please choose at least 1 vulnerability to scan for.")
-            location.reload();
+            
+        }else if (!hasExtension('customFile', ['.zip'])) {
+            // ... block upload
+            alert("File uploaded must be .zip")
+            
+        }else if(!emailPattern.test(email)){
+            alert("Enter a valid email")
+            
         } else {
             const requestBody = {
                 "queriesToUse": queries,
@@ -290,6 +302,7 @@
                     formData.append("zipFile", zipFileValues.files[0])
                     //redirect to successpage
                     successWin = window.open('/success');
+                    
                     axios.post(`${baseUrl}/request/zipFile`, formData, {
                             headers: {
                                 "Authorization": "Bearer " + reqToken
@@ -303,8 +316,10 @@
                         })
                         .catch((error) => {
                             console.log(error);
-                            if (error.response.status === '400') {
+                            if (error.response.status == 400) {
                                 alert("Validation failed");
+                            }else if (error.response.status == 422){
+                                alert("Only .zip files are allowed.")
                             } else {
                                 alert("Something unexpected went wrong.");
                             }
@@ -312,7 +327,7 @@
                 })
                 .catch((error) => {
                     console.log(error);
-                    if (error.response.status === 400) {
+                    if (error.response.status == 422) {
                         alert("Validation failed");
                     } else {
                         alert("Something unexpected went wrong.");
