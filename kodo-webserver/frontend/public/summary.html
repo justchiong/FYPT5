@@ -563,14 +563,16 @@
                 bold: true
             }
         };
-        pdfMake.createPdf(docDefinition).download('accesskey.pdf')
+        //pdfMake.createPdf(docDefinition).download('accesskey.pdf')
+        pdfMake.createPdf(docDefinition).open()
     }
     //check url param query string
     var url_string = window.location.search
     var url = new URLSearchParams(url_string);
     
     var paramUuid = url.get("uuid");
-    if ((paramUuid == null) || (paramUuid==undefined) || (paramUuid=="")){
+    uuidReg = new RegExp("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[4][0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$")
+    if ((paramUuid == null) || (paramUuid==undefined) || (paramUuid=="") || (!uuidReg.test(paramUuid))){
         var nothing=1 //do nothing
     }else{
         saveAccesskey(paramUuid)
