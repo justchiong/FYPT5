@@ -148,7 +148,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
             }else{
                 console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
                 
-                var pyProcess = spawn('python', ["./backend/codeQLProcessing..py", req.uuid, req.queriesToUse, req.email])
+                var pyProcess = spawn('python', ["./backend/codeQLProcessing.py", req.uuid, req.queriesToUse, req.email])
                 pyProcess.stdout.on('data', data => {
                     console.log(data.toString())
                 })
