@@ -573,12 +573,7 @@
     if ((paramUuid == null) || (paramUuid==undefined) || (paramUuid=="")){
         var nothing=1 //do nothing
     }else{
-<<<<<<< HEAD
-=======
-        //save accesskey
         saveAccesskey(paramUuid)
-        console.log("success at paramUuid")
->>>>>>> parent of 55ac3a48 (Revert "added saving of accesskey")
         $("#accesskey").val(`${paramUuid}`)
         $("#button-addon2").submit()
     }

@@ -9,7 +9,8 @@
     <link rel="shortcut icon" type="image/jpg" href="/kodoLogo.png" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
+        <script src='/build/pdfmake.min.js'></script>
+        <script src='/build/vfs_fonts.js'></script>
     <style>
         body {
             background-color: #4304c2;
@@ -267,15 +268,12 @@
             checkboxes[i].checked = source.checked;
         }
     }
-<<<<<<< HEAD
     function hasExtension(inputID, exts) {
         var fileName = document.getElementById(inputID).value;
         return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
     }
     var emailPattern = new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
-=======
-    
->>>>>>> parent of 55ac3a48 (Revert "added saving of accesskey")
+
     $("#scanRequest").submit((event) => {
         event.preventDefault()
         const email = $("#email").val();
