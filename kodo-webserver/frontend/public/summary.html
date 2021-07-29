@@ -407,7 +407,6 @@
                 nameSplit = names[i].split(" ")
                 let shortForms = ""
                 for (let l = 0; l < nameSplit.length; l++) {
-                    console.log(nameSplit[l])
                     if (nameSplit[l] != nameSplit[l][0].toLowerCase()) {
                         shortForms += nameSplit[l][0]
                     }
@@ -415,7 +414,6 @@
                 shortnames[i] = shortForms
             }
         }
-        console.log(shortnames)
         return shortnames
     }
     //submit form for id #getResults
@@ -472,7 +470,7 @@
                 document.getElementById('totalTypes').innerHTML = vulnClabels.length
                 document.getElementById('contain123').scrollIntoView()
 
-                var docDefinition = { 
+                var docDefinition = {
                     content: [
                     `Access key: ${document.getElementById('fileinfo_access_key').innerHTML}`,
                     `File name: ${allGeneral.fileName}`,
@@ -550,27 +548,27 @@
                     }
                     rowContent = [{text:`Description: ${result.description}\nSeverity: ${result.severity}\nOWASP: ${result.owasp}\nCWE: ${result.cwe}\n\nFile Path: ${result.filepath}\nLine [Start:End]: ${result.line}`,fontSize: '11'} ]
                     headContent = [ { text: `${result.vulnerability}`, bold: 'true' }]
-                    
 
                     tableObj.table.body.push(headContent)
                     tableObj.table.body.push(rowContent)
                     docDefinition.content.push(tableObj)
-                
-               
+                    
                 }
+                $("#pdfbtn").data('pdfContent', docDefinition)
+                console.info(docDefinition)
                 $("#pdfbtn").show()
-                $("#pdfbtn").click(function(){
-                    //open in browser
-                    pdfMake.createPdf(docDefinition).open();
-                    //download
-                    //pdfMake.createPdf(docDefinition).download();
-                })
             })
             .catch((err) => {
                 console.log(err)
             })
     })
 
+    $("#pdfbtn").click(function(){
+            console.info($('#pdfbtn').data('pdfContent'))
+            pdfMake.createPdf($('#pdfbtn').data('pdfContent')   ).open();
+            //download
+            //pdfMake.createPdf(docDefinition).download();
+    })
     //check url param query string
     var url_string = window.location.search
     var url = new URLSearchParams(url_string);
