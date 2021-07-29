@@ -130,6 +130,12 @@ app.post('/request/parameters', function (req, res) {
 
 app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (req, res) {
     if (!req.valid) {
+        fs.unlink(`.\\zipFiles\\${requuid}.zip`, (err) => {
+            if (err) {
+                throw err
+            }
+        })
+
         console.log(`File with request UUID ${req.uuid} is invalid.`)
         res.status(422).send("Wrong file type, only zip files are accepted.")
         return
@@ -137,12 +143,23 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
     kodoDB.alreadyExists(req.uuid, function (err, exists){
         if(err){
             console.log(err)
+            fs.unlink(`.\\zipFiles\\${requuid}.zip`, (err) => {
+                if (err) {
+                    throw err
+                }
+            })
+
             res.sendStatus(500)
             return
         }
         if(exists){
             if(exists.length != 0){
                 console.log("UUID already exists!")
+                fs.unlink(`.\\zipFiles\\${requuid}.zip`, (err) => {
+                    if (err) {
+                        throw err
+                    }
+                })
                 res.status(409).send("UUID Already Exists")
                 return
             }else{
@@ -162,6 +179,9 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                     kodoDB.addRequest(req.uuid, req.email, req.originalName, querieStr, function (err, result) {
                         if (err) {
                             console.log(err)
+                            removeReqFiles(req.uuid)
+                            res.sendStatus(500)
+                            return
                         } else {
                             if(locationArray.length == 0){
                                 console.log("No CSV Files Found!")

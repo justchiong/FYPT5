@@ -85,9 +85,11 @@ for query in queriesToRun:
      # elif query == "Insufficient_Logging_&_Monitoring":
      #      cweList = ["MISSING QUERY FILE"] 
 
-     #Missing Some CWEs Check OWASP Website
-     elif query == "Improper_Input_Validation":
-          cweList = ["CWE-020"]
+     # Missing Some CWEs Check OWASP Website
+     # This query does not work with the CodeQL CLI
+     # elif query == "Improper_Input_Validation":
+     #      cweList = ["CWE-020"]
+
      #Missing Some CWEs Check OWASP Website
      elif query == "OS_Command_Injection":
           cweList = ["CWE-078"]
@@ -115,9 +117,9 @@ for query in queriesToRun:
           print("Scanning database for " + cwe)
 
           # cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./databases/{databaseName} ./CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{cwe}"
-          cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./databases/{databaseName} ./queries/Security/{cwe}"
+          cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./databases/{databaseName} ./src/Security/{cwe}"
           process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
           print("\nReturn Code of Scan:")
           print(process2.returncode)
           print(process2.stderr)
-          print(process2.stdout)
+          print(process2.stdout)   

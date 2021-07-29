@@ -67,8 +67,18 @@
             
         </div>
     </div>
+    <div class="container mb-3" id="contain123" style="width: 100vw;">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Access Key (Save for Future Reference):</h5>
+                <h3 id="fileinfo_access_key"></h3>
+            </div>
+        </div>
+    </div>
     <div class="container" id="contain123" style="width: 100vw;">
         <div class="card-deck">
+
+            
             <div class="card">
                 <div class="card-body mr-1">
                     <h6 class="card-subtitle mb-2 text-muted">BASIC SCAN INFORMATION</h6>
@@ -78,8 +88,10 @@
                             <div id="zipName"></div>
                         </p>
 
-                        <p><span class="badge badge-warning">&nbsp;&nbsp;Types of Issues:&nbsp;&nbsp;</span><span
-                                style="font-size:19px;padding-left: 8px;" id="totalTypes"></span></p>
+                        <p>
+                            <span class="badge badge-warning">&nbsp;&nbsp;Types of Issues:&nbsp;&nbsp;</span><span
+                                style="font-size:19px;padding-left: 8px;" id="totalTypes"></span>
+                        </p>
                     </p>
                 </div>
             </div>
@@ -454,12 +466,15 @@
                 } else {
                     updateChart(vulnCvar, vulnCdata, vulnClabels)
                 }
+                document.getElementById('fileinfo_access_key').innerHTML = $("#accesskey").val()
+                document.getElementById('fileinfo_access_key').className = "alert alert-success"
                 document.getElementById('zipName').innerHTML = allGeneral.fileName
                 document.getElementById('totalTypes').innerHTML = vulnClabels.length
                 document.getElementById('contain123').scrollIntoView()
 
                 var docDefinition = { 
                     content: [
+                    `Access key: ${document.getElementById('fileinfo_access_key').innerHTML}`,
                     `File name: ${allGeneral.fileName}`,
                     `Types of issues: ${vulnClabels.length}`,
                     `Errors: ${allGeneral.totalErrors}`,
@@ -555,27 +570,14 @@
                 console.log(err)
             })
     })
-    function saveAccesskey(uuid) {
-        var docDefinition = { 
-            content: ["Save this access key for future reference.",`\nAccess Key:\n${uuid}`],
-            defaultStyle: {
-                fontSize: 20,
-                bold: true
-            }
-        };
-        //pdfMake.createPdf(docDefinition).download('accesskey.pdf')
-        pdfMake.createPdf(docDefinition).open()
-    }
+
     //check url param query string
     var url_string = window.location.search
     var url = new URLSearchParams(url_string);
     
     var paramUuid = url.get("uuid");
     uuidReg = new RegExp("^[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[4][0-9A-Fa-f]{3}-[89ABab][0-9A-Fa-f]{3}-[0-9A-Fa-f]{12}$")
-    if ((paramUuid == null) || (paramUuid==undefined) || (paramUuid=="") || (!uuidReg.test(paramUuid))){
-        var nothing=1 //do nothing
-    }else{
-        saveAccesskey(paramUuid)
+    if (!((paramUuid == null) || (paramUuid==undefined) || (paramUuid=="") || (!uuidReg.test(paramUuid)))){
         $("#accesskey").val(`${paramUuid}`)
         $("#button-addon2").submit()
     }

@@ -26,9 +26,9 @@ DROP TABLE IF EXISTS `requests`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `requests` (
   `uuid` varchar(36) NOT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `original_filename` mediumtext,
-  `options_chosen` mediumtext,
+  `email` varchar(45) NOT NULL,
+  `original_filename` mediumtext NOT NULL,
+  `options_chosen` mediumtext NOT NULL,
   PRIMARY KEY (`uuid`),
   UNIQUE KEY `uuid_UNIQUE` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS `results`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `results` (
   `result_id` int NOT NULL AUTO_INCREMENT,
-  `request_uuid` varchar(45) NOT NULL,
+  `request_uuid` varchar(36) NOT NULL,
   `selected_option` varchar(45) NOT NULL,
   `cwe` varchar(45) NOT NULL,
   `type` varchar(100) NOT NULL,
@@ -69,4 +69,10 @@ CREATE TABLE `results` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-21 21:39:54
+
+
+-- Create user kodo
+CREATE USER IF NOT EXISTS 'kodo'@'localhost' IDENTIFIED BY 'kodoPass';
+ALTER USER 'kodo'@'localhost' IDENTIFIED WITH mysql_native_password BY 'kodoPass';
+GRANT ALL PRIVILEGES ON kododb.* TO 'kodo'@'localhost';
+flush privileges;
