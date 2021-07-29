@@ -6,3 +6,5 @@ kodo-webserver/backend/zipFiles/
 kodo-webserver/backend/model/databaseConfig.js
 CodeQL-home/
 kodo-webserver/backend/model/databaseConfig.js
+kodo-webserver/backend/queries/.cache/
+

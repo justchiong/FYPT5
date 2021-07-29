@@ -26,7 +26,7 @@ const { Console } = require('console');
 
 var storages = multer.diskStorage({
     destination: function (req, file, callback) {
-        callback(null, './backend/zipFiles/');
+        callback(null, './zipFiles/');
     },
     filename: function (req, file, callback) {
         callback(null, req.uuid + ".zip");
@@ -36,35 +36,35 @@ var storages = multer.diskStorage({
 var upload = multer({
     storage: storages,
     fileFilter: function (req, file, callback) {
-        req.valid = file.mimetype == "application/x-zip-compressed"
+        req.valid = file.mimetype == "application/x-zip-compressed" 
         req.originalName = file.originalname
         return callback(null, file.mimetype == "application/x-zip-compressed")
     }
 });
 
 function removeReqFiles(requuid) {
-    fs.rmdir(`.\\backend\\webServer_Folders\\${requuid}`, {
+    fs.rmdir(`.\\webServer_Folders\\${requuid}`, {
         recursive: true
     }, (err) => {
         if (err) {
             throw err;
         }
     })
-    fs.rmdir(`.\\backend\\scanResults\\${requuid}_scanResults`, {
+    fs.rmdir(`.\\scanResults\\${requuid}_scanResults`, {
         recursive: true
     }, (err) => {
         if (err) {
             throw err;
         }
     })
-    fs.rmdir(`.\\backend\\databases\\${requuid}_db`, {
+    fs.rmdir(`.\\databases\\${requuid}_db`, {
         recursive: true
     }, (err) => {
         if (err) {
             throw err;
         }
     })
-    fs.unlink(`.\\backend\\zipFiles\\${requuid}.zip`, (err) => {
+    fs.unlink(`.\\zipFiles\\${requuid}.zip`, (err) => {
         if (err) {
             throw err
         }
@@ -147,8 +147,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                 return
             }else{
                 console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
-                
-                var pyProcess = spawn('python', ["./backend/codeQLProcessing.py", req.uuid, req.queriesToUse, req.email])
+                var pyProcess = spawn('python', ["./codeQLProcessing.py", req.uuid, req.queriesToUse, req.email])
                 pyProcess.stdout.on('data', data => {
                     console.log(data.toString())
                 })
@@ -156,9 +155,9 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                 pyProcess.stdout.on('end', function () {
                     console.log("Completed Scanning and Creation of Results")
                     console.log("Starting Extraction of CSV Data...")
-                    var csvList = fs.readdirSync(`./backend/scanResults/${req.uuid}_scanResults`);
+                    var csvList = fs.readdirSync(`./scanResults/${req.uuid}_scanResults`);
                     var locationArray = []
-                    csvList.forEach(element => locationArray.push(`./backend/scanResults/${req.uuid}_scanResults/` + element));
+                    csvList.forEach(element => locationArray.push(`./scanResults/${req.uuid}_scanResults/` + element));
                     var querieStr = req.queriesToUse.toString()
                     kodoDB.addRequest(req.uuid, req.email, req.originalName, querieStr, function (err, result) {
                         if (err) {
@@ -177,7 +176,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
 
                                     let csvData = [];
                                     fastcsv
-                                        .parseFile(`./backend/scanResults/${req.uuid}_scanResults/${csvList[i]}`)
+                                        .parseFile(`./scanResults/${req.uuid}_scanResults/${csvList[i]}`)
                                         .on('data', (data) => {
                                             csvData.push(data);
                                         })
@@ -248,7 +247,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                                     lineCountArray.push(0)
                                                     endLineCountArray.push(0)
 
-                                                    fileReadStream = fs.createReadStream(`./backend/webServer_Folders/${req.uuid}${row[4]}`)
+                                                    fileReadStream = fs.createReadStream(`./webServer_Folders/${req.uuid}${row[4]}`)
                                                     readline.createInterface({
                                                             input: fileReadStream,
                                                             output: process.stdout,

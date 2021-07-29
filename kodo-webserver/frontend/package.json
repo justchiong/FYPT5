@@ -1,15 +1,16 @@
 {
-  "name": "kodo-frontend",
+  "name": "frontend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "dave",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "author": "Dave",
+  "license": "ISC"
 }
