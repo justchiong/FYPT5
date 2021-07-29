@@ -116,8 +116,8 @@ for query in queriesToRun:
      for cwe in cweList:
           print("Scanning database for " + cwe)
 
-          # cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./databases/{databaseName} ./CodeQL-home/vscode-codeql-starter/ql/javascript/ql/src/Security/{cwe}"
-          cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./databases/{databaseName} ./src/Security/{cwe}"
+          cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./ql/javascript/ql/src/Security/{cwe}"
+          # cmd = f"codeql database analyze --format=csv --output={scanResultFolderPath}/{query}-separator-{cwe}.csv --threads=4 --ram=8000 --no-rerun ./databases/{databaseName} ./src/Security/{cwe}"
           process2= subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE)
           print("\nReturn Code of Scan:")
           print(process2.returncode)
