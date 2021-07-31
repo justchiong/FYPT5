@@ -1,30 +1,31 @@
-var express = require('express');
-var app = express();
 var kodoDB = require('../model/model.js');
 
+var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 const cors = require("cors");
 app.use(bodyParser.json())
 app.use(cors());
-const spawn = require('child_process').spawn;
-const readline = require('readline');
 
-const JWT_SECRET = require("../auth/config.js");
-const jwt = require('jsonwebtoken')
 const {
     v4: uuidv4
 } = require('uuid');
-const verifyToken = require('../auth/verifyToken.js');
-var multer = require('multer');
 
 const fastcsv = require('fast-csv');
 const fs = require('fs');
 
+const child_process = require('child_process');
+const spawn = child_process.spawn
+const readline = require('readline');
 
-var multer = require('multer');
-const { Console } = require('console');
+const JWT_SECRET = require("../auth/config.js");
+const jwt = require('jsonwebtoken')
 
-var storages = multer.diskStorage({
+
+const verifyToken = require('../auth/verifyToken.js');
+const multer = require('multer');
+
+const storages = multer.diskStorage({
     destination: function (req, file, callback) {
         callback(null, './zipFiles/');
     },
@@ -33,7 +34,7 @@ var storages = multer.diskStorage({
     }
 });
 
-var upload = multer({
+const upload = multer({
     storage: storages,
     fileFilter: function (req, file, callback) {
         req.valid = file.mimetype == "application/x-zip-compressed" 
@@ -118,7 +119,7 @@ app.post('/request/parameters', function (req, res) {
             userEmail: email,
             queries: queriesToUse
         }, JWT_SECRET.key, {
-            expiresIn: 86400 //expires in 24 hrs
+            expiresIn: 300 //expires in 300 seconds
         });
         console.log(`Token created with request UUID of ${request_uuid}`)
         res.json({
@@ -135,7 +136,6 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                 throw err
             }
         })
-
         console.log(`File with request UUID ${req.uuid} is invalid.`)
         res.status(422).send("Wrong file type, only zip files are accepted.")
         return
@@ -164,7 +164,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                 return
             }else{
                 console.log(`Zip file of request UUID ${req.uuid} received and stored.`)
-                var pyProcess = spawn('python', ["./codeQLProcessing.py", req.uuid, req.queriesToUse, req.email])
+                var pyProcess = spawn('python', ["./codeQLProcessing.py", req.uuid, req.queriesToUse])
                 pyProcess.stdout.on('data', data => {
                     console.log(data.toString())
                 })

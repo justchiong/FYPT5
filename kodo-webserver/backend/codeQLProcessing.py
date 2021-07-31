@@ -14,7 +14,6 @@ uuid = sys.argv[1]
 parent_dir = os.path.dirname(os.path.realpath(__file__)) + "/webServer_Folders"
 
 queriesToRun = sys.argv[2].split(",")
-email = sys.argv[3]
 
 dirPath = os.path.join(parent_dir, uuid)
 destPath = parent_dir + '/' + uuid

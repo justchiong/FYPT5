@@ -555,7 +555,6 @@
                     
                 }
                 $("#pdfbtn").data('pdfContent', docDefinition)
-                console.info(docDefinition)
                 $("#pdfbtn").show()
             })
             .catch((err) => {
@@ -564,7 +563,6 @@
     })
 
     $("#pdfbtn").click(function(){
-            console.info($('#pdfbtn').data('pdfContent'))
             pdfMake.createPdf($('#pdfbtn').data('pdfContent')   ).open();
             //download
             //pdfMake.createPdf(docDefinition).download();
