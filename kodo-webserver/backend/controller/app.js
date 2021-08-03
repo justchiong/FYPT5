@@ -24,6 +24,7 @@ const jwt = require('jsonwebtoken')
 
 const verifyToken = require('../auth/verifyToken.js');
 const multer = require('multer');
+const { start } = require('repl');
 
 const storages = multer.diskStorage({
     destination: function (req, file, callback) {
@@ -192,7 +193,6 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                 return
                             }
                                 for (let i = 0; i < csvList.length; i++) {
-                                    console.log("Current csvList" + csvList[i])
 
                                     let csvData = [];
                                     fastcsv
@@ -225,9 +225,9 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                                 let endofCodeSnippetArray = []
 
                                                 for (let j = 0; j < csvData.length; j++) {
-                                                    console.log("Current csvData" + csvList[i])
                                                     let row = csvData[j]
                                                     let startLineNumber = 0
+                                                    let endLineNumber = 0
                                                     let shortenedString = ""
                     
                                                     shortenedString = row[3].substring(row[3].indexOf("relative:") + 9)
@@ -253,10 +253,18 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                                     referencedCharStartArray.push(parseInt(row[6]))
                                                     referencedLineEndArray.push(parseInt(row[7]))
                                                     referencedCharEndArray.push(parseInt(row[8]))
-
+                                                    
                                                     endofCodeSnippetArray.push(0)
 
                                                     startLineNumber = highlightedLineStartArray[j]
+                                                    if(highlightedLineStartArray[j] > referencedLineStartArray[j]){
+                                                        startLineNumber = referencedCharEndArray[j]
+                                                    }
+
+                                                    endLineNumber = referencedLineEndArray[j]
+                                                    if(referencedLineEndArray[j] < highlightedLineEndArray[j]){
+                                                        endLineNumber = highlightedLineEndArray[j]
+                                                    }
                                                     if (startLineNumber > 5) {
                                                         startLineNumber -= 5
                                                     } else {
@@ -276,7 +284,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                                         .on('line', (line) => {
                                                             lineCountArray[j]++
                                                             if (lineCountArray[j] >= startlineArray[j]) {
-                                                                if (lineCountArray[j] <= referencedLineEndArray[j]) {
+                                                                if (lineCountArray[j] <= endLineNumber) {
                                                                     snippetArray[j] += `${line}\n`
                                                                     endofCodeSnippetArray[j] = lineCountArray[j]
 
