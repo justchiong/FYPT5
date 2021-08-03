@@ -1,4 +1,0 @@
-- description: Security-and-quality queries for Go
-- qlpack: codeql-go
-- apply: security-and-quality-selectors.yml
-  from: codeql-suite-helpers
