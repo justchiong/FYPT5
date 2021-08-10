@@ -297,7 +297,7 @@ app.post('/request/zipFile', verifyToken, upload.single('zipFile'), function (re
                                                         })
                                                         .on('close', () => {
                                                             let lineNumbers = `${startlineArray[j]}:${endofCodeSnippetArray[j]}`
-                                                            let referencedLocation = `${referencedLineStartArray[j]}:${referencedCharStartArray[j]}:${referencedLineStartArray[j]}:${referencedCharEndArray[j]}`
+                                                            let referencedLocation = `${referencedLineStartArray[j]}:${referencedCharStartArray[j]}:${referencedLineEndArray[j]}:${referencedCharEndArray[j]}`
                                                             let selectedOption = csvList[i].split("-separator-")[0]
                                                             let cwe = csvList[i].split("-separator-")[1].replace(".csv", "")
                                                             let description = csvData[j][1]
